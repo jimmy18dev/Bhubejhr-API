@@ -14,6 +14,7 @@ include_once'class/database.class.php';
 include_once'class/queries.class.php';
 include_once'class/app.class.php';
 include_once'class/user.class.php';
+include_once'class/analytics.class.php';
 include_once'class/log.class.php';
 include_once'class/api.class.php';
 
