@@ -63,8 +63,6 @@ class Api{
 		//Write 2 file//Write error to text file
 		//Write 2 file//Write error to text file
 		//Write 2 file//Write error to text file
-		//Write 2 file//Write error to text file
-		//Write 2 file
 	}
 }
 ?>
