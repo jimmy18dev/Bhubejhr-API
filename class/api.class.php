@@ -51,5 +51,9 @@ class Api{
 	    // JSON Encode and Echo.
 	    echo json_encode($data);
 	}
+
+	public function errorLog(){
+		//Write error to text file
+	}
 }
 ?>
