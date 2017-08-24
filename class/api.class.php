@@ -15,6 +15,10 @@ class Api{
 	    echo json_encode($data);
 	}
 
+	function jimmy(){
+		return 10;
+	}
+
 	// Success Message
 	public function successMessage($message,$token,$return,$dataset){
 

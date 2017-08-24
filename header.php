@@ -1,6 +1,3 @@
-<!-- Prakhan -->
-<!-- Tes conflict -->
-<!-- Tes conflict -->
 <header class="header">
 	<a href="index.php" class="logo"><i class="fa fa-puzzle-piece" aria-hidden="true"></i>JHOS API</a>
 	<a href="index.php" class="nav <?php echo ($currentPage == 'apps'?'-active':'');?>">Apps</a>
@@ -13,6 +10,3 @@
 	<a href="queries-form.php?type=service" class="btn">New Service</a>
 	<?php }?>
 </header>
-<!-- ทดสอบ -->
-<!-- ทดสอบ -->
-<!-- ทดสอบ -->
