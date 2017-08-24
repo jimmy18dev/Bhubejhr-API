@@ -46,6 +46,8 @@ $currentPage = 'apps';
 		<?php }?>
 	</div>
 </div>
-<!-- <footer class="footer">footer message!</footer> -->
+<p>คำ
+</p>
+<h1>ทดสอบ</h1>
 </body>
 </html>
