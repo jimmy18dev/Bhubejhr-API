@@ -48,7 +48,6 @@ $currentPage = 'apps';
 </div>
 <p>คำ
 </p>
-<!--  -->
-<div>test</div>
+<h1>ทดสอบ</h1>
 </body>
 </html>
