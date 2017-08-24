@@ -73,8 +73,8 @@ class Api{
 			),
 		);
 
-	    // JSON Encode and Echo.
-	    echo json_encode($data);
+	    // // JSON Encode and Echo.
+	    // echo json_encode($data);
 	}
 }
 ?>
