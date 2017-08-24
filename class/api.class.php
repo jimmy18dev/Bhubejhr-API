@@ -59,6 +59,11 @@ class Api{
 
 	public function errorLog(){
 		//Write error to text file
+		//Write 2 file//Write error to text file
+		//Write 2 file//Write error to text file
+		//Write 2 file//Write error to text file
+		//Write 2 file//Write error to text file
+		//Write 2 file//Write error to text file
 		//Write 2 file
 	}
 }
