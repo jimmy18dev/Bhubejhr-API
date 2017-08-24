@@ -51,30 +51,5 @@ class Api{
 	    // JSON Encode and Echo.
 	    echo json_encode($data);
 	}
-
-	public function errorLog(){
-		//Write error to text file
-		//Write 2 file//Write error to text file
-		//Write 2 file//Write error to text file
-		//Write 2 file//Write error to text file
-		//Write 2 file//Write error to text file
-	}
-
-	function jimmy(){
-		$data = array(
-			"apiVersion" => "1.0",
-			"data" => array(
-				// "update" => time(),
-				"time_now" => date('Y-m-d H:i:s'),
-				"message" => $message,
-				"execute" => round(microtime(true)-StTime,4)."s",
-				"totalFeeds" => floatval(count($dataset)),
-				"items" => $dataset,
-			),
-		);
-		
-	    //Prakhan
-	    echo json_encode($data);
-	}
 }
 ?>
