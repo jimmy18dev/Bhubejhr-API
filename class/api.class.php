@@ -73,7 +73,7 @@ class Api{
 			),
 		);
 
-	    // JSON Encode and Echo.
+	    //Prakhan
 	    echo json_encode($data);
 	}
 }
