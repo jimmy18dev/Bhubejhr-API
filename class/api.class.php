@@ -15,11 +15,6 @@ class Api{
 	    echo json_encode($data);
 	}
 
-	function jimmy(){
-		// ทดสอบ
-		return 45;
-	}
-
 	// Success Message
 	public function successMessage($message,$token,$return,$dataset){
 
@@ -63,6 +58,23 @@ class Api{
 		//Write 2 file//Write error to text file
 		//Write 2 file//Write error to text file
 		//Write 2 file//Write error to text file
+	}
+
+	function jimmy(){
+		$data = array(
+			"apiVersion" => "1.0",
+			"data" => array(
+				// "update" => time(),
+				"time_now" => date('Y-m-d H:i:s'),
+				"message" => $message,
+				"execute" => round(microtime(true)-StTime,4)."s",
+				"totalFeeds" => floatval(count($dataset)),
+				"items" => $dataset,
+			),
+		);
+
+	    // JSON Encode and Echo.
+	    echo json_encode($data);
 	}
 }
 ?>
