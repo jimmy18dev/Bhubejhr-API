@@ -1,5 +1,4 @@
 <!-- Prakhan -->
-<!-- add line -->
 <header class="header">
 	<a href="index.php" class="logo"><i class="fa fa-puzzle-piece" aria-hidden="true"></i>JHOS API</a>
 	<a href="index.php" class="nav <?php echo ($currentPage == 'apps'?'-active':'');?>">Apps</a>
