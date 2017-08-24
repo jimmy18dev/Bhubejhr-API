@@ -16,7 +16,8 @@ class Api{
 	}
 
 	function jimmy(){
-		return 10;
+		// ทดสอบ
+		return 45;
 	}
 
 	// Success Message
