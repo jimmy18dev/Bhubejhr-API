@@ -23,7 +23,7 @@ class Analytics{
     }
 
     public function patient_ipd(){
-        $this->db->query('SELECT COUNT(an) FROM ipd WHERE ISNULL(dischargedate)');
+        $this->db->query('SELECT COUNT(an) countan FROM ipd WHERE ISNULL(dischargedate)');
         $this->db->execute();
         $dataset = $this->db->resultset();
         return $dataset;
