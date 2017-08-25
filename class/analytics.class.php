@@ -12,7 +12,6 @@ class Analytics{
     	$this->db->query('SELECT * FROM patient LIMIT 5');
 		$this->db->execute();
 		$dataset = $this->db->resultset();
-
 		return $dataset;
     }
 
@@ -20,7 +19,13 @@ class Analytics{
         $this->db->query('SELECT COUNT(id) count FROM visit_appoint WHERE date(dateappoint) = "2017-06-01"');
         $this->db->execute();
         $dataset = $this->db->resultset();
+        return $dataset;
+    }
 
+    public function patient_ipd(){
+        $this->db->query('SELECT COUNT(an) FROM ipd WHERE ISNULL(dischargedate)');
+        $this->db->execute();
+        $dataset = $this->db->resultset();
         return $dataset;
     }
 

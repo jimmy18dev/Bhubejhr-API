@@ -29,6 +29,10 @@ if(!empty($_GET)){
 			$dataset = $analytics->appoint();
 			$api->exportJson('ทดสอบ',$dataset);
 			break;
+		case 'patient_ipd':
+			$dataset = $analytics->patient_ipd();
+			$api->exportJson('ทดสอบ',$dataset);
+			break;
 		case 'clinic':
 			$dataset = $analytics->clinic($_GET['clinic_id']);
 			$api->exportJson('ทดสอบ',$dataset);
