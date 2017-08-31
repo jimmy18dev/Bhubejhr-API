@@ -4,10 +4,12 @@ header("Content-type: text/json");
 
 $api 		= new Api;
 $app 		= new App;
+$analytics 	= new Analytics;
 
 $qid 		= $_GET['qid'];
 $token 		= $_GET['token'];
-$analytics = new Analytics;
+
+
 
 if(!empty($token)){
 	$app_id = $app->authentication($token);
@@ -22,8 +24,18 @@ if(!empty($_GET)){
 		case 'list_patient':
 			$dataset = $analytics->listPatient();
 			$api->exportJson('ทดสอบ',$dataset);
-			// $qid = $queries->createQuery($user_id,$name,$description,$query,$url_example,$type);
-			// $api->successMessage('New Query Created.','',floatval($qid),'');
+			break;
+		case 'appoint':
+			$dataset = $analytics->appoint();
+			$api->exportJson('ทดสอบ',$dataset);
+			break;
+		case 'patient_ipd':
+			$dataset = $analytics->patient_ipd();
+			$api->exportJson('ทดสอบ',$dataset);
+			break;
+		case 'clinic':
+			$dataset = $analytics->clinic($_GET['clinic_id']);
+			$api->exportJson('ทดสอบ',$dataset);
 			break;
 		case 'delete':
 			// $queries->deleteQuery($qid);
