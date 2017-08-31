@@ -48,3 +48,5 @@ $currentPage = 'apps';
 </div>
 </body>
 </html>
+
+<!-- Hi Jame Welcome to JobHot -->
