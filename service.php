@@ -5,9 +5,12 @@ header("Content-type: text/json");
 $api 		= new Api;
 $app 		= new App;
 $analytics 	= new Analytics;
+$patient 	= new Patient;
+$visit 		= new Visit;
 
 $qid 		= $_GET['qid'];
 $token 		= $_GET['token'];
+$cid 		= $_GET['cid'];
 
 
 
@@ -21,6 +24,27 @@ if(!empty($token)){
 
 if(!empty($_GET)){
 	switch ($_GET['action']) {
+		case 'patient':
+			$patient_data = $patient->get($cid);
+			$hn = $patient_data['hn'];
+
+			$visits = $visit->listVisit($hn);
+
+			$execute = floatval(round(microtime(true)-StTime,4));
+
+			$data = array(
+				"apiVersion" => 1.0,
+				"message" 	=> $message,
+				"token" 	=> $token,
+				"execute" 	=> $execute,
+				"data" 		=> array(
+					'patient' 		=> $patient_data,
+					'visit' 		=> $visits,
+				),
+			);
+			// JSON Encode and Echo.
+			echo json_encode($data);
+			break;
 		case 'list_patient':
 			$dataset = $analytics->listPatient();
 			$api->exportJson('ทดสอบ',$dataset);
