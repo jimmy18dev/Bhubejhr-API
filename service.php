@@ -39,7 +39,10 @@ if(!empty($_GET)){
 				"execute" 	=> $execute,
 				"data" 		=> array(
 					'patient' 		=> $patient_data,
-					'visit' 		=> $visits,
+					'visit' 		=> array(
+						'visit_count' 	=> floatval(count($visits)),
+						'items' 		=> $visits,
+					),
 				),
 			);
 			// JSON Encode and Echo.
