@@ -1,5 +1,6 @@
 <?php
 require_once 'autoload.php';
+header('Access-Control-Allow-Origin: *');
 header("Content-type: text/json");
 
 $api 		= new Api;
