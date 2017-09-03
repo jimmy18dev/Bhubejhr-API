@@ -9,8 +9,8 @@ class Patient{
     }
 
     public function get($cid){
-        $this->db->query('SELECT p.hn as  hn,p.fname as fname,p.lname as lname,p.dob as dob,if(p.gender = 1,"ชาย","หญิง") as gender,p.cid as cid,p.nationality as nationality,CONCAT(pa.address," ม.",pa.moo," ",pa.subdistrictname," ",pa.districtname," ",pa.provincename) as Address,p.tel as tel,cb.bloodgroupname as blood FROM patient p 
-left JOIN view_PatAddressType1 pa ON p.hn = pa.hn  left join c_bloodgroup cb on cb.bloodgroupcode = p.blood
+        $this->db->query('SELECT p.hn as  hn,p.fname as fname,p.lname as lname,p.dob as dob,if(p.gender = 1,"ชาย","หญิง") as gender,p.cid as cid,p.nationname as nationality,CONCAT(pa.address," ม.",pa.moo," ",pa.subdistrictname," ",pa.districtname," ",pa.provincename) as Address,p.tel as tel,cb.bloodgroupname as blood FROM patient p 
+left JOIN view_PatAddressType1 pa ON p.hn = pa.hn  left join c_bloodgroup cb on cb.bloodgroupcode = p.blood left join c_nation cn on p.nationality = cn.nationcode
 WHERE p.cid = :cid or p.hn = :cid');
         $this->db->bind(':cid',$cid);
         $this->db->execute();
