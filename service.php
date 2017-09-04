@@ -65,6 +65,18 @@ if(!empty($_GET)){
 			$dataset = $analytics->clinic($_GET['clinic_id']);
 			$api->exportJson('ทดสอบ',$dataset);
 			break;
+		case 'count_admit':
+			$dataset = $analytics->count_admit();
+			$api->exportJson('admit เดือน',$dataset);
+			break;
+		case 'count_dsc':
+			$dataset = $analytics->count_dsc();
+			$api->exportJson('จำหน่าย เดือน',$dataset);
+			break;
+		case 'count_refer_out':
+			$dataset = $analytics->count_refer_out();
+			$api->exportJson('Refer out เดือน',$dataset);
+			break;	
 		case 'delete':
 			// $queries->deleteQuery($qid);
 			// $api->successMessage('Query Deleted.','',floatval($qid),'');
