@@ -19,6 +19,6 @@ include_once'class/visit.class.php';
 include_once'class/analytics.class.php';
 include_once'class/log.class.php';
 include_once'class/api.class.php';
-
+include_once'class/diag_ct.class.php';
 $wpdb = new Database; // DATABASE CONNECT...
 ?>

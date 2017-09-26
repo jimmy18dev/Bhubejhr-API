@@ -64,7 +64,6 @@ class Analytics{
         $dataset = $this->db->resultset();
         return $dataset;
     }
-
 }
 ?>
 

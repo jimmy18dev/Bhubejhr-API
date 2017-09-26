@@ -8,11 +8,11 @@ $app 		= new App;
 $analytics 	= new Analytics;
 $patient 	= new Patient;
 $visit 		= new Visit;
+$diagct		= new Diagct;
 
 $qid 		= $_GET['qid'];
 $token 		= $_GET['token'];
 $cid 		= $_GET['cid'];
-
 
 
 if(!empty($token)){
@@ -76,7 +76,11 @@ if(!empty($_GET)){
 		case 'count_refer_out':
 			$dataset = $analytics->count_refer_out();
 			$api->exportJson('Refer out เดือน',$dataset);
-			break;	
+			break;
+		case 'diagct':
+			$dataset = $diagct->listDiagCT(06,2017);
+			$api->exportJson('ทดสอบ',$dataset);
+			break;			
 		case 'delete':
 			// $queries->deleteQuery($qid);
 			// $api->successMessage('Query Deleted.','',floatval($qid),'');
