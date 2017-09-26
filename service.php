@@ -9,6 +9,8 @@ $analytics 	= new Analytics;
 $patient 	= new Patient;
 $visit 		= new Visit;
 $diagct		= new Diagct;
+$diaguser 	= new Diag_user;
+$diagdesc	= new Diag_desc;
 
 $qid 		= $_GET['qid'];
 $token 		= $_GET['token'];
@@ -85,9 +87,18 @@ if(!empty($_GET)){
 			// $queries->deleteQuery($qid);
 			// $api->successMessage('Query Deleted.','',floatval($qid),'');
 			break;
+		case 'list_diag_user':
+			$dataset = $diaguser->listDiag_user();
+			$api->exportJson('ทดสอบ',$dataset);
+			break;
+		case 'list_diag_desc':
+			$dataset = $diagdesc->listDiag_desc($_GET['uid']);
+			$api->exportJson('ทดสอบ',$dataset);
+			break;
 		default:
 			$api->errorMessage('API no action!');
 			break;
+
 	}
 }else{
 	$api->errorMessage('Invalid Signature or API not found!');
