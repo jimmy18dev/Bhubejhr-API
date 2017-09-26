@@ -22,7 +22,6 @@ class Diag_desc{
             vd.diseasecode,vd.diagtype,vd.dateupdate
             FROM visit v
             INNER JOIN visit_diag vd ON vd.id = v.id
-            LEFT JOIN c_disease cd ON vd.diseasecode = cd.diseasecode
             WHERE vd.userupdate = :uid
             and date(v.visitdate) 
             BETWEEN date(DATE_SUB((DATE_SUB(now(),INTERVAL 1 MONTH)),INTERVAL day(NOW())-1 DAY)) 
