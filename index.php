@@ -49,6 +49,18 @@ $currentPage = 'apps';
 		<?php }?>
 	</div>
 </div>
+
+<div class="dialog">
+	<div class="input">
+		<input type="text" class="inputtext" placeholder="App name...">
+		<textarea class="textarea" placeholder="Description..."></textarea>
+	</div>
+	<div class="control">
+		<div class="btn btn-cancel">CREATE</div>
+		<div class="btn btn-submit">EXIT</div>
+	</div>
+</div>
+<div class="filter" id="dialog-filter"></div>
 </body>
 </html>
 
