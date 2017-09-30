@@ -33,9 +33,9 @@ $logs = $log->listByAppID($app->id);
 </head>
 <body>
 <header class="header">
-    <a href="index.php" class="logo"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</a>
-    <div class="title"><strong>App ID : </strong><?php echo $app->id;?> | <?php echo $app->name;?></div>
-    <a href="app-form.php?app_id=<?php echo $app->id;?>" class="btn btn-edit">Edit App</a>
+    <a href="index.php" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back</a>
+
+    <div class="title"><?php echo $app->name;?></div>
 </header>
 <div class="container">
 	<div class="page">
@@ -54,6 +54,7 @@ $logs = $log->listByAppID($app->id);
 				<div class="info">Service/Report</div>
 				<div class="time">Time</div>
 				<div class="execution">Execution (s)</div>
+				<a href="app-form.php?app_id=<?php echo $app->id;?>" class="btn btn-edit">Edit App</a>
 			</div>
 			<?php if(count($logs) > 0){?>
             <?php foreach ($logs as $var) {?>

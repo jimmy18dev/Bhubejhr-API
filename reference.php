@@ -4,7 +4,7 @@ $app = new app();
 
 $apps = $app->listAll();
 
-$currentPage = 'apps';
+$currentPage = 'reference';
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
