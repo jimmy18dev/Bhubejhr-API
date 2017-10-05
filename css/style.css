@@ -136,7 +136,7 @@ button {
   /* IE11 */
 }
 body {
-  background: #fafafa;
+  background: #f5f5f5;
   font-family: sans-serif;
   font-weight: 200;
   overflow-x: hidden;
@@ -187,23 +187,59 @@ body {
   transition: height 0.2s;
 }
 .header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  height: 60px;
+  height: 50px;
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.1);
 }
 .header a.logo {
   width: 13%;
   float: left;
   display: inline-block;
-  padding: 20px 1%;
-  height: 20px;
-  color: #DDDDDD;
+  padding: 18px 1%;
+  height: 14px;
+  color: #333333;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 0.9em;
   line-height: 1em;
+  font-weight: bold;
+}
+.header a.logo i {
+  float: left;
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: -5px;
+  font-size: 1.4em;
+  color: #304FFE;
+}
+.header a.nav {
+  float: left;
+  display: inline-block;
+  padding: 18px 1%;
+  height: 12px;
+  color: #333333;
+  text-decoration: none;
+  font-size: 0.9em;
+  line-height: 1em;
+  border-bottom: 2px solid transparent;
+}
+.header a.nav.btn {
+  background: #304FFE;
+  margin: 13px 0px;
+  padding: 7px 1%;
+  height: 20px;
+  border-radius: 3px;
+  color: #FFFFFF;
+}
+.header a.nav.-active {
+  color: #304FFE;
+  border-bottom: 2px solid #304FFE;
+  font-weight: bold;
 }
 .header a.btn-back {
   width: 11%;
@@ -219,18 +255,41 @@ body {
 .header a.btn-back i {
   margin-right: 20px;
 }
+.header .btn {
+  float: right;
+  display: inline-block;
+  padding: 8px 10px;
+  margin: 10px 0px;
+  height: 14px;
+  color: #333333;
+  text-decoration: none;
+  font-size: 0.9em;
+  line-height: 1em;
+  background: #304FFE;
+  color: #FFFFFF;
+  font-weight: bold;
+  border-radius: 3px;
+}
+.header .btn i {
+  float: left;
+  display: inline-block;
+  font-size: 1.3em;
+  margin-top: -2px;
+  margin-right: 7px;
+}
 .header .profile {
   float: right;
   display: inline-block;
-  padding: 20px 1.5%;
+  padding: 15px 1.5%;
   height: 20px;
-  color: #999999;
+  color: #333333;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1em;
 }
 .header .profile i {
   margin-left: 15px;
+  color: #304FFE;
 }
 .header .profile:hover {
   background: #FAFAFA;
@@ -248,29 +307,6 @@ body {
   font-size: 1.2em;
   line-height: 1em;
 }
-.header a.nav {
-  float: left;
-  display: inline-block;
-  padding: 20px 0%;
-  margin-right: 2%;
-  height: 18px;
-  color: #333333;
-  text-decoration: none;
-  font-size: 1.2em;
-  line-height: 1em;
-  border-bottom: 2px solid transparent;
-}
-.header a.nav.btn {
-  background: #EEEEEE;
-  margin: 13px 0px;
-  padding: 7px 1%;
-  height: 20px;
-  border-radius: 3px;
-}
-.header a.nav.-active {
-  color: #000000;
-  border-bottom: 2px solid #333333;
-}
 .dialog {
   position: fixed;
   top: 10%;
@@ -281,9 +317,64 @@ body {
   display: inline-block;
   background: #FFFFFF;
   border-radius: 5px;
+  overflow: hidden;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
   z-index: 35;
   display: none;
+}
+.dialog .head {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+}
+.dialog .head .text {
+  float: left;
+  display: inline-block;
+  padding: 2% 3%;
+  color: #999999;
+}
+.dialog .head .btn {
+  float: right;
+  display: inline-block;
+  padding: 2% 3%;
+  color: #999999;
+}
+.dialog .head .btn:hover {
+  cursor: pointer;
+  color: #333333;
+}
+.dialog .selection {
+  width: 90%;
+  padding: 3% 5%;
+  float: left;
+  display: inline-block;
+}
+.dialog .selection .caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-bottom: 2%;
+  color: #999999;
+}
+.dialog .selection .items {
+  float: left;
+  display: inline-block;
+  padding: 10px 15px;
+  margin-right: 5px;
+  line-height: 1em;
+  border-radius: 3px;
+  border: 2px solid #EEEEEE;
+  color: #AAAAAA;
+  font-size: 0.9em;
+}
+.dialog .selection .items:hover {
+  cursor: pointer;
+}
+.dialog .selection .items.-active {
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
 }
 .dialog .input {
   width: 100%;
@@ -324,6 +415,14 @@ body {
   color: #999999;
   border-radius: 5px;
 }
+.dialog .control .btn.btn-delete {
+  float: left;
+  color: #F44336;
+  display: none;
+}
+.dialog .control .btn.btn-submit {
+  color: #4CAF50;
+}
 .dialog .control .btn:hover {
   background: #FAFAFA;
   cursor: pointer;
@@ -336,7 +435,7 @@ body {
   height: 100%;
   float: left;
   display: inline-block;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 30;
   display: none;
 }
@@ -344,6 +443,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
+  margin-top: 50px;
 }
 .container .list {
   width: 70%;
@@ -358,70 +458,169 @@ body {
   margin-bottom: 2%;
 }
 .container .list .head .btn {
-  width: 12%;
   float: right;
   display: inline-block;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 1em;
-  padding: 1.5%;
+  padding: 1%;
   border-radius: 3px;
   color: #FFFFFF;
-  background: #4CAF50;
-  font-weight: bold;
+  background: #304FFE;
   text-align: center;
 }
 .container .list .head .btn:hover {
   cursor: pointer;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
-.container .list .list-items {
+.container .list .ref-items {
   width: 100%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
   margin-bottom: 1%;
   color: #333333;
-  border-radius: 5px;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  position: relative;
 }
-.container .list .list-items .icon {
-  width: 10%;
-  padding: 2% 0%;
-  float: left;
-  display: inline-block;
-  font-size: 2.8em;
-  text-align: center;
+.container .list .ref-items .btn-edit-app,
+.container .list .ref-items .btn-edit-reference {
+  position: absolute;
+  top: 0px;
+  right: 0px;
   color: #CCCCCC;
-  line-height: 1em;
+  padding: 15px 20px;
 }
-.container .list .list-items .detail {
-  width: 75%;
-  padding: 2% 0%;
+.container .list .ref-items .btn-edit-app:hover,
+.container .list .ref-items .btn-edit-reference:hover {
+  color: #333333;
+  cursor: pointer;
+}
+.container .list .ref-items .detail {
+  width: 96%;
+  padding: 2%;
   float: left;
   display: inline-block;
   line-height: 1.4em;
 }
-.container .list .list-items .detail a.v {
-  font-size: 1.1em;
+.container .list .ref-items .detail a.name {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
   font-weight: bold;
   text-decoration: none;
   color: #333333;
+  margin-bottom: 1%;
 }
-.container .list .list-items .detail a.v i {
+.container .list .ref-items .detail a.name:hover {
+  text-decoration: underline;
+}
+.container .list .ref-items .detail a.name .method {
   float: left;
   display: inline-block;
-  margin-top: 2px;
-  margin-right: 7px;
+  background: #304FFE;
+  color: #FFFFFF;
+  margin-right: 5px;
+  font-size: 0.7em;
+  padding: 3px 6px;
+  font-weight: normal;
+  line-height: 1.1em;
+  border-radius: 3px;
+  margin-top: 1px;
 }
-.container .list .list-items .detail a.v i.fa-circle {
-  color: #4CAF50;
-}
-.container .list .list-items .detail p {
-  font-size: 1em;
+.container .list .ref-items .detail .desc {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
   color: #666666;
 }
-.container .list .list-items .stat {
+.container .list .app-items {
+  width: 28%;
+  padding: 2%;
+  margin-top: 2%;
+  margin-right: 2%;
+  height: 100px;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.container .list .app-items:nth-child(3n+0) {
+  margin-right: 0%;
+}
+.container .list .app-items.btn-new-app {
+  text-align: center;
+  color: #304FFE;
+  background: #E3F2FD;
+  font-weight: bold;
+}
+.container .list .app-items.btn-new-app i {
+  font-size: 2.4em;
+  display: block;
+  margin: 3% 0%;
+  margin-top: 6%;
+}
+.container .list .app-items.btn-new-app:hover {
+  background: #304FFE;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.container .list .app-items .btn-edit-app,
+.container .list .app-items .btn-edit-reference {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: #FFFFFF;
+  padding: 15px 20px;
+}
+.container .list .app-items .btn-edit-app:hover,
+.container .list .app-items .btn-edit-reference:hover {
+  cursor: pointer;
+}
+.container .list .app-items .detail {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  line-height: 1.4em;
+}
+.container .list .app-items .detail a.name {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000000;
+  margin-bottom: 3%;
+}
+.container .list .app-items .detail a.name:hover {
+  text-decoration: underline;
+}
+.container .list .app-items .detail .info {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.85em;
+  line-height: 1.3em;
+  margin-top: 3%;
+  color: #333333;
+}
+.container .list .app-items .detail .token {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.75em;
+  border: 0px;
+  background: transparent;
+  font-weight: normal;
+  color: #304FFE;
+  font-style: italic;
+}
+.container .list .app-items .stat {
   width: 13%;
   padding: 2% 1%;
   float: right;

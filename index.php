@@ -1,6 +1,7 @@
 <?php
 include_once 'autoload.php';
-$app = new app();
+$app 		= new app;
+$reference 	= new Reference;
 
 $apps = $app->listAll();
 
@@ -23,7 +24,7 @@ $currentPage = 'apps';
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
 <?php include'favicon.php';?>
-<title>JHOS API</title>
+<title>Apps | Bhubejhr API</title>
 
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
@@ -32,35 +33,43 @@ $currentPage = 'apps';
 <?php include'header.php';?>
 
 <div class="container">
-	<div class="list">
-		<div class="head">
-			<a href="app-form.php" class="btn">CREATE APP</a>
+	<div class="list" id="apps">
+		<div class="app-items btn-new-app" id="btnCreateApp">
+			<i class="fa fa-plus-circle" aria-hidden="true"></i>Create New App
 		</div>
 		<?php foreach ($apps as $var) {?>
-		<div class="list-items">
-			<a href="app-detail.php?id=<?php echo $var['app_id'];?>" class="icon"><i class="fa fa-cube" aria-hidden="true"></i></a>
+		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
 			<div class="detail">
-				<a href="app-detail.php?id=<?php echo $var['app_id'];?>" class="v"><i class="fa fa-circle" aria-hidden="true"></i><?php echo $var['app_name'];?></a>
-				<p><?php echo $var['app_key'];?></p>
+				<a href="app-detail.php?id=<?php echo $var['app_id'];?>" class="name"><?php echo $var['app_name'];?></a>
+				<input type="text" class="token" value="<?php echo $var['app_key'];?>">
+				<div class="info"><?php echo $var['app_description'];?></div>
+				
 			</div>
-			<div class="stat"><?php echo number_format($var['request_count']);?></span>
-			</div>
+			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
 		</div>
 		<?php }?>
 	</div>
 </div>
 
-<div class="dialog">
+<div class="dialog" id="createAppDialog">
+	<div class="head">
+		<div class="text">Create new App</div>
+		<div class="btn" id="btnCloseCreateApp">EXIT</div>
+	</div>
 	<div class="input">
-		<input type="text" class="inputtext" placeholder="App name...">
-		<textarea class="textarea" placeholder="Description..."></textarea>
+		<input type="text" id="app_name" class="inputtext" placeholder="App name...">
+		<textarea class="textarea" id="app_description" placeholder="Description..."></textarea>
+		<input type="hidden" id="app_id">
 	</div>
 	<div class="control">
-		<div class="btn btn-cancel">CREATE</div>
-		<div class="btn btn-submit">EXIT</div>
+		<div class="btn btn-delete" id="btnDeleteApp">DELETE</div>
+		<div class="btn btn-submit" id="btnSubmitCreateApp">CREATE</div>
 	</div>
 </div>
-<div class="filter" id="dialog-filter"></div>
+<div class="filter" id="createDialogFilter"></div>
+
+<script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
 

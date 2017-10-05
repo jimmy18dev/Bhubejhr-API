@@ -11,7 +11,7 @@ define("VERSION" 	,'1.0');
 
 include_once'config/config.php';
 include_once'class/database.class.php';
-include_once'class/queries.class.php';
+include_once'class/reference.class.php';
 include_once'class/app.class.php';
 include_once'class/user.class.php';
 include_once'class/patient.class.php';
@@ -22,5 +22,6 @@ include_once'class/api.class.php';
 include_once'class/diag_ct.class.php';
 include_once'class/diag_user.class.php';
 include_once'class/diag_desc.class.php';
+
 $wpdb = new Database; // DATABASE CONNECT...
 ?>

@@ -3,59 +3,67 @@ require_once 'autoload.php';
 header('Access-Control-Allow-Origin: *');
 header("Content-type: text/json");
 
+// $apiArgArray = explode('/', substr(@$_SERVER['PATH_INFO'], 1));
+// $headers = getallheaders();
+// $token = $headers['Token'] or ['AuthKey'];
+// $returnObject = (object) array();
+$returnObject = array(
+	"apiVersion"  	=> 1.0,
+	"method" 		=> $_SERVER['REQUEST_METHOD'],
+	// "header"      => $headers,
+	"execute"     	=> floatval(round(microtime(true)-StTime,4)),
+);
+
 $app = new App;
-$api = new Api;
 
-$app_id 		= $_POST['app_id'];
-$name 			= $_POST['name'];
-$description 	= $_POST['description'];
-$user_id 		= 1;
-$type 			= 'normal';
-$status 		= 'active';
+switch ($_SERVER['REQUEST_METHOD']){
+	case 'GET':
+		switch ($_GET['request']){
+			case 'list':
+				$dataset = $app->listAll();
 
-// API Request $_POST
-if(true){
-	switch ($_POST['action']) {
-		case 'submit':
-			if(!empty($app_id)){
-				$app->editApp($app_id,$user_id,$name,$description,$type,$status);
-				$api->successMessage('App Edited.',$app_id,'');
-			}else{
-				$app_id = $app->createApp($user_id,$name,$description,$type);
-				$api->successMessage('New App Created.','',floatval($app_id),'');
-			}
+				$returnObject['items'] = $dataset;
+				$returnObject['message'] = 'list all apps';
+				break;
+			default:
+				$returnObject['message'] = 'GET API Not found!';
 			break;
-		case 'delete':
-			$app->deleteApp($app_id,$user_id);
-			$api->successMessage('App Deleted.','',floatval($app_id),'');
-			break;
-		case 'toggle_status':
-			$app->toggleStatus($app_id);
-			$api->successMessage('App status changed.','',floatval($app_id),'');
-			break;
-		case 'request_counter':
-			$dataset = $app->requestCounter($app_id);
-			// $api->successMessage('Query status changed.',floatval($qid),$dataset);
+		}
+    	break;
+    case 'POST':
+    	switch ($_POST['request']){
+			case 'submit':
+				$app_id 		= $_POST['app_id'];
+				$user_id 		= 1;
+				$name 			= $_POST['app_name'];
+				$description 	= $_POST['app_description'];
 
-			$data = array(
-				"apiVersion" => "1.0",
-				"data" => array(
-					"update" => time(),
-					"execute" => round(microtime(true)-StTime,4)."s",
-					"totalFeeds" => floatval($total),
-					"items" => $dataset,
-				),
-			);
+				if(!empty($app_id) && isset($app_id)){
+					$app->editApp($app_id,$name,$description);
+					$returnObject['message'] 	= 'app edited.';
+				}else{
+					$app_id = $app->createApp($user_id,$name,$description);
+					$returnObject['message'] 	= 'create new app success.';
+					$returnObject['app_id'] 	= $app_id;
+				}
+				break;
+			case 'delete':
+				$app_id 		= $_POST['app_id'];
+				$user_id 		= 1;
 
-			echo json_encode($data);
+				$app->deleteApp($app_id,$user_id);
+
+				$returnObject['message'] 	= 'app edited.';
+				break;
+			default:
+				$returnObject['message'] = 'POST API Not found!';
 			break;
-		default:
-			$api->errorMessage('API no action!');
-			break;
-	}
-}else{
-	$api->errorMessage('Invalid Signature or API not found!');
+		}
+    	break;
+    default:
+    	$returnObject['message'] = 'METHOD API Not found!';
+    	break;
 }
 
-exit();
+echo json_encode($returnObject);
 ?>

@@ -33,33 +33,28 @@ class App{
 		return $dataset['id'];
 	}
 
-    public function createApp($user_id,$name,$description,$type,$status = 'active'){
+    public function createApp($user_id,$name,$description){
     	
     	$token = $this->tokenGenerate(); // New Token
 
-    	$this->db->query('INSERT IGNORE INTO api_app(user_id,name,description,token,create_time,ip,type,status) VALUE(:user_id,:name,:description,:token,:create_time,:ip,:type,:status)');
+    	$this->db->query('INSERT INTO api_app(user_id,name,description,token,create_time,ip) VALUE(:user_id,:name,:description,:token,:create_time,:ip)');
     	$this->db->bind(':user_id' 		,$user_id);
     	$this->db->bind(':name' 		,$name);
     	$this->db->bind(':description' 	,$description);
     	$this->db->bind(':token' 		,$token);
     	$this->db->bind(':create_time' 	,date('Y-m-d H:i:s'));
     	$this->db->bind(':ip' 			,$this->db->GetIpAddress());
-    	$this->db->bind(':type' 		,$type);
-    	$this->db->bind(':status' 		,$status);
 		$this->db->execute();
 		return $this->db->lastInsertId();
     }
 
-    public function editApp($app_id,$user_id,$name,$description,$type,$status){
-    	$this->db->query('UPDATE api_app SET name = :name, description = :description, update_time = :update_time, ip = :ip, type = :type, status = :status, last_user_id = :user_id WHERE id = :app_id');
+    public function editApp($app_id,$name,$description){
+    	$this->db->query('UPDATE api_app SET name = :name, description = :description, update_time = :update_time, ip = :ip WHERE id = :app_id');
     	$this->db->bind(':app_id' 		,$app_id);
     	$this->db->bind(':name' 		,$name);
     	$this->db->bind(':description' 	,$description);
     	$this->db->bind(':update_time' 	,date('Y-m-d H:i:s'));
-    	$this->db->bind(':user_id' 		,$user_id);
     	$this->db->bind(':ip' 			,$this->db->GetIpAddress());
-    	$this->db->bind(':type' 		,$type);
-    	$this->db->bind(':status' 		,$status);
 		$this->db->execute();
     }
 
@@ -125,6 +120,13 @@ class App{
 		$dataset = $this->db->resultset();
 
 		return $dataset;
+    }
+
+    public function count(){
+    	$this->db->query('SELECT COUNT(id) total FROM api_app');
+		$this->db->execute();
+		$dataset = $this->db->single();
+		return $dataset['total'];
     }
 
     public function requestCounter($app_id){
