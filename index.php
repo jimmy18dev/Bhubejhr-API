@@ -1,7 +1,14 @@
 <?php
 include_once 'autoload.php';
+
+if(!$user_online){
+	header('Location: '.DOMAIN.'/login.php');
+	die();
+}
+
 $app 		= new app;
 $reference 	= new Reference;
+$signature 	= new Signature;
 
 $apps = $app->listAll();
 
@@ -48,13 +55,16 @@ $currentPage = 'apps';
 			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
 		</div>
 		<?php }?>
+
+		<div>$signature: <?php echo $signature->generateSignature('index',SECRET_KEY);?></div>
+		<div><?php echo ($user_online?'ONLINE':'OFFLINE');?></div>
 	</div>
 </div>
 
 <div class="dialog" id="createAppDialog">
 	<div class="head">
 		<div class="text">Create new App</div>
-		<div class="btn" id="btnCloseCreateApp">EXIT</div>
+		<div class="btn" id="btnCloseCreateApp"><i class="fa fa-times" aria-hidden="true"></i></div>
 	</div>
 	<div class="input">
 		<input type="text" id="app_name" class="inputtext" placeholder="App name...">
@@ -62,8 +72,8 @@ $currentPage = 'apps';
 		<input type="hidden" id="app_id">
 	</div>
 	<div class="control">
-		<div class="btn btn-delete" id="btnDeleteApp">DELETE</div>
-		<div class="btn btn-submit" id="btnSubmitCreateApp">CREATE</div>
+		<div class="btn btn-delete" id="btnDeleteApp">Delete</div>
+		<div class="btn btn-submit" id="btnSubmitCreateApp">Save</div>
 	</div>
 </div>
 <div class="filter" id="createDialogFilter"></div>

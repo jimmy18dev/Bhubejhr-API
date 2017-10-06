@@ -41,7 +41,6 @@ switch ($_SERVER['REQUEST_METHOD']){
     	switch ($_POST['request']){
 			case 'submit':
 				$reference_id 	= $_POST['reference_id'];
-				$user_id 		= 1;
 				$name 			= $_POST['reference_name'];
 				$description 	= $_POST['reference_description'];
 				$method 		= $_POST['reference_method'];
@@ -52,7 +51,7 @@ switch ($_SERVER['REQUEST_METHOD']){
 					$reference->edit($reference_id,$method,$category_id,$name,$description,$type);
 					$returnObject['message'] 	= 'Reference edited.';
 				}else{
-					$reference_id = $reference->create($method,$user_id,$category_id,$name,$description,$type);
+					$reference_id = $reference->create($method,$user->id,$category_id,$name,$description,$type);
 					$returnObject['message'] 	= 'create new Reference success.';
 					$returnObject['reference_id'] = $reference_id;
 				}

@@ -10,7 +10,7 @@ $app = new app;
 $reference = new Reference;
 $references = $reference->listAll();
 $category = $reference->listCategory();
-$currentPage = 'reference';
+$currentPage = 'account';
 
 ?>
 <!doctype html>

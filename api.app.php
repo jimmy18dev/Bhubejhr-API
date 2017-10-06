@@ -34,7 +34,6 @@ switch ($_SERVER['REQUEST_METHOD']){
     	switch ($_POST['request']){
 			case 'submit':
 				$app_id 		= $_POST['app_id'];
-				$user_id 		= 1;
 				$name 			= $_POST['app_name'];
 				$description 	= $_POST['app_description'];
 
@@ -42,16 +41,14 @@ switch ($_SERVER['REQUEST_METHOD']){
 					$app->editApp($app_id,$name,$description);
 					$returnObject['message'] 	= 'app edited.';
 				}else{
-					$app_id = $app->createApp($user_id,$name,$description);
+					$app_id = $app->createApp($user->id,$name,$description);
 					$returnObject['message'] 	= 'create new app success.';
 					$returnObject['app_id'] 	= $app_id;
 				}
 				break;
 			case 'delete':
 				$app_id 		= $_POST['app_id'];
-				$user_id 		= 1;
-
-				$app->deleteApp($app_id,$user_id);
+				$app->deleteApp($app_id,$user->id);
 
 				$returnObject['message'] 	= 'app edited.';
 				break;
