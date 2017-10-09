@@ -30,7 +30,7 @@ $currentPage = 'account';
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
 <?php include'favicon.php';?>
-<title>Reference | Bhubejhr API</title>
+<title>Account | Bhubejhr API</title>
 
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
@@ -58,12 +58,7 @@ $currentPage = 'account';
 
 <div class="ref-navigation">
 	<div class="group">
-		<div id="btnCreateReference" class="btn">New Reference</div>
-	</div>
-	<div class="group">
-		<div class="items">การเงิน</div>
-		<div class="items">ข้อมูลบริการ</div>
-		<div class="items">ตัวชี้วัด</div>
+		<div id="btnCreateReference" class="btn">Create Account (1/10)</div>
 	</div>
 </div>
 

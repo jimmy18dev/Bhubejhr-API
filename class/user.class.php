@@ -240,12 +240,27 @@ class User{
 		$this->db->execute();
 	}
 
-    // public function findUserWithEmail($email){
-    //     $this->db->query('SELECT id FROM user WHERE email = :email');
-    //     $this->db->bind(':email',$email);
-    //     $this->db->execute();
-    //     $dataset = $this->db->single();
-    //     return $dataset['id'];
-    // }
+    public function editProfile($user_id,$username,$displayname){
+        $this->db->query('UPDATE api_user SET username = :username, name = :displayname, edit_time = :edit_time WHERE id = :user_id');
+        $this->db->bind(':user_id' ,$user_id);
+        $this->db->bind(':username' ,$username);
+        $this->db->bind(':displayname' ,$displayname);
+        $this->db->bind(':edit_time' ,date('Y-m-d H:i:s'));
+
+        $this->db->execute();
+    }
+    public function changePassword($user_id,$oldpassword,$newpassword){
+        // Random password if password is empty value
+        $salt = hash('sha512',uniqid(mt_rand(1,mt_getrandmax()),true));
+        // Create salted password
+        $password   = hash('sha512',$newpassword.$salt);
+
+        $this->db->query('UPDATE api_user SET password = :password, salt = :salt, edit_time = :edit_time WHERE id = :user_id');
+        $this->db->bind(':user_id' ,$user_id);
+        $this->db->bind(':password' ,$password);
+        $this->db->bind(':salt' ,$salt);
+        $this->db->bind(':edit_time' ,date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }
 }
 ?>

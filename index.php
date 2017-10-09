@@ -55,9 +55,6 @@ $currentPage = 'apps';
 			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
 		</div>
 		<?php }?>
-
-		<div>$signature: <?php echo $signature->generateSignature('index',SECRET_KEY);?></div>
-		<div><?php echo ($user_online?'ONLINE':'OFFLINE');?></div>
 	</div>
 </div>
 

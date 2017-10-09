@@ -24,6 +24,7 @@ include_once'class/diag_user.class.php';
 include_once'class/diag_desc.class.php';
 include_once'class/signature.class.php';
 include_once'class/user.class.php';
+include_once'class/account.class.php';
 
 $wpdb = new Database; // DATABASE CONNECT...
 $user = new User;
