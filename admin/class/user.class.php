@@ -150,41 +150,6 @@ class User{
         return true;
     }
 
-   //  public function register($email,$fullname,$password){
-
-   //      $email      = filter_var(strip_tags(trim($email)),FILTER_SANITIZE_EMAIL);
-   //      // Random password if password is empty value
-   //      $password   = (empty($password)?hash('sha512',uniqid(mt_rand(1,mt_getrandmax()),true)):$password);
-   //      $salt       = hash('sha512',uniqid(mt_rand(1,mt_getrandmax()),true));
-   //      // Create salted password
-   //      $password   = hash('sha512',$password.$salt);
-
-   //      $name = explode(' ',strip_tags(trim($fullname)));
-   //      $fname = trim($name[0]);
-   //      $lname = trim($name[1]);
-
-   //      if($this->userAlready($email)){
-   //      	$this->db->query('INSERT INTO user(email,fname,lname,password,salt,type,ip,register_time,visit_time) VALUE(:email,:fname,:lname,:password,:salt,:type,:ip,:register_time,:visit_time)');
-			// $this->db->bind(':email' 		,$email);
-			// $this->db->bind(':fname' 		,$fname);
-			// $this->db->bind(':lname' 		,$lname);
-			// $this->db->bind(':password' 	,$password);
-			// $this->db->bind(':salt' 		,$salt);
-   //          $this->db->bind(':type'        ,1); // 1 = Normal
-			// $this->db->bind(':ip' 			,$this->db->GetIpAddress());
-			// $this->db->bind(':register_time' ,date('Y-m-d H:i:s'));
-			// $this->db->bind(':visit_time' 	,date('Y-m-d H:i:s'));
-			// $this->db->execute();
-
-			// $user_id = $this->db->lastInsertId();
-
-   //      }else{
-   //      	return 0;
-   //      }
-
-   //      return $user_id;
-   //  }
-
     private function userAlready($email){
 		$this->db->query('SELECT id FROM user WHERE email = :email');
 		$this->db->bind(':email',$email);

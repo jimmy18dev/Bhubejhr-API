@@ -6,6 +6,7 @@ if(!$user_online){
 	die();
 }
 
+$signature 	= new Signature;
 $account = new Account;
 $accounts = $account->listAll($user->id);
 $currentPage = 'account';
@@ -42,9 +43,7 @@ $currentPage = 'account';
 		<div class="ref-items" id="reference<?php echo $var['ref_id'];?>" data-id="<?php echo $var['ref_id'];?>">
 			<div class="detail">
 				<a href="#" class="name"><?php echo $var['name'];?></a>
-				<div class="desc">username <?php echo $var['username'];?>
-					<span>, Last visit <?php echo $var['visit_time'];?></span>
-				</div>
+				<div class="desc"><?php echo $var['username'];?></div>
 			</div>
 
 			<div class="btn-edit-reference"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
@@ -55,52 +54,39 @@ $currentPage = 'account';
 
 <div class="ref-navigation">
 	<div class="group">
-		<div id="btnCreateReference" class="btn">Create Account (1/10)</div>
+		<div id="btnCreateAccount" class="btn">Create Account</div>
 	</div>
 </div>
 
-<div class="dialog" id="createReferenceDialog">
+<div class="dialog" id="createAccountDialog">
 	<div class="head">
-		<div class="text">Create new Reference</div>
-		<div class="btn" id="btnCloseCreateReference"><i class="fa fa-close" aria-hidden="true"></i></div>
+		<div class="text">Create New Account</div>
+		<div class="btn" id="btnCloseCreateAccount"><i class="fa fa-close" aria-hidden="true"></i></div>
 	</div>
 	<div class="input">
-		<input type="text" id="reference_name" class="inputtext" placeholder="Reference name...">
-		<textarea class="textarea" id="reference_description" placeholder="Description..."></textarea>
-		<div class="selection" id="referenceMethod">
-			<div class="caption">Method:</div>
-			<div class="items method-items" id="method-items-get" data-method="get">GET</div>
-			<div class="items method-items" id="method-items-post" data-method="post">POST</div>
+		<label for="displayname">Name display</label>
+		<input type="text" id="displayname" class="inputtext" placeholder="Fullname">
+		<label for="username">Username</label>
+		<input type="text" id="username" class="inputtext" placeholder="Username">
+		<label for="password">Password (Default)</label>
+		<input type="text" id="password" class="inputtext" placeholder="Password" value="1234" disabled>
+
+		<div class="selection" id="accountPermission">
+			<div class="caption">User Permission:</div>
+			<div class="items permission-items" id="permission-items-admin" data-permission="admin">Administrator</div>
+			<div class="items permission-items -active" id="permission-items-guest" data-permission="guest">Guest</div>
 		</div>
-		<div class="selection" id="referenceType">
-			<div class="caption">API TYPE:</div>
-			<div class="items type-items" id="type-items-get" data-type="get">GET</div>
-			<div class="items type-items" id="type-items-list" data-type="list">LIST</div>
-			<div class="items type-items" id="type-items-edit" data-type="edit">EDIT</div>
-			<div class="items type-items" id="type-items-create" data-type="create">CREATE</div>
-			<div class="items type-items" id="type-items-delete" data-type="delete">DELETE</div>
-		</div>
-		<div class="selection" id="referenceCategory">
-			<div class="caption">Category:</div>
-			<?php foreach ($category as $var) {?>
-				<div class="items category-items" id="category-items-<?php echo $var['id'];?>" data-id="<?php echo $var['id'];?>"><?php echo $var['name'];?></div>
-			<?php } ?>
-		</div>
-		<input type="hidden" id="reference_id">
-		<input type="hidden" id="reference_category" value="3">
-		<input type="hidden" id="reference_type">
-		<input type="hidden" id="reference_method">
+
+		<input type="hidden" id="account_permission" value="guest">
 	</div>
 	<div class="control">
-		<div class="btn btn-delete" id="btnDeleteReference">DELETE</div>
-		<div class="btn btn-submit" id="btnSubmitCreateReference">CREATE</div>
+		<div class="btn btn-submit" id="btnSubmitCreateAccount">CREATE</div>
 	</div>
 </div>
-<div class="filter" id="createDialogFilter"></div>
+<div class="filter" id="createAccountFilter"></div>
+<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('account',SECRET_KEY);?>">
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/reference.js"></script>
+<script type="text/javascript" src="js/account.js"></script>
 </body>
 </html>
-
-<!-- Hi Jame Welcome to JobHot -->
