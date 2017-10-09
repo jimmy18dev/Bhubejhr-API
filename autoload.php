@@ -9,10 +9,14 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 define("API_VERSION" 	,'1.0.1');
 define("SOURCE_VERSION" ,'1.0.1');
-define("API_NAME" 		,'Bhubejhr API');
+define("API_SITE" 		,'Bhubejhr API');
 
 include_once'config/config.php';
 include_once'class/database/database.class.php';
+include_once'class/app.class.php';
+include_once'class/log.class.php';
 
-$wpdb = new Database;
+$wpdb 	= new Database;
+$app 	= new App;
+$log 	= new Log;
 ?>

@@ -5,13 +5,12 @@ header("Content-type: text/json");
 
 $headers = getallheaders();
 $returnObject = array(
-	"apiName" 		=> API_NAME,
+	"apiSite" 		=> API_SITE,
+	"apiName" 		=> 'Patients api service',
 	"apiVersion"  	=> API_VERSION,
 	"sourceVersion" => SOURCE_VERSION,
 	"executeTime"   => floatval(round(microtime(true)-StTime,4)),
 );
-
-$signature 	= new Signature;
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':

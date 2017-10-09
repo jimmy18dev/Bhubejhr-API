@@ -5,7 +5,8 @@ header("Content-type: text/json");
 
 $headers = getallheaders();
 $returnObject = array(
-	"apiName" 		=> API_NAME,
+	"apiSite" 		=> API_SITE,
+	"apiName" 		=> 'Welcome to '.API_SITE,
 	"apiVersion"  	=> API_VERSION,
 	"sourceVersion" => SOURCE_VERSION,
 	"executeTime"   => floatval(round(microtime(true)-StTime,4)),
