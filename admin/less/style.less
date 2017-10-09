@@ -1,82 +1,6 @@
 @import "reset";
 @import "config";
 
-.logout{
-	width: 100%;
-	float: left;
-	display: inline-block;
-	text-align: center;
-	font-size: 1em;
-	margin-top: 25%;
-	color: #999999;
-}
-
-.login{
-	width: 20%;
-	padding: 2%;
-	padding-top: 3%;
-	margin: 8% 38%;
-	float: left;
-	display: inline-block;
-	background: #FFFFFF;
-	border-radius: 3px;
-	box-shadow: 1px 1px 25px rgba(0,0,0,0.1);
-
-	h1{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		text-align: center;
-		font-size: 2em;
-		color: #111111;
-	}
-	p{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		text-align: center;
-		font-size: 0.8em;
-		margin-bottom: 10%;
-		color: #666666;
-	}
-	.inputtext{
-		width: 88%;
-		padding: 6%;
-		float: left;
-		display: inline-block;
-		font-size: 1em;
-		border: 0px;
-		background: #EEEEEE;
-		margin-bottom: 3%;
-		border-radius: 3px;
-		color: #333333;
-
-		&:focus{
-			color: #000000;
-		}
-	}
-	.btn-submit{
-		width: 100%;
-		padding: 6% 0%;
-		float: left;
-		display: inline-block;
-		font-size: 1em;
-		border: 0px;
-		background: @primary_color;
-		color: #FFFFFF;
-		border-radius: 3px;
-		margin-top: 10%;
-
-		&:hover{
-			cursor: pointer;
-		}
-
-		i{
-			margin-left: 15px;
-		}
-	}
-}
-
 .header{
 	position: fixed;
 	top: 0px;
@@ -87,6 +11,7 @@
 	display: inline-block;
 	background: #FFFFFF;
 	box-shadow: 0px -1px 10px rgba(0,0,0,0.1);
+	z-index: 59;
 
 	a.logo{
 		width: 13%;
@@ -209,7 +134,7 @@
 	border-radius: 3px;
 	overflow: hidden;
 	box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
-	z-index: 35;
+	z-index: 99;
 	display: none;
 
 	.head{
@@ -356,7 +281,7 @@
 	float: left;
 	display: inline-block;
 	background: rgba(0,0,0,0.9);
-	z-index: 30;
+	z-index: 70;
 	display: none;
 }
 
@@ -387,12 +312,18 @@
 			line-height: 1em;
 			font-size: 0.9em;
 			text-decoration: none;
+			color: #333333;
 
 			&.btn-logout{
 				color: #F44336;
 				&:hover{
 					background: #FFEBEE;
 				}
+			}
+
+			&.-active{
+				color: #000000;
+				font-weight: bold;
 			}
 
 			&:hover{
@@ -412,6 +343,10 @@
 			border-radius: 3px;
 			font-weight: bold;
 			box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+
+			&:hover{
+				cursor: pointer;
+			}
 		}
 	}
 }
@@ -421,6 +356,16 @@
 	float: left;
 	display: inline-block;
 	margin-top: 50px;
+
+	.empty{
+		width: 50%;
+		margin: 15%;
+		float: left;
+		display: inline-block;
+		text-align: center;
+		color: #999999;
+		font-style: italic;
+	}
 
 	.content{
 		width: 50%;
@@ -890,6 +835,82 @@
 					text-align: right;
 				}
 			}
+		}
+	}
+}
+
+.logout{
+	width: 100%;
+	float: left;
+	display: inline-block;
+	text-align: center;
+	font-size: 1em;
+	margin-top: 25%;
+	color: #999999;
+}
+
+.login{
+	width: 20%;
+	padding: 2%;
+	padding-top: 3%;
+	margin: 8% 38%;
+	float: left;
+	display: inline-block;
+	background: #FFFFFF;
+	border-radius: 3px;
+	box-shadow: 1px 1px 25px rgba(0,0,0,0.1);
+
+	h1{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		text-align: center;
+		font-size: 2em;
+		color: #111111;
+	}
+	p{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		text-align: center;
+		font-size: 0.8em;
+		margin-bottom: 10%;
+		color: #666666;
+	}
+	.inputtext{
+		width: 88%;
+		padding: 6%;
+		float: left;
+		display: inline-block;
+		font-size: 1em;
+		border: 0px;
+		background: #EEEEEE;
+		margin-bottom: 3%;
+		border-radius: 3px;
+		color: #333333;
+
+		&:focus{
+			color: #000000;
+		}
+	}
+	.btn-submit{
+		width: 100%;
+		padding: 6% 0%;
+		float: left;
+		display: inline-block;
+		font-size: 1em;
+		border: 0px;
+		background: @primary_color;
+		color: #FFFFFF;
+		border-radius: 3px;
+		margin-top: 10%;
+
+		&:hover{
+			cursor: pointer;
+		}
+
+		i{
+			margin-left: 15px;
 		}
 	}
 }

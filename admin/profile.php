@@ -9,8 +9,6 @@ if(!$user_online){
 $app = new app;
 $reference = new Reference;
 $signature 	= new Signature;
-$references = $reference->listAll();
-$category = $reference->listCategory();
 $currentPage = 'profile';
 
 ?>

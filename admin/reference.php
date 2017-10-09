@@ -8,7 +8,10 @@ if(!$user_online){
 
 $app = new app;
 $reference = new Reference;
-$references = $reference->listAll();
+
+$category_id = $_GET['category'];
+
+$references = $reference->listAll($category_id);
 $category = $reference->listCategory();
 $currentPage = 'reference';
 
@@ -39,6 +42,7 @@ $currentPage = 'reference';
 <?php include'header.php';?>
 
 <div class="container">
+	<?php if(count($references) > 0){?>
 	<div class="references" id="reference">
 		<?php foreach ($references as $var) {?>
 		<div class="ref-items" id="reference<?php echo $var['ref_id'];?>" data-id="<?php echo $var['ref_id'];?>">
@@ -54,6 +58,9 @@ $currentPage = 'reference';
 		</div>
 		<?php }?>
 	</div>
+	<?php }else{?>
+	<div class="empty">Items not Found!</div>
+	<?php }?>
 </div>
 
 <div class="ref-navigation">
@@ -61,9 +68,10 @@ $currentPage = 'reference';
 		<div id="btnCreateReference" class="btn">New Reference</div>
 	</div>
 	<div class="group">
-		<div class="items">การเงิน</div>
-		<div class="items">ข้อมูลบริการ</div>
-		<div class="items">ตัวชี้วัด</div>
+		<a href="reference.php?" class="items <?php echo (empty($category_id)?'-active':'');?>">ดูทั้งหมด</a>
+		<?php foreach ($category as $var) {?>
+		<a href="reference.php?category=<?php echo $var['id'];?>" class="items <?php echo ($category_id == $var['id']?'-active':'');?>"><?php echo $var['name'];?></a>
+		<?php }?>
 	</div>
 </div>
 
