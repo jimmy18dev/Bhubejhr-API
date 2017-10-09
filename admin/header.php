@@ -1,9 +1,9 @@
 <header class="header">
 	<a href="index.php" class="logo"><i class="fa fa-cube" aria-hidden="true"></i>Bhubejhr API</a>
 	
-	<a href="index.php" class="nav <?php echo ($currentPage == 'apps'?'-active':'');?>">Apps (<?php echo $app->count();?>)</a>
+	<a href="index.php" class="nav <?php echo ($currentPage == 'apps'?'-active':'');?>">Apps</a>
 	<!-- <a href="activities.php" class="nav <?php echo ($currentPage == 'activities'?'-active':'');?>">Activities</a> -->
-	<a href="reference.php" class="nav <?php echo ($currentPage == 'reference'?'-active':'');?>">References (<?php echo $reference->count();?>)</a>
+	<a href="reference.php" class="nav <?php echo ($currentPage == 'reference'?'-active':'');?>">References</a>
 	<a href="account.php" class="nav <?php echo ($currentPage == 'account'?'-active':'');?>">Account</a>
 	<!-- <a href="queries.php" class="nav <?php echo ($currentPage == 'queries'?'-active':'');?>">Queries</a> -->
 

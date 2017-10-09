@@ -6,10 +6,8 @@ if(!$user_online){
 	die();
 }
 
-$app = new app;
-$reference = new Reference;
-$references = $reference->listAll();
-$category = $reference->listCategory();
+$account = new Account;
+$accounts = $account->listAll($user->id);
 $currentPage = 'account';
 
 ?>
@@ -40,13 +38,12 @@ $currentPage = 'account';
 
 <div class="container">
 	<div class="references" id="reference">
-		<?php foreach ($references as $var) {?>
+		<?php foreach ($accounts as $var) {?>
 		<div class="ref-items" id="reference<?php echo $var['ref_id'];?>" data-id="<?php echo $var['ref_id'];?>">
 			<div class="detail">
-				<a href="app-detail.php?id=<?php echo $var['ref_id'];?>" class="name"><span class="method"><?php echo $var['ref_method'];?></span><span class="method"><?php echo $var['ref_category_name']?></span><?php echo $var['ref_name'];?> #<?php echo $var['ref_id'];?></a>
-				<div class="desc"><?php echo $var['ref_description'];?>
-					<span>Last updated <?php echo $var['ref_create_time'];?></span>
-					<span>by <?php echo $var['ref_user_name'];?></span>
+				<a href="#" class="name"><?php echo $var['name'];?></a>
+				<div class="desc">username <?php echo $var['username'];?>
+					<span>, Last visit <?php echo $var['visit_time'];?></span>
 				</div>
 			</div>
 

@@ -71,7 +71,7 @@ $currentPage = 'profile';
 		<div class="items" id="btnChangePassword">Change Password</div>
 	</div>
 	<div class="group">
-		<a href="logout.php" class="items">Logout</a>
+		<a href="logout.php" class="items btn-logout">Logout</a>
 	</div>
 </div>
 

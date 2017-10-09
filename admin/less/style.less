@@ -357,20 +357,32 @@
 		float: left;
 		display: inline-block;
 		padding-bottom: 20px;
-		margin-top: 20px;
-		border-bottom: 1px solid #DDDDDD;
+		margin-top: 10px;
 
 		&:first-child{
 			margin-top: 30px;
 		}
 
 		.items{
-			width: 100%;
-			padding: 5% 0%;
+			width: 80%;
+			padding: 5% 10%;
 			float: left;
 			display: inline-block;
 			line-height: 1em;
 			font-size: 0.9em;
+			text-decoration: none;
+
+			&.btn-logout{
+				color: #F44336;
+				&:hover{
+					background: #FFEBEE;
+				}
+			}
+
+			&:hover{
+				cursor: pointer;
+				background: #DDDDDD;
+			}
 		}
 
 		.btn{
