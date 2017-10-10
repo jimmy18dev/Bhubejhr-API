@@ -47,11 +47,13 @@ $currentPage = 'reference';
 		<?php foreach ($references as $var) {?>
 		<div class="ref-items" id="reference<?php echo $var['ref_id'];?>" data-id="<?php echo $var['ref_id'];?>">
 			<div class="detail">
-				<a href="app-detail.php?id=<?php echo $var['ref_id'];?>" class="name"><span class="method"><?php echo $var['ref_method'];?></span><span class="method"><?php echo $var['ref_category_name']?></span><?php echo $var['ref_name'];?> #<?php echo $var['ref_id'];?></a>
-				<div class="desc"><?php echo $var['ref_description'];?>
-					<span>Last updated <?php echo $var['ref_create_time'];?></span>
-					<span>by <?php echo $var['ref_user_name'];?></span>
+				<a href="app-detail.php?id=<?php echo $var['ref_id'];?>" class="name"><span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span><?php echo $var['ref_name'];?> #<?php echo $var['ref_id'];?></a>
+				<div class="info">
+					<span><?php echo $var['ref_category_name']?></span>
+					<span><?php echo $var['ref_create_time'];?></span>
+					<span><?php echo $var['ref_user_name'];?></span>
 				</div>
+				<div class="desc"><?php echo $var['ref_description'];?></div>
 			</div>
 
 			<div class="btn-edit-reference"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
@@ -64,9 +66,12 @@ $currentPage = 'reference';
 </div>
 
 <div class="ref-navigation">
+	<?php if($user->permission == 'admin'){?>
 	<div class="group">
 		<div id="btnCreateReference" class="btn">New Reference</div>
 	</div>
+	<?php }?>
+
 	<div class="group">
 		<a href="reference.php?" class="items <?php echo (empty($category_id)?'-active':'');?>">ดูทั้งหมด</a>
 		<?php foreach ($category as $var) {?>

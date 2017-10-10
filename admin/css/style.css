@@ -644,27 +644,42 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: bold;
   text-decoration: none;
   color: #333333;
   margin-bottom: 1%;
 }
-.container .references .ref-items .detail a.name:hover {
-  text-decoration: underline;
-}
 .container .references .ref-items .detail a.name .method {
   float: left;
   display: inline-block;
-  background: #304ffe;
-  color: #FFFFFF;
-  margin-right: 5px;
-  font-size: 0.7em;
-  padding: 3px 6px;
-  font-weight: normal;
-  line-height: 1.1em;
+  margin-right: 10px;
+  padding: 0px 5px;
   border-radius: 3px;
-  margin-top: 1px;
+  color: #FFFFFF;
+  font-size: 0.5em;
+}
+.container .references .ref-items .detail a.name .method.get {
+  background: #304ffe;
+}
+.container .references .ref-items .detail a.name .method.post {
+  background: #FF5722;
+}
+.container .references .ref-items .detail .info {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .references .ref-items .detail .info span {
+  float: left;
+  display: inline-block;
+  font-size: 0.7em;
+  background: #FAFAFA;
+  color: #304ffe;
+  line-height: 1em;
+  margin-right: 5px;
+  padding: 5px;
+  border-radius: 3px;
 }
 .container .references .ref-items .detail .desc {
   width: 100%;
@@ -672,6 +687,7 @@ body {
   display: inline-block;
   font-size: 0.9em;
   color: #666666;
+  margin-top: 2%;
 }
 .container .list {
   width: 70%;

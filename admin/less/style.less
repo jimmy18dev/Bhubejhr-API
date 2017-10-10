@@ -529,26 +529,44 @@
 					width: 100%;
 					float: left;
 					display: inline-block;
-					font-size: 1em;
+					font-size: 1.2em;
 					font-weight: bold;
 					text-decoration: none;
 					color: #333333;
 					margin-bottom: 1%;
 
-					&:hover{ text-decoration: underline; }
-
 					.method{
 						float: left;
 						display: inline-block;
-						background: @primary_color;
-						color: #FFFFFF;
-						margin-right: 5px;
-						font-size: 0.7em;
-						padding: 3px 6px;
-						font-weight: normal;
-						line-height: 1.1em;
+						margin-right: 10px;
+						padding: 0px 5px;
 						border-radius: 3px;
-						margin-top: 1px;
+						color: #FFFFFF;
+						font-size: 0.5em;
+
+						&.get{
+							background: @primary_color;
+						}
+						&.post{
+							background: #FF5722;
+						}
+					}
+				}
+				.info{
+					width: 100%;
+					float: left;
+					display: inline-block;
+
+					span{
+						float: left;
+						display: inline-block;
+						font-size: 0.7em;
+						background: #FAFAFA;
+						color: @primary_color;
+						line-height: 1em;
+						margin-right: 5px;
+						padding: 5px;
+						border-radius: 3px;
 					}
 				}
 				.desc{
@@ -557,6 +575,7 @@
 					display: inline-block;
 					font-size: 0.9em;
 					color: #666666;
+					margin-top: 2%;
 				}
 			}
 		}
