@@ -6,7 +6,7 @@ header("Content-type: text/json");
 $headers = getallheaders();
 $returnObject = array(
 	"apiSite" 		=> API_SITE,
-	"apiName" 		=> 'Hospital Services api service',
+	"apiName" 		=> 'Diag api service',
 	"apiVersion"  	=> API_VERSION,
 	"sourceVersion" => SOURCE_VERSION,
 );
@@ -16,6 +16,7 @@ switch ($_SERVER['REQUEST_METHOD']){
 		$app_id = $app->authentication($_GET['token']);
 		switch ($_GET['request']){
 			case 'example':
+				$request_id = '1';
 				$returnObject['message'] = 'Example API';
 				break;
 			default:

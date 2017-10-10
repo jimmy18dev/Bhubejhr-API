@@ -6,7 +6,7 @@ header("Content-type: text/json");
 $headers = getallheaders();
 $returnObject = array(
 	"apiSite" 		=> API_SITE,
-	"apiName" 		=> 'Hospital Services api service',
+	"apiName" 		=> 'User api service',
 	"apiVersion"  	=> API_VERSION,
 	"sourceVersion" => SOURCE_VERSION,
 );

@@ -7,18 +7,16 @@ define('StTime', microtime(true));
 date_default_timezone_set('Asia/Bangkok');
 error_reporting(E_ALL ^ E_NOTICE);
 
-define("VERSION" 	,'1.0');
+define("API_VERSION" 	,'1.0.1');
+define("SOURCE_VERSION" ,'1.0.1');
+define("API_SITE" 		,'Bhubejhr API');
 
 include_once'config/config.php';
-include_once'class/database.class.php';
-include_once'class/queries.class.php';
+include_once'class/database/database.class.php';
 include_once'class/app.class.php';
-include_once'class/user.class.php';
-include_once'class/patient.class.php';
-include_once'class/visit.class.php';
-include_once'class/analytics.class.php';
 include_once'class/log.class.php';
-include_once'class/api.class.php';
 
-$wpdb = new Database; // DATABASE CONNECT...
+$wpdb 	= new Database;
+$app 	= new App;
+$log 	= new Log;
 ?>
