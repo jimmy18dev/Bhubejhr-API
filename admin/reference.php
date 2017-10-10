@@ -77,12 +77,15 @@ $currentPage = 'reference';
 
 <div class="dialog" id="createReferenceDialog">
 	<div class="head">
-		<div class="text">Create new Reference</div>
+		<div class="icon"><i class="fa fa-file-text" aria-hidden="true"></i></div>
+		<div class="text">Create API Reference</div>
 		<div class="btn" id="btnCloseCreateReference"><i class="fa fa-close" aria-hidden="true"></i></div>
 	</div>
 	<div class="input">
-		<input type="text" id="reference_name" class="inputtext" placeholder="Reference name...">
-		<textarea class="textarea" id="reference_description" placeholder="Description..."></textarea>
+		<label for="reference_name">Name</label>
+		<input type="text" id="reference_name" class="inputtext">
+		<label for="reference_description">Description</label>
+		<textarea class="textarea" id="reference_description"></textarea>
 		<div class="selection" id="referenceMethod">
 			<div class="caption">Method:</div>
 			<div class="items method-items" id="method-items-get" data-method="get">GET</div>

@@ -124,14 +124,14 @@
 
 .dialog{
 	position: fixed;
-	top: 10%;
+	top: 5%;
 	left: 0px;
-	width: 40%;
-	margin: 0% 30%;
+	width: 34%;
+	margin: 0% 33%;
 	float: left;
 	display: inline-block;
 	background: #FFFFFF;
-	border-radius: 3px;
+	border-radius: 2px;
 	overflow: hidden;
 	box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
 	z-index: 99;
@@ -141,21 +141,38 @@
 		width: 100%;
 		float: left;
 		display: inline-block;
-		background: @primary_color;
-		font-size: 0.9em;
+		font-size: 1em;
+
+		.icon{
+			float: left;
+			display: inline-block;
+			padding: 3%;
+			color: @primary_color;
+			font-size: 2em;
+			line-height: 1em;
+		}
 
 		.text{
 			float: left;
 			display: inline-block;
-			padding: 3%;
-			color: #FFFFFF;
+			color: @primary_color;
+			margin-top: 4%;
+			font-weight: bold;
+
+			i{
+				float: left;
+				display: inline-block;
+				font-size: 2em;
+				margin-right: 15px;
+			}
 		}
 
 		.btn{
 			float: right;
 			display: inline-block;
 			padding: 3% 4%;
-			color: #FFFFFF;
+			color: #BBBBBB;
+			font-size: 1.2em;
 
 			&:hover{ cursor: pointer; }
 		}
@@ -248,8 +265,8 @@
 		.btn{
 			float: right;
 			display: inline-block;
-			font-size: 0.9em;
-			padding: 1.5% 4%;
+			font-size: 1em;
+			padding: 1.5% 5%;
 			font-weight: bold;
 			color: #666666;
 			border-radius: 3px;
@@ -419,6 +436,66 @@
 		display: inline-block;
 		background: #FFFFFF;
 		box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+
+		.account-items{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			color: #333333;
+			position: relative;
+			border-bottom: 1px solid #EEEEEE;
+			position: relative;
+
+			.icon{
+				width: 10%;
+				padding: 1.5% 0%;
+				float: left;
+				display: inline-block;
+				text-align: center;
+				font-size: 2.2em;
+				color: #333333;
+			}
+			.detail{
+				width: 90%;
+				padding: 2% 0%;
+				float: left;
+				display: inline-block;
+				line-height: 1.5em;
+
+				.title{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					font-size: 1.2em;
+					text-decoration: none;
+					color: #333333;
+					font-weight: bold;
+				}
+				.desc{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					font-size: 0.8em;
+					color: #999999;
+				}
+			}
+			.btn-edit{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				float: right;
+				padding: 15px;
+				display: inline-block;
+				line-height: 1em;
+				font-size: 0.9em;
+				color: #CCCCCC;
+
+				&:hover{
+					cursor: pointer;
+					color: #333333;
+				}
+			}
+		}
 
 		.ref-items{
 			width: 100%;

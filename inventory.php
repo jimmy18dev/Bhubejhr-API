@@ -9,11 +9,11 @@ $returnObject = array(
 	"apiName" 		=> 'Inventory api service',
 	"apiVersion"  	=> API_VERSION,
 	"sourceVersion" => SOURCE_VERSION,
-	"executeTime"   => floatval(round(microtime(true)-StTime,4)),
 );
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
+		$app_id = $app->authentication($_GET['token']);
 		switch ($_GET['request']){
 			case 'example':
 				$returnObject['message'] = 'Example API';
@@ -24,6 +24,7 @@ switch ($_SERVER['REQUEST_METHOD']){
 		}
     	break;
     case 'POST':
+    	$app_id = $app->authentication($_POST['token']);
     	switch ($_POST['request']){
 			case 'example':
 				$returnObject['message'] = 'Example API';
@@ -36,6 +37,14 @@ switch ($_SERVER['REQUEST_METHOD']){
     default:
     	$returnObject['message'] = 'METHOD API Not found!';
     	break;
+}
+
+$executeTime = floatval(round(microtime(true)-StTime,4));
+$returnObject['executeTime'] = $executeTime;
+
+if(!empty($app_id) && !empty($request_id)){
+	$lod_id = $log->save($app_id,$request_id,$executeTime);
+	$returnObject['log_id'] = floatval($lod_id);
 }
 
 echo json_encode($returnObject);

@@ -60,12 +60,15 @@ $currentPage = 'apps';
 
 <div class="dialog" id="createAppDialog">
 	<div class="head">
+		<div class="icon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
 		<div class="text">Create new App</div>
 		<div class="btn" id="btnCloseCreateApp"><i class="fa fa-times" aria-hidden="true"></i></div>
 	</div>
 	<div class="input">
-		<input type="text" id="app_name" class="inputtext" placeholder="App name...">
-		<textarea class="textarea" id="app_description" placeholder="Description..."></textarea>
+		<label for="app_name">App Name</label>
+		<input type="text" id="app_name" class="inputtext">
+		<label for="app_description">App Description</label>
+		<textarea class="textarea" id="app_description"></textarea>
 		<input type="hidden" id="app_id">
 	</div>
 	<div class="control">

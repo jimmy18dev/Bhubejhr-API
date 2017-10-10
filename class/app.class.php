@@ -19,5 +19,11 @@ class App{
 
 		return $dataset['id'];
 	}
+	private function tokenValid($token){
+		if(substr($token,11,1) == 'd')
+			return true;
+		else
+			return false;
+	}
 }
 ?>

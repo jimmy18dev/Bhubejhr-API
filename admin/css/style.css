@@ -275,14 +275,14 @@ body {
 }
 .dialog {
   position: fixed;
-  top: 10%;
+  top: 5%;
   left: 0px;
-  width: 40%;
-  margin: 0% 30%;
+  width: 34%;
+  margin: 0% 33%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  border-radius: 3px;
+  border-radius: 2px;
   overflow: hidden;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
   z-index: 99;
@@ -292,20 +292,35 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  background: #304ffe;
-  font-size: 0.9em;
+  font-size: 1em;
+}
+.dialog .head .icon {
+  float: left;
+  display: inline-block;
+  padding: 3%;
+  color: #304ffe;
+  font-size: 2em;
+  line-height: 1em;
 }
 .dialog .head .text {
   float: left;
   display: inline-block;
-  padding: 3%;
-  color: #FFFFFF;
+  color: #304ffe;
+  margin-top: 4%;
+  font-weight: bold;
+}
+.dialog .head .text i {
+  float: left;
+  display: inline-block;
+  font-size: 2em;
+  margin-right: 15px;
 }
 .dialog .head .btn {
   float: right;
   display: inline-block;
   padding: 3% 4%;
-  color: #FFFFFF;
+  color: #BBBBBB;
+  font-size: 1.2em;
 }
 .dialog .head .btn:hover {
   cursor: pointer;
@@ -391,8 +406,8 @@ body {
 .dialog .control .btn {
   float: right;
   display: inline-block;
-  font-size: 0.9em;
-  padding: 1.5% 4%;
+  font-size: 1em;
+  padding: 1.5% 5%;
   font-weight: bold;
   color: #666666;
   border-radius: 3px;
@@ -541,6 +556,61 @@ body {
   display: inline-block;
   background: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.container .references .account-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  color: #333333;
+  border-bottom: 1px solid #EEEEEE;
+  position: relative;
+}
+.container .references .account-items .icon {
+  width: 10%;
+  padding: 1.5% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 2.2em;
+  color: #333333;
+}
+.container .references .account-items .detail {
+  width: 90%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  line-height: 1.5em;
+}
+.container .references .account-items .detail .title {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+}
+.container .references .account-items .detail .desc {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  color: #999999;
+}
+.container .references .account-items .btn-edit {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  float: right;
+  padding: 15px;
+  display: inline-block;
+  line-height: 1em;
+  font-size: 0.9em;
+  color: #CCCCCC;
+}
+.container .references .account-items .btn-edit:hover {
+  cursor: pointer;
+  color: #333333;
 }
 .container .references .ref-items {
   width: 100%;

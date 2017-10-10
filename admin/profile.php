@@ -75,12 +75,15 @@ $currentPage = 'profile';
 
 <div class="dialog" id="editProfileDialog">
 	<div class="head">
+		<div class="icon"><i class="fa fa-address-book" aria-hidden="true"></i></div>
 		<div class="text">Edit Profile</div>
 		<div class="btn" id="btnCloseEditProfile"><i class="fa fa-times" aria-hidden="true"></i></div>
 	</div>
 	<div class="input">
-		<input type="text" id="username" class="inputtext" placeholder="Username" value="<?php echo $user->username;?>">
-		<input type="text" id="displayname" class="inputtext" placeholder="Display name" value="<?php echo $user->name;?>">
+		<label for="username">Username</label>
+		<input type="text" id="username" class="inputtext" value="<?php echo $user->username;?>">
+		<label for="displayname">Name Display</label>
+		<input type="text" id="displayname" class="inputtext" value="<?php echo $user->name;?>">
 	</div>
 	<div class="control">
 		<div class="btn btn-submit" id="btnSubmiteditProfile">Update Profile</div>
@@ -90,13 +93,17 @@ $currentPage = 'profile';
 
 <div class="dialog" id="changePasswordDialog">
 	<div class="head">
+		<div class="icon"><i class="fa fa-lock" aria-hidden="true"></i></div>
 		<div class="text">Change Password</div>
 		<div class="btn" id="btnCloseChangePassword"><i class="fa fa-times" aria-hidden="true"></i></div>
 	</div>
 	<div class="input">
-		<input type="password" id="oldpassword" class="inputtext" placeholder="Old Password">
-		<input type="password" id="newpassword" class="inputtext" placeholder="New Password">
-		<input type="password" id="renewpassword" class="inputtext" placeholder="Renew Password">
+		<label for="oldpassword">Current Password</label>
+		<input type="password" id="oldpassword" class="inputtext">
+		<label for="newpassword">New Password</label>
+		<input type="password" id="newpassword" class="inputtext">
+		<label for="renewpassword">New Password Again!</label>
+		<input type="password" id="renewpassword" class="inputtext">
 	</div>
 	<div class="control">
 		<div class="btn btn-submit" id="btnSubmitChangePassword">Change Password</div>

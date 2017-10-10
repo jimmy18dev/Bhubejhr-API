@@ -40,13 +40,14 @@ $currentPage = 'account';
 <div class="container">
 	<div class="references" id="reference">
 		<?php foreach ($accounts as $var) {?>
-		<div class="ref-items" id="reference<?php echo $var['ref_id'];?>" data-id="<?php echo $var['ref_id'];?>">
+		<div class="account-items" id="account<?php echo $var['ref_id'];?>">
+			<div class="icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
 			<div class="detail">
-				<a href="#" class="name"><?php echo $var['name'];?></a>
+				<a href="#" class="title"><?php echo $var['name'];?></a>
 				<div class="desc"><?php echo $var['username'];?></div>
 			</div>
 
-			<div class="btn-edit-reference"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+			<div class="btn-edit"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
 		</div>
 		<?php }?>
 	</div>
@@ -60,6 +61,7 @@ $currentPage = 'account';
 
 <div class="dialog" id="createAccountDialog">
 	<div class="head">
+		<div class="icon"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
 		<div class="text">Create New Account</div>
 		<div class="btn" id="btnCloseCreateAccount"><i class="fa fa-close" aria-hidden="true"></i></div>
 	</div>
