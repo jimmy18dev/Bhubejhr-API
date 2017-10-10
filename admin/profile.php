@@ -63,12 +63,13 @@ $currentPage = 'profile';
 	</div>
 </div>
 
-<div class="ref-navigation">
+<div class="navigation">
 	<div class="group">
-		<div class="items" id="btnEditProfile">Edit Profile</div>
-		<div class="items" id="btnChangePassword">Change Password</div>
+		<div class="btn" id="btnEditProfile">Edit Profile</div>
 	</div>
+	<div class="note">Last visit <?php echo $user->visit_time;?> and You can manage profile infomation click <strong>Edit Profile</strong> button.</div>
 	<div class="group">
+		<div class="items" id="btnChangePassword">Change Password</div>
 		<a href="logout.php" class="items btn-logout">Logout</a>
 	</div>
 </div>

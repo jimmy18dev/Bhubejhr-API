@@ -46,17 +46,19 @@ $currentPage = 'reference';
 	<div class="references" id="reference">
 		<?php foreach ($references as $var) {?>
 		<div class="ref-items" id="reference<?php echo $var['ref_id'];?>" data-id="<?php echo $var['ref_id'];?>">
+			<div class="method"><span class="<?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span></div>
 			<div class="detail">
-				<a href="app-detail.php?id=<?php echo $var['ref_id'];?>" class="name"><span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span><?php echo $var['ref_name'];?> #<?php echo $var['ref_id'];?></a>
+				<a href="app-detail.php?id=<?php echo $var['ref_id'];?>" class="name"><?php echo $var['ref_name'];?> #<?php echo $var['ref_id'];?></a>
 				<div class="info">
-					<span><?php echo $var['ref_category_name']?></span>
+					<span>#<?php echo $var['ref_category_name']?></span>
 					<span><?php echo $var['ref_create_time'];?></span>
-					<span><?php echo $var['ref_user_name'];?></span>
 				</div>
 				<div class="desc"><?php echo $var['ref_description'];?></div>
 			</div>
 
-			<div class="btn-edit-reference"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+			<?php if($user->permission == 'admin'){?>
+			<div class="btn-edit"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+			<?php }?>
 		</div>
 		<?php }?>
 	</div>
@@ -65,15 +67,17 @@ $currentPage = 'reference';
 	<?php }?>
 </div>
 
-<div class="ref-navigation">
+<div class="navigation">
 	<?php if($user->permission == 'admin'){?>
 	<div class="group">
 		<div id="btnCreateReference" class="btn">New Reference</div>
 	</div>
 	<?php }?>
 
+	<div class="note">Get the full details of all the nodes, edges, and fields in the latest version of the Bhubejhr API.</div>
+
 	<div class="group">
-		<a href="reference.php?" class="items <?php echo (empty($category_id)?'-active':'');?>">ดูทั้งหมด</a>
+		<a href="reference.php?" class="items <?php echo (empty($category_id)?'-active':'');?>">All References</a>
 		<?php foreach ($category as $var) {?>
 		<a href="reference.php?category=<?php echo $var['id'];?>" class="items <?php echo ($category_id == $var['id']?'-active':'');?>"><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
 		<?php }?>

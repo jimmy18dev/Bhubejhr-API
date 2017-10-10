@@ -53,10 +53,11 @@ $currentPage = 'account';
 	</div>
 </div>
 
-<div class="ref-navigation">
+<div class="navigation">
 	<div class="group">
 		<div id="btnCreateAccount" class="btn">Create Account</div>
 	</div>
+	<div class="note">You can create child account for using Bhubejhr API, A child account can create app id on limit.</div>
 </div>
 
 <div class="dialog" id="createAccountDialog">

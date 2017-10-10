@@ -10,7 +10,13 @@ $app 		= new app;
 $reference 	= new Reference;
 $signature 	= new Signature;
 
-$apps = $app->listAll();
+$apps = $app->listAll($user->id);
+
+if($user->permission == 'admin'){
+	$app_limit = 100;
+}else{
+	$app_limit = 5;
+}
 
 $currentPage = 'apps';
 ?>
@@ -41,16 +47,13 @@ $currentPage = 'apps';
 
 <div class="container">
 	<div class="list" id="apps">
-		<div class="app-items btn-new-app" id="btnCreateApp">
-			<i class="fa fa-plus-circle" aria-hidden="true"></i>Create New App
-		</div>
 		<?php foreach ($apps as $var) {?>
 		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
+			<div class="icon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
 			<div class="detail">
 				<a href="app-detail.php?id=<?php echo $var['app_id'];?>" class="name"><?php echo $var['app_name'];?></a>
-				<input type="text" class="token" value="<?php echo $var['app_key'];?>">
 				<div class="info"><?php echo $var['app_description'];?></div>
-				
+				<input type="text" class="token" value="<?php echo $var['app_key'];?>">
 			</div>
 			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
 		</div>
@@ -58,22 +61,29 @@ $currentPage = 'apps';
 	</div>
 </div>
 
+<div class="navigation">
+	<div class="group">
+		<div id="btnCreateApp" class="btn">Add a New App</div>
+	</div>
+	<div class="note">Get started integrating Bhubejhr API into your app or website and Limit <?php echo count($apps);?>/<?php echo $app_limit;?> apps</div>
+</div>
+
 <div class="dialog" id="createAppDialog">
 	<div class="head">
 		<div class="icon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
-		<div class="text">Create new App</div>
+		<div class="text">Create a New App ID</div>
 		<div class="btn" id="btnCloseCreateApp"><i class="fa fa-times" aria-hidden="true"></i></div>
 	</div>
 	<div class="input">
 		<label for="app_name">App Name</label>
-		<input type="text" id="app_name" class="inputtext">
+		<input type="text" id="app_name" class="inputtext" placeholder="The name of your App ID">
 		<label for="app_description">App Description</label>
 		<textarea class="textarea" id="app_description"></textarea>
 		<input type="hidden" id="app_id">
 	</div>
 	<div class="control">
 		<div class="btn btn-delete" id="btnDeleteApp">Delete</div>
-		<div class="btn btn-submit" id="btnSubmitCreateApp">Save</div>
+		<div class="btn btn-submit" id="btnSubmitCreateApp">Create App ID</div>
 	</div>
 </div>
 <div class="filter" id="createDialogFilter"></div>

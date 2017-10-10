@@ -56,7 +56,7 @@ $(document).ready(function(){
 		$('#reference_category').val(category);
 	});
 
-	$('#reference').on('click','.btn-edit-reference',function(e){
+	$('#reference').on('click','.btn-edit',function(e){
 
 		var reference_id = $(this).parent().attr('data-id');
 

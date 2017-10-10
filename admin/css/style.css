@@ -221,15 +221,20 @@ body {
 .header a.nav {
   float: left;
   display: inline-block;
-  padding: 18px 1%;
-  height: 14px;
+  padding: 18px 0%;
+  margin-right: 2%;
+  height: 12px;
   color: #333333;
   text-decoration: none;
   font-size: 0.9em;
   line-height: 1em;
+  border-bottom: 2px solid transparent;
 }
-.header a.nav.btn-profile {
+.header a.nav.right {
   float: right;
+}
+.header a.nav i {
+  margin-right: 7px;
 }
 .header a.nav.btn-api {
   background: #304ffe;
@@ -241,11 +246,9 @@ body {
   font-weight: bold;
   margin-left: 1%;
 }
-.header a.nav.btn-api i {
-  margin-left: 10px;
-}
 .header a.nav.-active {
   color: #304ffe;
+  border-bottom: 2px solid #304ffe;
   font-weight: bold;
 }
 .header a.btn-back {
@@ -382,6 +385,7 @@ body {
   display: inline-block;
   padding: 5px 10px;
   margin-right: 5px;
+  margin-top: 5px;
   line-height: 1em;
   border-radius: 2px;
   border: 1px solid #999999;
@@ -436,7 +440,7 @@ body {
   z-index: 70;
   display: none;
 }
-.ref-navigation {
+.navigation {
   position: fixed;
   top: 50px;
   right: 15%;
@@ -444,41 +448,41 @@ body {
   float: left;
   display: inline-block;
 }
-.ref-navigation .group {
+.navigation .group {
   width: 100%;
   float: left;
   display: inline-block;
   padding-bottom: 20px;
   margin-top: 10px;
 }
-.ref-navigation .group:first-child {
+.navigation .group:first-child {
   margin-top: 30px;
 }
-.ref-navigation .group .items {
+.navigation .group .items {
   width: 80%;
   padding: 5% 10%;
   float: left;
   display: inline-block;
   line-height: 1em;
-  font-size: 0.9em;
+  font-size: 1em;
   text-decoration: none;
   color: #333333;
 }
-.ref-navigation .group .items.btn-logout {
+.navigation .group .items.btn-logout {
   color: #F44336;
 }
-.ref-navigation .group .items.btn-logout:hover {
+.navigation .group .items.btn-logout:hover {
   background: #FFEBEE;
 }
-.ref-navigation .group .items.-active {
+.navigation .group .items.-active {
   color: #000000;
   font-weight: bold;
 }
-.ref-navigation .group .items:hover {
+.navigation .group .items:hover {
   cursor: pointer;
   background: #DDDDDD;
 }
-.ref-navigation .group .btn {
+.navigation .group .btn {
   width: 100%;
   padding: 3% 0%;
   float: left;
@@ -490,8 +494,18 @@ body {
   font-weight: bold;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
 }
-.ref-navigation .group .btn:hover {
+.navigation .group .btn:hover {
   cursor: pointer;
+}
+.navigation .group .btn i {
+  margin-right: 10px;
+}
+.navigation .note {
+  width: 90%;
+  float: left;
+  display: inline-block;
+  padding: 5%;
+  font-size: 0.8em;
 }
 .container {
   width: 100%;
@@ -507,6 +521,87 @@ body {
   text-align: center;
   color: #999999;
   font-style: italic;
+}
+.container .list {
+  width: 50%;
+  margin: 0% 15%;
+  margin-top: 30px;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.container .list .app-items {
+  width: 100%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EEEEEE;
+  position: relative;
+}
+.container .list .app-items:last-child {
+  border-bottom: 0px;
+}
+.container .list .app-items .icon {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 2em;
+  color: #333333;
+}
+.container .list .app-items .detail {
+  width: 85%;
+  margin-right: 5%;
+  float: left;
+  display: inline-block;
+}
+.container .list .app-items .detail a.name {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333333;
+}
+.container .list .app-items .detail a.name:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.container .list .app-items .detail .info {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  margin-bottom: 1%;
+  color: #333333;
+}
+.container .list .app-items .detail .token {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 0.75em;
+  color: #304ffe;
+}
+.container .list .app-items .btn-edit-app {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  float: right;
+  display: inline-block;
+  font-size: 0.9em;
+  padding: 15px;
+  line-height: 1em;
+  color: #CCCCCC;
+}
+.container .list .app-items .btn-edit-app:hover {
+  color: #304ffe;
+  cursor: pointer;
 }
 .container .content {
   width: 50%;
@@ -620,22 +715,42 @@ body {
   position: relative;
   border-bottom: 1px solid #EEEEEE;
 }
-.container .references .ref-items .btn-edit-app,
-.container .references .ref-items .btn-edit-reference {
+.container .references .ref-items .btn-edit {
   position: absolute;
   top: 0px;
   right: 0px;
-  color: #CCCCCC;
+  color: #000000;
   padding: 15px 20px;
 }
-.container .references .ref-items .btn-edit-app:hover,
-.container .references .ref-items .btn-edit-reference:hover {
+.container .references .ref-items .btn-edit:hover {
   color: #333333;
   cursor: pointer;
 }
+.container .references .ref-items .method {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  padding: 2.5% 0%;
+}
+.container .references .ref-items .method span {
+  background: #EEEEEE;
+  font-size: 0.7em;
+  padding: 5px;
+  line-height: 1em;
+  border-radius: 2px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+.container .references .ref-items .method span.get {
+  background: #304ffe;
+}
+.container .references .ref-items .method span.post {
+  background: #FF5722;
+}
 .container .references .ref-items .detail {
-  width: 96%;
-  padding: 2%;
+  width: 90%;
+  padding: 2% 0%;
   float: left;
   display: inline-block;
   line-height: 1.4em;
@@ -650,21 +765,6 @@ body {
   color: #333333;
   margin-bottom: 1%;
 }
-.container .references .ref-items .detail a.name .method {
-  float: left;
-  display: inline-block;
-  margin-right: 10px;
-  padding: 0px 5px;
-  border-radius: 3px;
-  color: #FFFFFF;
-  font-size: 0.5em;
-}
-.container .references .ref-items .detail a.name .method.get {
-  background: #304ffe;
-}
-.container .references .ref-items .detail a.name .method.post {
-  background: #FF5722;
-}
 .container .references .ref-items .detail .info {
   width: 100%;
   float: left;
@@ -674,12 +774,9 @@ body {
   float: left;
   display: inline-block;
   font-size: 0.7em;
-  background: #FAFAFA;
   color: #304ffe;
   line-height: 1em;
   margin-right: 5px;
-  padding: 5px;
-  border-radius: 3px;
 }
 .container .references .ref-items .detail .desc {
   width: 100%;
@@ -688,127 +785,6 @@ body {
   font-size: 0.9em;
   color: #666666;
   margin-top: 2%;
-}
-.container .list {
-  width: 70%;
-  margin: 2% 15%;
-  float: left;
-  display: inline-block;
-}
-.container .list .head {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 2%;
-}
-.container .list .head .btn {
-  float: right;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 0.9em;
-  line-height: 1em;
-  padding: 1%;
-  border-radius: 3px;
-  color: #FFFFFF;
-  background: #304ffe;
-  text-align: center;
-}
-.container .list .head .btn:hover {
-  cursor: pointer;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-}
-.container .list .app-items {
-  width: 28%;
-  padding: 2%;
-  margin-top: 2%;
-  margin-right: 2%;
-  height: 100px;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  border-radius: 3px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-.container .list .app-items:nth-child(3n+0) {
-  margin-right: 0%;
-}
-.container .list .app-items.btn-new-app {
-  text-align: center;
-  background: #304ffe;
-  color: #FFFFFF;
-  font-weight: bold;
-}
-.container .list .app-items.btn-new-app i {
-  font-size: 2.4em;
-  display: block;
-  margin: 3% 0%;
-  margin-top: 6%;
-}
-.container .list .app-items.btn-new-app:hover {
-  cursor: pointer;
-}
-.container .list .app-items .btn-edit-app,
-.container .list .app-items .btn-edit-reference {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  color: #AAAAAA;
-  padding: 10px 15px;
-}
-.container .list .app-items .btn-edit-app:hover,
-.container .list .app-items .btn-edit-reference:hover {
-  cursor: pointer;
-}
-.container .list .app-items .detail {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  line-height: 1.4em;
-}
-.container .list .app-items .detail a.name {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.4em;
-  font-weight: bold;
-  text-decoration: none;
-  color: #000000;
-  margin-bottom: 3%;
-}
-.container .list .app-items .detail a.name:hover {
-  text-decoration: underline;
-}
-.container .list .app-items .detail .info {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.85em;
-  line-height: 1.3em;
-  margin-top: 3%;
-  color: #333333;
-}
-.container .list .app-items .detail .token {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.75em;
-  border: 0px;
-  background: transparent;
-  font-weight: normal;
-  color: #304ffe;
-  font-style: italic;
-}
-.container .list .app-items .stat {
-  width: 13%;
-  padding: 2% 1%;
-  float: right;
-  display: inline-block;
-  text-align: center;
-  line-height: 1.43em;
-  font-size: 2em;
-  font-weight: bold;
-  color: #CCCCCC;
 }
 .container .form {
   width: 70%;

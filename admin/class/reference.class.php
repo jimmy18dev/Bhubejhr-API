@@ -58,7 +58,7 @@ class Reference{
     }
 
     public function listAll($category_id){
-        $select = 'SELECT ref.id ref_id,ref.method ref_method,ref.user_id ref_user_id,user.username ref_user_name,ref.category_id ref_category_id,category.name ref_category_name,ref.name ref_name,ref.description ref_description,ref.example ref_example,ref.create_time ref_create_time,ref.update_time ref_update_time,ref.ip ref_ip,ref.type ref_type,ref.status ref_status FROM api_reference AS ref LEFT JOIN api_category AS category ON ref.category_id = category.id LEFT JOIN api_user AS user ON ref.user_id = user.id ';
+        $select = 'SELECT ref.id ref_id,ref.method ref_method,ref.user_id ref_user_id,user.name ref_user_name,ref.category_id ref_category_id,category.name ref_category_name,ref.name ref_name,ref.description ref_description,ref.example ref_example,ref.create_time ref_create_time,ref.update_time ref_update_time,ref.ip ref_ip,ref.type ref_type,ref.status ref_status FROM api_reference AS ref LEFT JOIN api_category AS category ON ref.category_id = category.id LEFT JOIN api_user AS user ON ref.user_id = user.id ';
         $where = 'WHERE 1=1 ';
         if(!empty($category_id)){
             $where_category = ' AND category_id = :category_id ';
