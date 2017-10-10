@@ -70,7 +70,7 @@ $currentPage = 'reference';
 	<div class="group">
 		<a href="reference.php?" class="items <?php echo (empty($category_id)?'-active':'');?>">ดูทั้งหมด</a>
 		<?php foreach ($category as $var) {?>
-		<a href="reference.php?category=<?php echo $var['id'];?>" class="items <?php echo ($category_id == $var['id']?'-active':'');?>"><?php echo $var['name'];?></a>
+		<a href="reference.php?category=<?php echo $var['id'];?>" class="items <?php echo ($category_id == $var['id']?'-active':'');?>"><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
 		<?php }?>
 	</div>
 </div>

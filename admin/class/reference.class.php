@@ -79,7 +79,7 @@ class Reference{
     }
 
     public function listCategory(){
-        $this->db->query('SELECT * FROM api_category ORDER BY id');
+        $this->db->query('SELECT category.id,category.name,category.description,category.status,(SELECT COUNT(id) FROM api_reference WHERE category_id = category.id) total FROM api_category AS category ORDER BY category.id');
         $this->db->execute();
         $dataset = $this->db->resultset();
 
