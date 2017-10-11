@@ -44,21 +44,25 @@ $currentPage = 'profile';
 			<div class="v"><?php echo $user->name;?></div>
 		</div>
 		<div class="profile-items">
-			<div class="c">User ID</div>
-			<div class="v"><?php echo $user->id;?></div>
-		</div>
-		<div class="profile-items">
 			<div class="c">Username</div>
 			<div class="v"><?php echo $user->username;?></div>
 		</div>
 		<div class="profile-items">
-			<div class="c">Registered</div>
-			<div class="v"><?php echo $user->register_time;?></div>
+			<div class="c">User ID</div>
+			<div class="v"><?php echo $user->id;?></div>
 		</div>
 		<div class="profile-items">
-			<div class="c">Parent</div>
-			<div class="v"><?php echo $user->owner_id;?></div>
+			<div class="c">Registered</div>
+			<div class="v"><?php echo $user->register_time;?></div>
 			<div class="m"><?php echo $user->ip;?></div>
+		</div>
+		<div class="profile-items">
+			<div class="c">Status</div>
+			<div class="v"><?php echo $user->status;?></div>
+		</div>
+		<div class="profile-items">
+			<div class="c">Verify by</div>
+			<div class="v"><?php echo $user->owner_id;?></div>
 		</div>
 	</div>
 </div>
@@ -67,7 +71,7 @@ $currentPage = 'profile';
 	<div class="group">
 		<div class="btn" id="btnEditProfile">Edit Profile</div>
 	</div>
-	<div class="note">Last visit <?php echo $user->visit_time;?> and You can manage profile infomation click <strong>Edit Profile</strong> button.</div>
+	<div class="note">Last update <?php echo $user->edit_time;?> and You can manage profile infomation click <strong>Edit Profile</strong> button.</div>
 	<div class="group">
 		<div class="items" id="btnChangePassword">Change Password</div>
 		<a href="logout.php" class="items btn-logout">Logout</a>
@@ -81,10 +85,10 @@ $currentPage = 'profile';
 		<div class="btn" id="btnCloseEditProfile"><i class="fa fa-times" aria-hidden="true"></i></div>
 	</div>
 	<div class="input">
-		<label for="username">Username</label>
-		<input type="text" id="username" class="inputtext" value="<?php echo $user->username;?>">
 		<label for="displayname">Name Display</label>
 		<input type="text" id="displayname" class="inputtext" value="<?php echo $user->name;?>">
+		<label for="username">Username</label>
+		<input type="text" id="username" class="inputtext" value="<?php echo $user->username;?>">
 	</div>
 	<div class="control">
 		<div class="btn btn-submit" id="btnSubmiteditProfile">Update Profile</div>

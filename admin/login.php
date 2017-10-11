@@ -42,5 +42,3 @@ $signature 	= new Signature;
 <script type="text/javascript" src="js/user.js"></script>
 </body>
 </html>
-
-<!-- Hi Jame Welcome to JobHot -->

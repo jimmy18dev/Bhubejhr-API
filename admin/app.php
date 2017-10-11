@@ -62,10 +62,17 @@ $currentPage = 'apps';
 </div>
 
 <div class="navigation">
+	<?php if($user->status == 'active'){?>
 	<div class="group">
 		<div id="btnCreateApp" class="btn">Add a New App</div>
 	</div>
 	<div class="note">Get started integrating Bhubejhr API into your app or website and Limit <?php echo count($apps);?>/<?php echo $app_limit;?> apps</div>
+	<?php }else{?>
+	<div class="group">
+		<div class="btn -disable">Add a New App</div>
+	</div>
+	<div class="note">You can't create new app becaues your account <strong>disable</strong> by system, contact to administrator now!</div>
+	<?php }?>
 </div>
 
 <div class="dialog" id="createAppDialog">

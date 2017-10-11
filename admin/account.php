@@ -8,7 +8,7 @@ if(!$user_online){
 
 $signature 	= new Signature;
 $account = new Account;
-$accounts = $account->listAll($user->id);
+$accounts = $account->listAll();
 $currentPage = 'account';
 
 ?>
@@ -38,16 +38,22 @@ $currentPage = 'account';
 <?php include'header.php';?>
 
 <div class="container">
-	<div class="references" id="reference">
+	<div class="references" id="account">
 		<?php foreach ($accounts as $var) {?>
-		<div class="account-items" id="account<?php echo $var['ref_id'];?>">
+		<div class="account-items" data-account="<?php echo $var['id'];?>">
 			<div class="icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
 			<div class="detail">
 				<a href="#" class="title"><?php echo $var['name'];?></a>
 				<div class="desc"><?php echo $var['username'];?></div>
 			</div>
 
-			<div class="btn-edit"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+			<?php if($user->id != $var['id']){?>
+			<?php if($var['status'] != 'active'){?>
+			<div class="status btn-approve">Approve</div>
+			<?php }else{?>
+			<div class="status btn-disable">Active</div>
+			<?php }?>
+			<?php }?>
 		</div>
 		<?php }?>
 	</div>

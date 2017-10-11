@@ -9,6 +9,7 @@ class User{
     public $ip;
 	public $register_time;
 	public $visit_time;
+    public $edit_time;
 
 	private $password;
 	private $salt;
@@ -20,7 +21,7 @@ class User{
     }
 
     public function getUser($user_id){
-    	$this->db->query('SELECT id,username,name,password,salt,type,permission,status,ip,register_time,visit_time FROM api_user WHERE id = :user_id');
+    	$this->db->query('SELECT id,username,name,password,salt,type,permission,status,ip,register_time,edit_time,visit_time FROM api_user WHERE id = :user_id');
 		$this->db->bind(':user_id',$user_id);
 		$this->db->execute();
 		$dataset = $this->db->single();
@@ -36,6 +37,7 @@ class User{
 		$this->status         = $dataset['status'];
 		$this->register_time  = $dataset['register_time'];
 		$this->visit_time     = $dataset['visit_time'];
+        $this->edit_time     = $dataset['edit_time'];
     }
 
     public function register($name,$username,$password){
@@ -46,7 +48,7 @@ class User{
 
         if($this->already($username,$name)){
 
-            $this->db->query('INSERT INTO api_user(username,name,password,salt,permission,ip,register_time) VALUE(:username,:name,:password,:salt,:permission,:ip,:register_time)');
+            $this->db->query('INSERT INTO api_user(username,name,password,salt,permission,ip,register_time,status) VALUE(:username,:name,:password,:salt,:permission,:ip,:register_time,status)');
             $this->db->bind(':username'     ,$username);
             $this->db->bind(':name'         ,$name);
             $this->db->bind(':password'     ,$password);
@@ -54,6 +56,7 @@ class User{
             $this->db->bind(':permission'   ,'guest');
             $this->db->bind(':ip'           ,$this->db->GetIpAddress());
             $this->db->bind(':register_time',date('Y-m-d H:i:s'));
+            $this->db->bind(':status'        ,'disable');
             $this->db->execute();
 
             $user_id = $this->db->lastInsertId();

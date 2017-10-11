@@ -6,7 +6,7 @@
 
 	<a href="profile.php" class="nav right <?php echo ($currentPage == 'profile'?'-active':'');?>"><i class="fa fa-user" aria-hidden="true"></i><?php echo $user->name;?></a>
 	<a href="app.php" class="nav right <?php echo ($currentPage == 'apps'?'-active':'');?>">My Apps</a>
-	<?php if($user->permission == 'admin' && false){?>
-	<a href="account.php" class="nav right <?php echo ($currentPage == 'account'?'-active':'');?>">Child Account</a>
+	<?php if($user->permission == 'admin'){?>
+	<a href="account.php" class="nav right <?php echo ($currentPage == 'account'?'-active':'');?>">Accounts</a>
 	<?php }?>
 </header>
