@@ -33,7 +33,7 @@ $currentPage = 'reference';
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">
 
 <?php include'favicon.php';?>
-<title>Reference | Bhubejhr API</title>
+<title>Reference | <?php echo SITENAME;?></title>
 
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>

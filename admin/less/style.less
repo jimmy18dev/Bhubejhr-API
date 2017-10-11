@@ -371,11 +371,13 @@
 	}
 
 	.note{
-		width: 90%;
+		width: 100%;
 		float: left;
 		display: inline-block;
-		padding: 5%;
+		padding: 5% 0%;
+		padding-bottom: 10%;
 		font-size: 0.8em;
+		border-bottom: 1px solid #DDDDDD;
 	}
 }
 
@@ -973,14 +975,24 @@
 		color: #FFFFFF;
 		border-radius: 3px;
 		margin-top: 10%;
+		margin-bottom: 3%;
 
-		&:hover{
-			cursor: pointer;
-		}
+		&.-register{ background: #FF5722; }
+		&:hover{ cursor: pointer; }
+		i{ margin-left: 15px; }
+	}
 
-		i{
-			margin-left: 15px;
-		}
+	a.btn-link{
+		width: 100%;
+		padding: 5% 0%;
+		float: left;
+		display: inline-block;
+		font-size: 1em;
+		border: 0px;
+		color: @primary_color;
+		text-align: center;
+		font-size: 0.9em;
+		text-decoration: none;
 	}
 }
 

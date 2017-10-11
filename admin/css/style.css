@@ -501,11 +501,13 @@ body {
   margin-right: 10px;
 }
 .navigation .note {
-  width: 90%;
+  width: 100%;
   float: left;
   display: inline-block;
-  padding: 5%;
+  padding: 5% 0%;
+  padding-bottom: 10%;
   font-size: 0.8em;
+  border-bottom: 1px solid #DDDDDD;
 }
 .container {
   width: 100%;
@@ -1058,12 +1060,28 @@ body {
   color: #FFFFFF;
   border-radius: 3px;
   margin-top: 10%;
+  margin-bottom: 3%;
+}
+.login .btn-submit.-register {
+  background: #FF5722;
 }
 .login .btn-submit:hover {
   cursor: pointer;
 }
 .login .btn-submit i {
   margin-left: 15px;
+}
+.login a.btn-link {
+  width: 100%;
+  padding: 5% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  border: 0px;
+  color: #304ffe;
+  text-align: center;
+  font-size: 0.9em;
+  text-decoration: none;
 }
 .footer {
   width: 100%;

@@ -38,6 +38,46 @@ class User{
 		$this->visit_time     = $dataset['visit_time'];
     }
 
+    public function register($name,$username,$password){
+        // Random password if password is empty value
+        $salt       = hash('sha512',uniqid(mt_rand(1,mt_getrandmax()),true));
+        // Create salted password
+        $password   = hash('sha512',$password.$salt);
+
+        if($this->already($username,$name)){
+
+            $this->db->query('INSERT INTO api_user(username,name,password,salt,permission,ip,register_time) VALUE(:username,:name,:password,:salt,:permission,:ip,:register_time)');
+            $this->db->bind(':username'     ,$username);
+            $this->db->bind(':name'         ,$name);
+            $this->db->bind(':password'     ,$password);
+            $this->db->bind(':salt'         ,$salt);
+            $this->db->bind(':permission'   ,'guest');
+            $this->db->bind(':ip'           ,$this->db->GetIpAddress());
+            $this->db->bind(':register_time',date('Y-m-d H:i:s'));
+            $this->db->execute();
+
+            $user_id = $this->db->lastInsertId();
+
+        }else{
+            return 0;
+        }
+
+        return $user_id;
+    }
+    public function already($username,$name){
+        $this->db->query('SELECT id FROM api_user WHERE username = :username OR name = :name');
+        $this->db->bind(':username',$username);
+        $this->db->bind(':name',$name);
+        $this->db->execute();
+        $dataset = $this->db->single();
+
+        if(empty($dataset['id'])){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public function sec_session_start() {
         $session_name   = 'sec_session_id';   // Set a custom session name
         $secure         = false;
