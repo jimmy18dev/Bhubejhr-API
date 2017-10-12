@@ -5,20 +5,10 @@ if(!$user_online){
 	header('Location: '.DOMAIN.'/login.php');
 	die();
 }
-
+$app_id = $_GET['id'];
 $app 		= new app;
-$reference 	= new Reference;
-$signature 	= new Signature;
-
-$apps = $app->listAll($user->id);
-
-if($user->permission == 'admin'){
-	$app_limit = 100;
-}else{
-	$app_limit = 5;
-}
-
-$currentPage = 'apps';
+$app->get($app_id);
+$applogs = $app->log($app_id);
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -43,60 +33,38 @@ $currentPage = 'apps';
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<?php include'header.php';?>
+<header class="header">
+	<a href="apps.php" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back</a>
+</header>
 
 <div class="container">
 	<div class="list" id="apps">
-		<?php foreach ($apps as $var) {?>
-		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
-			<div class="icon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
-			<div class="detail">
-				<a href="app-detail.php?id=<?php echo $var['app_id'];?>" class="name"><?php echo $var['app_name'];?></a>
-				<div class="info"><?php echo $var['app_description'];?></div>
-				<input type="text" class="token" value="<?php echo $var['app_key'];?>">
-			</div>
-			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+		<div class="head">
+			<h1><?php echo $app->name;?></h1>
+			<p><?php echo $app->description;?></p>
+			<p><?php echo $app->token;?></p>
 		</div>
-		<?php }?>
+		<div class="chart" id="chart"></div>
+		<div class="log">
+			<pre><?php print_r($applogs); ?></pre>
+		</div>
 	</div>
 </div>
 
 <div class="navigation">
-	<?php if($user->status == 'active'){?>
-	<div class="group">
-		<div id="btnCreateApp" class="btn">Add a New App</div>
+	<div class="counter">
+		<div class="v">53,435</div>
+		<div class="c">Daily Requests</div>
 	</div>
-	<div class="note">Get started integrating Bhubejhr API into your app or website and Limit <?php echo count($apps);?>/<?php echo $app_limit;?> apps</div>
-	<?php }else{?>
-	<div class="group">
-		<div class="btn -disable">Add a New App</div>
-	</div>
-	<div class="note">You can't create new app becaues your account <strong>disable</strong> by system, contact to administrator now!</div>
-	<?php }?>
-</div>
-
-<div class="dialog" id="createAppDialog">
-	<div class="head">
-		<div class="icon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
-		<div class="text">Create a New App ID</div>
-		<div class="btn" id="btnCloseCreateApp"><i class="fa fa-times" aria-hidden="true"></i></div>
-	</div>
-	<div class="input">
-		<label for="app_name">App Name</label>
-		<input type="text" id="app_name" class="inputtext" placeholder="The name of your App ID">
-		<label for="app_description">App Description</label>
-		<textarea class="textarea" id="app_description"></textarea>
-		<input type="hidden" id="app_id">
-	</div>
-	<div class="control">
-		<div class="btn btn-delete" id="btnDeleteApp">Delete</div>
-		<div class="btn btn-submit" id="btnSubmitCreateApp">Create App ID</div>
+	<div class="counter">
+		<div class="v">53,435</div>
+		<div class="c">Monthly Requests</div>
 	</div>
 </div>
-<div class="filter" id="createDialogFilter"></div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/lib/chart.min.js"></script>
+<script type="text/javascript" src="js/app.graph.js"></script>
 </body>
 </html>
 

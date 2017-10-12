@@ -448,6 +448,23 @@ body {
   float: left;
   display: inline-block;
 }
+.navigation .counter {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.navigation .counter .v {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 2em;
+}
+.navigation .counter .c {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+}
 .navigation .group {
   width: 100%;
   float: left;
