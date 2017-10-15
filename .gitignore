@@ -6,7 +6,7 @@ config.php
 *.pub
 
 image/upload/*
-class/vendor/composer/lcobucci/jwt/test/*
+class/vendor/lcobucci/jwt/test/*
 
 # Windows image file caches
 Thumbs.db
