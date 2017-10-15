@@ -2,14 +2,18 @@
 class App{
 
 	private $db;
+	private $jwt;
 
     public function __construct() {
     	global $wpdb;
+    	global $wpjwt;
     	$this->db = $wpdb;
+    	$this->jwt = $wpjwt;
     }
 
 	public function authentication($token){
-
+		$token = $this->jwt->verify($token);
+		if(!$token) return 0;
 		if(!$this->tokenValid($token)) return 0;
 
 		$this->db->query('SELECT id FROM api_app WHERE token = :token');
