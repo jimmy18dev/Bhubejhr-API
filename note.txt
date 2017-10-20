@@ -1,0 +1,17 @@
+-------------
+API Reference
+-------------
+
+### Patients ###
+[GET] 	patients.php?request=get&hn={{hn_id}} 
+[POST] 	patients.php?request=register
+
+### Finance ###
+[GET]	finance.php?request=list&hn={{visit_id}}
+[GET] 	finance.php?request=get&visit={{visit_id}}
+
+### Drug ###
+[GET] 	drug.php?request=get&visit={{visit_id}}
+
+### Scheduling ###
+[GET] 	scheduling.php?request=list&hn={{hn}}
