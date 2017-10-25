@@ -5,6 +5,11 @@ config.php
 
 image/upload/*
 
+# Docker
+docker/backup/*
+docker/data/*
+docker/initdb/*
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
