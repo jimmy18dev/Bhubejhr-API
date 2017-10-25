@@ -32,6 +32,17 @@ switch ($_SERVER['REQUEST_METHOD']){
     	break;
     case 'POST':
     	switch ($_POST['request']){
+    		case 'register':
+				$namedisplay = $_POST['namedisplay'];
+				$username 	= $_POST['username'];
+				$password 	= $_POST['password'];
+
+				$user_id = $user->register($namedisplay,$username,$password);
+
+				$returnObject['message'] 	= 'New Account Created!';
+				$returnObject['account_id'] = $user_id;
+
+				break;
 			case 'login':
 				$username = $_POST['username'];
 				$password = $_POST['password'];

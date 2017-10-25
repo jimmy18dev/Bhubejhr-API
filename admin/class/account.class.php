@@ -49,16 +49,25 @@ class Account{
         }
     }
 
-    public function listAll($owner_id){
-    	$this->db->query('SELECT account.id,account.username,account.name,account.permission,account.status,account.register_time,account.edit_time,account.visit_time,account.owner_id FROM api_user AS account WHERE owner_id = :owner_id ORDER BY account.register_time DESC');
-        $this->db->bind(':owner_id',$owner_id);
+    public function listAll(){
+    	$this->db->query('SELECT account.id,account.username,account.name,account.permission,account.status,account.register_time,account.edit_time,account.visit_time,account.owner_id FROM api_user AS account ORDER BY account.register_time DESC');
         $this->db->execute();
         $dataset = $this->db->resultset();
         return $dataset;
     }
-    
-    public function lock(){}
-    public function unlock(){}
+    public function approve($user_id,$owner_id){
+        $this->db->query('UPDATE api_user SET status = "active",owner_id = :owner_id WHERE id = :user_id');
+        $this->db->bind(':user_id',$user_id);
+        $this->db->bind(':owner_id',$owner_id);
+        $this->db->execute();
+    }
+    public function disable($user_id,$owner_id){
+        $this->db->query('UPDATE api_user SET status = "diable",owner_id = :owner_id WHERE id = :user_id');
+        $this->db->bind(':user_id',$user_id);
+        $this->db->bind(':owner_id',$owner_id);
+        $this->db->execute();
+    }
+
     public function delete(){}
 }
 ?>

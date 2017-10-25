@@ -46,6 +46,18 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$returnObject['account_id'] = $account_id;
 
 				break;
+			case 'approve':
+				$account_id = $_POST['account_id'];
+				$account->approve($account_id,$user->id);
+				$returnObject['message'] 	= 'Account Approved!';
+				$returnObject['account_id'] = $account_id;
+				break;
+			case 'disable':
+				$account_id = $_POST['account_id'];
+				$account->disable($account_id,$user->id);
+				$returnObject['message'] 	= 'Account Approved!';
+				$returnObject['account_id'] = $account_id;
+				break;
 			default:
 				$returnObject['message'] = 'POST API Not found!';
 			break;

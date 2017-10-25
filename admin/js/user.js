@@ -171,3 +171,34 @@ function login(){
 		$('#password').val('');
 	});
 }
+
+function register(){
+	var namedisplay = $('#namedisplay').val();
+	var username 	= $('#username').val();
+	var password 	= $('#password').val();
+	var sign 		= $('#sign').val();
+
+	if(namedisplay == '' || username == '' || password == '') return false;
+
+	$.get({
+		url         :api_url,
+		timeout 	:10000, //10 second timeout
+		cache       :false,
+		dataType    :"json",
+		type        :"POST",
+		data:{
+			request     :'register',
+			namedisplay :namedisplay,
+			username 	:username,
+			password 	:password,
+			sign 		:sign,
+		},
+		error: function (request, status, error) {
+			console.log("Request Error",request.responseText);
+		}
+	}).done(function(data){
+		console.log(data);
+	}).fail(function() {
+		alert('ระบบทำงานผิดพลาด กรุณาลองใหม่อีกครั้ง!');
+	});
+}

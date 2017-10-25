@@ -6,19 +6,41 @@ class App{
 	public $id;
 	public $name;
 	public $description;
-	public $key;
+	public $toekn;
 	public $create_time;
 	public $update_time;
 	public $active_time;
 	public $ip;
 	public $type;
 	public $status;
-	public $user_id;
-	public $user_name;
+	public $owner_id;
+	public $owner_name;
 
     public function __construct() {
     	global $wpdb;
     	$this->db = $wpdb;
+    }
+
+    public function get($app_id){
+    	$this->db->query('SELECT app.id app_id,app.user_id owner_id,user.name owner_name,app.name app_name,app.description app_description,app.token app_token,app.create_time app_create_time,app.update_time app_update_time,app.active_time app_active_time,app.ip app_ip,app.type app_type,app.status app_status FROM api_app AS app LEFT JOIN api_user AS user ON app.user_id = user.id WHERE app.id = :app_id');
+    	$this->db->bind(':app_id',$app_id);
+		$this->db->execute();
+		$dataset = $this->db->single();
+
+		$this->id = $dataset['app_id'];
+		$this->owner_id = $dataset['owner_id'];
+		$this->owner_name = $dataset['owner_name'];
+		$this->name = $dataset['app_name'];
+		$this->description = $dataset['app_description'];
+		$this->token = $dataset['app_token'];
+		$this->create_time = $dataset['app_create_time'];
+		$this->update_time = $dataset['app_update_time'];
+		$this->active_time = $dataset['app_active_time'];
+		$this->ip = $dataset['app_ip'];
+		$this->type = $dataset['app_type'];
+		$this->status = $dataset['app_status'];
+
+		return $dataset;
     }
 
 	public function authentication($token){
@@ -94,32 +116,20 @@ class App{
 			return false;
 	}
 
-    public function get($token_id){
-    	$this->db->query('SELECT app.id app_id,app.name app_name,app.description app_description,app.token app_key,app.create_time app_create_time,app.update_time app_update_time,app.active_time app_active_time,app.ip app_ip,app.type app_type,app.status app_status,user.id user_id,user.username user_username FROM api_app AS app LEFT JOIN api_user AS user ON app.user_id = user.id WHERE app.id = :token_id');
-    	$this->db->bind(':token_id',$token_id);
-		$this->db->execute();
-		$dataset = $this->db->single();
-
-		$this->id 			= $dataset['app_id'];
-		$this->name 		= $dataset['app_name'];
-		$this->description 	= $dataset['app_description'];
-		$this->key 			= $dataset['app_key'];
-		$this->create_time 	= $dataset['app_create_time'];
-		$this->update_time 	= $dataset['app_update_time'];
-		$this->active_time 	= $dataset['app_active_time'];
-		$this->ip 			= $dataset['app_ip'];
-		$this->type 		= $dataset['app_type'];
-		$this->status 		= $dataset['app_status'];
-		$this->user_id 		= $dataset['user_id'];
-		$this->user_username = $dataset['user_username'];
-    }
-
     public function listAll($user_id){
     	$this->db->query('SELECT app.id app_id,app.name app_name,app.description app_description,app.token app_key,app.create_time app_create_time,app.update_time app_update_time,app.active_time app_active_time,app.ip app_ip,app.type app_type,app.status app_status,user.id user_id,user.username user_username,(SELECT COUNT(id) FROM api_log WHERE app_id = app.id AND DATE(create_time) = CURDATE()) request_count FROM api_app AS app LEFT JOIN api_user AS user ON app.user_id = user.id WHERE user_id = :user_id ORDER BY app.create_time DESC');
     	$this->db->bind(':user_id',$user_id);
 		$this->db->execute();
 		$dataset = $this->db->resultset();
 
+		return $dataset;
+    }
+
+    public function log($app_id){
+    	$this->db->query('SELECT log.id log_id,log.executed log_executed,log.create_time log_time,log.ref_id,ref.id ref_id,ref.name ref_name,ref.method ref_method,ref.type ref_type,category.name category_name,category.id category_id FROM api_log AS log LEFT JOIN api_reference AS ref ON log.ref_id = ref.id LEFT JOIN api_category AS category ON ref.category_id = category.id WHERE log.app_id = :app_id ORDER BY log.create_time DESC LIMIT 50');
+    	$this->db->bind(':app_id',$app_id);
+		$this->db->execute();
+		$dataset = $this->db->resultset();
 		return $dataset;
     }
 
