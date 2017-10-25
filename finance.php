@@ -3,7 +3,6 @@ require_once 'autoload.php';
 header('Access-Control-Allow-Origin: *');
 header("Content-type: text/json");
 
-$headers = getallheaders();
 $returnObject = array(
 	"apiSite" 		=> API_SITE,
 	"apiName" 		=> 'Finance api service',
