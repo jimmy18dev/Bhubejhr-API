@@ -15,6 +15,7 @@ include_once'config/config.php';
 include_once'class/database/database.class.php';
 include_once'class/app.class.php';
 include_once'class/log.class.php';
+include_once'class/patient.class.php';
 
 $wpdb 	= new Database;
 $app 	= new App;
