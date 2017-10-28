@@ -20,14 +20,16 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$returnObject['message'] = 'Example API';
 				break;
 			case 'get':
+				$returnObject['request'] = $_GET['request'];
+
 				$dataset = $patient->get($_GET['cid']);
 				$returnObject['dataset'] = $dataset;
-				$returnObject['message'] = 'Example API';
 				break;
 			case 'getappoint':
+				$returnObject['request'] = $_GET['request'];
+				
 				$dataset = $appoint->get($_GET['hn']);
 				$returnObject['dataset'] = $dataset;
-				$returnObject['message'] = 'Example API';
 				break;
 			default:
 				$returnObject['message'] = 'GET API Not found!';
