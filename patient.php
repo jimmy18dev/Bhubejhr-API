@@ -3,6 +3,7 @@ require_once 'autoload.php';
 header('Access-Control-Allow-Origin: *');
 header("Content-type: text/json");
 $patient = new Patient;
+$appoint = new Appoint;
 
 $returnObject = array(
 	"apiSite" 		=> API_SITE,
@@ -20,6 +21,11 @@ switch ($_SERVER['REQUEST_METHOD']){
 				break;
 			case 'get':
 				$dataset = $patient->get($_GET['cid']);
+				$returnObject['dataset'] = $dataset;
+				$returnObject['message'] = 'Example API';
+				break;
+			case 'getappoint':
+				$dataset = $appoint->get($_GET['hn']);
 				$returnObject['dataset'] = $dataset;
 				$returnObject['message'] = 'Example API';
 				break;
