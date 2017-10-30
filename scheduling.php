@@ -3,12 +3,7 @@ require_once 'autoload.php';
 header('Access-Control-Allow-Origin: *');
 header("Content-type: text/json");
 
-$returnObject = array(
-	"apiSite" 		=> API_SITE,
-	"apiName" 		=> 'Scheduliing api service',
-	"apiVersion"  	=> API_VERSION,
-	"sourceVersion" => SOURCE_VERSION,
-);
+$returnObject['apiName'] = 'Scheduliing Service';
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
