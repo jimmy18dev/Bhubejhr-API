@@ -13,7 +13,7 @@ switch ($_SERVER['REQUEST_METHOD']){
 		$app_id = $app->authentication($_GET['token']);
 
 		if(empty($app_id)){
-			http_response_code(500);
+			http_response_code(401);
 			$returnObject['error'] = 'Authentication failure (Token not found!)';
 			break;
 		}
@@ -42,7 +42,7 @@ switch ($_SERVER['REQUEST_METHOD']){
 			$returnObject['error'] = 'Authentication failure (Token not found!)';
 			break;
 		}
-		
+
     	switch ($_POST['request']){
 			case 'example':
 				$returnObject['message'] = 'Example API';
