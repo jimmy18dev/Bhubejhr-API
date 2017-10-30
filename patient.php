@@ -16,18 +16,13 @@ switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
 		$app_id = $app->authentication($_GET['token']);
 		switch ($_GET['request']){
-			case 'example':
-				$returnObject['message'] = 'Example API';
-				break;
 			case 'get':
 				$returnObject['request'] = $_GET['request'];
-
 				$dataset = $patient->get($_GET['cid']);
 				$returnObject['dataset'] = $dataset;
 				break;
 			case 'getappoint':
 				$returnObject['request'] = $_GET['request'];
-				
 				$dataset = $appoint->get($_GET['hn']);
 				$returnObject['dataset'] = $dataset;
 				break;
