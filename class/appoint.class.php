@@ -28,7 +28,8 @@ WHERE va.hn = :hn
 GROUP BY va.id limit 100');
         $this->db->bind(':hn',$hn);
         $this->db->execute();
-        return $dataset = $this->db->resultset();
+        $dataset = $this->db->resultset();
+        return $dataset;
     }
 }
 ?>
