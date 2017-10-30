@@ -258,5 +258,9 @@ class Database{
 
         return $text;
     }
+
+    public function getError(){
+        return $this->error;
+    }
 }
 ?>

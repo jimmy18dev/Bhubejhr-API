@@ -15,11 +15,13 @@ include_once'config/config.php';
 include_once'class/database/database.class.php';
 include_once'class/app.class.php';
 include_once'class/log.class.php';
+include_once'class/jwt.class.php';
 
 include_once'class/patient/patient.class.php';
 include_once'class/scheduling/appoint.class.php';
 
 $wpdb 	= new Database;
+$wpjwt  = new Jwt;
 $app 	= new App;
 $log 	= new Log;
 

@@ -2,8 +2,11 @@ config.php
 *.sql
 *.pdf
 *.xlsx
+*.key
+*.pub
 
 image/upload/*
+class/vendor/lcobucci/jwt/test/*
 
 # Docker
 docker/backup/*
