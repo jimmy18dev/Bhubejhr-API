@@ -3,19 +3,31 @@ require_once 'autoload.php';
 header('Access-Control-Allow-Origin: *');
 header("Content-type: text/json");
 
-$returnObject = array(
-	"apiSite" 		=> API_SITE,
-	"apiName" 		=> 'Patients api service',
-	"apiVersion"  	=> API_VERSION,
-	"sourceVersion" => SOURCE_VERSION,
-);
+$patient = new Patient;
+$appoint = new Appoint;
+
+$returnObject['apiName'] = 'Patients Service';
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
 		$app_id = $app->authentication($_GET['token']);
+
+		if(empty($app_id)){
+			http_response_code(500);
+			$returnObject['error'] = 'Authentication failure (Token not found!)';
+			break;
+		}
+
 		switch ($_GET['request']){
-			case 'example':
-				$returnObject['message'] = 'Example API';
+			case 'get':
+				$returnObject['request'] = $_GET['request'];
+				$dataset = $patient->get($_GET['cid']);
+				$returnObject['dataset'] = $dataset;
+				break;
+			case 'getappoint':
+				$returnObject['request'] = $_GET['request'];
+				$dataset = $appoint->get($_GET['hn']);
+				$returnObject['dataset'] = $dataset;
 				break;
 			default:
 				$returnObject['message'] = 'GET API Not found!';
@@ -24,6 +36,13 @@ switch ($_SERVER['REQUEST_METHOD']){
     	break;
     case 'POST':
     	$app_id = $app->authentication($_POST['token']);
+
+    	if(empty($app_id)){
+			http_response_code(500);
+			$returnObject['error'] = 'Authentication failure (Token not found!)';
+			break;
+		}
+		
     	switch ($_POST['request']){
 			case 'example':
 				$returnObject['message'] = 'Example API';

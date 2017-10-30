@@ -34,11 +34,11 @@ services:
     volumes_from:
       - php
     ports:
-      - 80:80
+      - 81:80
       
   pma:
       image: phpmyadmin/phpmyadmin
       container_name: bhubejhr_api_phpmyadmin
       restart: always
       ports:
-        - "8000:80"
+        - "8001:80"
