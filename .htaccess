@@ -3,7 +3,8 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# RewriteRule ^device/([0-9]+)$ /device.php?device=$1 [L]
+RewriteRule ^patient/([^_]*)$ /patient.php?request=$1 [L,QSA]
+
 # RewriteRule ^newdevice/space/([0-9]+)$ /device-editor.php?space=$1 [L]
 # RewriteRule ^editdevice/([0-9]+)$ /device-editor.php?device=$1 [L]
 
