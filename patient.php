@@ -3,8 +3,8 @@ require_once 'autoload.php';
 header('Access-Control-Allow-Origin: *');
 header("Content-type: text/json");
 
-$patient = new Patient;
-$appoint = new Appoint;
+$patient 	= new Patient;
+$appoint 	= new Appoint;
 
 $returnObject['apiName'] = 'Patients Service';
 

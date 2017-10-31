@@ -18,6 +18,7 @@ include_once'class/log.class.php';
 
 include_once'class/patient/patient.class.php';
 include_once'class/scheduling/appoint.class.php';
+include_once'class/scheduling/user.class.php';
 
 $wpdb 	= new Database;
 $app 	= new App;
