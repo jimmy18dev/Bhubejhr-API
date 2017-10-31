@@ -13,9 +13,18 @@ $returnObject = array(
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
 		$app_id = $app->authentication($_GET['token']);
+
+		if(empty($app_id)){
+			http_response_code(401);
+			$returnObject['error'] = 'Authentication failure (Token not found!)';
+			break;
+		}
+		
 		switch ($_GET['request']){
-			case 'example':
-				$returnObject['message'] = 'Example API';
+			case 'first_opd_card':
+				$returnObject['request'] = $_GET['request'];
+				$dataset = $user->firstOPDCard($_GET['date']);
+				$returnObject['dataset'] = $dataset;
 				break;
 			default:
 				$returnObject['message'] = 'GET API Not found!';

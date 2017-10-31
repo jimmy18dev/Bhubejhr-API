@@ -3,9 +3,8 @@ require_once 'autoload.php';
 header('Access-Control-Allow-Origin: *');
 header("Content-type: text/json");
 
-$patient = new Patient;
-$appoint = new Appoint;
-$user = new User;
+$patient 	= new Patient;
+$appoint 	= new Appoint;
 
 $returnObject['apiName'] = 'Patients Service';
 
@@ -28,11 +27,6 @@ switch ($_SERVER['REQUEST_METHOD']){
 			case 'getappoint':
 				$returnObject['request'] = $_GET['request'];
 				$dataset = $appoint->get($_GET['hn']);
-				$returnObject['dataset'] = $dataset;
-				break;
-			case 'registime':
-				$returnObject['request'] = $_GET['request'];
-				$dataset = $user->registime($_GET['date']);
 				$returnObject['dataset'] = $dataset;
 				break;
 			default:
