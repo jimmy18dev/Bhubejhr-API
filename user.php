@@ -3,6 +3,8 @@ require_once 'autoload.php';
 header('Access-Control-Allow-Origin: *');
 header("Content-type: text/json");
 
+$user = new User;
+
 $returnObject = array(
 	"apiSite" 		=> API_SITE,
 	"apiName" 		=> 'User api service',
@@ -19,7 +21,7 @@ switch ($_SERVER['REQUEST_METHOD']){
 			$returnObject['error'] = 'Authentication failure (Token not found!)';
 			break;
 		}
-		
+
 		switch ($_GET['request']){
 			case 'first_opd_card':
 				$returnObject['request'] = $_GET['request'];
