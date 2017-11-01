@@ -11,13 +11,6 @@ $reference 	= new Reference;
 $signature 	= new Signature;
 
 $apps = $app->listAll($user->id);
-
-if($user->permission == 'admin'){
-	$app_limit = 100;
-}else{
-	$app_limit = 5;
-}
-
 $currentPage = 'apps';
 ?>
 <!doctype html>
@@ -46,33 +39,24 @@ $currentPage = 'apps';
 <?php include'header.php';?>
 
 <div class="container">
-	<div class="list" id="apps">
+	<div class="sorting">
+		<div class="limit"><?php echo $user->total_app;?>/<?php echo $user->app_limit;?></div>
+	</div>
+	<div class="apps-list" id="apps">
 		<?php foreach ($apps as $var) {?>
 		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
-			<div class="icon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
+			<div class="icon"><a href="app.php?id=<?php echo $var['app_id'];?>" class="name"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></a></div>
 			<div class="detail">
 				<a href="app.php?id=<?php echo $var['app_id'];?>" class="name"><?php echo $var['app_name'];?></a>
-				<div class="info"><?php echo $var['app_description'];?></div>
+				<div class="info"><?php echo (!empty($var['app_description'])?$var['app_description']:'...');?></div>
+
+				<span class="lable">Token:</span>
 				<input type="text" class="token" value="<?php echo $var['app_key'];?>">
 			</div>
 			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
 		</div>
 		<?php }?>
 	</div>
-</div>
-
-<div class="navigation">
-	<?php if($user->status == 'active'){?>
-	<div class="group">
-		<div id="btnCreateApp" class="btn">Add a New App</div>
-	</div>
-	<div class="note">Get started integrating Bhubejhr API into your app or website and Limit <?php echo count($apps);?>/<?php echo $app_limit;?> apps</div>
-	<?php }else{?>
-	<div class="group">
-		<div class="btn -disable">Add a New App</div>
-	</div>
-	<div class="note">You can't create new app becaues your account <strong>disable</strong> by system, contact to administrator now!</div>
-	<?php }?>
 </div>
 
 <div class="dialog" id="createAppDialog">

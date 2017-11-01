@@ -151,7 +151,7 @@ function login(){
 
 		if(data.state == 1){
 			$('#btn-submit').addClass('-loading');
-			$('#btn-submit').html('กำลังเข้าระบบ...');
+			$('#btn-submit').html('logining...');
 			// $progress.animate({width:'100%'},300);
 			
 			setTimeout(function(){

@@ -28,15 +28,15 @@ $signature 	= new Signature;
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
-<body>
+<body class="bg-login">
 <form class="login" action="javascript:login();">
 	<h1><?php echo SITENAME;?></h1>
 	<p>Version <?php echo VERSION;?></p>
 	<input class="inputtext" type="text" id="username" placeholder="Username" autofocus>
 	<input class="inputtext" type="password" id="password" placeholder="Password">
 	<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('login',SECRET_KEY);?>">
-	<button id="btn-submit" class="btn-submit">Login<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-	<a class="btn-link" href="register.php">Register new Account</a>
+	<button id="btn-submit" class="btn-submit">Login</button>
+	<a class="btn-link" href="register.php">Register New Account</a>
 </form>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/user.js"></script>
