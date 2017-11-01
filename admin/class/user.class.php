@@ -48,8 +48,8 @@ class User{
         $password   = hash('sha512',$password.$salt);
 
         if($this->already($username,$name)){
-
-            $this->db->query('INSERT INTO api_user(username,name,password,salt,permission,ip,register_time,status) VALUE(:username,:name,:password,:salt,:permission,:ip,:register_time,status)');
+            
+            $this->db->query('INSERT INTO api_user(username,name,password,salt,permission,ip,register_time,status) VALUE(:username,:name,:password,:salt,:permission,:ip,:register_time,:status)');
             $this->db->bind(':username'     ,$username);
             $this->db->bind(':name'         ,$name);
             $this->db->bind(':password'     ,$password);
@@ -57,7 +57,7 @@ class User{
             $this->db->bind(':permission'   ,'guest');
             $this->db->bind(':ip'           ,$this->db->GetIpAddress());
             $this->db->bind(':register_time',date('Y-m-d H:i:s'));
-            $this->db->bind(':status'        ,'disable');
+            $this->db->bind(':status'       ,'disable');
             $this->db->execute();
 
             $user_id = $this->db->lastInsertId();
