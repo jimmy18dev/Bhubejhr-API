@@ -10,6 +10,9 @@ class User{
     public $register_time;
     public $visit_time;
     public $edit_time;
+    public $total_app;
+    public $app_limit;
+
 
     private $password;
     private $salt;
@@ -19,6 +22,14 @@ class User{
     public function __construct() {
         global $wpdb;
         $this->db = $wpdb;
+    }
+
+    private function countApp($user_id){
+        $this->db->query('SELECT COUNT(id) total FROM api_app WHERE user_id = :user_id');
+        $this->db->bind(':user_id',$user_id);
+        $this->db->execute();
+        $dataset = $this->db->single();
+        return $dataset['total'];
     }
 
     public function getUser($user_id){
@@ -39,6 +50,13 @@ class User{
         $this->register_time  = $dataset['register_time'];
         $this->visit_time     = $dataset['visit_time'];
         $this->edit_time     = $dataset['edit_time'];
+        $this->total_app        = $this->countApp($this->id);
+
+         if($this->permission == 'admin'){
+            $this->app_limit = 10;
+        }else{
+            $app_limit = 3;
+        }
     }
 
     public function register($name,$username,$password){
@@ -48,8 +66,8 @@ class User{
         $password   = hash('sha512',$password.$salt);
 
         if($this->already($username,$name)){
-
-            $this->db->query('INSERT INTO api_user(username,name,password,salt,permission,ip,register_time,status) VALUE(:username,:name,:password,:salt,:permission,:ip,:register_time,status)');
+            
+            $this->db->query('INSERT INTO api_user(username,name,password,salt,permission,ip,register_time,status) VALUE(:username,:name,:password,:salt,:permission,:ip,:register_time,:status)');
             $this->db->bind(':username'     ,$username);
             $this->db->bind(':name'         ,$name);
             $this->db->bind(':password'     ,$password);
@@ -57,7 +75,7 @@ class User{
             $this->db->bind(':permission'   ,'guest');
             $this->db->bind(':ip'           ,$this->db->GetIpAddress());
             $this->db->bind(':register_time',date('Y-m-d H:i:s'));
-            $this->db->bind(':status'        ,'disable');
+            $this->db->bind(':status'       ,'disable');
             $this->db->execute();
 
             $user_id = $this->db->lastInsertId();
