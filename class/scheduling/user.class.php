@@ -67,7 +67,8 @@ class User{
             WHERE vd.userupdate = :uid
             and date(v.visitdate) 
             BETWEEN date(DATE_SUB((DATE_SUB(now(),INTERVAL 1 MONTH)),INTERVAL day(NOW())-1 DAY)) 
-            AND date(DATE_SUB(now(),INTERVAL day(now()) DAY)) LIMIT 10000 ');
+            AND date(DATE_SUB(now(),INTERVAL day(now()) DAY))
+            order by flag,seq limit 10000');
         $this->db->bind(':uid',$uid);
         $this->db->execute();
         return $dataset = $this->db->resultset();
