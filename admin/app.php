@@ -41,8 +41,8 @@ $applogs = $app->log($app_id);
 	<div class="list" id="apps">
 		<div class="head">
 			<h1><?php echo $app->name;?></h1>
-			<p><?php echo $app->description;?></p>
-			<p><?php echo $app->token;?></p>
+			<p><strong>Description</strong> <?php echo $app->description;?></p>
+			<p><strong>Token</strong> <?php echo $app->token;?></p>
 		</div>
 		<div class="chart" id="chart"></div>
 		<div class="log">
@@ -51,7 +51,7 @@ $applogs = $app->log($app_id);
 	</div>
 </div>
 
-<div class="navigation">
+<!-- <div class="navigation">
 	<div class="counter">
 		<div class="v">53,435</div>
 		<div class="c">Daily Requests</div>
@@ -60,7 +60,7 @@ $applogs = $app->log($app_id);
 		<div class="v">53,435</div>
 		<div class="c">Monthly Requests</div>
 	</div>
-</div>
+</div> -->
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/chart.min.js"></script>

@@ -46,6 +46,7 @@ $currentPage = 'apps';
 		<?php foreach ($apps as $var) {?>
 		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
 			<div class="icon"><a href="app.php?id=<?php echo $var['app_id'];?>" class="name"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></a></div>
+			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
 			<div class="detail">
 				<a href="app.php?id=<?php echo $var['app_id'];?>" class="name"><?php echo $var['app_name'];?></a>
 				<div class="info"><?php echo (!empty($var['app_description'])?$var['app_description']:'...');?></div>
@@ -53,7 +54,6 @@ $currentPage = 'apps';
 				<span class="lable">Token:</span>
 				<input type="text" class="token" value="<?php echo $var['app_key'];?>">
 			</div>
-			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
 		</div>
 		<?php }?>
 	</div>

@@ -216,13 +216,27 @@ body {
   margin-right: 10px;
   margin-top: -5px;
   font-size: 1.4em;
-  color: #304ffe;
+  color: #2ecc71;
+}
+.header .btn-back {
+  float: left;
+  display: inline-block;
+  padding: 18px 1%;
+  margin-right: 1.5%;
+  height: 14px;
+  color: #999999;
+  text-decoration: none;
+  font-size: 0.9em;
+  line-height: 1em;
+}
+.header .btn-back i {
+  margin-right: 15px;
 }
 .header .nav {
   float: left;
   display: inline-block;
   padding: 18px 0%;
-  margin-right: 2%;
+  margin-right: 1.5%;
   height: 14px;
   color: #333333;
   text-decoration: none;
@@ -232,60 +246,20 @@ body {
 .header .nav.right {
   float: right;
 }
-.header .nav i {
-  margin-right: 7px;
-}
 .header .nav.btn {
   float: right;
   padding: 8px 10px;
   margin: 12px 0px;
+  margin-right: 1.5%;
   height: 10px;
   font-size: 0.75em;
-  background: #304ffe;
   color: #FFFFFF;
   font-weight: bold;
-  border-radius: 3px;
+  background: #2ecc71;
+  border-radius: 2px;
 }
 .header .nav.btn:hover {
   cursor: pointer;
-}
-.header .nav.btn-api {
-  background: #304ffe;
-  color: #FFFFFF;
-  margin: 10px 0px;
-  padding: 8px 1%;
-  height: 14px;
-  border-radius: 2px;
-  font-weight: bold;
-  margin-left: 1%;
-}
-.header .nav.-active {
-  color: #304ffe;
-}
-.header a.btn-back {
-  width: 11%;
-  float: left;
-  display: inline-block;
-  padding: 20px 2%;
-  height: 20px;
-  color: #DDDDDD;
-  text-decoration: none;
-  font-size: 1.2em;
-  line-height: 1em;
-}
-.header a.btn-back i {
-  margin-right: 20px;
-}
-.header .title {
-  width: 13%;
-  float: left;
-  display: inline-block;
-  padding: 20px 0%;
-  height: 20px;
-  color: #333333;
-  text-decoration: none;
-  font-size: 1.2em;
-  line-height: 1em;
 }
 .dialog {
   position: fixed;
@@ -312,14 +286,14 @@ body {
   float: left;
   display: inline-block;
   padding: 3%;
-  color: #304ffe;
+  color: #2ecc71;
   font-size: 2em;
   line-height: 1em;
 }
 .dialog .head .text {
   float: left;
   display: inline-block;
-  color: #304ffe;
+  color: #2ecc71;
   margin-top: 4%;
   font-weight: bold;
 }
@@ -408,9 +382,9 @@ body {
 }
 .dialog .selection .items.-active {
   font-weight: bold;
-  border: 1px solid #304ffe;
+  border: 1px solid #2ecc71;
   color: #FFFFFF;
-  background: #304ffe;
+  background: #2ecc71;
 }
 .dialog .control {
   width: 94%;
@@ -433,7 +407,7 @@ body {
   background: #EEEEEE;
 }
 .dialog .control .btn.btn-submit {
-  background: #304ffe;
+  background: #2ecc71;
   color: #FFFFFF;
 }
 .dialog .control .btn:hover {
@@ -515,7 +489,7 @@ body {
   padding: 3% 0%;
   float: left;
   display: inline-block;
-  background: #304ffe;
+  background: #2ecc71;
   color: #FFFFFF;
   text-align: center;
   border-radius: 3px;
@@ -573,24 +547,40 @@ body {
   display: inline-block;
 }
 .container .apps-list .app-items {
-  width: 28.33%;
+  width: 28%;
   padding: 2%;
   float: left;
   display: inline-block;
-  margin-bottom: 1%;
-  margin-right: 1%;
+  margin-bottom: 2%;
+  margin-right: 2%;
   position: relative;
   background: #FFFFFF;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+.container .apps-list .app-items:nth-child(3n+0) {
+  float: right;
+  margin-right: 0%;
 }
 .container .apps-list .app-items .icon {
-  width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1em;
+  padding: 0px 5px;
   color: #CCCCCC;
 }
 .container .apps-list .app-items .icon a {
+  color: #2ecc71;
+}
+.container .apps-list .app-items .btn-edit-app {
+  float: right;
+  display: inline-block;
+  font-size: 1em;
+  padding: 0px 5px;
   color: #CCCCCC;
+}
+.container .apps-list .app-items .btn-edit-app:hover {
+  cursor: pointer;
 }
 .container .apps-list .app-items .detail {
   width: 100%;
@@ -601,9 +591,10 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.6em;
+  font-size: 1.4em;
   text-decoration: none;
   color: #333333;
+  font-weight: bold;
 }
 .container .apps-list .app-items .detail a.name:hover {
   cursor: pointer;
@@ -636,22 +627,7 @@ body {
   padding: 0px;
   margin: 0px;
   font-size: 0.75em;
-  color: #304ffe;
-}
-.container .apps-list .app-items .btn-edit-app {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  float: right;
-  display: inline-block;
-  font-size: 0.9em;
-  padding: 15px;
-  line-height: 1em;
-  color: #CCCCCC;
-}
-.container .apps-list .app-items .btn-edit-app:hover {
-  color: #304ffe;
-  cursor: pointer;
+  color: #999999;
 }
 .container .list {
   width: 50%;
@@ -662,6 +638,35 @@ body {
   background: #FFFFFF;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
+}
+.container .list .head {
+  width: 90%;
+  padding: 5% 0%;
+  margin: 0% 5%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EEEEEE;
+}
+.container .list .head h1 {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 2em;
+  color: #333333;
+  margin-bottom: 1%;
+}
+.container .list .head p {
+  font-size: 0.9em;
+  color: #666666;
+}
+.container .list .head p strong {
+  color: #333333;
+}
+.container .list .log {
+  width: 90%;
+  padding: 5%;
+  float: left;
+  display: inline-block;
 }
 .container .content {
   width: 50%;
@@ -741,7 +746,7 @@ body {
   cursor: pointer;
 }
 .container .references .account-items .status.btn-approve {
-  color: #304ffe;
+  color: #2ecc71;
 }
 .container .references .account-items .detail {
   width: 75%;
@@ -817,7 +822,7 @@ body {
   font-weight: bold;
 }
 .container .references .ref-items .method span.get {
-  background: #304ffe;
+  background: #2ecc71;
 }
 .container .references .ref-items .method span.post {
   background: #FF5722;
@@ -848,7 +853,7 @@ body {
   float: left;
   display: inline-block;
   font-size: 0.7em;
-  color: #304ffe;
+  color: #2ecc71;
   line-height: 1em;
   margin-right: 5px;
 }
@@ -908,7 +913,7 @@ body {
   color: #999999;
 }
 .container .form .form-items .input i.fa-toggle-on {
-  color: #304ffe;
+  color: #2ecc71;
 }
 .container .form .form-items .input #btn-toggle-status {
   font-size: 2.5em;
@@ -941,7 +946,7 @@ body {
   float: right;
   display: inline-block;
   text-decoration: none;
-  background: #304ffe;
+  background: #2ecc71;
   color: #FFFFFF;
   padding: 15px 20px;
   margin: 0%;
@@ -1129,14 +1134,11 @@ body {
   display: inline-block;
   font-size: 0.9em;
   border: 0px;
-  background: #304ffe;
+  background: #2ecc71;
   color: #FFFFFF;
-  border-radius: 3px;
+  border-radius: 2px;
   margin-top: 10%;
   margin-bottom: 3%;
-  background: #004D40;
-  background: -webkit-linear-gradient(to left, #00695c, #004d40);
-  background: linear-gradient(to left, #00695c, #004d40);
 }
 .login .btn-submit.-loading {
   background: #DDDDDD;
