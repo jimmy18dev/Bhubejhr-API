@@ -204,6 +204,9 @@ function register(){
 		}
 	}).done(function(data){
 		console.log(data);
+		setTimeout(function(){
+			window.location = 'login.php?register=success';
+	    },1000);
 	}).fail(function() {
 		alert('ระบบทำงานผิดพลาด กรุณาลองใหม่อีกครั้ง!');
 	});

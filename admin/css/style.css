@@ -1129,15 +1129,18 @@ body {
   float: left;
   display: inline-block;
   font-size: 0.9em;
-  border: 0px;
-  background: #EEEEEE;
+  border: 1px solid #EEEEEE;
+  background: #FFFFFF;
   margin-bottom: 3%;
   border-radius: 1px;
   color: #333333;
 }
+.login .inputtext:hover {
+  cursor: pointer;
+}
 .login .inputtext:focus {
   color: #000000;
-  background: #DDDDDD;
+  border: 1px solid #2ecc71;
 }
 .login .btn-submit {
   width: 100%;
@@ -1145,7 +1148,7 @@ body {
   float: left;
   display: inline-block;
   font-size: 0.9em;
-  border: 0px;
+  border: 1px solid #2ecc71;
   background: #27ae60;
   color: #FFFFFF;
   border-radius: 2px;
@@ -1154,12 +1157,14 @@ body {
 }
 .login .btn-submit.-loading {
   background: #DDDDDD;
+  border: 1px solid #DDDDDD;
 }
 .login .btn-submit:hover {
   cursor: pointer;
 }
 .login .btn-submit:active {
   background: #2ecc71;
+  border: 1px solid #2ecc71;
 }
 .login a.btn-link {
   width: 100%;

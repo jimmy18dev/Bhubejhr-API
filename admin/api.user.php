@@ -39,6 +39,10 @@ switch ($_SERVER['REQUEST_METHOD']){
 
 				$user_id = $user->register($namedisplay,$username,$password);
 
+				if(true){
+					$state = $user->login($username,$password);
+				}
+
 				$returnObject['message'] 	= 'New Account Created!';
 				$returnObject['account_id'] = $user_id;
 

@@ -1026,15 +1026,16 @@
 		float: left;
 		display: inline-block;
 		font-size: 0.9em;
-		border: 0px;
-		background: #EEEEEE;
+		border: 1px solid #EEEEEE;
+		background: #FFFFFF;
 		margin-bottom: 3%;
 		border-radius: 1px;
 		color: #333333;
 
+		&:hover{ cursor: pointer; }
 		&:focus{
 			color: #000000;
-			background: #DDDDDD;
+			border: 1px solid @primary_color;
 		}
 	}
 	.btn-submit{
@@ -1043,17 +1044,23 @@
 		float: left;
 		display: inline-block;
 		font-size: 0.9em;
-		border: 0px;
+		border: 1px solid @primary_color;
 		background: #27ae60;
 		color: #FFFFFF;
 		border-radius: 2px;
 		margin-top: 10%;
 		margin-bottom: 5%;
 
-		&.-loading{ background: #DDDDDD; }
+		&.-loading{
+			background: #DDDDDD;
+			border: 1px solid #DDDDDD;
+		}
 
 		&:hover{ cursor: pointer; }
-		&:active{ background: #2ecc71; }
+		&:active{
+			background: #2ecc71;
+			border: 1px solid #2ecc71;
+		}
 	}
 
 	a.btn-link{
