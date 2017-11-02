@@ -29,6 +29,7 @@ $signature 	= new Signature;
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
+<div class="progressbar" id="progressbar"></div>
 <form class="login" action="javascript:register();">
 	<h1><?php echo SITENAME;?></h1>
 	<p>Version <?php echo VERSION;?></p>

@@ -42,10 +42,18 @@ session_destroy();
 
 </head>
 <body>
+<div class="progressbar" id="progressbar"></div>
 <div class="logout">Logout...</div>
 </body>
 
+<script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-	setTimeout(function(){window.location = 'login.php';},1000);
+$(document).ready(function(){
+	$progressbar = $('#progressbar');
+	$progressbar.fadeIn(300);
+	$progressbar.animate({width:'100%'},700);
+
+	setTimeout(function(){window.location = 'login.php';},1500);
+});
 </script>
 </html>

@@ -28,7 +28,8 @@ $signature 	= new Signature;
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
-<body class="bg-login">
+<body>
+<div class="progressbar" id="progressbar"></div>
 <form class="login" action="javascript:login();">
 	<h1><?php echo SITENAME;?></h1>
 	<p>Version <?php echo VERSION;?></p>
