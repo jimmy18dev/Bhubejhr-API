@@ -55,7 +55,7 @@ class User{
          if($this->permission == 'admin'){
             $this->app_limit = 10;
         }else{
-            $app_limit = 3;
+            $this->app_limit = 3;
         }
     }
 

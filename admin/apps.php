@@ -43,9 +43,16 @@ $currentPage = 'apps';
 		<div class="limit"><?php echo $user->total_app;?>/<?php echo $user->app_limit;?></div>
 	</div>
 	<div class="apps-list" id="apps">
+
+		<?php if($user->total_app < $user->app_limit){?>
+		<div class="app-items btn-new-app" id="btnCreateApp">
+			<div class="i"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+			<div class="c">Create New App</div>
+		</div>
+		<?php }?>
+
 		<?php foreach ($apps as $var) {?>
 		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
-			<div class="icon"><a href="app.php?id=<?php echo $var['app_id'];?>" class="name"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></a></div>
 			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
 			<div class="detail">
 				<a href="app.php?id=<?php echo $var['app_id'];?>" class="name"><?php echo $var['app_name'];?></a>
@@ -61,7 +68,6 @@ $currentPage = 'apps';
 
 <div class="dialog" id="createAppDialog">
 	<div class="head">
-		<div class="icon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
 		<div class="text">Create a New App ID</div>
 		<div class="btn" id="btnCloseCreateApp"><i class="fa fa-times" aria-hidden="true"></i></div>
 	</div>

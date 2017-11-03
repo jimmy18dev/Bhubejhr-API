@@ -5,5 +5,5 @@ if(!$user_online){
 	header('Location: '.DOMAIN.'/login.php');
 	die();
 }
-header('Location: references.php');
+header('Location: apps.php');
 die();
