@@ -28,9 +28,8 @@ include_once'class/scheduling/user.class.php';
 include_once'class/service/service.class.php';
 include_once'class/user/user.class.php';
 
-
 // DATABASE CONNECTION...
-// $wpdb 		= new Database(PDB_HOST,PDB_NAME,PDB_USER,PDB_PASS); // DATABASE SERVER
+$wpdb 		= new Database(PDB_HOST,PDB_NAME,PDB_USER,PDB_PASS); // DATABASE SERVER
 $localdb 	= new Database(DB_HOST,DB_NAME,DB_USER,DB_PASS); // DATABASE LOCAL
 
 $app 		= new App;

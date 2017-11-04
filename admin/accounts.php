@@ -59,40 +59,6 @@ $currentPage = 'account';
 	</div>
 </div>
 
-<div class="navigation">
-	<div class="group">
-		<div id="btnCreateAccount" class="btn">Create Account</div>
-	</div>
-	<div class="note">You can create child account for using Bhubejhr API, A child account can create app id on limit.</div>
-</div>
-
-<div class="dialog" id="createAccountDialog">
-	<div class="head">
-		<div class="icon"><i class="fa fa-user-circle" aria-hidden="true"></i></div>
-		<div class="text">Create New Account</div>
-		<div class="btn" id="btnCloseCreateAccount"><i class="fa fa-close" aria-hidden="true"></i></div>
-	</div>
-	<div class="input">
-		<label for="displayname">Name display</label>
-		<input type="text" id="displayname" class="inputtext" placeholder="Fullname">
-		<label for="username">Username</label>
-		<input type="text" id="username" class="inputtext" placeholder="Username">
-		<label for="password">Password (Default)</label>
-		<input type="text" id="password" class="inputtext" placeholder="Password" value="1234" disabled>
-
-		<div class="selection" id="accountPermission">
-			<div class="caption">User Permission:</div>
-			<div class="items permission-items" id="permission-items-admin" data-permission="admin">Administrator</div>
-			<div class="items permission-items -active" id="permission-items-guest" data-permission="guest">Guest</div>
-		</div>
-
-		<input type="hidden" id="account_permission" value="guest">
-	</div>
-	<div class="control">
-		<div class="btn btn-submit" id="btnSubmitCreateAccount">CREATE</div>
-	</div>
-</div>
-<div class="filter" id="createAccountFilter"></div>
 <input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('account',SECRET_KEY);?>">
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>

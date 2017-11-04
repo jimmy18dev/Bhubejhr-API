@@ -37,8 +37,8 @@ $signature 	= new Signature;
 	<input class="inputtext" type="text" id="username" placeholder="Username">
 	<input class="inputtext" type="password" id="password" placeholder="Password">
 	<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('register',SECRET_KEY);?>">
-	<button id="btn-submit" class="btn-submit -register">Register</button>
-	<a class="btn-link" href="login.php">I have an Account and Login</a>
+	<button id="btn-submit" class="btn-submit register">Register</button>
+	<a class="btn-link" href="login.php"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>I have an Account and Login</a>
 </form>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/user.js"></script>

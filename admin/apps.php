@@ -39,12 +39,12 @@ $currentPage = 'apps';
 <?php include'header.php';?>
 
 <div class="container">
+	<?php if($user->status == 'active'){?>
 	<div class="sorting">
 		<div class="limit"><?php echo $user->total_app;?>/<?php echo $user->app_limit;?></div>
 	</div>
 	<div class="apps-list" id="apps">
-
-		<?php if($user->total_app < $user->app_limit){?>
+		<?php if($user->total_app < $user->app_limit && $user->status == 'active'){?>
 		<div class="app-items btn-new-app" id="btnCreateApp">
 			<div class="i"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
 			<div class="c">Create New App</div>
@@ -56,14 +56,31 @@ $currentPage = 'apps';
 			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
 			<div class="detail">
 				<a href="app.php?id=<?php echo $var['app_id'];?>" class="name"><?php echo $var['app_name'];?></a>
+				<div class="info"><strong>AppID:</strong> <?php echo $var['app_id'];?></div>
 				<div class="info"><?php echo (!empty($var['app_description'])?$var['app_description']:'...');?></div>
-
-				<span class="lable">Token:</span>
-				<input type="text" class="token" value="<?php echo $var['app_key'];?>">
+				<div class="info stat">
+					<?php if($var['app_access_time'] != ''){?>
+					<span><i class="fa fa-history" aria-hidden="true"></i><?php echo $var['app_access_time'];?></span>
+					<?php }else{?>
+					<span>No Call</span>
+					<?php }?>
+					<?php if($var['request_count'] > 0){?>
+					<span><i class="fa fa-bar-chart" aria-hidden="true"></i><?php echo $var['request_count'];?> Req</span>
+					<?php }?>
+					<?php if($var['request_avg'] > 0){?>
+					<span><i class="fa fa-bolt" aria-hidden="true"></i><?php echo number_format($var['request_avg'],2);?> s.</span>
+					<?php }?>
+				</div>
 			</div>
 		</div>
 		<?php }?>
 	</div>
+	<?php }else{?>
+	<div class="approve-waiting">
+		<div class="icon"><i class="fa fa-lock" aria-hidden="true"></i></div>
+		<p>Your access to the <?php echo SITENAME;?> is waiting for Administrator approval!</p>
+	</div>
+	<?php }?>
 </div>
 
 <div class="dialog" id="createAppDialog">

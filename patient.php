@@ -20,11 +20,13 @@ switch ($_SERVER['REQUEST_METHOD']){
 
 		switch ($_GET['request']){
 			case 'get':
+				$request_id = 1;
 				$returnObject['request'] = $_GET['request'];
 				$dataset = $patient->get($_GET['cid']);
 				$returnObject['dataset'] = $dataset;
 				break;
 			case 'getappoint':
+				$request_id = 2;
 				$returnObject['request'] = $_GET['request'];
 				$dataset = $appoint->get($_GET['hn']);
 				$returnObject['dataset'] = $dataset;
@@ -61,7 +63,8 @@ $executeTime = floatval(round(microtime(true)-StTime,4));
 $returnObject['executeTime'] = $executeTime;
 
 if(!empty($app_id) && !empty($request_id)){
-	$lod_id = $log->save($app_id,$request_id,$executeTime);
+	$lod_id = $log->save($app_id,$request_id,$_SERVER['REQUEST_URI'],$executeTime);
+	$log->updateAccessTime($app_id);
 	$returnObject['log_id'] = floatval($lod_id);
 }
 
