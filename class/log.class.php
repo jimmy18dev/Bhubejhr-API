@@ -4,8 +4,8 @@ class Log{
 	private $db;
 
     public function __construct() {
-    	global $wpdb;
-    	$this->db = $wpdb;
+    	global $localdb;
+    	$this->db = $localdb;
     }
 
     public function save($app_id,$request_id,$executed){
