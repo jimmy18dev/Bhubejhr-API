@@ -7,8 +7,8 @@ if(!$user_online){
 }
 
 $signature 		= new Signature;
-$account 		= new Account;
 $accounts 		= $account->listAll($user->id);
+
 $currentPage 	= 'account';
 
 ?>
@@ -65,5 +65,6 @@ $currentPage 	= 'account';
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/account.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

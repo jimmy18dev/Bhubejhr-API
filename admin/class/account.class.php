@@ -2,10 +2,12 @@
 class Account{
 
 	private $db;
+    public $newmember;
 
     public function __construct() {
     	global $wpdb;
     	$this->db = $wpdb;
+        $this->newmember = $this->countNewMember();
     }
 
     // public function create($name,$username,$password,$permission,$owner_id){
@@ -49,6 +51,13 @@ class Account{
     //         return false;
     //     }
     // }
+
+    public function countNewMember(){
+        $this->db->query('SELECT COUNT(id) total FROM api_user WHERE status = "disable" AND approve_by IS NULL');
+        $this->db->execute();
+        $dataset = $this->db->single();
+        return $dataset['total'];
+    }
 
     public function listAll($user_id){
     	$this->db->query('SELECT account.id,account.username,account.name,account.permission,account.status,account.register_time,account.edit_time,account.visit_time,account.approve_by,account.permission_by FROM api_user AS account WHERE (account.id NOT IN (:user_id))  ORDER BY account.register_time DESC');

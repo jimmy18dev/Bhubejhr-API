@@ -29,8 +29,8 @@ include_once'class/user.class.php';
 include_once'class/account.class.php';
 
 $wpdb = new Database(DB_HOST,DB_NAME,DB_USER,DB_PASS);
-// $pdb = new Database(PDB_HOST,PDB_NAME,PDB_USER,PDB_PASS);
 $user = new User;
+$account = new Account;
 
 $user->sec_session_start();
 $user_online = $user->loginChecking();
