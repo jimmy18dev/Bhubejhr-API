@@ -210,13 +210,26 @@ body {
   line-height: 1em;
   font-weight: bold;
 }
-.header a.logo i {
+.header a.logo span {
   float: left;
   display: inline-block;
-  margin-right: 10px;
-  margin-top: -5px;
-  font-size: 1.4em;
-  color: #42b72a;
+}
+.header a.logo .status {
+  font-size: 8px;
+  background: #EEEEEE;
+  color: #999999;
+  padding: 4px 8px;
+  padding-bottom: 3px;
+  font-weight: normal;
+  float: left;
+  display: inline-block;
+  margin-left: 10px;
+  border-radius: 20px;
+  line-height: 1em;
+}
+.header a.logo .status.-active {
+  background: #42b72a;
+  color: #FFFFFF;
 }
 .header .btn-back {
   float: left;
@@ -248,6 +261,14 @@ body {
 }
 .header .nav.-active {
   color: #000000;
+}
+.header .nav.status {
+  color: #333333;
+}
+.header .nav.status i {
+  margin-right: 5px;
+  font-size: 0.9em;
+  color: #42b72a;
 }
 .header .nav.btn {
   float: right;

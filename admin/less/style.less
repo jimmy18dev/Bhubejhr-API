@@ -25,13 +25,28 @@
 		line-height: 1em;
 		font-weight: bold;
 
-		i{
+		span{
 			float: left;
 			display: inline-block;
-			margin-right: 10px;
-			margin-top: -5px;
-			font-size: 1.4em;
-			color: @primary_color;
+		}
+
+		.status{
+			font-size: 8px;
+			background: #EEEEEE;
+			color: #999999;
+			padding: 4px 8px;
+			padding-bottom: 3px;
+			font-weight: normal;
+			float: left;
+			display: inline-block;
+			margin-left: 10px;
+			border-radius: 20px;
+			line-height: 1em;
+
+			&.-active{
+				background: @primary_color;
+				color: #FFFFFF;
+			}
 		}
 	}
 
@@ -61,6 +76,14 @@
 
 		&.right{ float: right; }
 		&.-active{ color: #000000; }
+		&.status{
+			color: #333333;
+			i{
+				margin-right: 5px;
+				font-size: 0.9em;
+				color: @primary_color;
+			}
+		}
 
 		&.btn{
 			float: right;

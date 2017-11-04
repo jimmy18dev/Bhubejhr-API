@@ -20,7 +20,7 @@ include_once'class/patient/patient.class.php';
 include_once'class/scheduling/appoint.class.php';
 include_once'class/scheduling/user.class.php';
 
-$wpdb 	= new Database;
+$wpdb 	= new Database(DB_HOST,DB_NAME,DB_USER,DB_PASS);
 $app 	= new App;
 $log 	= new Log;
 
