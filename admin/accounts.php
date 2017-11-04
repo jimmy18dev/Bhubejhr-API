@@ -6,10 +6,10 @@ if(!$user_online){
 	die();
 }
 
-$signature 	= new Signature;
-$account = new Account;
-$accounts = $account->listAll();
-$currentPage = 'account';
+$signature 		= new Signature;
+$account 		= new Account;
+$accounts 		= $account->listAll($user->id);
+$currentPage 	= 'account';
 
 ?>
 <!doctype html>
@@ -47,12 +47,14 @@ $currentPage = 'account';
 				<div class="desc"><?php echo $var['username'];?></div>
 			</div>
 
-			<?php if($user->id != $var['id']){?>
 			<?php if($var['status'] != 'active'){?>
 			<div class="status btn-approve">Approve</div>
 			<?php }else{?>
 			<div class="status btn-disable">Active</div>
 			<?php }?>
+
+			<?php if($var['permission']!='admin'){?>
+			<div class="status btn-setadmin">Set Admin</div>
 			<?php }?>
 		</div>
 		<?php }?>

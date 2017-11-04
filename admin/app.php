@@ -41,6 +41,7 @@ $applogs = $app->log($app_id);
 	<div class="list" id="apps">
 		<div class="head">
 			<h1><?php echo $app->name;?></h1>
+			<p><strong>AppID</strong> <?php echo $app->id;?></p>
 			<p><strong>Description</strong> <?php echo $app->description;?></p>
 			<p><strong>Token</strong> <?php echo $app->token;?></p>
 		</div>

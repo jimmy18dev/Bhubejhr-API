@@ -32,6 +32,13 @@ class User{
         return $dataset['total'];
     }
 
+    private function updateVisitTime($user_id){
+        $this->db->query('UPDATE api_user SET visit_time = :visit_time WHERE id = :user_id');
+        $this->db->bind(':user_id' ,$user_id);
+        $this->db->bind(':visit_time' ,date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }
+
     public function getUser($user_id){
         $this->db->query('SELECT id,username,name,password,salt,type,permission,status,ip,register_time,edit_time,visit_time FROM api_user WHERE id = :user_id');
         $this->db->bind(':user_id',$user_id);
@@ -147,6 +154,7 @@ class User{
                 $login_check = hash('sha512',$this->password.$user_browser);
 
                 if($login_check == $login_string){
+                    $this->updateVisitTime($this->id);
                     return true;
                 }else{
                     return false;
