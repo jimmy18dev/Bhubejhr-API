@@ -11,6 +11,8 @@ $reference = new Reference;
 $signature 	= new Signature;
 $currentPage = 'profile';
 
+$apps = $app->listAll($user->id);
+
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -38,43 +40,49 @@ $currentPage = 'profile';
 <?php include'header.php';?>
 
 <div class="container">
-	<div class="content">
-		<div class="profile-items">
-			<div class="c">Display Name</div>
-			<div class="v"><?php echo $user->name;?></div>
-		</div>
-		<div class="profile-items">
-			<div class="c">Username</div>
-			<div class="v"><?php echo $user->username;?></div>
-		</div>
-		<div class="profile-items">
-			<div class="c">User ID</div>
-			<div class="v"><?php echo $user->id;?></div>
-		</div>
-		<div class="profile-items">
-			<div class="c">Registered</div>
-			<div class="v"><?php echo $user->register_time;?></div>
-			<div class="m"><?php echo $user->ip;?></div>
-		</div>
-		<div class="profile-items">
-			<div class="c">Status</div>
-			<div class="v"><?php echo $user->status;?></div>
-		</div>
-		<div class="profile-items">
-			<div class="c">Verify by</div>
-			<div class="v"><?php echo $user->owner_id;?></div>
-		</div>
+	<?php if($user->status == 'active'){?>
+	<div class="head">
+		<div class="limit">You can have <strong><?php echo $user->total_app;?></strong> of <?php echo $user->app_limit;?> apps.</div>
+		<?php if($user->total_app < $user->app_limit && $user->status == 'active'){?>
+		<div class="btn-new-app" id="btnCreateApp"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create App</div>
+		<?php }?>
 	</div>
+	<div class="apps-list" id="apps">
+		<?php foreach ($apps as $var) {?>
+		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
+			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+			<a class="icon" href="app.php?id=<?php echo $var['app_id'];?>"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></a>
+			<div class="detail">
+				<a href="app.php?id=<?php echo $var['app_id'];?>" class="name"><?php echo $var['app_name'];?></a>
+				<div class="info"><?php echo (!empty($var['app_description'])?$var['app_description']:'Description');?></div>
+			</div>
+			<div class="stat" title="<?php echo number_format($var['request_count']);?> Requests on this day."><?php echo number_format($var['request_count']);?></div>
+		</div>
+		<?php }?>
+	</div>
+	<?php }else{?>
+	<div class="approve-waiting">
+		<div class="icon"><i class="fa fa-lock" aria-hidden="true"></i></div>
+		<p>Your access to the <?php echo SITENAME;?> is waiting for Administrator approval!</p>
+	</div>
+	<?php }?>
 </div>
 
 <div class="navigation">
-	<div class="group">
-		<div class="btn" id="btnEditProfile">Edit Profile</div>
+	<div class="group profile">
+		<div class="name"><?php echo $user->name;?></div>
+		<div class="info-items">
+			<i class="fa fa-envelope" aria-hidden="true"></i>
+			<div class="detail"><strong>Email</strong> mrjimmy18@gmail.com</div>
+		</div>
+		<div class="info-items">
+			<i class="fa fa-suitcase" aria-hidden="true"></i>
+			<div class="detail"><strong>Company</strong> Chao Phya Abhaibhubejhr Hospital</div>
+		</div>
 	</div>
-	<div class="note">Last update <?php echo $user->edit_time;?> and You can manage profile infomation click <strong>Edit Profile</strong> button.</div>
 	<div class="group">
-		<div class="items" id="btnChangePassword">Change Password</div>
-		<a href="logout.php" class="items btn-logout">Logout</a>
+		<div class="btn" id="btnChangePassword"><i class="fa fa-key" aria-hidden="true"></i>Change Password</div>
+		<a href="logout.php" class="btn btn-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
 	</div>
 </div>
 
@@ -117,6 +125,24 @@ $currentPage = 'profile';
 <div class="filter" id="changePasswordFilter"></div>
 <input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('profile',SECRET_KEY);?>">
 
+<div class="dialog" id="createAppDialog">
+	<div class="head">
+		<div class="text">Create a New App ID</div>
+		<div class="btn" id="btnCloseCreateApp"><i class="fa fa-times" aria-hidden="true"></i></div>
+	</div>
+	<div class="input">
+		<label for="app_name">App Name</label>
+		<input type="text" id="app_name" class="inputtext" placeholder="The name of your App ID">
+		<label for="app_description">App Description</label>
+		<textarea class="textarea" id="app_description"></textarea>
+		<input type="hidden" id="app_id">
+	</div>
+	<div class="control">
+		<div class="btn btn-delete" id="btnDeleteApp">Delete</div>
+		<div class="btn btn-submit" id="btnSubmitCreateApp">Create App ID</div>
+	</div>
+</div>
+<div class="filter" id="createDialogFilter"></div>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/user.js"></script>
 <script type="text/javascript" src="js/app.js"></script>

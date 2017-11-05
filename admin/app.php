@@ -34,34 +34,32 @@ $applogs = $app->log($app_id);
 </head>
 <body>
 <header class="header">
-	<a href="apps.php" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back</a>
+	<a href="profile.php" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back</a>
 </header>
 
 <div class="container">
-	<div class="list" id="apps">
-		<div class="head">
-			<h1><?php echo $app->name;?></h1>
-			<p><strong>AppID</strong> <?php echo $app->id;?></p>
-			<p><strong>Description</strong> <?php echo $app->description;?></p>
-			<p><strong>Token</strong> <?php echo $app->token;?></p>
+	<div class="log">
+		<?php foreach ($applogs as $var) { ?>
+		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
+			<div class="method"><?php echo strtoupper($var['ref_method']);?></div>
+			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
+			<div class="ref"><?php echo $var['ref_name']?></div>
+			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
 		</div>
-		<div class="chart" id="chart"></div>
-		<div class="log">
-			<pre><?php print_r($applogs); ?></pre>
-		</div>
+		<?php }?>
 	</div>
 </div>
 
-<!-- <div class="navigation">
-	<div class="counter">
-		<div class="v">53,435</div>
-		<div class="c">Daily Requests</div>
+<div class="navigation">
+	<div class="group profile">
+		<div class="name"><?php echo $app->name;?></div>
+		<div class="desc"><?php echo $app->description;?></div>
+		<div class="info-items">
+			<i class="fa fa-envelope" aria-hidden="true"></i>
+			<div class="detail"><strong>Token</strong> <?php echo $app->token;?></div>
+		</div>
 	</div>
-	<div class="counter">
-		<div class="v">53,435</div>
-		<div class="c">Monthly Requests</div>
-	</div>
-</div> -->
+</div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/chart.min.js"></script>

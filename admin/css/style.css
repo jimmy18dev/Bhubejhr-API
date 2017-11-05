@@ -445,8 +445,8 @@ body {
 .navigation {
   position: fixed;
   top: 50px;
-  right: 15%;
-  width: 16%;
+  left: 15%;
+  width: 19%;
   float: left;
   display: inline-block;
 }
@@ -473,25 +473,55 @@ body {
   display: inline-block;
   padding-bottom: 20px;
   margin-top: 10px;
+  margin-bottom: 5%;
 }
 .navigation .group:first-child {
   margin-top: 30px;
 }
-.navigation .group .items {
+.navigation .group.profile {
+  background: #FFFFFF;
+  padding: 10%;
   width: 80%;
-  padding: 5% 10%;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+.navigation .group.profile .name {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-bottom: 10%;
+  line-height: 1.2em;
+}
+.navigation .group.profile .info-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  margin-bottom: 2%;
+}
+.navigation .group.profile .info-items i {
+  width: 12%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  margin-top: 1%;
+  color: #999999;
+}
+.navigation .group.profile .info-items .detail {
+  width: 88%;
+  float: left;
+  display: inline-block;
+}
+.navigation .group .items {
+  width: 96%;
+  padding: 5% 2%;
   float: left;
   display: inline-block;
   line-height: 1em;
-  font-size: 1em;
+  font-size: 0.9em;
   text-decoration: none;
   color: #333333;
-}
-.navigation .group .items.btn-logout {
-  color: #F44336;
-}
-.navigation .group .items.btn-logout:hover {
-  background: #FFEBEE;
 }
 .navigation .group .items.-active {
   color: #000000;
@@ -502,23 +532,26 @@ body {
   background: #DDDDDD;
 }
 .navigation .group .btn {
-  width: 100%;
-  padding: 3% 0%;
+  width: 90%;
+  padding: 3% 10%;
   float: left;
   display: inline-block;
-  background: #42b72a;
-  color: #FFFFFF;
-  text-align: center;
-  border-radius: 3px;
-  font-weight: bold;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.8em;
+  text-decoration: none;
+  color: #999999;
 }
-.navigation .group .btn.-disable {
-  background: #BBBBBB;
-  box-shadow: none;
+.navigation .group .btn i {
+  float: left;
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+.navigation .group .btn.btn-logout:hover {
+  color: #F44336;
 }
 .navigation .group .btn:hover {
   cursor: pointer;
+  color: #333333;
 }
 .navigation .note {
   width: 100%;
@@ -531,10 +564,11 @@ body {
   border-bottom: 1px solid #DDDDDD;
 }
 .container {
-  width: 100%;
-  float: left;
+  width: 49%;
+  margin: 0% 15%;
+  float: right;
   display: inline-block;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 .container .empty {
   width: 50%;
@@ -545,16 +579,34 @@ body {
   color: #999999;
   font-style: italic;
 }
-.container .sorting {
-  width: 70%;
-  margin: 1% 15%;
+.container .head {
+  width: 100%;
   float: left;
   display: inline-block;
+  margin-bottom: 2%;
 }
-.container .sorting .limit {
+.container .head .btn-new-app {
   float: right;
   display: inline-block;
-  font-size: 0.9em;
+  background: #42b72a;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.container .head .btn-new-app i {
+  margin-right: 10px;
+}
+.container .head .btn-new-app:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+.container .head .limit {
+  float: left;
+  display: inline-block;
+  padding: 5px 0px;
+  font-size: 0.8em;
   color: #999999;
 }
 .container .approve-waiting {
@@ -573,43 +625,68 @@ body {
   font-size: 5em;
   color: #333333;
 }
+.container .log {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  background: #FFFFFF;
+}
+.container .log .log-items {
+  width: 96%;
+  padding: 1% 2%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EEEEEE;
+  font-size: 0.8em;
+  color: #666666;
+}
+.container .log .log-items:hover {
+  background: #FAFAFA;
+  cursor: default;
+}
+.container .log .log-items.-alert .execute {
+  color: #e74c3c;
+}
+.container .log .log-items .time {
+  width: 25%;
+  float: left;
+  display: inline-block;
+}
+.container .log .log-items .method {
+  width: 10%;
+  float: left;
+  display: inline-block;
+}
+.container .log .log-items .ref {
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+.container .log .log-items .execute {
+  width: 15%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+}
 .container .apps-list {
-  width: 70%;
-  margin: 0% 15%;
+  width: 100%;
   float: left;
   display: inline-block;
 }
 .container .apps-list .app-items {
-  width: 28%;
-  padding: 2%;
-  float: left;
-  display: inline-block;
+  width: 43%;
+  padding: 3%;
   margin-bottom: 2%;
   margin-right: 2%;
+  float: left;
+  display: inline-block;
   position: relative;
   background: #FFFFFF;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
 }
-.container .apps-list .app-items.btn-new-app {
-  box-shadow: none;
-  text-align: center;
-  padding: 3.3% 2%;
-  color: #BBBBBB;
-  background: #EAEAEA;
-}
-.container .apps-list .app-items.btn-new-app .i {
-  font-size: 2em;
-}
-.container .apps-list .app-items.btn-new-app .c {
-  font-size: 1em;
-}
-.container .apps-list .app-items.btn-new-app:hover {
-  cursor: pointer;
-  color: #666666;
-}
-.container .apps-list .app-items:nth-child(3n+0) {
-  float: right;
+.container .apps-list .app-items:nth-child(even) {
   margin-right: 0%;
 }
 .container .apps-list .app-items .btn-edit-app {
@@ -618,15 +695,36 @@ body {
   right: 0px;
   float: right;
   display: inline-block;
-  font-size: 0.9em;
+  font-size: 0.8em;
   padding: 10px 15px;
-  color: #CCCCCC;
+  color: #EEEEEE;
 }
 .container .apps-list .app-items .btn-edit-app:hover {
+  color: #666666;
   cursor: pointer;
 }
+.container .apps-list .app-items .icon {
+  width: 15%;
+  float: left;
+  display: inline-block;
+  font-size: 2em;
+  line-height: 1.2em;
+  color: #999999;
+}
+.container .apps-list .app-items .stat {
+  width: 15%;
+  float: right;
+  display: inline-block;
+  text-align: right;
+  margin-top: 3%;
+  color: #999999;
+}
+.container .apps-list .app-items .stat:hover {
+  cursor: default;
+  color: #777777;
+}
 .container .apps-list .app-items .detail {
-  width: 100%;
+  width: 70%;
   float: left;
   display: inline-block;
 }
@@ -634,56 +732,31 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.1em;
+  font-size: 1em;
   text-decoration: none;
   color: #333333;
   font-weight: bold;
+  line-height: 1.3em;
 }
 .container .apps-list .app-items .detail a.name:hover {
   cursor: pointer;
   text-decoration: underline;
 }
-.container .apps-list .app-items .detail a.name i {
-  margin-right: 5px;
-  font-size: 0.75em;
-  color: #42b72a;
-}
 .container .apps-list .app-items .detail .info {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #999999;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.container .apps-list .app-items .detail .info.stat {
-  margin-top: 5%;
-}
-.container .apps-list .app-items .detail .info span {
-  float: right;
-  display: inline-block;
-  margin-left: 5px;
-  background: #FAFAFA;
-  line-height: 1em;
-  padding: 4px 10px;
-  padding-bottom: 5px;
-  border-radius: 20px;
-  font-size: 0.8em;
-}
-.container .apps-list .app-items .detail .info span i {
-  margin-right: 5px;
-}
 .container .list {
-  width: 50%;
-  margin: 0% 15%;
+  width: 100%;
   margin-top: 30px;
   float: left;
   display: inline-block;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
 }
 .container .list .head {
   width: 90%;

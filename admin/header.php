@@ -2,8 +2,7 @@
 	<a href="index.php" class="logo" title="Version <?php echo VERSION;?>">
 		<span><?php echo SITENAME;?></span>
 		<span class="status" id="db_status">ONLINE</span>	
-		</a>
-	<a href="apps.php" class="nav <?php echo ($currentPage == 'apps'?'-active':'');?>">My Apps</a>
+	</a>
 	<!-- <a href="references.php" class="nav <?php echo ($currentPage == 'reference'?'-active':'');?>">References</a> -->
 
 	<?php if($user->permission == 'admin'){?>
@@ -11,8 +10,4 @@
 	<?php }?>
 	
 	<a href="profile.php" class="nav right <?php echo ($currentPage == 'profile'?'-active':'');?>"><?php echo $user->name;?></a>
-
-	<?php if($user->status == 'active'){?>
-	<a href="../" target="_blank" class="nav right">Goto API<i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a>
-	<?php }?>
 </header>

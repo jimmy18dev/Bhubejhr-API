@@ -119,7 +119,7 @@ class App{
 	}
 
     public function listAll($user_id){
-    	$this->db->query('SELECT app.id app_id,app.name app_name,app.description app_description,app.token app_key,app.create_time app_create_time,app.update_time app_update_time,app.active_time app_active_time,app.access_time app_access_time,app.ip app_ip,app.type app_type,app.status app_status,user.id user_id,user.username user_username,(SELECT COUNT(id) FROM api_log WHERE app_id = app.id AND DATE(create_time) = CURDATE()) request_count,(SELECT AVG(executed) FROM api_log WHERE app_id = app.id AND DATE(create_time) = CURDATE()) request_avg FROM api_app AS app LEFT JOIN api_user AS user ON app.user_id = user.id WHERE user_id = :user_id ORDER BY app.create_time DESC');
+    	$this->db->query('SELECT app.id app_id,app.name app_name,app.description app_description,app.token app_key,app.create_time app_create_time,app.update_time app_update_time,app.active_time app_active_time,app.access_time app_access_time,app.ip app_ip,app.type app_type,app.status app_status,user.id user_id,user.username user_username,(SELECT COUNT(id) FROM api_log WHERE app_id = app.id AND DATE(create_time) = CURDATE()) request_count FROM api_app AS app LEFT JOIN api_user AS user ON app.user_id = user.id WHERE user_id = :user_id ORDER BY app.create_time DESC');
     	$this->db->bind(':user_id',$user_id);
 		$this->db->execute();
 		$dataset = $this->db->resultset();
