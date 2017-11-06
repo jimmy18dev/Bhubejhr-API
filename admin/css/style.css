@@ -450,23 +450,6 @@ body {
   float: left;
   display: inline-block;
 }
-.navigation .counter {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.navigation .counter .v {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 2em;
-}
-.navigation .counter .c {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-}
 .navigation .group {
   width: 100%;
   float: left;
@@ -482,14 +465,13 @@ body {
   background: #FFFFFF;
   padding: 10%;
   width: 80%;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
 }
 .navigation .group.profile .name {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-bottom: 10%;
   line-height: 1.2em;
 }
@@ -497,11 +479,11 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.9em;
+  font-size: 0.75em;
   margin-bottom: 2%;
 }
 .navigation .group.profile .info-items i {
-  width: 12%;
+  width: 10%;
   float: left;
   display: inline-block;
   font-size: 0.9em;
@@ -509,7 +491,7 @@ body {
   color: #999999;
 }
 .navigation .group.profile .info-items .detail {
-  width: 88%;
+  width: 90%;
   float: left;
   display: inline-block;
 }
