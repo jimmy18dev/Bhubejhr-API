@@ -461,6 +461,8 @@ body {
 .navigation .group:first-child {
   margin-top: 30px;
 }
+<<<<<<< HEAD
+=======
 .navigation .group.profile {
   background: #FFFFFF;
   padding: 10%;
@@ -495,6 +497,7 @@ body {
   float: left;
   display: inline-block;
 }
+>>>>>>> e17584329dd6eeab4dbaab7f0f9ac134916ab4d2
 .navigation .group .items {
   width: 96%;
   padding: 5% 2%;
