@@ -279,8 +279,8 @@
 .navigation{
 	position: fixed;
 	top: 50px;
-	right: 15%;
-	width: 16%;
+	left: 15%;
+	width: 19%;
 	float: left;
 	display: inline-block;
 
@@ -309,11 +309,54 @@
 		display: inline-block;
 		padding-bottom: 20px;
 		margin-top: 10px;
+		margin-bottom: 5%;
 
 		&:first-child{
 			margin-top: 30px;
 		}
 
+<<<<<<< HEAD
+=======
+		&.profile{
+			background: #FFFFFF;
+			padding: 10%;
+			width: 80%;
+			box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+			border-radius: 2px;
+
+			.name{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				font-size: 1.5em;
+				margin-bottom: 10%;
+				line-height: 1.2em;
+			}
+			.info-items{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				font-size: 0.9em;
+				margin-bottom: 2%;
+
+				i{
+					width: 12%;
+					float: left;
+					display: inline-block;
+					font-size: 0.9em;
+					margin-top: 1%;
+					color: #999999;
+				}
+
+				.detail{
+					width: 88%;
+					float: left;
+					display: inline-block;
+				}
+			}
+		}
+
+>>>>>>> e17584329dd6eeab4dbaab7f0f9ac134916ab4d2
 		.items{
 			width: 96%;
 			padding: 5% 2%;
@@ -323,13 +366,6 @@
 			font-size: 0.9em;
 			text-decoration: none;
 			color: #333333;
-
-			&.btn-logout{
-				color: #F44336;
-				&:hover{
-					background: #FFEBEE;
-				}
-			}
 
 			&.-active{
 				color: #000000;
@@ -343,24 +379,28 @@
 		}
 
 		.btn{
-			width: 100%;
-			padding: 3% 0%;
+			width: 90%;
+			padding: 3% 10%;
 			float: left;
 			display: inline-block;
-			background: @primary_color;
-			color: #FFFFFF;
-			text-align: center;
-			border-radius: 3px;
-			font-weight: bold;
-			box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+			font-size: 0.8em;
+			text-decoration: none;
+			color: #999999;
 
-			&.-disable{
-				background: #BBBBBB;
-				box-shadow: none;
+			i{
+				float: left;
+				display: inline-block;
+				margin-right: 10px;
+				font-size: 1.2em;
+			}
+
+			&.btn-logout{
+				&:hover{ color: #F44336; }
 			}
 
 			&:hover{
 				cursor: pointer;
+				color: #333333;
 			}
 		}
 	}
@@ -378,10 +418,11 @@
 }
 
 .container{
-	width: 100%;
-	float: left;
+	width: 49%;
+	margin: 0% 15%;
+	float: right;
 	display: inline-block;
-	margin-top: 50px;
+	margin-top: 80px;
 
 	.empty{
 		width: 50%;
@@ -393,16 +434,35 @@
 		font-style: italic;
 	}
 
-	.sorting{
-		width: 70%;
-		margin: 1% 15%;
+	.head{
+		width: 100%;
 		float: left;
 		display: inline-block;
+		margin-bottom: 2%;
 
-		.limit{
+		.btn-new-app{
 			float: right;
 			display: inline-block;
-			font-size: 0.9em;
+			background: @primary_color;
+			color: #FFFFFF;
+			padding: 5px 10px;
+			font-size: 0.8em;
+			border-radius: 2px;
+			box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+
+			i{ margin-right: 10px; }
+
+			&:hover{
+				cursor: pointer;
+				box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+			}
+		}
+
+		.limit{
+			float: left;
+			display: inline-block;
+			padding: 5px 0px;
+			font-size: 0.8em;
 			color: #999999;
 		}
 	}
@@ -425,44 +485,73 @@
 		}
 	}
 
+	.log{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+		background: #FFFFFF;
+
+		.log-items{
+			width: 96%;
+			padding: 1% 2%;
+			float: left;
+			display: inline-block;
+			border-bottom: 1px solid #EEEEEE;
+			font-size: 0.8em;
+			color: #666666;
+
+			&:hover{
+				background: #FAFAFA;
+				cursor: default;
+			}
+
+			&.-alert .execute{
+				color: #e74c3c;
+			}
+
+			.time{
+				width: 25%;
+				float: left;
+				display: inline-block;
+			}
+			.method{
+				width: 10%;
+				float: left;
+				display: inline-block;
+			}
+			.ref{
+				width: 50%;
+				float: left;
+				display: inline-block;
+			}
+			.execute{
+				width: 15%;
+				float: left;
+				display: inline-block;
+				text-align: right;
+			}
+		}
+	}
+
 	.apps-list{
-		width: 70%;
-		margin: 0% 15%;
+		width: 100%;
 		float: left;
 		display: inline-block;
 
 		.app-items{
-			width: 28%;
-			padding: 2%;
-			float: left;
-			display: inline-block;
+			width: 43%;
+			padding: 3%;
 			margin-bottom: 2%;
 			margin-right: 2%;
+			float: left;
+			display: inline-block;
 			position: relative;
 			background: #FFFFFF;
 			box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 			border-radius: 2px;
 
-			&.btn-new-app{
-				box-shadow: none;
-				text-align: center;
-				padding: 3.3% 2%;
-				color: #BBBBBB;
-				background: #EAEAEA;
-
-				.i{ font-size: 2em; }
-				.c{ font-size: 1em; }
-
-				&:hover{
-					cursor: pointer;
-					color: #666666;
-				}
-			}
-
-			&:nth-child(3n+0){
-                float: right;
-                margin-right: 0%;
-            }
+			&:nth-child(even){ margin-right: 0%; }
 
 			.btn-edit-app{
 				position: absolute;
@@ -470,16 +559,38 @@
 				right: 0px;
 				float: right;
 				display: inline-block;
-				font-size: 0.9em;
+				font-size: 0.8em;
 				padding: 10px 15px;
-				color: #CCCCCC;
+				color: #EEEEEE;
 
 				&:hover{
+					color: #666666;
 					cursor: pointer;
 				}
 			}
+			.icon{
+				width: 15%;
+				float: left;
+				display: inline-block;
+				font-size: 2em;
+				line-height: 1.2em;
+				color: #999999;
+			}
+			.stat{
+				width: 15%;
+				float: right;
+				display: inline-block;
+				text-align: right;
+				margin-top: 3%;
+				color: #999999;
+
+				&:hover{
+					cursor: default;
+					color: #777777;
+				}
+			}
 			.detail{
-				width: 100%;
+				width: 70%;
 				float: left;
 				display: inline-block;
 
@@ -487,63 +598,36 @@
 					width: 100%;
 					float: left;
 					display: inline-block;
-					font-size: 1.1em;
+					font-size: 1em;
 					text-decoration: none;
 					color: #333333;
 					font-weight: bold;
+					line-height: 1.3em;
 
 					&:hover{
 						cursor: pointer;
 						text-decoration: underline;
-					}
-
-					i{
-						margin-right: 5px;
-						font-size: 0.75em;
-						color: @primary_color;
 					}
 				}
 				.info{
 					width: 100%;
 					float: left;
 					display: inline-block;
-					font-size: 0.8em;
+					font-size: 0.75em;
 					color: #999999;
 					text-overflow: ellipsis;
 					white-space: nowrap;
 					overflow: hidden;
-
-					&.stat{
-						margin-top: 5%;
-					}
-
-					span{
-						float: right;
-						display: inline-block;
-						margin-left: 5px;
-						background: #FAFAFA;
-						line-height: 1em;
-						padding: 4px 10px;
-						padding-bottom: 5px;
-						border-radius: 20px;
-						font-size: 0.8em;
-
-						i{ margin-right: 5px; }
-					}
 				}
 			}
 		}
 	}
 
 	.list{
-		width: 50%;
-		margin: 0% 15%;
+		width: 100%;
 		margin-top: 30px;
 		float: left;
 		display: inline-block;
-		background: #FFFFFF;
-		box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
-		border-radius: 3px;
 
 		.head{
 			width: 90%;
