@@ -41,12 +41,6 @@ $apps = $app->listAll($user->id);
 
 <div class="container">
 	<?php if($user->status == 'active'){?>
-	<div class="head">
-		<div class="limit">You can have <strong><?php echo $user->total_app;?></strong> of <?php echo $user->app_limit;?> apps.</div>
-		<?php if($user->total_app < $user->app_limit && $user->status == 'active'){?>
-		<div class="btn-new-app" id="btnCreateApp"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create App</div>
-		<?php }?>
-	</div>
 	<div class="apps-list" id="apps">
 		<?php foreach ($apps as $var) {?>
 		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
@@ -58,6 +52,10 @@ $apps = $app->listAll($user->id);
 			</div>
 			<div class="stat" title="<?php echo number_format($var['request_count']);?> Requests on this day."><?php echo number_format($var['request_count']);?></div>
 		</div>
+		<?php }?>
+
+		<?php if($user->total_app < $user->app_limit && $user->status == 'active'){?>
+		<div class="app-items btn-new-app" id="btnCreateApp">Create a <strong>new App</strong></div>
 		<?php }?>
 	</div>
 	<?php }else{?>
@@ -78,6 +76,10 @@ $apps = $app->listAll($user->id);
 		<div class="info-items">
 			<i class="fa fa-suitcase" aria-hidden="true"></i>
 			<div class="detail"><strong>Company</strong> Chao Phya Abhaibhubejhr Hospital</div>
+		</div>
+		<div class="info-items">
+			<i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+			<div class="detail">You can have <strong><?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</strong></div>
 		</div>
 	</div>
 	<div class="group">

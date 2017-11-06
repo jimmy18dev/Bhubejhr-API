@@ -74,7 +74,6 @@ $currentPage = 'apps';
 			</div>
 		</div>
 		<?php }?>
-		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">Create a <strong>new App</strong></div>
 	</div>
 	<?php }else{?>
 	<div class="approve-waiting">
