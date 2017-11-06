@@ -34,16 +34,16 @@ $applogs = $app->log($app_id);
 </head>
 <body>
 <header class="header">
-	<a href="profile.php" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back</a>
+	<a href="profile.php" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i><?php echo $app->name;?></a>
 </header>
 
 <div class="container">
 	<div class="log">
 		<?php foreach ($applogs as $var) { ?>
 		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
-			<div class="method"><?php echo strtoupper($var['ref_method']);?></div>
+			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
 			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
-			<div class="ref"><?php echo $var['ref_name']?></div>
+			<div class="ref"><?php echo (!empty($var['ref_name'])?$var['ref_name']:'n/a')?></div>
 			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
 		</div>
 		<?php }?>
