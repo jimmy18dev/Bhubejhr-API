@@ -5,6 +5,7 @@ header("Content-type: text/json");
 
 $patient 	= new Patient;
 $appoint 	= new Appoint;
+$drug 	= new Drug;
 
 $returnObject['apiName'] = 'Patients Service';
 
@@ -29,6 +30,13 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$request_id = 2;
 				$returnObject['request'] = $_GET['request'];
 				$dataset = $appoint->get($_GET['hn']);
+				$returnObject['dataset'] = $dataset;
+				break;
+			default:
+			case 'drug_opd':
+				$request_id = 3;
+				$returnObject['request'] = $_GET['request'];
+				$dataset = $drug->drug_opd($_GET['hn']);
 				$returnObject['dataset'] = $dataset;
 				break;
 			default:
