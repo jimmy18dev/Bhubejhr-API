@@ -68,7 +68,9 @@ $apps = $app->listAll($user->id);
 
 <div class="navigation">
 	<div class="group">
-		<div class="name"><?php echo $user->name;?></div>
+		<div class="head">
+			<div class="name"><?php echo $user->name;?></div>
+		</div>
 		<div class="info-items">
 			<span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
 			<div class="detail">mrjimmy18@gmail.com</div>

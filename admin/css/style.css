@@ -249,40 +249,21 @@ body {
   margin-right: 15px;
 }
 .header .nav {
-  float: left;
+  float: right;
   display: inline-block;
   padding: 18px 0%;
   margin-right: 3%;
-  height: 14px;
-  color: #666666;
+  height: 12px;
+  color: #EEEEEE;
   text-decoration: none;
   font-size: 0.9em;
   line-height: 1em;
-}
-.header .nav.right {
-  float: right;
-  margin-right: 0%;
+  border-bottom: 2px solid transparent;
 }
 .header .nav.-active {
   color: #FFFFFF;
-}
-.header .nav i {
-  margin-left: 7px;
-}
-.header .nav.btn {
-  float: right;
-  padding: 8px 10px;
-  margin: 12px 0px;
-  margin-right: 1.5%;
-  height: 10px;
-  font-size: 0.75em;
-  color: #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
   font-weight: bold;
-  background: #2ecc71;
-  border-radius: 2px;
-}
-.header .nav.btn:hover {
-  cursor: pointer;
 }
 .progressbar {
   width: 0%;
@@ -462,13 +443,25 @@ body {
   border-bottom: 1px solid #EEEEEE;
   padding-bottom: 10%;
 }
-.navigation .group .name {
+.navigation .group .head {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 10%;
+}
+.navigation .group .head .name {
   width: 100%;
   float: left;
   display: inline-block;
   font-size: 2em;
   line-height: 1.1em;
-  margin-bottom: 10%;
+}
+.navigation .group .head .desc {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-top: 3%;
 }
 .navigation .group .info-items {
   width: 100%;

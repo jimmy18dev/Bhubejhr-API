@@ -33,9 +33,7 @@ $applogs = $app->log($app_id);
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<header class="header">
-	<a href="profile.php" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i><?php echo $app->name;?></a>
-</header>
+<?php include'header.php';?>
 
 <div class="container">
 	<div class="log">
@@ -51,12 +49,15 @@ $applogs = $app->log($app_id);
 </div>
 
 <div class="navigation">
-	<div class="group profile">
-		<div class="name"><?php echo $app->name;?></div>
-		<div class="desc"><?php echo $app->description;?></div>
+	<div class="group">
+		<div class="head">
+			<div class="name"><?php echo $app->name;?></div>
+			<div class="desc"><?php echo $app->description;?></div>
+		</div>
+
 		<div class="info-items">
-			<i class="fa fa-envelope" aria-hidden="true"></i>
-			<div class="detail"><strong>Token</strong> <?php echo $app->token;?></div>
+			<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>
+			<div class="detail"><?php echo $app->token;?></div>
 		</div>
 	</div>
 </div>
