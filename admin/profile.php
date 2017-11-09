@@ -67,24 +67,34 @@ $apps = $app->listAll($user->id);
 </div>
 
 <div class="navigation">
-	<div class="group profile">
+	<div class="group">
 		<div class="name"><?php echo $user->name;?></div>
 		<div class="info-items">
-			<i class="fa fa-envelope" aria-hidden="true"></i>
-			<div class="detail"><strong>Email</strong> mrjimmy18@gmail.com</div>
+			<span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+			<div class="detail">mrjimmy18@gmail.com</div>
 		</div>
 		<div class="info-items">
-			<i class="fa fa-suitcase" aria-hidden="true"></i>
-			<div class="detail"><strong>Company</strong> Chao Phya Abhaibhubejhr Hospital</div>
+			<span class="icon"><i class="fa fa-suitcase" aria-hidden="true"></i></span>
+			<div class="detail">Chao Phya Abhaibhubejhr Hospital</div>
 		</div>
 		<div class="info-items">
-			<i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+			<span class="icon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></span>
 			<div class="detail">You can have <strong><?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</strong></div>
 		</div>
 	</div>
 	<div class="group">
-		<div class="btn" id="btnChangePassword"><i class="fa fa-key" aria-hidden="true"></i>Change Password</div>
-		<a href="logout.php" class="btn btn-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+		<a href="#" id="btnChangePassword" class="info-items">
+			<span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+			<div class="detail">Setting</div>
+		</a>
+		<a href="#" id="btnChangePassword" class="info-items">
+			<span class="icon"><i class="fa fa-key" aria-hidden="true"></i></span>
+			<div class="detail">Change Password</div>
+		</a>
+		<a href="logout.php" class="info-items">
+			<span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+			<div class="detail">Logout</div>
+		</a>
 	</div>
 </div>
 

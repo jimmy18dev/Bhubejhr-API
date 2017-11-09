@@ -219,7 +219,7 @@ body {
 }
 .header a.logo .status {
   font-size: 8px;
-  background: #444444;
+  background: transparent;
   color: #CCCCCC;
   padding: 4px 8px;
   padding-bottom: 3px;
@@ -448,7 +448,7 @@ body {
   position: fixed;
   top: 50px;
   left: 15%;
-  width: 20%;
+  width: 19%;
   float: left;
   display: inline-block;
   margin-top: 30px;
@@ -457,87 +457,42 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  margin-bottom: 5%;
-  box-sizing: border-box;
-  padding: 10%;
-  border-radius: 2px;
-  border: 1px solid #EEEEEE;
-}
-.navigation .group.profile .name {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
   margin-bottom: 10%;
-  line-height: 1.2em;
+  box-sizing: border-box;
+  border-bottom: 1px solid #EEEEEE;
+  padding-bottom: 10%;
 }
-.navigation .group.profile .info-items {
+.navigation .group .name {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.75em;
-  margin-bottom: 2%;
+  font-size: 2em;
+  line-height: 1.1em;
+  margin-bottom: 10%;
 }
-.navigation .group.profile .info-items i {
+.navigation .group .info-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  margin-bottom: 3%;
+}
+.navigation .group .info-items:last-child {
+  margin-bottom: 0%;
+}
+.navigation .group .info-items .icon {
   width: 10%;
   float: left;
   display: inline-block;
-  font-size: 0.9em;
-  margin-top: 1%;
-  color: #999999;
+  font-size: 1.1em;
+  color: #666666;
+  line-height: 1.2em;
 }
-.navigation .group.profile .info-items .detail {
+.navigation .group .info-items .detail {
   width: 90%;
   float: left;
   display: inline-block;
-}
-.navigation .group .items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  line-height: 1em;
-  font-size: 0.9em;
-  text-decoration: none;
-  color: #333333;
-}
-.navigation .group .items.-active {
-  color: #000000;
-  font-weight: bold;
-}
-.navigation .group .items:hover {
-  cursor: pointer;
-  background: #DDDDDD;
-}
-.navigation .group .btn {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-  text-decoration: none;
-  color: #999999;
-}
-.navigation .group .btn i {
-  float: left;
-  display: inline-block;
-  margin-right: 10px;
-  font-size: 1.2em;
-}
-.navigation .group .btn.btn-logout:hover {
-  color: #F44336;
-}
-.navigation .group .btn:hover {
-  cursor: pointer;
-  color: #333333;
-}
-.navigation .note {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  padding: 5% 0%;
-  padding-bottom: 10%;
-  margin-top: 30px;
-  font-size: 0.8em;
-  border-bottom: 1px solid #DDDDDD;
+  color: #666666;
 }
 .container {
   width: 48.8%;
