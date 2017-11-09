@@ -10,9 +10,11 @@
 	height: 50px;
 	float: left;
 	display: inline-block;
-	background: #333333;
-	box-shadow: 0px -1px 10px rgba(0,0,0,0.1);
+	background: #004D40;
+	background: -webkit-linear-gradient(to right, #004D40, #4c8279);
+	background: linear-gradient(to right, #004D40, #4c8279);
 	z-index: 59;
+	box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
 
 	a.logo{
 		float: left;
@@ -280,7 +282,7 @@
 	position: fixed;
 	top: 50px;
 	left: 15%;
-	width: 18%;
+	width: 20%;
 	float: left;
 	display: inline-block;
 	margin-top: 30px;
@@ -290,12 +292,12 @@
 		float: left;
 		display: inline-block;
 		margin-bottom: 5%;
+		box-sizing: border-box;
+		padding: 10%;
+		border-radius: 2px;
+		border: 1px solid #EEEEEE;
 
 		&.profile{
-			background: #FFFFFF;
-			border-radius: 2px;
-			border-bottom: 1px solid #EEEEEE;
-
 			.name{
 				width: 100%;
 				float: left;
@@ -329,8 +331,7 @@
 		}
 
 		.items{
-			width: 96%;
-			padding: 5% 2%;
+			width: 100%;
 			float: left;
 			display: inline-block;
 			line-height: 1em;
@@ -350,8 +351,7 @@
 		}
 
 		.btn{
-			width: 90%;
-			padding: 3% 10%;
+			width: 100%;
 			float: left;
 			display: inline-block;
 			font-size: 0.8em;
@@ -389,7 +389,7 @@
 }
 
 .container{
-	width: 50%;
+	width: 48.8%;
 	margin: 0% 15%;
 	margin-top: 80px;
 	float: right;
@@ -521,20 +521,27 @@
 			border-radius: 2px;
 			border: 1px solid #EEEEEE;
 			box-sizing: border-box;
+			// box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
+			background: #FAFAFA;
+
+			&:hover{
+				box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+			}
 
 			&.btn-new-app{
 				text-align: center;
 				box-shadow: none;
-				padding: 3.5% 2.8%;
-				border: 1px dashed #AAAAAA;
+				padding: 3.8% 2.8%;
+				border: 2px dashed #EEEEEE;
 				background: transparent;
 				color: #AAAAAA;
+				font-size: 0.9em;
 
-				strong{ color: @primary_color; }
+				strong{ color: #004D40; }
 				&:hover{
 					cursor: pointer;
 					color: #666666;
-					border: 1px dashed #666666;
+					border: 2px dashed #AAAAAA;
 				}
 			}
 
@@ -561,7 +568,7 @@
 				display: inline-block;
 				font-size: 1.8em;
 				line-height: 1.2em;
-				color: #999999;
+				color: #004D40;
 			}
 			.stat{
 				width: 15%;

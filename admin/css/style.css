@@ -195,9 +195,11 @@ body {
   height: 50px;
   float: left;
   display: inline-block;
-  background: #333333;
-  box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.1);
+  background: #004D40;
+  background: -webkit-linear-gradient(to right, #004d40, #4c8279);
+  background: linear-gradient(to right, #004d40, #4c8279);
   z-index: 59;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
 }
 .header a.logo {
   float: left;
@@ -446,7 +448,7 @@ body {
   position: fixed;
   top: 50px;
   left: 15%;
-  width: 18%;
+  width: 20%;
   float: left;
   display: inline-block;
   margin-top: 30px;
@@ -456,11 +458,10 @@ body {
   float: left;
   display: inline-block;
   margin-bottom: 5%;
-}
-.navigation .group.profile {
-  background: #FFFFFF;
+  box-sizing: border-box;
+  padding: 10%;
   border-radius: 2px;
-  border-bottom: 1px solid #EEEEEE;
+  border: 1px solid #EEEEEE;
 }
 .navigation .group.profile .name {
   width: 100%;
@@ -491,8 +492,7 @@ body {
   display: inline-block;
 }
 .navigation .group .items {
-  width: 96%;
-  padding: 5% 2%;
+  width: 100%;
   float: left;
   display: inline-block;
   line-height: 1em;
@@ -509,8 +509,7 @@ body {
   background: #DDDDDD;
 }
 .navigation .group .btn {
-  width: 90%;
-  padding: 3% 10%;
+  width: 100%;
   float: left;
   display: inline-block;
   font-size: 0.8em;
@@ -541,7 +540,7 @@ body {
   border-bottom: 1px solid #DDDDDD;
 }
 .container {
-  width: 50%;
+  width: 48.8%;
   margin: 0% 15%;
   margin-top: 80px;
   float: right;
@@ -662,22 +661,27 @@ body {
   border-radius: 2px;
   border: 1px solid #EEEEEE;
   box-sizing: border-box;
+  background: #FAFAFA;
+}
+.container .apps-list .app-items:hover {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
 }
 .container .apps-list .app-items.btn-new-app {
   text-align: center;
   box-shadow: none;
-  padding: 3.5% 2.8%;
-  border: 1px dashed #AAAAAA;
+  padding: 3.8% 2.8%;
+  border: 2px dashed #EEEEEE;
   background: transparent;
   color: #AAAAAA;
+  font-size: 0.9em;
 }
 .container .apps-list .app-items.btn-new-app strong {
-  color: #42b72a;
+  color: #004D40;
 }
 .container .apps-list .app-items.btn-new-app:hover {
   cursor: pointer;
   color: #666666;
-  border: 1px dashed #666666;
+  border: 2px dashed #AAAAAA;
 }
 .container .apps-list .app-items:nth-child(even) {
   margin-right: 0%;
@@ -702,7 +706,7 @@ body {
   display: inline-block;
   font-size: 1.8em;
   line-height: 1.2em;
-  color: #999999;
+  color: #004D40;
 }
 .container .apps-list .app-items .stat {
   width: 15%;
