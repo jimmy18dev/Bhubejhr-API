@@ -35,19 +35,6 @@ $applogs = $app->log($app_id);
 <body>
 <?php include'header.php';?>
 
-<div class="container">
-	<div class="log">
-		<?php foreach ($applogs as $var) { ?>
-		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
-			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
-			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
-			<div class="ref"><?php echo (!empty($var['ref_name'])?$var['ref_name']:'n/a')?></div>
-			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
-		</div>
-		<?php }?>
-	</div>
-</div>
-
 <div class="navigation">
 	<div class="group">
 		<div class="head">
@@ -59,6 +46,24 @@ $applogs = $app->log($app_id);
 			<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>
 			<div class="detail"><?php echo $app->token;?></div>
 		</div>
+	</div>
+</div>
+
+<div class="container">
+	<h2>Activity Logs</h2>
+	<div class="log">
+		<?php if(count($applogs)>0){?>
+		<?php foreach ($applogs as $var) { ?>
+		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
+			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
+			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
+			<div class="ref"><?php echo (!empty($var['ref_name'])?$var['ref_name']:'n/a')?></div>
+			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
+		</div>
+		<?php }?>
+		<?php }else{?>
+		<div class="empty">Activity Not Found!</div>
+		<?php }?>
 	</div>
 </div>
 
