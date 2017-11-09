@@ -464,6 +464,15 @@ body {
   font-size: 0.8em;
   margin-top: 2%;
 }
+.navigation .group .head .desc span {
+  display: inline-block;
+  background: #FAFAFA;
+  padding: 0px 7px;
+  padding-top: 2px;
+  font-size: 0.7em;
+  border: 1px solid #CCCCCC;
+  border-radius: 20px;
+}
 .navigation .group .info-items {
   width: 100%;
   float: left;
@@ -508,6 +517,14 @@ body {
   font-size: 0.8em;
   color: #666666;
 }
+.navigation .group canvas#chart {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  height: 200px;
+  margin: 0px;
+  padding: 0px;
+}
 .container {
   width: 48.8%;
   margin: 0% 15%;
@@ -544,8 +561,9 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  background: #FAFAFA;
+  background: #FFFFFF;
   margin-bottom: 5%;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 }
 .container .log .empty {
   width: 100%;
@@ -572,6 +590,9 @@ body {
 .container .log .log-items.-alert .execute {
   color: #e74c3c;
 }
+.container .log .log-items:last-child {
+  border-bottom: 0px;
+}
 .container .log .log-items .time {
   width: 25%;
   float: left;
@@ -581,6 +602,7 @@ body {
   width: 10%;
   float: left;
   display: inline-block;
+  font-weight: bold;
 }
 .container .log .log-items .ref {
   width: 50%;
@@ -1073,14 +1095,6 @@ body {
   width: 80%;
   float: left;
   display: inline-block;
-}
-.container .page canvas.chart {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  height: 300px;
-  margin-bottom: 5%;
-  margin-top: 2%;
 }
 .container .page .activity {
   width: 100%;

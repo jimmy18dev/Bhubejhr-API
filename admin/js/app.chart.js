@@ -1,3 +1,6 @@
+Chart.defaults.global.defaultFontColor = '#999999';
+Chart.defaults.global.defaultFontSize = '10';
+
 $(document).ready(function(){
     var app_id = $('#app_id').val();
     requestData(app_id);
@@ -41,12 +44,20 @@ function graphRender(total,day){
             datasets: [{
                 label: 'Last 7 Days.',
                 data: total,
-                backgroundColor: '#4CAF50',
-                borderWidth: 1,
+                backgroundColor: '#4c8279',
+                borderWidth: 0,
             }]
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
+            tooltips: {
+                callbacks: {
+                    label: function(tooltipItem){
+                        return tooltipItem.yLabel;
+                    }
+                }
+            },
             title:{
                 display:false
             },
@@ -56,11 +67,18 @@ function graphRender(total,day){
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true,
-                        // stepSize: 1,
-                    }
+                        beginAtZero: true
+                    },
+                    position: "left",
                 }]
-            }
+            },
+            // animation: {
+            //     duration: 0, // general animation time
+            // },
+            hover: {
+                animationDuration: 0, // duration of animations when hovering an item
+            },
+            responsiveAnimationDuration: 0, // animation duration after a resize
         }
     });
 }

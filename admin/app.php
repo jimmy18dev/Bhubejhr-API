@@ -42,16 +42,19 @@ $log_allday = $log->allday($app_id);
 		<div class="head">
 			<div class="name"><?php echo $app->name;?></div>
 			<div class="desc"><?php echo $app->description;?></div>
+			<div class="desc">
+				<strong>State:</strong>
+				<span>Development</span>
+			</div>
+			<div class="desc">
+				<strong>Permission:</strong>
+				<span>GET</span>
+				<span>POST</span>
+				<span>PUT</span>
+				<span>DELETE</span>
+			</div>
+			<div class="desc"><strong>Token:</strong> <?php echo $app->token;?></div>
 		</div>
-
-		<div class="info-items">
-			<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>
-			<div class="detail"><?php echo $app->token;?></div>
-		</div>
-	</div>
-
-	<div class="group">
-		<canvas id="chart"></canvas>
 	</div>
 
 	<div class="group">
@@ -72,10 +75,29 @@ $log_allday = $log->allday($app_id);
 			<div class="c">Last Access</div>
 		</div> -->
 	</div>
+
+	<div class="group">
+		<canvas id="chart"></canvas>
+	</div>
+
+	<div class="group">
+		<a href="#" id="btnChangePassword" class="info-items">
+			<span class="icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+			<div class="detail">Activate</div>
+		</a>
+		<a href="#" class="info-items">
+			<span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+			<div class="detail">App Setting</div>
+		</a>
+		<a href="#" id="btnChangePassword" class="info-items">
+			<span class="icon"><i class="fa fa-trash" aria-hidden="true"></i></span>
+			<div class="detail">Delete this App</div>
+		</a>
+	</div>
 </div>
 
 <div class="container">
-	<h2>Today activity</h2>
+	<h2>Today</h2>
 	<div class="log">
 		<?php if(count($log_today)>0){?>
 		<?php foreach ($log_today as $var) { ?>
@@ -91,7 +113,7 @@ $log_allday = $log->allday($app_id);
 		<?php }?>
 	</div>
 
-	<h2>All Day activity</h2>
+	<h2>All Day</h2>
 	<div class="log">
 		<?php if(count($log_allday)>0){?>
 		<?php foreach ($log_allday as $var) { ?>
@@ -108,7 +130,7 @@ $log_allday = $log->allday($app_id);
 	</div>
 </div>
 
-<input type="text" id="app_id" value="<?php echo $app->id;?>">
+<input type="hidden" id="app_id" value="<?php echo $app->id;?>">
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/chart.min.js"></script>
