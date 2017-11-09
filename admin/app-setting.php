@@ -45,6 +45,12 @@ $log_allday = $log->allday($app_id);
 			<div class="desc"><?php echo $app->description;?></div>
 		</div>
 	</div>
+
+	<div class="group">
+		<h3>Delete this app</h3>
+		<p>Once you delete a app, there is no going back. Please be certain.</p>
+		<button class="btn delete" id="btnDeleteApp">Delete this App</button>
+	</div>
 </div>
 
 <div class="container">

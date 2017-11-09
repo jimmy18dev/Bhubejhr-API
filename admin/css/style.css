@@ -442,8 +442,45 @@ body {
   display: inline-block;
   margin-bottom: 10%;
   box-sizing: border-box;
-  border-bottom: 1px solid #EEEEEE;
   padding-bottom: 10%;
+}
+.navigation .group h3 {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  color: #333333;
+}
+.navigation .group p {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  color: #666666;
+}
+.navigation .group .btn {
+  width: 70%;
+  margin-right: 30%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  background: #CCCCCC;
+  color: #666666;
+  border: 0px;
+  margin: 0px;
+  margin-top: 5%;
+  padding: 10px;
+  border-radius: 3px;
+}
+.navigation .group .btn.delete {
+  background: #FFEBEE;
+  color: #F44336;
+}
+.navigation .group .btn.delete:hover {
+  background: #FFCDD2;
+}
+.navigation .group .btn:hover {
+  cursor: pointer;
 }
 .navigation .group .head {
   width: 100%;

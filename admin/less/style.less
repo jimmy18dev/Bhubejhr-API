@@ -277,8 +277,50 @@
 		display: inline-block;
 		margin-bottom: 10%;
 		box-sizing: border-box;
-		border-bottom: 1px solid #EEEEEE;
 		padding-bottom: 10%;
+
+		h3{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			font-size: 0.9em;
+			color: #333333;
+		}
+		p{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			font-size: 0.8em;
+			color: #666666;
+		}
+
+		.btn{
+			width: 70%;
+			margin-right: 30%;
+			float: left;
+			display: inline-block;
+			font-size: 0.9em;
+			background: #CCCCCC;
+			color: #666666;
+			border: 0px;
+			margin: 0px;
+			margin-top: 5%;
+			padding: 10px;
+			border-radius: 3px;
+
+			&.delete{
+				background: #FFEBEE;
+				color: #F44336;
+
+				&:hover{
+					background: #FFCDD2;
+				}
+			}
+
+			&:hover{
+				cursor: pointer;
+			}
+		}
 
 		.head{
 			width: 100%;

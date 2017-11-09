@@ -2,6 +2,7 @@ var api_url = 'api.app.php';
 
 $(document).ready(function(){
 	$btnUpdate 		= $('#btnUpdate');
+	$btnDeleteApp 	= $('#btnDeleteApp');
 	$progressbar 	= $('#progressbar');
 
 	$btnUpdate.click(function(){
@@ -40,5 +41,39 @@ $(document).ready(function(){
 	    		$progressbar.fadeOut();
 	    	}, 1000);
 	    });		
+	});
+
+	$btnDeleteApp.click(function(){
+		var app_id 		= $('#app_id').val();
+		var app_name 	= $('#app_name').val();
+
+		if(app_id == '') return false;
+		if(!confirm('Are you sure to delete "'+app_name+'"?')){ return false; }
+
+		$progressbar.fadeIn(300);
+		$progressbar.width('0%');
+		$progressbar.animate({width:'70%'},500);
+
+		$.ajax({
+	        url         :api_url,
+	        cache       :false,
+	        dataType    :"json",
+	        type        :"POST",
+	        data:{
+	            request 	:'delete',
+	            app_id		:app_id,
+	            // sign 		:sign
+	        },
+	        error: function (request, status, error) {
+	            console.log("Request Error",request.responseText);
+	        }
+	    }).done(function(data){
+	    	console.log(data);
+	    	$progressbar.animate({width:'100%'},500);
+	    	
+	    	setTimeout(function(){
+				window.location = 'index.php?appdelete=success';
+	        },2000);
+	    });
 	});
 });
