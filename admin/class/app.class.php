@@ -127,14 +127,6 @@ class App{
 		return $dataset;
     }
 
-    public function log($app_id){
-    	$this->db->query('SELECT log.id log_id,log.executed log_executed,log.create_time log_time,log.param log_param,log.ref_id,ref.id ref_id,ref.name ref_name,ref.method ref_method,ref.type ref_type,category.name category_name,category.id category_id FROM api_log AS log LEFT JOIN api_reference AS ref ON log.ref_id = ref.id LEFT JOIN api_category AS category ON ref.category_id = category.id WHERE log.app_id = :app_id ORDER BY log.create_time DESC LIMIT 50');
-    	$this->db->bind(':app_id',$app_id);
-		$this->db->execute();
-		$dataset = $this->db->resultset();
-		return $dataset;
-    }
-
     public function count(){
     	$this->db->query('SELECT COUNT(id) total FROM api_app');
 		$this->db->execute();

@@ -9,7 +9,8 @@ $app_id = $_GET['id'];
 $app 		= new app;
 $log = new Log;
 $app->get($app_id);
-$applogs = $app->log($app_id);
+$log_today = $log->today($app_id);
+$log_allday = $log->allday($app_id);
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -70,10 +71,26 @@ $applogs = $app->log($app_id);
 </div>
 
 <div class="container">
-	<h2>Activity Logs</h2>
+	<h2>Today activity</h2>
 	<div class="log">
-		<?php if(count($applogs)>0){?>
-		<?php foreach ($applogs as $var) { ?>
+		<?php if(count($log_today)>0){?>
+		<?php foreach ($log_today as $var) { ?>
+		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
+			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
+			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
+			<div class="ref"><?php echo (!empty($var['ref_name'])?$var['ref_name']:'n/a')?></div>
+			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
+		</div>
+		<?php }?>
+		<?php }else{?>
+		<div class="empty">Activity Not Found!</div>
+		<?php }?>
+	</div>
+
+	<h2>All Day activity</h2>
+	<div class="log">
+		<?php if(count($log_allday)>0){?>
+		<?php foreach ($log_allday as $var) { ?>
 		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
 			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
 			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>

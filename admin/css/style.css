@@ -545,6 +545,7 @@ body {
   float: left;
   display: inline-block;
   background: #FAFAFA;
+  margin-bottom: 5%;
 }
 .container .log .empty {
   width: 100%;
