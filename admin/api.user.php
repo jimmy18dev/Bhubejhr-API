@@ -74,10 +74,9 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$returnObject['message'] 	= 'Profile edited.';
 				break;
 			case 'change_password':
-				$oldpassword = $_POST['oldpassword'];
 				$newpassword = $_POST['newpassword'];
 
-				$user->changePassword($user->id,$oldpassword,$newpassword);
+				$user->changePassword($user->id,$newpassword);
 
 				$returnObject['message'] 	= 'Password changed.';
 				break;

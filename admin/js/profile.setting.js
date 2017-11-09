@@ -3,6 +3,7 @@ var api_url = 'api.user.php';
 $(document).ready(function(){
 	$btnUpdate 		= $('#btnUpdate');
 	$progressbar 	= $('#progressbar');
+	$btnChangePassword = $('#btnChangePassword');
 
 	$btnUpdate.click(function(){
 
@@ -43,5 +44,43 @@ $(document).ready(function(){
 	    		$progressbar.fadeOut();
 	    	}, 1000);
 	    });		
+	});
+
+	$btnChangePassword.click(function(){
+		var newpassword 	= $('#newpassword').val();
+		var renewpassword 	= $('#repassword').val();
+
+		console.log('Password: '+newpassword+' '+renewpassword);
+
+		if(newpassword == '' || renewpassword == ''){
+			return false;
+		}else if(newpassword != renewpassword){
+			return false;
+		}
+
+		$progressbar.fadeIn(300);
+		$progressbar.width('0%');
+		$progressbar.animate({width:'70%'},500);
+
+		$.get({
+			url         :api_url,
+			timeout 	:10000, //10 second timeout
+			cache       :false,
+			dataType    :"json",
+			type        :"POST",
+			data:{
+				request     :'change_password',
+				newpassword :newpassword
+			},
+			error: function (request, status, error) {
+				console.log("Request Error",request.responseText);
+			}
+		}).done(function(data){
+			$progressbar.animate({width:'100%'},500);
+
+	    	setTimeout(function(){
+	    		$progressbar.fadeOut();
+	    	}, 1000);
+		});
 	});
 });

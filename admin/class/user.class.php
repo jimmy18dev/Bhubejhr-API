@@ -179,7 +179,7 @@ class User{
         $cookie_time    = time() + 3600 * 24 * 12; // Cookie Time (1 year)
 
         // GET USER DATA BY EMAIL
-        $this->db->query('SELECT id,password,salt FROM api_user WHERE username = :username');
+        $this->db->query('SELECT id,password,salt FROM api_user WHERE username = :username OR email = :username');
         $this->db->bind(':username',$username);
         $this->db->execute();
         $user_data = $this->db->single();
@@ -288,7 +288,7 @@ class User{
         $this->db->bind(':edit_time' ,date('Y-m-d H:i:s'));
         $this->db->execute();
     }
-    public function changePassword($user_id,$oldpassword,$newpassword){
+    public function changePassword($user_id,$newpassword){
         // Random password if password is empty value
         $salt = hash('sha512',uniqid(mt_rand(1,mt_getrandmax()),true));
         // Create salted password

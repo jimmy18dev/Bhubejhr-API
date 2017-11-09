@@ -80,7 +80,7 @@ $apps = $app->listAll($user->id);
 			<span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
 			<div class="detail">Profile Setting</div>
 		</a>
-		<a href="#" id="btnChangePassword" class="info-items">
+		<a href="profile-password.php" class="info-items">
 			<span class="icon"><i class="fa fa-key" aria-hidden="true"></i></span>
 			<div class="detail">Change Password</div>
 		</a>
