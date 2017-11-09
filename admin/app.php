@@ -51,6 +51,10 @@ $log_allday = $log->allday($app_id);
 	</div>
 
 	<div class="group">
+		<canvas id="chart"></canvas>
+	</div>
+
+	<div class="group">
 		<div class="stat">
 			<div class="v"><?php echo $log->todayRequest($app->id);?></div>
 			<div class="c">Today Request</div>
@@ -104,9 +108,11 @@ $log_allday = $log->allday($app_id);
 	</div>
 </div>
 
+<input type="text" id="app_id" value="<?php echo $app->id;?>">
+
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/chart.min.js"></script>
-<script type="text/javascript" src="js/app.graph.js"></script>
+<script type="text/javascript" src="js/app.chart.js"></script>
 </body>
 </html>
 

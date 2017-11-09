@@ -34,6 +34,19 @@ class Log{
     //     return $dataset;
     // }
 
+    public function last7day($app_id){
+        $this->db->query('SELECT CURDATE() - INTERVAL diffs.diff DAY AS day,COUNT(id) AS total FROM ( SELECT 0 as diff UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 ) diffs LEFT JOIN api_log AS log ON (DATE(log.create_time) = CURDATE() - INTERVAL diffs.diff DAY) AND log.app_id = :app_id GROUP BY day');
+        $this->db->bind(':app_id',$app_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var){
+            $dataset[$k]['day'] = date('D',strtotime($var['day']));
+            $dataset[$k]['total'] = floatval($var['total']);
+        }
+        return $dataset;
+    }
+
     public function today($app_id){
         $this->db->query('SELECT log.id log_id,log.executed log_executed,log.create_time log_time,log.param log_param,log.ref_id,ref.id ref_id,ref.name ref_name,ref.method ref_method,ref.type ref_type,category.name category_name,category.id category_id FROM api_log AS log LEFT JOIN api_reference AS ref ON log.ref_id = ref.id LEFT JOIN api_category AS category ON ref.category_id = category.id WHERE log.app_id = :app_id AND DATE(log.create_time) = CURDATE() ORDER BY log.create_time DESC LIMIT 50');
         $this->db->bind(':app_id',$app_id);

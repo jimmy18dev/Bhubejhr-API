@@ -15,6 +15,7 @@ $returnObject = array(
 );
 
 $app = new App;
+$log = new Log;
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
@@ -24,6 +25,11 @@ switch ($_SERVER['REQUEST_METHOD']){
 
 				$returnObject['items'] = $dataset;
 				$returnObject['message'] = 'list all apps';
+				break;
+			case 'last7day':
+				$dataset = $log->last7day($_GET['app_id']);
+				$returnObject['items'] = $dataset;
+				$returnObject['message'] = 'last 7 day';
 				break;
 			default:
 				$returnObject['message'] = 'GET API Not found!';

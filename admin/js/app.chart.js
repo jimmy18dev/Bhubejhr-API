@@ -1,45 +1,46 @@
 $(document).ready(function(){
-    var qid = $('#qid').val();
-    
-	requestData(qid);
+    var app_id = $('#app_id').val();
+    requestData(app_id);
 });
 
-function requestData(qid){
+function requestData(app_id){
 	$.ajax({
-		url         :'api.queries.php',
+		url         :'api.app.php',
 		cache       :false,
 		dataType    :"json",
-		type        :"POST",
+		type        :"GET",
 		data:{
-			action      :'request_counter',
-			qid		:qid,
+			request      :'last7day',
+			app_id       :app_id,
 		},
 		error: function (request, status, error) {
 			console.log("Request Error");
 		}
 	}).done(function(data){
-        var dataItems   = data.data.items;
-        var requests    = [];
-        var date        = [];
+        var dataItems   = data.items;
+        var day         = [];
+        var total       = [];
+
+        console.log(dataItems);
 
         $.each(dataItems,function(k,v){
-            requests.push(v.request);
-            date.push(v.create_time);
+            total.push(v.total);
+            day.push(v.day);
         });
 
-		graphRender(requests.reverse(),date.reverse());
+		graphRender(total,day);
 	});
 }
 
-function graphRender(requests,date){
+function graphRender(total,day){
     var ctx = document.getElementById("chart").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: date,
+            labels: day,
             datasets: [{
                 label: 'Last 7 Days.',
-                data: requests,
+                data: total,
                 backgroundColor: '#4CAF50',
                 borderWidth: 1,
             }]
