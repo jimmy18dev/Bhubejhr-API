@@ -3,6 +3,9 @@ class User{
     public $id;
     public $username;
     public $name;
+    public $email;
+    public $company;
+    public $position;
     public $type;
     public $permission;
     public $status;
@@ -40,7 +43,7 @@ class User{
     }
 
     public function getUser($user_id){
-        $this->db->query('SELECT id,username,name,password,salt,type,permission,status,ip,register_time,edit_time,visit_time FROM api_user WHERE id = :user_id');
+        $this->db->query('SELECT id,username,name,email,company,position,password,salt,type,permission,status,ip,register_time,edit_time,visit_time FROM api_user WHERE id = :user_id');
         $this->db->bind(':user_id',$user_id);
         $this->db->execute();
         $dataset = $this->db->single();
@@ -48,6 +51,9 @@ class User{
         $this->id             = $dataset['id'];
         $this->username       = $dataset['username'];
         $this->name           = $dataset['name'];
+        $this->email           = $dataset['email'];
+        $this->company           = $dataset['company'];
+        $this->position           = $dataset['position'];
         $this->password       = $dataset['password'];
         $this->salt           = $dataset['salt'];
         $this->permission     = $dataset['permission'];
@@ -271,13 +277,15 @@ class User{
         $this->db->execute();
     }
 
-    public function editProfile($user_id,$username,$displayname){
-        $this->db->query('UPDATE api_user SET username = :username, name = :displayname, edit_time = :edit_time WHERE id = :user_id');
-        $this->db->bind(':user_id' ,$user_id);
+    public function editProfile($user_id,$username,$email,$name,$company,$position){
+        $this->db->query('UPDATE api_user SET username = :username,email = :email, name = :name,company = :company,position = :position, edit_time = :edit_time WHERE id = :user_id');
+        $this->db->bind(':user_id'  ,$user_id);
         $this->db->bind(':username' ,$username);
-        $this->db->bind(':displayname' ,$displayname);
+        $this->db->bind(':email'    ,$email);
+        $this->db->bind(':name'     ,$name);
+        $this->db->bind(':company'  ,$company);
+        $this->db->bind(':position' ,$position);
         $this->db->bind(':edit_time' ,date('Y-m-d H:i:s'));
-
         $this->db->execute();
     }
     public function changePassword($user_id,$oldpassword,$newpassword){

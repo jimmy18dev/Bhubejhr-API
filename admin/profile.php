@@ -70,15 +70,15 @@ $apps = $app->listAll($user->id);
 	<div class="group">
 		<div class="head">
 			<div class="name"><?php echo $user->name;?></div>
-			<div class="desc"><strong>Email:</strong> mrjimmy18@gmail.com</div>
-			<div class="desc"><strong>Work:</strong> Chao Phya Abhaibhubejhr Hospital</div>
+			<div class="desc">@<?php echo $user->username;?></div>
+			<div class="desc"><?php echo $user->position;?> at <strong><?php echo $user->company;?></strong></div>
 			<div class="desc">You can have <strong><?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</strong></div>
 		</div>
 	</div>
 	<div class="group">
-		<a href="#" id="btnChangePassword" class="info-items">
+		<a href="profile-setting.php" class="info-items">
 			<span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-			<div class="detail">Setting</div>
+			<div class="detail">Profile Setting</div>
 		</a>
 		<a href="#" id="btnChangePassword" class="info-items">
 			<span class="icon"><i class="fa fa-key" aria-hidden="true"></i></span>
