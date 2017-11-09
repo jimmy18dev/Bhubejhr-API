@@ -268,15 +268,16 @@ body {
 }
 .progressbar {
   width: 0%;
-  height: 4px;
+  height: 3px;
   float: left;
   display: none;
   position: fixed;
-  top: 0;
+  top: 47px;
   left: 0;
-  background: #2ecc71;
-  background: -webkit-linear-gradient(to right, #2ecc71, #f1c40f);
-  background: linear-gradient(to right, #2ecc71, #f1c40f);
+  background: #f39c12;
+  background: -webkit-linear-gradient(to right, #f39c12, #f1c40f);
+  background: linear-gradient(to right, #f39c12, #f1c40f);
+  z-index: 999;
 }
 .dialog {
   position: fixed;
@@ -536,10 +537,12 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.2em;
-  font-weight: normal;
+  font-size: 2em;
   margin-bottom: 2%;
+  padding-bottom: 2%;
   color: #999999;
+  border-bottom: 1px solid #EEEEEE;
+  font-weight: normal;
 }
 .container .approve-waiting {
   width: 70%;
@@ -556,6 +559,85 @@ body {
   margin-bottom: 1%;
   font-size: 5em;
   color: #333333;
+}
+.container .setting {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  margin-bottom: 5%;
+}
+.container .setting .setting-items {
+  width: 70%;
+  margin-right: 30%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 3%;
+}
+.container .setting .setting-items label {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-bottom: 1%;
+}
+.container .setting .setting-items .inputtext {
+  width: 96%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+  border: 1px solid #DDDDDD;
+  font-size: 1em;
+  background: #FAFAFA;
+  border-radius: 3px;
+}
+.container .setting .setting-items .inputtext:focus {
+  background: #EEEEEE;
+  border: 1px solid #CCCCCC;
+}
+.container .setting .setting-items .inputtext:hover {
+  cursor: pointer;
+}
+.container .setting .setting-items .inputtextarea {
+  width: 96%;
+  padding: 2%;
+  height: 70px;
+  float: left;
+  display: inline-block;
+  border: 1px solid #DDDDDD;
+  font-size: 1em;
+  background: #FAFAFA;
+  resize: none;
+}
+.container .setting .setting-items .inputtextarea:focus {
+  background: #EEEEEE;
+  border: 1px solid #CCCCCC;
+}
+.container .setting .setting-items .inputtextarea:hover {
+  cursor: pointer;
+}
+.container .setting .setting-control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .setting .setting-control .btn-submit {
+  float: left;
+  display: inline-block;
+  background: #f39c12;
+  font-size: 0.9em;
+  border: 0px;
+  padding: 12px 20px;
+  border-radius: 3px;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #FFFFFF;
+  margin: 0px;
+}
+.container .setting .setting-control .btn-submit:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .container .log {
   width: 100%;

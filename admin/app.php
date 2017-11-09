@@ -81,17 +81,9 @@ $log_allday = $log->allday($app_id);
 	</div>
 
 	<div class="group">
-		<a href="#" id="btnChangePassword" class="info-items">
-			<span class="icon"><i class="fa fa-check" aria-hidden="true"></i></span>
-			<div class="detail">Activate</div>
-		</a>
-		<a href="#" class="info-items">
+		<a href="app-setting.php?id=<?php echo $app->id;?>" class="info-items">
 			<span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
 			<div class="detail">App Setting</div>
-		</a>
-		<a href="#" id="btnChangePassword" class="info-items">
-			<span class="icon"><i class="fa fa-trash" aria-hidden="true"></i></span>
-			<div class="detail">Delete this App</div>
 		</a>
 	</div>
 </div>
