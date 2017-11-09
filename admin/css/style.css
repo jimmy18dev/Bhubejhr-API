@@ -488,6 +488,26 @@ body {
   display: inline-block;
   color: #666666;
 }
+.navigation .group .stat {
+  width: 50%;
+  padding: 2.5% 0%;
+  float: left;
+  display: inline-block;
+}
+.navigation .group .stat .v {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.4em;
+  color: #333333;
+}
+.navigation .group .stat .c {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  color: #666666;
+}
 .container {
   width: 48.8%;
   margin: 0% 15%;

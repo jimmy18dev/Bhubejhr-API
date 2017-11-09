@@ -7,6 +7,7 @@ if(!$user_online){
 }
 $app_id = $_GET['id'];
 $app 		= new app;
+$log = new Log;
 $app->get($app_id);
 $applogs = $app->log($app_id);
 ?>
@@ -46,6 +47,25 @@ $applogs = $app->log($app_id);
 			<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>
 			<div class="detail"><?php echo $app->token;?></div>
 		</div>
+	</div>
+
+	<div class="group">
+		<div class="stat">
+			<div class="v"><?php echo $log->todayRequest($app->id);?></div>
+			<div class="c">Today Request</div>
+		</div>
+		<div class="stat">
+			<div class="v"><?php echo $log->totalRequest($app->id);?></div>
+			<div class="c">Total Request</div>
+		</div>
+		<div class="stat">
+			<div class="v"><?php echo number_format($log->AvgExecuteTime($app->id),2);?> s.</div>
+			<div class="c">Avg execute time</div>
+		</div>
+		<!-- <div class="stat">
+			<div class="v">34 Min</div>
+			<div class="c">Last Access</div>
+		</div> -->
 	</div>
 </div>
 

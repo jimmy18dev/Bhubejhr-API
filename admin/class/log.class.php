@@ -33,5 +33,28 @@ class Log{
         $dataset = $this->db->resultset();
         return $dataset;
     }
+
+    public function totalRequest($app_id){
+        $this->db->query('SELECT COUNT(id) total FROM api_log WHERE app_id = :app_id');
+        $this->db->bind(':app_id',$app_id);
+        $this->db->execute();
+        $dataset = $this->db->single();
+        return $dataset['total'];
+    }
+    public function todayRequest($app_id){
+        $this->db->query('SELECT COUNT(id) total FROM api_log WHERE app_id = :app_id AND DATE(create_time) = CURDATE()');
+        $this->db->bind(':app_id',$app_id);
+        $this->db->execute();
+        $dataset = $this->db->single();
+        return $dataset['total'];
+    }
+    public function AvgExecuteTime($app_id){
+        $this->db->query('SELECT AVG(executed) executed FROM api_log WHERE app_id = :app_id AND DATE(create_time) = CURDATE()');
+        $this->db->bind(':app_id',$app_id);
+        $this->db->execute();
+        $dataset = $this->db->single();
+        return $dataset['executed'];
+    }
+    public function lastAccess($app_id){}
 }
 ?>
