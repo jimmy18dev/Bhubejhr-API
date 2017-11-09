@@ -70,18 +70,9 @@ $apps = $app->listAll($user->id);
 	<div class="group">
 		<div class="head">
 			<div class="name"><?php echo $user->name;?></div>
-		</div>
-		<div class="info-items">
-			<span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-			<div class="detail">mrjimmy18@gmail.com</div>
-		</div>
-		<div class="info-items">
-			<span class="icon"><i class="fa fa-suitcase" aria-hidden="true"></i></span>
-			<div class="detail">Chao Phya Abhaibhubejhr Hospital</div>
-		</div>
-		<div class="info-items">
-			<span class="icon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></span>
-			<div class="detail">You can have <strong><?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</strong></div>
+			<div class="desc"><strong>Email:</strong> mrjimmy18@gmail.com</div>
+			<div class="desc"><strong>Work:</strong> Chao Phya Abhaibhubejhr Hospital</div>
+			<div class="desc">You can have <strong><?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</strong></div>
 		</div>
 	</div>
 	<div class="group">

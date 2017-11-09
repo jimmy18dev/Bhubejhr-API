@@ -615,194 +615,11 @@ body {
   display: inline-block;
   text-align: right;
 }
-.container .apps-list {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .apps-list .app-items {
-  width: 49%;
-  padding: 3%;
-  margin-bottom: 2%;
-  margin-right: 2%;
-  float: left;
-  display: inline-block;
-  position: relative;
-  border-radius: 2px;
-  border: 1px solid #EEEEEE;
-  box-sizing: border-box;
-  background: #FAFAFA;
-}
-.container .apps-list .app-items:hover {
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-}
-.container .apps-list .app-items.btn-new-app {
-  text-align: center;
-  box-shadow: none;
-  padding: 4% 2.8%;
-  border: 1px dashed #CCCCCC;
-  background: transparent;
-  color: #AAAAAA;
-  font-size: 0.9em;
-}
-.container .apps-list .app-items.btn-new-app strong {
-  color: #004D40;
-}
-.container .apps-list .app-items.btn-new-app:hover {
-  cursor: pointer;
-  color: #666666;
-  border: 1px dashed #666666;
-}
-.container .apps-list .app-items:nth-child(even) {
-  margin-right: 0%;
-}
-.container .apps-list .app-items .btn-edit-app {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  float: right;
-  display: inline-block;
-  font-size: 0.8em;
-  padding: 10px 15px;
-  color: #EEEEEE;
-}
-.container .apps-list .app-items .btn-edit-app:hover {
-  color: #666666;
-  cursor: pointer;
-}
-.container .apps-list .app-items .icon {
-  width: 15%;
-  float: left;
-  display: inline-block;
-  font-size: 1.8em;
-  line-height: 1.2em;
-  color: #004D40;
-}
-.container .apps-list .app-items .stat {
-  width: 15%;
-  float: right;
-  display: inline-block;
-  text-align: right;
-  margin-top: 3%;
-  color: #999999;
-  font-size: 0.9em;
-}
-.container .apps-list .app-items .stat:hover {
-  cursor: default;
-  color: #777777;
-}
-.container .apps-list .app-items .detail {
-  width: 70%;
-  float: left;
-  display: inline-block;
-}
-.container .apps-list .app-items .detail a.name {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-  text-decoration: none;
-  color: #333333;
-  font-weight: bold;
-  line-height: 1.3em;
-}
-.container .apps-list .app-items .detail a.name:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-.container .apps-list .app-items .detail .info {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.75em;
-  color: #999999;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.container .list {
-  width: 100%;
-  margin-top: 30px;
-  float: left;
-  display: inline-block;
-}
-.container .list .head {
-  width: 90%;
-  padding: 5% 0%;
-  margin: 0% 5%;
-  float: left;
-  display: inline-block;
-  border-bottom: 1px solid #EEEEEE;
-}
-.container .list .head h1 {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 2em;
-  color: #333333;
-  margin-bottom: 1%;
-}
-.container .list .head p {
-  font-size: 0.9em;
-  color: #666666;
-}
-.container .list .head p strong {
-  color: #333333;
-}
-.container .list .log {
-  width: 90%;
-  padding: 5%;
-  float: left;
-  display: inline-block;
-}
-.container .content {
-  width: 50%;
-  margin: 0% 15%;
-  margin-top: 30px;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-}
-.container .content .profile-items {
-  width: 90%;
-  padding: 4% 0%;
-  margin: 0% 5%;
-  float: left;
-  display: inline-block;
-  border-bottom: 1px solid #EEEEEE;
-}
-.container .content .profile-items .c {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.85em;
-  line-height: 1.3em;
-  color: #666666;
-}
-.container .content .profile-items .v {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.6em;
-  color: #333333;
-  line-height: 1.3em;
-}
-.container .content .profile-items .m {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-}
 .container .references {
-  width: 50%;
-  margin: 0% 15%;
-  margin-top: 30px;
+  width: 100%;
   float: left;
   display: inline-block;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 .container .references .account-items {
   width: 100%;
@@ -874,83 +691,168 @@ body {
   color: #333333;
 }
 .container .references .ref-items {
-  width: 100%;
+  width: 92%;
+  padding: 2% 3%;
+  padding-right: 5%;
   float: left;
   display: inline-block;
   color: #333333;
   position: relative;
   border-bottom: 1px solid #EEEEEE;
 }
+.container .references .ref-items a.name {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+}
+.container .references .ref-items a.name span {
+  float: left;
+  display: inline-block;
+  margin-right: 5px;
+}
+.container .references .ref-items a.name span.method {
+  padding: 3px 5px;
+  line-height: 1em;
+  font-size: 0.7em;
+  margin-top: 2px;
+  border-radius: 2px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.container .references .ref-items a.name span.get {
+  background: #27ae60;
+}
+.container .references .ref-items a.name span.post {
+  background: #e67e22;
+}
+.container .references .ref-items .desc {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.75em;
+  color: #999999;
+  line-height: 1.3em;
+  margin-top: 1%;
+}
 .container .references .ref-items .btn-edit {
   position: absolute;
   top: 0px;
   right: 0px;
-  color: #000000;
-  padding: 15px 20px;
+  padding: 10px 15px;
+  font-size: 0.8em;
+  color: #BBBBBB;
 }
 .container .references .ref-items .btn-edit:hover {
   color: #333333;
   cursor: pointer;
 }
-.container .references .ref-items .method {
-  width: 10%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-  padding: 2.5% 0%;
-}
-.container .references .ref-items .method span {
-  background: #EEEEEE;
-  font-size: 0.7em;
-  padding: 5px;
-  line-height: 1em;
-  border-radius: 2px;
-  color: #FFFFFF;
-  font-weight: bold;
-}
-.container .references .ref-items .method span.get {
-  background: #42b72a;
-}
-.container .references .ref-items .method span.post {
-  background: #FF5722;
-}
-.container .references .ref-items .detail {
-  width: 90%;
-  padding: 2% 0%;
-  float: left;
-  display: inline-block;
-  line-height: 1.4em;
-}
-.container .references .ref-items .detail a.name {
+.container .apps-list {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.2em;
-  font-weight: bold;
+}
+.container .apps-list .app-items {
+  width: 49%;
+  padding: 3%;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  float: left;
+  display: inline-block;
+  position: relative;
+  border-radius: 2px;
+  border: 1px solid #EEEEEE;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+.container .apps-list .app-items:hover {
+  border: 1px solid #CCCCCC;
+}
+.container .apps-list .app-items.btn-new-app {
+  text-align: center;
+  box-shadow: none;
+  padding: 4% 2.8%;
+  border: 1px dashed #CCCCCC;
+  background: transparent;
+  color: #AAAAAA;
+  font-size: 0.9em;
+}
+.container .apps-list .app-items.btn-new-app strong {
+  color: #004D40;
+}
+.container .apps-list .app-items.btn-new-app:hover {
+  cursor: pointer;
+  color: #666666;
+  border: 1px dashed #666666;
+}
+.container .apps-list .app-items:nth-child(even) {
+  margin-right: 0%;
+}
+.container .apps-list .app-items .btn-edit-app {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  float: right;
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 10px 15px;
+  color: #EEEEEE;
+}
+.container .apps-list .app-items .btn-edit-app:hover {
+  color: #666666;
+  cursor: pointer;
+}
+.container .apps-list .app-items .icon {
+  width: 15%;
+  float: left;
+  display: inline-block;
+  font-size: 1.8em;
+  line-height: 1.2em;
+  color: #004D40;
+}
+.container .apps-list .app-items .stat {
+  width: 15%;
+  float: right;
+  display: inline-block;
+  text-align: right;
+  margin-top: 3%;
+  color: #999999;
+  font-size: 0.9em;
+}
+.container .apps-list .app-items .stat:hover {
+  cursor: default;
+  color: #777777;
+}
+.container .apps-list .app-items .detail {
+  width: 70%;
+  float: left;
+  display: inline-block;
+}
+.container .apps-list .app-items .detail a.name {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
   text-decoration: none;
   color: #333333;
-  margin-bottom: 1%;
+  font-weight: bold;
+  line-height: 1.3em;
 }
-.container .references .ref-items .detail .info {
+.container .apps-list .app-items .detail a.name:hover {
+  cursor: pointer;
+}
+.container .apps-list .app-items .detail .info {
   width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .references .ref-items .detail .info span {
   float: left;
   display: inline-block;
   font-size: 0.7em;
-  color: #42b72a;
-  line-height: 1em;
-  margin-right: 5px;
-}
-.container .references .ref-items .detail .desc {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-  color: #666666;
-  margin-top: 2%;
+  color: #999999;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .container .form {
   width: 70%;
