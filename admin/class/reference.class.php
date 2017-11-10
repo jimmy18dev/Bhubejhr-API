@@ -54,6 +54,11 @@ class Reference{
         $this->db->bind(':reference_id',$reference_id);
         $this->db->execute();
         $dataset = $this->db->single();
+
+        $this->id = $dataset['id'];
+        $this->name = $dataset['name'];
+        $this->description = $dataset['description'];
+        $this->example = $dataset['example'];
         return $dataset;
     }
 

@@ -597,6 +597,11 @@ body {
   font-size: 5em;
   color: #333333;
 }
+.container .reference {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
 .container .setting {
   width: 100%;
   float: left;

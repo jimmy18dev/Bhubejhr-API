@@ -46,7 +46,7 @@ $currentPage = 'reference';
 	<div class="references" id="reference">
 		<?php foreach ($references as $var) {?>
 		<div class="ref-items" id="reference<?php echo $var['ref_id'];?>" data-id="<?php echo $var['ref_id'];?>">
-			<a href="app-detail.php?id=<?php echo $var['ref_id'];?>" class="name">
+			<a href="reference-page.php?id=<?php echo $var['ref_id'];?>" class="name">
 				<span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span>
 				<span><?php echo $var['ref_name'];?></span>
 				<span>#<?php echo $var['ref_id'];?></span>

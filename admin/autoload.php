@@ -9,7 +9,6 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 define("VERSION" 	,'1.0');
 define("SITENAME" 	,'Bhubejhr API');
-define("DOMAIN" 	,'http://'.$_SERVER['SERVER_NAME'].'/admin');
 
 include_once'../config/config.php';
 include_once'class/database.class.php';
