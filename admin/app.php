@@ -44,15 +44,11 @@ $currentPage = 'profile';
 			<div class="name"><?php echo $app->name;?></div>
 			<div class="desc"><?php echo $app->description;?></div>
 			<div class="desc">
-				<strong>State:</strong>
-				<span>Development</span>
-			</div>
-			<div class="desc">
 				<strong>Permission:</strong>
-				<span>GET</span>
-				<span>POST</span>
-				<span>PUT</span>
-				<span>DELETE</span>
+				<?php if($app->permission_get){?><span>GET</span><?php }?>
+				<?php if($app->permission_post){?><span>POST</span><?php }?>
+				<?php if($app->permission_put){?><span>PUT</span><?php }?>
+				<?php if($app->permission_delete){?><span>DELETE</span><?php }?>
 			</div>
 			<div class="desc"><strong>Token:</strong> <?php echo $app->token;?></div>
 		</div>

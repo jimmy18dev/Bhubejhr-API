@@ -11,6 +11,10 @@ class App{
 	public $update_time;
 	public $active_time;
 	public $access_time;
+	public $permission_get;
+	public $permission_post;
+	public $permission_put;
+	public $permission_delete;
 	public $ip;
 	public $type;
 	public $status;
@@ -23,7 +27,7 @@ class App{
     }
 
     public function get($app_id){
-    	$this->db->query('SELECT app.id app_id,app.user_id owner_id,user.name owner_name,app.name app_name,app.description app_description,app.token app_token,app.create_time app_create_time,app.update_time app_update_time,app.active_time app_active_time,app.access_time app_access_time,app.ip app_ip,app.type app_type,app.status app_status FROM api_app AS app LEFT JOIN api_user AS user ON app.user_id = user.id WHERE app.id = :app_id');
+    	$this->db->query('SELECT app.id app_id,app.user_id owner_id,user.name owner_name,app.name app_name,app.description app_description,app.token app_token,app.permission_get app_permission_get,app.permission_post app_permission_post,app.permission_put app_permission_put,app.permission_delete app_permission_delete,app.create_time app_create_time,app.update_time app_update_time,app.active_time app_active_time,app.access_time app_access_time,app.ip app_ip,app.type app_type,app.status app_status FROM api_app AS app LEFT JOIN api_user AS user ON app.user_id = user.id WHERE app.id = :app_id');
     	$this->db->bind(':app_id',$app_id);
 		$this->db->execute();
 		$dataset = $this->db->single();
@@ -34,6 +38,10 @@ class App{
 		$this->name = $dataset['app_name'];
 		$this->description = $dataset['app_description'];
 		$this->token = $dataset['app_token'];
+		$this->permission_get = $dataset['app_permission_get'];
+		$this->permission_post = $dataset['app_permission_post'];
+		$this->permission_put = $dataset['app_permission_put'];
+		$this->permission_delete = $dataset['app_permission_delete'];
 		$this->create_time = $dataset['app_create_time'];
 		$this->update_time = $dataset['app_update_time'];
 		$this->active_time = $dataset['app_active_time'];
