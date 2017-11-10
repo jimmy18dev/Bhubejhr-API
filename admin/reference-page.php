@@ -45,14 +45,18 @@ $apps = $app->listAll($user->id);
 		<a class="icon" href="reference-page.php?id=<?php echo $reference->id;?>&app=<?php echo $var['app_id'];?>"><?php echo $var['app_name'];?></a>
 		<?php }?>
 	</div>
+
+	<?php if(!empty($app->id)){?>
 	<p>Example: <a href="<?php echo DOMAIN;?>/<?php echo $reference->example?>&token=<?php echo $app->token;?>" target="_blank">OPEN API</a></p>
+	<?php }?>
+
+	<a href="reference-setting.php?id=<?php echo $reference->id;?>">Edit Reference</a>
 </div>
 
 <div class="container">
 	<div class="reference">
 		<h1>Name: <?php echo $reference->name;?></h1>
 		<p>Desc: <?php echo $reference->description;?></p>
-		
 	</div>
 </div>
 
