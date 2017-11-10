@@ -47,6 +47,25 @@ $currentPage = 'reference';
 		<?php }?>
 	</div>
 
+	<div class="group">
+		<div class="stat">
+			<div class="v"><?php echo $reference->todayRequest($reference->id);?></div>
+			<div class="c">Today Request</div>
+		</div>
+		<div class="stat">
+			<div class="v"><?php echo $reference->totalRequest($reference->id);?></div>
+			<div class="c">Total Request</div>
+		</div>
+		<div class="stat">
+			<div class="v"><?php echo number_format($reference->AvgExecuteTime($reference->id),2);?> s.</div>
+			<div class="c">Avg execute time</div>
+		</div>
+		<!-- <div class="stat">
+			<div class="v">34 Min</div>
+			<div class="c">Last Access</div>
+		</div> -->
+	</div>
+
 	<?php if(!empty($app->id)){?>
 	<p>Example: <a href="<?php echo DOMAIN;?>/<?php echo $reference->example?>&token=<?php echo $app->token;?>" target="_blank">OPEN API</a></p>
 	<?php }?>

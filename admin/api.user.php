@@ -33,11 +33,11 @@ switch ($_SERVER['REQUEST_METHOD']){
     case 'POST':
     	switch ($_POST['request']){
     		case 'register':
-				$namedisplay = $_POST['namedisplay'];
-				$username 	= $_POST['username'];
+				$fullname 	= $_POST['fullname'];
+				$email 		= $_POST['email'];
 				$password 	= $_POST['password'];
 
-				$user_id = $user->register($namedisplay,$username,$password);
+				$user_id = $user->register($fullname,$email,$password);
 
 				if(true){
 					$state = $user->login($username,$password);

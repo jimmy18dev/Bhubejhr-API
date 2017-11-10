@@ -72,7 +72,8 @@ class User{
         }
     }
 
-    public function register($name,$username,$password){
+    public function register($name,$email,$password){
+        $email      = filter_var(strip_tags(trim($email)),FILTER_SANITIZE_EMAIL);
         // Random password if password is empty value
         $salt       = hash('sha512',uniqid(mt_rand(1,mt_getrandmax()),true));
         // Create salted password
@@ -80,8 +81,8 @@ class User{
 
         if($this->already($username,$name)){
             
-            $this->db->query('INSERT INTO api_user(username,name,password,salt,permission,ip,register_time,status) VALUE(:username,:name,:password,:salt,:permission,:ip,:register_time,:status)');
-            $this->db->bind(':username'     ,$username);
+            $this->db->query('INSERT INTO api_user(email,name,password,salt,permission,ip,register_time,status) VALUE(:email,:name,:password,:salt,:permission,:ip,:register_time,:status)');
+            $this->db->bind(':email'        ,$email);
             $this->db->bind(':name'         ,$name);
             $this->db->bind(':password'     ,$password);
             $this->db->bind(':salt'         ,$salt);

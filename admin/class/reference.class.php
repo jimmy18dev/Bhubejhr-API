@@ -113,5 +113,27 @@ class Reference{
 
         return $dataset;
     }
+
+    public function totalRequest($ref_id){
+        $this->db->query('SELECT COUNT(id) total FROM api_log WHERE ref_id = :ref_id');
+        $this->db->bind(':ref_id',$ref_id);
+        $this->db->execute();
+        $dataset = $this->db->single();
+        return $dataset['total'];
+    }
+    public function todayRequest($ref_id){
+        $this->db->query('SELECT COUNT(id) total FROM api_log WHERE ref_id = :ref_id AND DATE(create_time) = CURDATE()');
+        $this->db->bind(':ref_id',$ref_id);
+        $this->db->execute();
+        $dataset = $this->db->single();
+        return $dataset['total'];
+    }
+    public function AvgExecuteTime($ref_id){
+        $this->db->query('SELECT AVG(executed) executed FROM api_log WHERE ref_id = :ref_id AND DATE(create_time) = CURDATE()');
+        $this->db->bind(':ref_id',$ref_id);
+        $this->db->execute();
+        $dataset = $this->db->single();
+        return $dataset['executed'];
+    }
 }
 ?>

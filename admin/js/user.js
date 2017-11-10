@@ -179,12 +179,12 @@ function login(){
 }
 
 function register(){
-	var namedisplay = $('#namedisplay').val();
-	var username 	= $('#username').val();
+	var fullname 	= $('#fullname').val();
+	var email 		= $('#email').val();
 	var password 	= $('#password').val();
 	var sign 		= $('#sign').val();
 
-	if(namedisplay == '' || username == '' || password == '') return false;
+	if(fullname == '' || email == '' || password == '') return false;
 
 	$.get({
 		url         :api_url,
@@ -194,8 +194,8 @@ function register(){
 		type        :"POST",
 		data:{
 			request     :'register',
-			namedisplay :namedisplay,
-			username 	:username,
+			fullname 	:fullname,
+			email 		:email,
 			password 	:password,
 			sign 		:sign,
 		},
