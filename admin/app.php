@@ -11,6 +11,7 @@ $log = new Log;
 $app->get($app_id);
 $log_today = $log->today($app_id);
 $log_allday = $log->allday($app_id);
+$currentPage = 'profile';
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -96,7 +97,7 @@ $log_allday = $log->allday($app_id);
 		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
 			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
 			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
-			<div class="ref"><?php echo (!empty($var['ref_name'])?$var['ref_name']:'n/a')?></div>
+			<div class="ref"><a href="reference-page.php?id=<?php $var['ref_id'];?>"><?php echo (!empty($var['ref_name'])?$var['ref_name']:'n/a')?></a></div>
 			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
 		</div>
 		<?php }?>
@@ -112,7 +113,7 @@ $log_allday = $log->allday($app_id);
 		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
 			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
 			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
-			<div class="ref"><?php echo (!empty($var['ref_name'])?$var['ref_name']:'n/a')?></div>
+			<div class="ref"><a href="reference-page.php?id=<?php $var['ref_id'];?>"><?php echo (!empty($var['ref_name'])?$var['ref_name']:'n/a')?></a></div>
 			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
 		</div>
 		<?php }?>

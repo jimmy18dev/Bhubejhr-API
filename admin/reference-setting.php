@@ -7,6 +7,7 @@ if(!$user_online){
 }
 $reference = new Reference;
 $reference->get($_GET['id']);
+$currentPage = 'reference';
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">

@@ -11,6 +11,7 @@ $log = new Log;
 $app->get($app_id);
 $log_today = $log->today($app_id);
 $log_allday = $log->allday($app_id);
+$currentPage = 'profile';
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">

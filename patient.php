@@ -22,7 +22,7 @@ switch ($_SERVER['REQUEST_METHOD']){
 
 		switch ($_GET['request']){
 			case 'get':
-				$request_id = 1;
+				$request_id = 14;
 				$returnObject['request'] = $_GET['request'];
 				$dataset = $patient->get($_GET['cid']);
 				$returnObject['dataset'] = $dataset;

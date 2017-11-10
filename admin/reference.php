@@ -55,10 +55,6 @@ $currentPage = 'reference';
 			<?php if(!empty($var['ref_description'])){?>
 			<div class="desc"><?php echo $var['ref_description'];?></div>
 			<?php }?>
-
-			<?php if($user->permission == 'admin'){?>
-			<div class="btn-edit"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
-			<?php }?>
 		</div>
 		<?php }?>
 	</div>

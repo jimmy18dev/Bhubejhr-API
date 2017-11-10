@@ -100,5 +100,18 @@ class Reference{
         $this->db->bind(':reference_id',$reference_id);
         $this->db->execute();
     }
+
+    public function alldayUsage($ref_id){
+        $this->db->query('SELECT CONCAT(Hour,":00") AS hours ,COUNT(create_time) AS "usage" FROM api_log RIGHT JOIN ( SELECT 0 AS Hour UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10 UNION ALL SELECT 11 UNION ALL SELECT 12 UNION ALL SELECT 13 UNION ALL SELECT 14 UNION ALL SELECT 15 UNION ALL SELECT 16 UNION ALL SELECT 17 UNION ALL SELECT 18 UNION ALL SELECT 19 UNION ALL SELECT 20 UNION ALL SELECT 21 UNION ALL SELECT 22 UNION ALL SELECT 23 ) AS AllHours ON HOUR(create_time) = Hour WHERE (create_time BETWEEN CURDATE() AND NOW() AND ref_id = :ref_id) OR create_time IS NULL GROUP BY Hour ORDER BY Hour');
+        $this->db->bind(':ref_id',$ref_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var){
+            $dataset[$k]['usage'] = floatval($var['usage']);
+        }
+
+        return $dataset;
+    }
 }
 ?>

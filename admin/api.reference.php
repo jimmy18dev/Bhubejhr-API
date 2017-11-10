@@ -32,6 +32,12 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$returnObject['dataset'] = $dataset;
 				$returnObject['message'] = 'get References info';
 				break;
+			case 'allday_usage':
+				$ref_id = $_GET['ref_id'];
+				$dataset = $reference->alldayUsage($ref_id);
+				$returnObject['dataset'] = $dataset;
+				$returnObject['message'] = 'get References all day usage';
+				break;
 			default:
 				$returnObject['message'] = 'GET API Not found!';
 			break;

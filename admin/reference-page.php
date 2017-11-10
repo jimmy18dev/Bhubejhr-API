@@ -11,6 +11,7 @@ $reference = new Reference;
 $reference->get($_GET['id']);
 $app->get($_GET['app']);
 $apps = $app->listAll($user->id);
+$currentPage = 'reference';
 
 ?>
 <!doctype html>
@@ -57,11 +58,15 @@ $apps = $app->listAll($user->id);
 	<div class="reference">
 		<h1>Name: <?php echo $reference->name;?></h1>
 		<p>Desc: <?php echo $reference->description;?></p>
+
+		<canvas id="chart"></canvas>
 	</div>
 </div>
 
+<input type="text" id="ref_id" value="<?php echo $reference->id;?>">
+
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/reference.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/lib/chart.min.js"></script>
+<script type="text/javascript" src="js/reference.chart.js"></script>
 </body>
 </html>
