@@ -120,6 +120,21 @@ class Reference{
         return $dataset;
     }
 
+    public function today($ref_id){
+        $this->db->query('SELECT log.id log_id,log.executed log_executed,log.create_time log_time,log.param log_param,log.ref_id,ref.id ref_id,ref.name ref_name,ref.method ref_method,ref.type ref_type,category.name category_name,category.id category_id,app.id app_id,app.name app_name FROM api_log AS log LEFT JOIN api_reference AS ref ON log.ref_id = ref.id LEFT JOIN api_app AS app ON log.app_id = app.id LEFT JOIN api_category AS category ON ref.category_id = category.id WHERE log.ref_id = :ref_id AND DATE(log.create_time) = CURDATE() ORDER BY log.create_time DESC LIMIT 50');
+        $this->db->bind(':ref_id',$ref_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+        return $dataset;
+    }
+    public function allday($ref_id){
+        $this->db->query('SELECT log.id log_id,log.executed log_executed,log.create_time log_time,log.param log_param,log.ref_id,ref.id ref_id,ref.name ref_name,ref.method ref_method,ref.type ref_type,category.name category_name,category.id category_id,app.id app_id,app.name app_name FROM api_log AS log LEFT JOIN api_reference AS ref ON log.ref_id = ref.id LEFT JOIN api_app AS app ON log.app_id = app.id LEFT JOIN api_category AS category ON ref.category_id = category.id WHERE log.ref_id = :ref_id AND DATE(log.create_time) != CURDATE() ORDER BY log.create_time DESC LIMIT 50');
+        $this->db->bind(':ref_id',$ref_id);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+        return $dataset;
+    }
+
     public function totalRequest($ref_id){
         $this->db->query('SELECT COUNT(id) total FROM api_log WHERE ref_id = :ref_id');
         $this->db->bind(':ref_id',$ref_id);

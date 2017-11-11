@@ -13,6 +13,9 @@ $app->get($_GET['app']);
 $apps = $app->listAll($user->id);
 $currentPage = 'reference';
 
+$log_today = $reference->today($reference->id);
+$log_allday = $reference->allday($reference->id);
+
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -79,6 +82,38 @@ $currentPage = 'reference';
 		<p>Desc: <?php echo $reference->description;?></p>
 
 		<canvas id="chart"></canvas>
+	</div>
+
+	<h2>Today</h2>
+	<div class="log">
+		<?php if(count($log_today)>0){?>
+		<?php foreach ($log_today as $var) { ?>
+		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
+			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
+			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
+			<div class="ref"><a href="reference-page.php?id=<?php $var['ref_id'];?>"><?php echo (!empty($var['app_name'])?$var['app_name']:'n/a')?></a></div>
+			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
+		</div>
+		<?php }?>
+		<?php }else{?>
+		<div class="empty">Activity Not Found!</div>
+		<?php }?>
+	</div>
+
+	<h2>All Day</h2>
+	<div class="log">
+		<?php if(count($log_allday)>0){?>
+		<?php foreach ($log_allday as $var) { ?>
+		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
+			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
+			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
+			<div class="ref"><a href="reference-page.php?id=<?php $var['app_id'];?>"><?php echo (!empty($var['app_name'])?$var['app_name']:'n/a')?></a></div>
+			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
+		</div>
+		<?php }?>
+		<?php }else{?>
+		<div class="empty">Activity Not Found!</div>
+		<?php }?>
 	</div>
 </div>
 
