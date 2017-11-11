@@ -15,6 +15,9 @@ $(document).ready(function(){
 		var name 		= $('#name').val();
 		var desc 		= $('#desc').val();
 		var example		= $('#example').val();
+		var category 	= $('#category').val();
+		var method 		= $('#method').val();
+		var type 		= $('#type').val();
 
 		if(name == '') return false;
 
@@ -29,10 +32,13 @@ $(document).ready(function(){
 	        type        :"POST",
 	        data:{
 	            request 	:'edit',
+	            ref_id:ref_id,
 	            name:name,
 	            desc:desc,
 	            example:example,
-	            ref_id:ref_id
+	            category:category,
+	            method:method,
+	            type:type
 	        },
 	        error: function (request, status, error) {
 	            console.log("Request Error",request.responseText);
@@ -43,8 +49,8 @@ $(document).ready(function(){
 	    	$progressbar.animate({width:'100%'},500);
 
 	    	setTimeout(function(){
-	    		$progressbar.fadeOut();
-	    	}, 1000);
+	    		window.location = 'reference-page.php?id='+ref_id;
+	    	}, 2000);
 	    });	
 	});
 
@@ -74,7 +80,7 @@ $(document).ready(function(){
 	            example:example,
 	            category:category,
 	            method:method,
-	            type:type,
+	            type:type
 	        },
 	        error: function (request, status, error) {
 	            console.log("Request Error",request.responseText);
@@ -86,7 +92,7 @@ $(document).ready(function(){
 
 	    	setTimeout(function(){
 	    		window.location = 'reference-page.php?id='+data.reference_id;
-	    	},1000);
+	    	},2000);
 	    });	
 	});
 

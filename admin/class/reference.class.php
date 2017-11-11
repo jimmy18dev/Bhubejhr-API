@@ -36,12 +36,15 @@ class Reference{
         return $this->db->lastInsertId();
     }
 
-    public function edit($ref_id,$name,$description,$example){
-        $this->db->query('UPDATE api_reference SET name = :name, description = :description,example = :example,update_time = :update_time WHERE id = :ref_id');
+    public function edit($ref_id,$name,$description,$example,$category,$method,$type){
+        $this->db->query('UPDATE api_reference SET name = :name, description = :description,example = :example,category_id = :category,method = :method,type = :type,update_time = :update_time WHERE id = :ref_id');
         $this->db->bind(':ref_id'       ,$ref_id);
         $this->db->bind(':name'         ,$name);
         $this->db->bind(':description'  ,$description);
         $this->db->bind(':example'      ,$example);
+        $this->db->bind(':category'     ,$category);
+        $this->db->bind(':method'       ,$method);
+        $this->db->bind(':type'         ,$type);
         $this->db->bind(':update_time'  ,date('Y-m-d H:i:s'));
         $this->db->execute();
     }

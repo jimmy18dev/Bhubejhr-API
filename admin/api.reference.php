@@ -62,8 +62,11 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$name 			= $_POST['name'];
 				$description 	= $_POST['desc'];
 				$example 		= $_POST['example'];
+				$category 		= $_POST['category'];
+				$method 		= $_POST['method'];
+				$type 			= $_POST['type'];
 
-				$reference->edit($ref_id,$name,$description,$example);
+				$reference->edit($ref_id,$name,$description,$example,$category,$method,$type);
 				$returnObject['message'] 	= 'Reference edited';
 				break;
 			case 'delete':
