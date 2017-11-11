@@ -609,6 +609,27 @@ body {
   background: #FFFFFF;
   margin-bottom: 5%;
 }
+.container .setting .selection {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .setting .selection .caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .setting .selection .items {
+  float: left;
+  display: inline-block;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  background: #DDDDDD;
+}
+.container .setting .selection .items.-active {
+  background: #333333;
+  color: #FFFFFF;
+}
 .container .setting .setting-items {
   width: 70%;
   margin-right: 30%;

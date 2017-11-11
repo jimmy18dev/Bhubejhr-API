@@ -6,6 +6,7 @@ if(!$user_online){
 	die();
 }
 $reference = new Reference;
+$category = $reference->listCategory();
 $reference->get($_GET['id']);
 $currentPage = 'reference';
 ?>
@@ -53,10 +54,36 @@ $currentPage = 'reference';
 			<input type="text" class="inputtext" id="example" value="<?php echo $reference->example;?>">
 		</div>
 
+		<div class="selection" id="referenceMethod">
+			<div class="caption">Method:</div>
+			<div class="items method-items" id="method-items-get" data-method="get">GET</div>
+			<div class="items method-items" id="method-items-post" data-method="post">POST</div>
+		</div>
+		<div class="selection" id="referenceType">
+			<div class="caption">API TYPE:</div>
+			<div class="items type-items" id="type-items-get" data-type="get">GET</div>
+			<div class="items type-items" id="type-items-list" data-type="list">LIST</div>
+			<div class="items type-items" id="type-items-edit" data-type="edit">EDIT</div>
+			<div class="items type-items" id="type-items-create" data-type="create">CREATE</div>
+			<div class="items type-items" id="type-items-delete" data-type="delete">DELETE</div>
+		</div>
+		<div class="selection" id="referenceCategory">
+			<div class="caption">Category:</div>
+			<?php foreach ($category as $var) {?>
+				<div class="items category-items" id="category-items-<?php echo $var['id'];?>" data-id="<?php echo $var['id'];?>"><?php echo $var['name'];?></div>
+			<?php } ?>
+		</div>
+		<input type="text" id="category" value="<?php echo $reference->category_id;?>">
+		<input type="text" id="type" value="<?php echo $reference->type;?>">
+		<input type="text" id="method" value="<?php echo $reference->method;?>">
 		<input type="text" id="ref_id" value="<?php echo $reference->id;?>">
 
 		<div class="setting-control">
+			<?php if(empty($reference->id)){?>
+			<button class="btn-submit" id="btnCreate">New Reference</button>
+			<?php }else{?>
 			<button class="btn-submit" id="btnUpdate">Update Reference</button>
+			<?php }?>
 		</div>
 	</div>
 </div>

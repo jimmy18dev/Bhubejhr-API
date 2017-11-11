@@ -22,15 +22,15 @@ class Reference{
     	$this->db = $wpdb;
     }
 
-    public function create($method,$user_id,$category_id,$name,$description,$type){
-        $this->db->query('INSERT INTO api_reference(method,user_id,category_id,name,description,create_time,ip,type) VALUE(:method,:user_id,:category_id,:name,:description,:create_time,:ip,:type)');
-        $this->db->bind(':method'       ,$method);
+    public function create($user_id,$name,$description,$example,$category,$method,$type){
+        $this->db->query('INSERT INTO api_reference(method,user_id,category_id,name,description,create_time,ip,type) VALUE(:method,:user_id,:category,:name,:description,:create_time,:ip,:type)');
         $this->db->bind(':user_id'      ,$user_id);
-        $this->db->bind(':category_id'  ,$category_id);
         $this->db->bind(':name'         ,$name);
         $this->db->bind(':description'  ,$description);
         $this->db->bind(':create_time'  ,date('Y-m-d H:i:s'));
         $this->db->bind(':ip'           ,$this->db->GetIpAddress());
+        $this->db->bind(':category'     ,$category);
+        $this->db->bind(':method'       ,$method);
         $this->db->bind(':type'         ,$type);
         $this->db->execute();
         return $this->db->lastInsertId();
@@ -56,6 +56,9 @@ class Reference{
         $this->name = $dataset['name'];
         $this->description = $dataset['description'];
         $this->example = $dataset['example'];
+        $this->method = $dataset['method'];
+        $this->category_id = $dataset['category_id'];
+        $this->type = $dataset['type'];
         return $dataset;
     }
 

@@ -72,9 +72,11 @@ $currentPage = 'reference';
 		<a href="reference.php?category=<?php echo $var['id'];?>" class="items <?php echo ($category_id == $var['id']?'-active':'');?>"><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
 		<?php }?>
 	</div>
+
+	<a href="reference-setting.php">New Reference</a>
 </div>
 
-<div class="dialog" id="createReferenceDialog">
+<!-- <div class="dialog" id="createReferenceDialog">
 	<div class="head">
 		<div class="icon"><i class="fa fa-file-text" aria-hidden="true"></i></div>
 		<div class="text">Create API Reference</div>
@@ -114,7 +116,7 @@ $currentPage = 'reference';
 		<div class="btn btn-submit" id="btnSubmitCreateReference">CREATE</div>
 	</div>
 </div>
-<div class="filter" id="createDialogFilter"></div>
+<div class="filter" id="createDialogFilter"></div> -->
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/reference.js"></script>
