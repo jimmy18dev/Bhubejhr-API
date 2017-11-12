@@ -436,6 +436,37 @@ body {
   display: inline-block;
   margin-top: 30px;
 }
+.navigation .btn {
+  width: 100%;
+  padding: 12px 0px;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 5%;
+  font-weight: bold;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  line-height: 1em;
+}
+.navigation .btn.btn-create {
+  background: #FF5722;
+  color: #FFFFFF;
+}
+.navigation .btn.btn-create:hover {
+  background: #E64A19;
+  cursor: pointer;
+}
+.navigation .btn:hover {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+.navigation .btn:active {
+  box-shadow: none;
+}
+.navigation .btn i {
+  margin-right: 12px;
+  font-size: 1em;
+}
 .navigation .group {
   width: 100%;
   padding: 10%;
@@ -483,8 +514,7 @@ body {
   font-size: 0.9em;
   box-sizing: border-box;
   border-radius: 3px;
-  color: #004d40;
-  font-weight: bold;
+  color: #666666;
 }
 .navigation .group .link i {
   float: left;
@@ -492,6 +522,10 @@ body {
   margin-right: 12px;
   font-size: 1.2em;
   margin-top: -2px;
+}
+.navigation .group .link.-active {
+  color: #004d40;
+  font-weight: bold;
 }
 .navigation .group .link.link-logout {
   color: #999999;
@@ -1007,75 +1041,55 @@ body {
   float: left;
   display: inline-block;
   position: relative;
-  border-radius: 2px;
-  border: 1px solid #EEEEEE;
+  border-radius: 3px;
   box-sizing: border-box;
   background: #FFFFFF;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
 }
 .container .apps-list .app-items:hover {
-  border: 1px solid #CCCCCC;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
 }
 .container .apps-list .app-items.btn-new-app {
   text-align: center;
   box-shadow: none;
-  padding: 4% 2.8%;
-  border: 1px dashed #CCCCCC;
+  padding: 5.5% 3%;
+  border: 1px dashed #004d40;
   background: transparent;
-  color: #AAAAAA;
-  font-size: 0.9em;
+  color: #004d40;
+  font-size: 1em;
 }
-.container .apps-list .app-items.btn-new-app strong {
-  color: #004D40;
+.container .apps-list .app-items.btn-new-app i {
+  margin-right: 10px;
+  font-size: 1.2em;
 }
 .container .apps-list .app-items.btn-new-app:hover {
   cursor: pointer;
-  color: #666666;
-  border: 1px dashed #666666;
+  border: 1px solid #004d40;
 }
 .container .apps-list .app-items:nth-child(even) {
   margin-right: 0%;
 }
-.container .apps-list .app-items .btn-edit-app {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  float: right;
-  display: inline-block;
-  font-size: 0.8em;
-  padding: 10px 15px;
-  color: #EEEEEE;
-}
-.container .apps-list .app-items .btn-edit-app:hover {
-  color: #666666;
-  cursor: pointer;
-}
-.container .apps-list .app-items .icon {
-  width: 15%;
+.container .apps-list .app-items .mini {
+  width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.8em;
-  line-height: 1.2em;
-  color: #004D40;
-}
-.container .apps-list .app-items .stat {
-  width: 15%;
-  float: right;
-  display: inline-block;
-  text-align: right;
-  margin-top: 3%;
+  font-size: 0.7em;
+  margin-bottom: 3%;
   color: #999999;
-  font-size: 0.9em;
 }
-.container .apps-list .app-items .stat:hover {
-  cursor: default;
-  color: #777777;
+.container .apps-list .app-items .mini i {
+  float: left;
+  display: inline-block;
+  font-size: 1.3em;
+  margin-right: 5px;
+  color: #004d40;
 }
 .container .apps-list .app-items .detail {
-  width: 70%;
+  width: 85%;
   float: left;
   display: inline-block;
 }
-.container .apps-list .app-items .detail a.name {
+.container .apps-list .app-items .detail .name {
   width: 100%;
   float: left;
   display: inline-block;
@@ -1085,18 +1099,30 @@ body {
   font-weight: bold;
   line-height: 1.3em;
 }
-.container .apps-list .app-items .detail a.name:hover {
+.container .apps-list .app-items .detail .name:hover {
   cursor: pointer;
 }
 .container .apps-list .app-items .detail .info {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.7em;
+  font-size: 0.8em;
   color: #999999;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+.container .apps-list .app-items .stat {
+  width: 15%;
+  float: right;
+  display: inline-block;
+  color: #BBBBBB;
+  font-size: 2.4em;
+  line-height: 1em;
+  text-align: right;
+}
+.container .apps-list .app-items .stat:hover {
+  cursor: default;
 }
 .container .form {
   width: 70%;

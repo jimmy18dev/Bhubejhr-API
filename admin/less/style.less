@@ -271,6 +271,43 @@
 	display: inline-block;
 	margin-top: 30px;
 
+	.btn{
+		width: 100%;
+		padding: 12px 0px;
+		float: left;
+		display: inline-block;
+		text-align: center;
+		text-decoration: none;
+		margin-bottom: 5%;
+		font-weight: bold;
+		box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+		border-radius: 3px;
+		line-height: 1em;
+
+		&.btn-create{
+			background: #FF5722;
+			color: #FFFFFF;
+
+			&:hover{
+				background: #E64A19;
+				cursor: pointer;
+			}
+		}
+
+		&:hover{
+			box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+		}
+
+		&:active{
+			box-shadow: none;
+		}
+
+		i{
+			margin-right: 12px;
+			font-size: 1em;
+		}
+	}
+
 	.group{
 		width: 100%;
 		padding: 10%;
@@ -319,8 +356,7 @@
 			font-size: 0.9em;
 			box-sizing: border-box;
 			border-radius: 3px;
-			color: @primary_color;
-			font-weight: bold;
+			color: #666666;
 
 			i{
 				float: left;
@@ -328,6 +364,11 @@
 				margin-right: 12px;
 				font-size: 1.2em;
 				margin-top: -2px;
+			}
+
+			&.-active{
+				color: @primary_color;
+				font-weight: bold;
 			}
 
 			&.link-logout{
@@ -926,78 +967,59 @@
 			float: left;
 			display: inline-block;
 			position: relative;
-			border-radius: 2px;
-			border: 1px solid #EEEEEE;
+			border-radius: 3px;
 			box-sizing: border-box;
 			background: #FFFFFF;
+			box-shadow: 1px 1px 15px rgba(0,0,0,0.1);
 
 			&:hover{
-				border: 1px solid #CCCCCC;
-				// box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+				box-shadow: 1px 1px 20px rgba(0,0,0,0.2);
 			}
 
 			&.btn-new-app{
 				text-align: center;
 				box-shadow: none;
-				padding: 4% 2.8%;
-				border: 1px dashed #CCCCCC;
+				padding: 5.5% 3%;
+				border: 1px dashed @primary_color;
 				background: transparent;
-				color: #AAAAAA;
-				font-size: 0.9em;
+				color: @primary_color;
+				font-size: 1em;
 
-				strong{ color: #004D40; }
+				i{
+					margin-right: 10px;
+					font-size: 1.2em;
+				}
+
 				&:hover{
 					cursor: pointer;
-					color: #666666;
-					border: 1px dashed #666666;
+					border: 1px solid @primary_color;
 				}
 			}
 
 			&:nth-child(even){ margin-right: 0%; }
 
-			.btn-edit-app{
-				position: absolute;
-				top: 0px;
-				right: 0px;
-				float: right;
-				display: inline-block;
-				font-size: 0.8em;
-				padding: 10px 15px;
-				color: #EEEEEE;
-
-				&:hover{
-					color: #666666;
-					cursor: pointer;
-				}
-			}
-			.icon{
-				width: 15%;
+			.mini{
+				width: 100%;
 				float: left;
 				display: inline-block;
-				font-size: 1.8em;
-				line-height: 1.2em;
-				color: #004D40;
-			}
-			.stat{
-				width: 15%;
-				float: right;
-				display: inline-block;
-				text-align: right;
-				margin-top: 3%;
+				font-size: 0.7em;
+				margin-bottom: 3%;
 				color: #999999;
-				font-size: 0.9em;
 
-				&:hover{
-					cursor: default;
-					color: #777777;
+				i{
+					float: left;
+					display: inline-block;
+					font-size: 1.3em;
+					margin-right: 5px;
+					color: @primary_color;
 				}
 			}
 			.detail{
-				width: 70%;
+				width: 85%;
 				float: left;
 				display: inline-block;
 
-				a.name{
+				.name{
 					width: 100%;
 					float: left;
 					display: inline-block;
@@ -1015,11 +1037,24 @@
 					width: 100%;
 					float: left;
 					display: inline-block;
-					font-size: 0.7em;
+					font-size: 0.8em;
 					color: #999999;
 					text-overflow: ellipsis;
 					white-space: nowrap;
 					overflow: hidden;
+				}
+			}
+			.stat{
+				width: 15%;
+				float: right;
+				display: inline-block;
+				color: #BBBBBB;
+				font-size: 2.4em;
+				line-height: 1em;
+				text-align: right;
+
+				&:hover{
+					cursor: default;
 				}
 			}
 		}

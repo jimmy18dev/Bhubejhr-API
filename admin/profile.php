@@ -44,19 +44,18 @@ $apps = $app->listAll($user->id);
 	<h2>You have <strong><?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</strong></h2>
 	<div class="apps-list" id="apps">
 		<?php foreach ($apps as $var) {?>
-		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
-			<div class="btn-edit-app"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
-			<a class="icon" href="app.php?id=<?php echo $var['app_id'];?>"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></a>
+		<a href="app.php?id=<?php echo $var['app_id'];?>" class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
+			<div class="mini"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> 15 Day ago</div>
 			<div class="detail">
-				<a href="app.php?id=<?php echo $var['app_id'];?>" class="name"><?php echo $var['app_name'];?></a>
+				<div class="name"><?php echo $var['app_name'];?></div>
 				<div class="info"><?php echo (!empty($var['app_description'])?$var['app_description']:'Description');?></div>
 			</div>
 			<div class="stat" title="<?php echo number_format($var['request_count']);?> Requests on this day."><?php echo number_format($var['request_count']);?></div>
-		</div>
+		</a>
 		<?php }?>
 
 		<?php if($user->total_app < $user->app_limit && $user->status == 'active'){?>
-		<div class="app-items btn-new-app" id="btnCreateApp">Create a <strong>new App</strong></div>
+		<div class="app-items btn-new-app" id="btnCreateApp"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create a <strong>new App</strong></div>
 		<?php }?>
 	</div>
 	<?php }else{?>
@@ -69,12 +68,10 @@ $apps = $app->listAll($user->id);
 
 <div class="navigation">
 	<div class="group">
-		<h4>Welcome</h4>
 		<h1><?php echo $user->name;?></h1>
 		<p>@<?php echo $user->username;?> Work <?php echo $user->position;?> at <strong><?php echo $user->company;?></strong></p>
 	</div>
 	<div class="group">
-		<h4>Profile Setting</h4>
 		<a href="profile-setting.php" class="link"><i class="fa fa-user" aria-hidden="true"></i>Profile Setting</a>
 		<a href="profile-password.php" class="link"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
 		<a href="logout.php" class="link link-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
