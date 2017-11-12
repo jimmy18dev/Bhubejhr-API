@@ -80,6 +80,7 @@ $currentPage = 'reference';
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/reference.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/layout.js"></script>
 </body>
 </html>
 

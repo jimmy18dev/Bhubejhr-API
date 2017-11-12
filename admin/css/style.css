@@ -204,21 +204,21 @@ body {
 .header a.logo-img {
   float: left;
   display: inline-block;
-  padding: 10px 0%;
-  height: 30px;
+  padding: 13px 0%;
+  height: 24px;
   margin-right: 10px;
 }
 .header a.logo-img img {
-  height: 30px;
+  height: 24px;
 }
 .header a.logo {
   float: left;
   display: inline-block;
-  padding: 15px 0%;
-  height: 20px;
+  padding: 18px 0%;
+  height: 14px;
   color: #FFFFFF;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1em;
   font-weight: bold;
   margin-right: 3%;
@@ -495,7 +495,7 @@ body {
 .navigation {
   position: fixed;
   top: 50px;
-  left: 15%;
+  right: 15%;
   width: 19%;
   float: left;
   display: inline-block;
@@ -513,7 +513,7 @@ body {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   line-height: 1em;
-  font-size: 1em;
+  font-size: 0.9em;
   border: 0px;
   color: #666666;
   background: #FAFAFA;
@@ -545,7 +545,7 @@ body {
 }
 .navigation .group {
   width: 100%;
-  padding: 10%;
+  padding: 5%;
   float: left;
   display: inline-block;
   margin-bottom: 5%;
@@ -653,10 +653,10 @@ body {
   color: #666666;
 }
 .navigation .group .stat {
-  width: 50%;
-  margin-bottom: 5%;
+  width: 100%;
   float: left;
   display: inline-block;
+  margin-bottom: 5%;
 }
 .navigation .group .stat .v {
   width: 100%;
@@ -672,6 +672,9 @@ body {
   display: inline-block;
   font-size: 0.75em;
   color: #666666;
+}
+.navigation .group .stat:last-child {
+  margin-bottom: 0%;
 }
 .navigation .group canvas#chart {
   width: 100%;
@@ -733,8 +736,8 @@ body {
   font-size: 1.2em;
 }
 .page .apps-list .app-items.btn-new-app:hover {
+  background: #e5edeb;
   cursor: pointer;
-  border: 1px solid #004d40;
 }
 .page .apps-list .app-items:nth-child(3n+0) {
   margin-right: 0%;
@@ -795,10 +798,10 @@ body {
   cursor: default;
 }
 .container {
-  width: 48.8%;
+  width: 50%;
   margin: 0% 15%;
   margin-top: 80px;
-  float: right;
+  float: left;
   display: inline-block;
 }
 .container .head {

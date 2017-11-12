@@ -7,7 +7,7 @@
 
 	<?php if($user_online){?>
 	<div class="nav btn-profile" id="btnProfile">
-		<?php echo $user->name;?><i class="fa fa-chevron-down" aria-hidden="true"></i>
+		<?php echo $user->name;?><i class="fa fa-angle-down" aria-hidden="true"></i>
 
 		<div class="more-menu" id="menuProfile">
 			<div class="arrow-up"></div>

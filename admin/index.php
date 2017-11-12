@@ -127,6 +127,7 @@ $apps = $app->listAll($user->id);
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/user.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/layout.js"></script>
 </body>
 </html>
 

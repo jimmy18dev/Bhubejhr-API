@@ -37,37 +37,6 @@ $currentPage = 'profile';
 </head>
 <body>
 <?php include'header.php';?>
-
-<div class="navigation">
-	<div class="group">
-		<h4>Permission</h4>
-		<?php if($app->permission_get){?><span>GET</span><?php }?>
-		<?php if($app->permission_post){?><span>POST</span><?php }?>
-		<?php if($app->permission_put){?><span>PUT</span><?php }?>
-		<?php if($app->permission_delete){?><span>DELETE</span><?php }?>
-	</div>
-	<div class="group">
-		<h4>Analytcis</h4>
-		<div class="stat">
-			<div class="v"><?php echo $log->todayRequest($app->id);?></div>
-			<div class="c">Today Request</div>
-		</div>
-		<div class="stat">
-			<div class="v"><?php echo $log->totalRequest($app->id);?></div>
-			<div class="c">Total Request</div>
-		</div>
-		<div class="stat">
-			<div class="v"><?php echo number_format($log->AvgExecuteTime($app->id),2);?> s.</div>
-			<div class="c">Avg execute time</div>
-		</div>
-		<!-- <div class="stat">
-			<div class="v">34 Min</div>
-			<div class="c">Last Access</div>
-		</div> -->
-	</div>
-	<a href="app-setting.php?id=<?php echo $app->id;?>" class="btn btn-setting"><i class="fa fa-cog" aria-hidden="true"></i>App Setting</a>
-</div>
-
 <div class="container">
 	<div class="head">
 		<h1><?php echo $app->name;?></h1>
@@ -112,11 +81,40 @@ $currentPage = 'profile';
 	</div>
 </div>
 
-<input type="hidden" id="app_id" value="<?php echo $app->id;?>">
+<div class="navigation">
+	<div class="group">
+		<h4>Analytcis</h4>
+		<div class="stat">
+			<div class="v"><?php echo $log->todayRequest($app->id);?></div>
+			<div class="c">Today Request</div>
+		</div>
+		<div class="stat">
+			<div class="v"><?php echo $log->totalRequest($app->id);?></div>
+			<div class="c">Total Request</div>
+		</div>
+		<div class="stat">
+			<div class="v"><?php echo number_format($log->AvgExecuteTime($app->id),2);?> s.</div>
+			<div class="c">Avg execute time</div>
+		</div>
+		<!-- <div class="stat">
+			<div class="v">34 Min</div>
+			<div class="c">Last Access</div>
+		</div> -->
+	</div>
+	<div class="group">
+		<h4>Permission</h4>
+		<?php if($app->permission_get){?><span>GET</span><?php }?>
+		<?php if($app->permission_post){?><span>POST</span><?php }?>
+		<?php if($app->permission_put){?><span>PUT</span><?php }?>
+		<?php if($app->permission_delete){?><span>DELETE</span><?php }?>
+	</div>
+	<a href="app-setting.php?id=<?php echo $app->id;?>" class="btn btn-setting"><i class="fa fa-cog" aria-hidden="true"></i>App Setting</a>
+</div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/chart.min.js"></script>
 <script type="text/javascript" src="js/app.chart.js"></script>
+<script type="text/javascript" src="js/layout.js"></script>
 </body>
 </html>
 
