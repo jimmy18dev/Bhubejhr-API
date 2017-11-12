@@ -64,16 +64,21 @@ $currentPage = 'reference';
 </div>
 
 <div class="navigation">
-	<div class="group">Get the full details of all the nodes, edges, and fields in the latest version of the Bhubejhr API.</div>
-
 	<div class="group">
-		<a href="reference.php?" class="items <?php echo (empty($category_id)?'-active':'');?>">All References</a>
+		<h4>Admin Only</h4>
+		<a href="reference-setting.php" class="link"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create Reference</a>
+	</div>
+	<div class="group">
+		<h4>Category</h4>
+		<a href="reference.php?" class="link <?php echo (empty($category_id)?'-active':'');?>"><i class="fa fa-folder" aria-hidden="true"></i>All</a>
 		<?php foreach ($category as $var) {?>
-		<a href="reference.php?category=<?php echo $var['id'];?>" class="items <?php echo ($category_id == $var['id']?'-active':'');?>"><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
+		<a href="reference.php?category=<?php echo $var['id'];?>" class="link <?php echo ($category_id == $var['id']?'-active':'');?>"><i class="fa fa-folder" aria-hidden="true"></i><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
 		<?php }?>
 	</div>
-
-	<a href="reference-setting.php">New Reference</a>
+	<div class="group">
+		<h4>Note</h4>
+		<p>Get the full details of all the nodes, edges, and fields in the latest version of the Bhubejhr API.</p>
+	</div>
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>

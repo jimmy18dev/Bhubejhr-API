@@ -40,21 +40,7 @@ $currentPage = 'profile';
 
 <div class="navigation">
 	<div class="group">
-		<div class="head">
-			<div class="name"><?php echo $app->name;?></div>
-			<div class="desc"><?php echo $app->description;?></div>
-			<div class="desc">
-				<strong>Permission:</strong>
-				<?php if($app->permission_get){?><span>GET</span><?php }?>
-				<?php if($app->permission_post){?><span>POST</span><?php }?>
-				<?php if($app->permission_put){?><span>PUT</span><?php }?>
-				<?php if($app->permission_delete){?><span>DELETE</span><?php }?>
-			</div>
-			<div class="desc"><strong>Token:</strong> <?php echo $app->token;?></div>
-		</div>
-	</div>
-
-	<div class="group">
+		<h4>Analytcis</h4>
 		<div class="stat">
 			<div class="v"><?php echo $log->todayRequest($app->id);?></div>
 			<div class="c">Today Request</div>
@@ -72,12 +58,16 @@ $currentPage = 'profile';
 			<div class="c">Last Access</div>
 		</div> -->
 	</div>
-
 	<div class="group">
-		<canvas id="chart"></canvas>
+		<h4>Permission</h4>
+		<?php if($app->permission_get){?><span>GET</span><?php }?>
+		<?php if($app->permission_post){?><span>POST</span><?php }?>
+		<?php if($app->permission_put){?><span>PUT</span><?php }?>
+		<?php if($app->permission_delete){?><span>DELETE</span><?php }?>
 	</div>
 
 	<div class="group">
+		<h4>Setting</h4>
 		<a href="app-setting.php?id=<?php echo $app->id;?>" class="info-items">
 			<span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
 			<div class="detail">App Setting</div>
@@ -86,14 +76,24 @@ $currentPage = 'profile';
 </div>
 
 <div class="container">
+	<div class="head">
+		<h1><?php echo $app->name;?></h1>
+		<p><?php echo $app->description;?></p>
+		<p><strong>Token:</strong> <?php echo $app->token;?></p>
+	</div>
+
+	<h2>This Week</h2>
+	<div class="chart">
+		<canvas id="chart"></canvas>
+	</div>
 	<h2>Today</h2>
 	<div class="log">
 		<?php if(count($log_today)>0){?>
 		<?php foreach ($log_today as $var) { ?>
 		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
 			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
+			<div class="ref"><a href="reference-page.php?id=<?php $var['ref_id'];?>"><i class="fa fa-file-text" aria-hidden="true"></i><?php echo (!empty($var['ref_name'])?$var['ref_name'].' #'.$var['ref_id']:'n/a')?></a></div>
 			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
-			<div class="ref"><a href="reference-page.php?id=<?php $var['ref_id'];?>"><?php echo (!empty($var['ref_name'])?$var['ref_name']:'n/a')?></a></div>
 			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
 		</div>
 		<?php }?>
@@ -107,9 +107,9 @@ $currentPage = 'profile';
 		<?php if(count($log_allday)>0){?>
 		<?php foreach ($log_allday as $var) { ?>
 		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
-			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
+			<div class="method <?php echo $var['ref_method'];?>"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
+			<div class="ref"><a href="reference-page.php?id=<?php $var['ref_id'];?>"><i class="fa fa-file-text" aria-hidden="true"></i><?php echo (!empty($var['ref_name'])?$var['ref_name'].' #'.$var['ref_id']:'n/a')?></a></div>
 			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
-			<div class="ref"><a href="reference-page.php?id=<?php $var['ref_id'];?>"><?php echo (!empty($var['ref_name'])?$var['ref_name']:'n/a')?></a></div>
 			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
 		</div>
 		<?php }?>

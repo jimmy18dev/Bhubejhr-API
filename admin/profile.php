@@ -41,6 +41,7 @@ $apps = $app->listAll($user->id);
 
 <div class="container">
 	<?php if($user->status == 'active'){?>
+	<h2>You have <strong><?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</strong></h2>
 	<div class="apps-list" id="apps">
 		<?php foreach ($apps as $var) {?>
 		<div class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
@@ -68,26 +69,15 @@ $apps = $app->listAll($user->id);
 
 <div class="navigation">
 	<div class="group">
-		<div class="head">
-			<div class="name"><?php echo $user->name;?></div>
-			<div class="desc">@<?php echo $user->username;?></div>
-			<div class="desc"><?php echo $user->position;?> at <strong><?php echo $user->company;?></strong></div>
-			<div class="desc">You can have <strong><?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</strong></div>
-		</div>
+		<h4>Welcome</h4>
+		<h1><?php echo $user->name;?></h1>
+		<p>@<?php echo $user->username;?> Work <?php echo $user->position;?> at <strong><?php echo $user->company;?></strong></p>
 	</div>
 	<div class="group">
-		<a href="profile-setting.php" class="info-items">
-			<span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-			<div class="detail">Profile Setting</div>
-		</a>
-		<a href="profile-password.php" class="info-items">
-			<span class="icon"><i class="fa fa-key" aria-hidden="true"></i></span>
-			<div class="detail">Change Password</div>
-		</a>
-		<a href="logout.php" class="info-items">
-			<span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
-			<div class="detail">Logout</div>
-		</a>
+		<h4>Profile Setting</h4>
+		<a href="profile-setting.php" class="link"><i class="fa fa-user" aria-hidden="true"></i>Profile Setting</a>
+		<a href="profile-password.php" class="link"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
+		<a href="logout.php" class="link link-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
 	</div>
 </div>
 

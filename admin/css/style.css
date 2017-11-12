@@ -136,7 +136,7 @@ button {
   /* IE11 */
 }
 body {
-  background: #ffffff;
+  background: #f5f5f5;
   font-family: sans-serif;
   font-weight: 200;
   overflow-x: hidden;
@@ -232,7 +232,7 @@ body {
   line-height: 1em;
 }
 .header a.logo .status.-active {
-  background: #42b72a;
+  background: #004d40;
   color: #FFFFFF;
 }
 .header .btn-back {
@@ -385,9 +385,9 @@ body {
 }
 .dialog .selection .items.-active {
   font-weight: bold;
-  border: 1px solid #42b72a;
+  border: 1px solid #004d40;
   color: #FFFFFF;
-  background: #42b72a;
+  background: #004d40;
 }
 .dialog .control {
   width: 100%;
@@ -409,7 +409,7 @@ body {
   background: #EEEEEE;
 }
 .dialog .control .btn.btn-submit {
-  background: #42b72a;
+  background: #004d40;
   color: #FFFFFF;
 }
 .dialog .control .btn:hover {
@@ -438,25 +438,66 @@ body {
 }
 .navigation .group {
   width: 100%;
+  padding: 10%;
   float: left;
   display: inline-block;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   box-sizing: border-box;
-  padding-bottom: 10%;
+  background: #FFFFFF;
+  border-radius: 3px;
 }
-.navigation .group h3 {
+.navigation .group h4 {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.9em;
+  font-size: 0.75em;
+  margin-bottom: 5%;
+  padding-bottom: 3%;
+  border-bottom: 1px dotted #EEEEEE;
+  color: #999999;
+}
+.navigation .group h1 {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 2em;
   color: #333333;
+  line-height: 1.1em;
+  font-weight: normal;
+  margin-bottom: 5%;
 }
 .navigation .group p {
   width: 100%;
   float: left;
   display: inline-block;
   font-size: 0.8em;
-  color: #666666;
+  color: #999999;
+}
+.navigation .group .link {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  padding: 12px 0px;
+  text-decoration: none;
+  line-height: 1em;
+  font-size: 0.9em;
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: #004d40;
+  font-weight: bold;
+}
+.navigation .group .link i {
+  float: left;
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 1.2em;
+  margin-top: -2px;
+}
+.navigation .group .link.link-logout {
+  color: #999999;
+}
+.navigation .group .link:hover {
+  text-decoration: underline;
 }
 .navigation .group .btn {
   width: 70%;
@@ -499,7 +540,7 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.9em;
   margin-top: 2%;
 }
 .navigation .group .head .desc span {
@@ -537,7 +578,7 @@ body {
 }
 .navigation .group .stat {
   width: 50%;
-  padding: 2.5% 0%;
+  margin-bottom: 5%;
   float: left;
   display: inline-block;
 }
@@ -545,14 +586,15 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.4em;
+  font-size: 2.4em;
   color: #333333;
+  line-height: 1.2em;
 }
 .navigation .group .stat .c {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #666666;
 }
 .navigation .group canvas#chart {
@@ -570,15 +612,31 @@ body {
   float: right;
   display: inline-block;
 }
+.container .head {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 5%;
+}
+.container .head h1 {
+  font-size: 2.4em;
+  line-height: 1.1em;
+  color: #333333;
+  margin-bottom: 1%;
+}
+.container .head p {
+  font-size: 0.9em;
+  color: #333333;
+  line-height: 1.5em;
+}
 .container h2 {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 2em;
-  margin-bottom: 2%;
-  padding-bottom: 2%;
-  color: #999999;
-  border-bottom: 1px solid #EEEEEE;
+  font-size: 1em;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+  color: #666666;
   font-weight: normal;
 }
 .container .approve-waiting {
@@ -702,13 +760,27 @@ body {
   cursor: pointer;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
+.container .chart {
+  width: 96%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  margin-bottom: 5%;
+}
+.container .chart canvas {
+  height: 300px;
+}
 .container .log {
   width: 100%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
   margin-bottom: 5%;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 }
 .container .log .empty {
   width: 100%;
@@ -732,8 +804,8 @@ body {
   background: #FAFAFA;
   cursor: default;
 }
-.container .log .log-items.-alert .execute {
-  color: #e74c3c;
+.container .log .log-items.-alert {
+  background: #FFEBEE;
 }
 .container .log .log-items:last-child {
   border-bottom: 0px;
@@ -749,10 +821,34 @@ body {
   display: inline-block;
   font-weight: bold;
 }
+.container .log .log-items .method.get {
+  color: #3F51B5;
+}
+.container .log .log-items .method.post {
+  color: #33691E;
+}
+.container .log .log-items .method.put {
+  color: #FF6F00;
+}
+.container .log .log-items .method.delete {
+  color: #DD2C00;
+}
 .container .log .log-items .ref {
   width: 50%;
   float: left;
   display: inline-block;
+}
+.container .log .log-items .ref a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+}
+.container .log .log-items .ref a i {
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.7em;
+  margin-right: 7px;
 }
 .container .log .log-items .execute {
   width: 15%;
@@ -764,7 +860,10 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  background: #FFFFFF;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  margin-bottom: 5%;
 }
 .container .references .account-items {
   width: 100%;
@@ -795,7 +894,7 @@ body {
   cursor: pointer;
 }
 .container .references .account-items .status.btn-approve {
-  color: #42b72a;
+  color: #004d40;
 }
 .container .references .account-items .detail {
   width: 75%;
@@ -1047,7 +1146,7 @@ body {
   color: #999999;
 }
 .container .form .form-items .input i.fa-toggle-on {
-  color: #42b72a;
+  color: #004d40;
 }
 .container .form .form-items .input #btn-toggle-status {
   font-size: 2.5em;
@@ -1080,7 +1179,7 @@ body {
   float: right;
   display: inline-block;
   text-decoration: none;
-  background: #42b72a;
+  background: #004d40;
   color: #FFFFFF;
   padding: 15px 20px;
   margin: 0%;

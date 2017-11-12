@@ -77,10 +77,12 @@ $log_allday = $reference->allday($reference->id);
 </div>
 
 <div class="container">
-	<div class="reference">
-		<h1>Name: <?php echo $reference->name;?></h1>
-		<p>Desc: <?php echo $reference->description;?></p>
+	<div class="head">
+		<h1><?php echo $reference->name;?></h1>
+		<p><?php echo $reference->description;?></p>
+	</div>
 
+	<div class="reference">
 		<canvas id="chart"></canvas>
 	</div>
 
