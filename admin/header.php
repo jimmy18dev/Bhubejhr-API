@@ -6,7 +6,17 @@
 	</a>
 
 	<?php if($user_online){?>
-	<a href="profile.php" class="nav <?php echo ($currentPage == 'profile'?'-active':'');?>"><?php echo $user->name;?></a>
+	<div class="nav btn-profile" id="btnProfile">
+		<?php echo $user->name;?><i class="fa fa-chevron-down" aria-hidden="true"></i>
+
+		<div class="more-menu" id="menuProfile">
+			<div class="arrow-up"></div>
+			<a href="profile-setting.php"><i class="fa fa-user" aria-hidden="true"></i>Profile Setting</a>
+			<a href="profile-password.php"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
+			<a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+		</div>
+	</div>
+
 	<a href="reference.php" class="nav <?php echo ($currentPage == 'reference'?'-active':'');?>">API References</a>
 	<?php if($user->permission == 'admin'){?>
 	<a href="accounts.php" class="nav <?php echo ($currentPage == 'account'?'-active':'');?>">Members<?php echo ($account->newmember>0?' ('.$account->newmember.')':'');?></a>
@@ -16,3 +26,4 @@
 	<a href="login.php" class="nav <?php echo ($currentPage == 'login'?'-active':'');?>">Login</a>
 	<?php }?>
 </header>
+<div class="filter" id="filterProfile"></div>

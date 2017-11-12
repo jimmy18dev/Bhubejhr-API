@@ -10,6 +10,20 @@ $(document).ready(function(){
 	$btnCloseEditProfile 		= $('#btnCloseEditProfile');
 	$editProfileDialog 			= $('#editProfileDialog');
 
+	$btnProfile = $('#btnProfile');
+	$menuProfile = $('#menuProfile');
+	$filterProfile = $('#filterProfile');
+
+	$btnProfile.click(function(){
+		$filterProfile.fadeIn(100);
+		$menuProfile.fadeIn(300);
+
+		$filterProfile.click(function(){
+			$menuProfile.fadeOut(100);
+			$filterProfile.fadeOut(300);
+		});
+	});
+
 	$btnEditProfile.click(function(){
 		$editProfileDialog.fadeIn(300);
 		$editProfileFilter.fadeIn(100);

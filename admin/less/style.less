@@ -13,7 +13,7 @@
 	background: #004D40;
 	background: -webkit-linear-gradient(to right, #004D40, #4c8279);
 	background: linear-gradient(to right, #004D40, #4c8279);
-	z-index: 59;
+	z-index: 99;
 	box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
 
 	a.logo-img{
@@ -84,6 +84,7 @@
 
 		i{ margin-right: 15px; }
 	}
+
 	.nav{
 		float: right;
 		display: inline-block;
@@ -100,6 +101,63 @@
 			color: #FFFFFF;
 			border-bottom: 2px solid #FFFFFF;
 			font-weight: bold;
+		}
+
+		&.btn-profile{
+			position: relative;
+
+			&:hover{
+				cursor: pointer;
+			}
+
+			.more-menu{
+				position: absolute;
+				width: 200px;
+				top: 90%;
+				right: -10%;
+				padding: 5% 0%;
+				background: #FFFFFF;
+				box-shadow: 1px 1px 15px rgba(0,0,0,0.3);
+				border-radius: 3px;
+				display: none;
+				z-index: 999;
+
+				.arrow-up{
+					position: absolute;
+					bottom: 100%;
+					right: 8%;
+					border-left: 7px solid transparent;
+					border-right: 7px solid transparent;
+					border-bottom: 7px solid #FFFFFF;
+				}
+
+				a{
+					width: 80%;
+					padding: 8% 10%;
+					float: left;
+					display: inline-block;
+					text-decoration: none;
+					border-bottom: 1px solid #EEEEEE;
+					color: #666666;
+
+					&:last-child{
+						border-bottom: 0px;
+					}
+
+					&:hover{
+						color: #333333;
+						background: #EEEEEE;
+					}
+				}
+			}
+		}
+
+		i{
+			float: right;
+			display: inline-block;
+			font-size: 1em;
+			line-height: 1em;
+			margin-left: 10px;
 		}
 	}
 }
@@ -274,7 +332,7 @@
 	height: 100%;
 	float: left;
 	display: inline-block;
-	background: rgba(0,0,0,0.9);
+	background: rgba(0,0,0,0.5);
 	z-index: 70;
 	display: none;
 }
@@ -482,6 +540,131 @@
 			height: 200px;
 			margin: 0px;
 			padding: 0px;
+		}
+	}
+}
+
+.page{
+	width: 70%;
+	margin: 0% 15%;
+	margin-top: 50px;
+	float: left;
+	display: inline-block;
+
+	h2{
+		width: 100%;
+		padding: 2% 0%;
+		float: left;
+		display: inline-block;
+		font-size: 1em;
+		font-weight: normal;
+		font-size: 0.8em;
+		color: #999999;
+	}
+
+	.apps-list{
+		width: 100%;
+		float: left;
+		display: inline-block;
+
+		.app-items{
+			width: 32%;
+			padding: 3%;
+			margin-bottom: 2%;
+			margin-right: 2%;
+			float: left;
+			display: inline-block;
+			position: relative;
+			border-radius: 3px;
+			box-sizing: border-box;
+			background: #FFFFFF;
+			box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+
+			&:hover{
+				box-shadow: 1px 1px 15px rgba(0,0,0,0.2);
+			}
+
+			&.btn-new-app{
+				text-align: center;
+				box-shadow: none;
+				padding: 4.7% 3%;
+				border: 1px dashed @primary_color;
+				background: transparent;
+				color: @primary_color;
+				font-size: 1em;
+
+				i{
+					margin-right: 10px;
+					font-size: 1.2em;
+				}
+
+				&:hover{
+					cursor: pointer;
+					border: 1px solid @primary_color;
+				}
+			}
+
+			&:nth-child(3n+0){ margin-right: 0%; }
+
+			.mini{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				font-size: 0.7em;
+				margin-bottom: 3%;
+				color: #999999;
+
+				i{
+					float: left;
+					display: inline-block;
+					font-size: 1.3em;
+					margin-right: 5px;
+					color: @primary_color;
+				}
+			}
+			.detail{
+				width: 85%;
+				float: left;
+				display: inline-block;
+
+				.name{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					font-size: 1em;
+					text-decoration: none;
+					color: #333333;
+					font-weight: bold;
+					line-height: 1.3em;
+
+					&:hover{
+						cursor: pointer;
+					}
+				}
+				.info{
+					width: 100%;
+					float: left;
+					display: inline-block;
+					font-size: 0.8em;
+					color: #999999;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+				}
+			}
+			.stat{
+				width: 15%;
+				float: right;
+				display: inline-block;
+				color: #BBBBBB;
+				font-size: 2.4em;
+				line-height: 1em;
+				text-align: right;
+
+				&:hover{
+					cursor: default;
+				}
+			}
 		}
 	}
 }
@@ -822,112 +1005,6 @@
 		}
 	}
 
-	.apps-list{
-		width: 100%;
-		float: left;
-		display: inline-block;
-
-		.app-items{
-			width: 49%;
-			padding: 3%;
-			margin-bottom: 2%;
-			margin-right: 2%;
-			float: left;
-			display: inline-block;
-			position: relative;
-			border-radius: 3px;
-			box-sizing: border-box;
-			background: #FFFFFF;
-			box-shadow: 1px 1px 15px rgba(0,0,0,0.1);
-
-			&:hover{
-				box-shadow: 1px 1px 20px rgba(0,0,0,0.2);
-			}
-
-			&.btn-new-app{
-				text-align: center;
-				box-shadow: none;
-				padding: 5.5% 3%;
-				border: 1px dashed @primary_color;
-				background: transparent;
-				color: @primary_color;
-				font-size: 1em;
-
-				i{
-					margin-right: 10px;
-					font-size: 1.2em;
-				}
-
-				&:hover{
-					cursor: pointer;
-					border: 1px solid @primary_color;
-				}
-			}
-
-			&:nth-child(even){ margin-right: 0%; }
-
-			.mini{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				font-size: 0.7em;
-				margin-bottom: 3%;
-				color: #999999;
-
-				i{
-					float: left;
-					display: inline-block;
-					font-size: 1.3em;
-					margin-right: 5px;
-					color: @primary_color;
-				}
-			}
-			.detail{
-				width: 85%;
-				float: left;
-				display: inline-block;
-
-				.name{
-					width: 100%;
-					float: left;
-					display: inline-block;
-					font-size: 1em;
-					text-decoration: none;
-					color: #333333;
-					font-weight: bold;
-					line-height: 1.3em;
-
-					&:hover{
-						cursor: pointer;
-					}
-				}
-				.info{
-					width: 100%;
-					float: left;
-					display: inline-block;
-					font-size: 0.8em;
-					color: #999999;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					overflow: hidden;
-				}
-			}
-			.stat{
-				width: 15%;
-				float: right;
-				display: inline-block;
-				color: #BBBBBB;
-				font-size: 2.4em;
-				line-height: 1em;
-				text-align: right;
-
-				&:hover{
-					cursor: default;
-				}
-			}
-		}
-	}
-
 	.form{
 		width: 90%;
 		padding: 5%;
@@ -1040,113 +1117,6 @@
 				&:hover{
 					cursor: pointer;
 					box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-				}
-			}
-		}
-	}
-
-	.page{
-		width: 64%;
-		padding: 3%;
-		margin: 3% 15%;
-		margin-bottom: 10%;
-		float: left;
-		display: inline-block;
-		background: #FFFFFF;
-		border-radius: 5px;
-		overflow: hidden;
-		box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-
-		h2{
-			font-size: 2em;
-			font-weight: normal;
-			color: #333333;
-		}
-
-		p{
-			font-size: 0.9em;
-			color: #666666;
-		}
-
-		.info{
-			width: 100%;
-			float: left;
-			display: inline-block;
-			margin-top: 1%;
-			margin-bottom: 5%;
-
-			.info-items{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				padding: 1% 0%;
-
-				.c{
-					width: 20%;
-					float: left;
-					display: inline-block;
-				}
-				.v{
-					width: 80%;
-					float: left;
-					display: inline-block;
-				}
-			}
-		}
-
-		.activity{
-			width: 100%;
-			float: left;
-			display: inline-block;
-
-			.empty{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				text-align: center;
-				padding-top: 10%;
-				font-style: italic;
-				color: #999999;
-			}
-
-			.activity-items{
-				width: 100%;
-				padding: 1% 0%;
-				float: left;
-				display: inline-block;
-				border-bottom: 1px solid #EEEEEE;
-				font-size: 0.9em;
-
-				div{
-					float: left;
-					display: inline-block;
-				}
-
-				a{
-					text-decoration: none;
-					color: #333333;
-				}
-
-				&:last-child{ border-bottom: 0px; }
-
-				&.-topic{
-					font-size: 0.75em;
-					padding: 1% 0%;
-					color: #999999;
-
-					&:hover{ cursor: default; }
-				}
-
-				.id{ width: 10%; }
-				.info{
-					width: 55%;
-
-					i{ margin-right: 10px; }
-				}
-				.time{ width: 25%; }
-				.execution{
-					width: 10%;
-					text-align: right;
 				}
 			}
 		}
