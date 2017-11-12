@@ -82,7 +82,7 @@ $log_allday = $reference->allday($reference->id);
 		<p><?php echo $reference->description;?></p>
 	</div>
 
-	<div class="reference">
+	<div class="chart">
 		<canvas id="chart"></canvas>
 	</div>
 

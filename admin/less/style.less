@@ -1,6 +1,10 @@
 @import "reset";
 @import "config";
 
+.login-bg{
+	background: #004D40;
+}
+
 .header{
 	position: fixed;
 	top: 0px;
@@ -428,7 +432,7 @@
 			margin-bottom: 5%;
 			padding-bottom: 3%;
 			border-bottom: 1px dotted #EEEEEE;
-			color: #999999;
+			color: #333333;
 		}
 		h1{
 			width: 100%;
@@ -446,6 +450,15 @@
 			display: inline-block;
 			font-size: 0.8em;
 			color: #999999;
+		}
+
+		.inputtext{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			font-size: 0.8em;
+			border: 0px;
+			color: #666666;
 		}
 
 		.link{
@@ -683,17 +696,19 @@
 		width: 100%;
 		float: left;
 		display: inline-block;
-		margin-bottom: 5%;
+		margin-bottom: 3%;
+		padding-bottom: 3%;
+		border-bottom: 1px solid #DDDDDD;
 
 		h1{
 			font-size: 2.4em;
 			line-height: 1.1em;
 			color: #333333;
-			margin-bottom: 1%;
+			font-weight: normal;
 		}
 		p{
 			font-size: 0.9em;
-			color: #333333;
+			color: #666666;
 			line-height: 1.5em;
 		}
 	}
@@ -1137,54 +1152,91 @@
 }
 
 .login{
-	width: 20%;
-	padding: 10% 0%;
-	margin: 0% 40%;
+	width: 22%;
+	padding: 8% 0%;
+	margin: 0% 39%;
 	float: left;
 	display: inline-block;
 	margin-top: 50px;
+
+	h1{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		font-size: 3em;
+		color: #FFFFFF;
+		line-height: 1.3em;
+	}
 
 	p{
 		width: 100%;
 		float: left;
 		display: inline-block;
-		text-align: center;
-		font-size: 0.8em;
-		margin-bottom: 10%;
-		color: #BBBBBB;
+		font-size: 0.7em;
+		margin-bottom: 15%;
+		color: #4c8279;
 	}
 	label{
 		width: 100%;
 		float: left;
 		display: inline-block;
-		margin-bottom: 2%;
-		font-size: 1em;
-		color: #666666;
+		font-size: 0.9em;
+		color: #CCCCCC;
+		margin-bottom: 1%;
+
+		&:hover{
+			cursor: pointer;
+			color: #EEEEEE;
+		}
 	}
 	.inputtext{
-		width: 90%;
-		padding: 5%;
+		width: 100%;
+		padding: 4%;
 		float: left;
 		display: inline-block;
 		font-size: 1em;
 		border: 0px;
-		background: #FAFAFA;
-		margin-bottom: 5%;
+		background: @primary_color;
+		margin-bottom: 7%;
+		color: #FFFFFF;
+		border: 1px solid #4c8279;
+		font-weight: bold;
 		border-radius: 3px;
-		color: #333333;
-		box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+		box-sizing: border-box;
 
 		&:hover{ cursor: pointer; }
 		&:focus{
-			color: #000000;
-			background: #EEEEEE;
+			border: 1px solid #EEEEEE;
+		}
+	}
+	a{
+		padding: 4% 0%;
+		float: left;
+		display: inline-block;
+		font-size: 0.9em;
+		line-height: 1em;
+		text-decoration: none;
+		color: #4c8279;
+		font-weight: bold;
+
+		&:hover{
+			text-decoration: underline;
+			color: #FFFFFF;
+		}
+
+		i{
+			margin-right: 10px;
+			float: left;
+			display: inline-block;
+			font-size: 1.5em;
+			margin-top: -5px;
 		}
 	}
 	.btn-submit{
-		padding: 5% 7%;
+		padding: 4% 8%;
 		float: right;
 		display: inline-block;
-		font-size: 1em;
+		font-size: 0.9em;
 		border: 0px;
 		background: #27ae60;
 		color: #FFFFFF;
@@ -1192,13 +1244,12 @@
 		margin-top: 5%;
 		box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 		font-weight: bold;
+		margin: 0px;
 
-		i{
-			margin-left: 15px;
-		}
-
+		i{ margin-left: 15px; }
 		&.-loading{
-			background: #DDDDDD;
+			background: @primary_color;
+			color: #4c8279;
 			box-shadow: none;
 		}
 
@@ -1216,26 +1267,26 @@
 		}
 	}
 
-	a.btn-link{
-		width: 100%;
-		padding: 5% 0%;
-		float: left;
-		display: inline-block;
-		font-size: 1em;
-		border: 0px;
-		color: #999999;
-		text-align: center;
-		font-size: 0.9em;
-		text-decoration: none;
+	// a.btn-link{
+	// 	width: 100%;
+	// 	padding: 5% 0%;
+	// 	float: left;
+	// 	display: inline-block;
+	// 	font-size: 1em;
+	// 	border: 0px;
+	// 	color: #999999;
+	// 	text-align: center;
+	// 	font-size: 0.9em;
+	// 	text-decoration: none;
 
-		i.fa-long-arrow-left{ margin-right: 10px; }
-		i.fa-long-arrow-right{ margin-left: 10px; }
+	// 	i.fa-long-arrow-left{ margin-right: 10px; }
+	// 	i.fa-long-arrow-right{ margin-left: 10px; }
 
-		&:hover{
-			color: #333333;
-			text-decoration: underline;
-		}
-	}
+	// 	&:hover{
+	// 		color: #333333;
+	// 		text-decoration: underline;
+	// 	}
+	// }
 }
 
 .footer{

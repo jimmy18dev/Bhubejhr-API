@@ -41,7 +41,6 @@ $currentPage = 'profile';
 	<div class="head">
 		<h1><?php echo $app->name;?></h1>
 		<p><?php echo $app->description;?></p>
-		<p><strong>Token:</strong> <?php echo $app->token;?></p>
 	</div>
 
 	<h2>This Week</h2>
@@ -82,6 +81,10 @@ $currentPage = 'profile';
 </div>
 
 <div class="navigation">
+	<div class="group">
+		<h4>Token</h4>
+		<input type="text" class="inputtext" value="<?php echo $app->token;?>">
+	</div>
 	<div class="group">
 		<h4>Analytcis</h4>
 		<div class="stat">

@@ -29,10 +29,11 @@ $currentPage = 'register';
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
-<body>
-<?php include'header.php';?>
+<body class="login-bg">
 <div class="progressbar" id="progressbar"></div>
 <form class="login" action="javascript:register();">
+	<h1>Bhubejhr API</h1>
+	<p>Get the full details of all the nodes, edges, and fields</p>
 	<label for="fullname">Fullname</label>
 	<input class="inputtext" type="text" id="fullname" autofocus>
 	<label for="email">Email</label>
@@ -41,6 +42,8 @@ $currentPage = 'register';
 	<input class="inputtext" type="password" id="password">
 	
 	<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('register',SECRET_KEY);?>">
+
+	<a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i>Login wiht Email</a>
 	<button id="btn-submit" class="btn-submit register">Register<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
 </form>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
