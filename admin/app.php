@@ -40,6 +40,13 @@ $currentPage = 'profile';
 
 <div class="navigation">
 	<div class="group">
+		<h4>Permission</h4>
+		<?php if($app->permission_get){?><span>GET</span><?php }?>
+		<?php if($app->permission_post){?><span>POST</span><?php }?>
+		<?php if($app->permission_put){?><span>PUT</span><?php }?>
+		<?php if($app->permission_delete){?><span>DELETE</span><?php }?>
+	</div>
+	<div class="group">
 		<h4>Analytcis</h4>
 		<div class="stat">
 			<div class="v"><?php echo $log->todayRequest($app->id);?></div>
@@ -58,21 +65,7 @@ $currentPage = 'profile';
 			<div class="c">Last Access</div>
 		</div> -->
 	</div>
-	<div class="group">
-		<h4>Permission</h4>
-		<?php if($app->permission_get){?><span>GET</span><?php }?>
-		<?php if($app->permission_post){?><span>POST</span><?php }?>
-		<?php if($app->permission_put){?><span>PUT</span><?php }?>
-		<?php if($app->permission_delete){?><span>DELETE</span><?php }?>
-	</div>
-
-	<div class="group">
-		<h4>Setting</h4>
-		<a href="app-setting.php?id=<?php echo $app->id;?>" class="info-items">
-			<span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
-			<div class="detail">App Setting</div>
-		</a>
-	</div>
+	<a href="app-setting.php?id=<?php echo $app->id;?>" class="btn btn-setting"><i class="fa fa-cog" aria-hidden="true"></i>App Setting</a>
 </div>
 
 <div class="container">

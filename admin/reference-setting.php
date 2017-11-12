@@ -40,7 +40,7 @@ $currentPage = 'reference';
 
 <div class="container">
 	<h2>Reference Setting</h2>
-	<div class="setting">
+	<div class="form">
 		<div class="setting-items">
 			<label for="name">Name</label>
 			<input type="text" class="inputtext" id="name" value="<?php echo $reference->name;?>">

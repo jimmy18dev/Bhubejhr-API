@@ -50,29 +50,29 @@ $currentPage = 'profile';
 
 <div class="container">
 	<h2>Profile Detail</h2>
-	<div class="setting">
-		<div class="setting-items">
+	<div class="form">
+		<div class="form-items">
 			<label for="app_name">Fullname</label>
 			<input type="text" class="inputtext" id="name" value="<?php echo $user->name;?>">
 		</div>
-		<div class="setting-items">
+		<div class="form-items">
 			<label for="app_name">Username</label>
 			<input type="text" class="inputtext" id="username" value="<?php echo $user->username;?>">
 		</div>
-		<div class="setting-items">
+		<div class="form-items">
 			<label for="app_name">Email</label>
 			<input type="text" class="inputtext" id="email" value="<?php echo $user->email;?>">
 		</div>
-		<div class="setting-items">
+		<div class="form-items">
 			<label for="app_name">Company</label>
 			<input type="text" class="inputtext" id="company" value="<?php echo $user->company;?>">
 		</div>
-		<div class="setting-items">
+		<div class="form-items">
 			<label for="app_name">Position</label>
 			<input type="text" class="inputtext" id="position" value="<?php echo $user->position;?>">
 		</div>
 
-		<div class="setting-control">
+		<div class="form-control">
 			<button class="btn-submit" id="btnUpdate">Update Profile</button>
 		</div>
 	</div>

@@ -1,4 +1,5 @@
 <header class="header">
+	<a href="index.php" class="logo-img"><img src="image/logo.png" alt="logo"></a>
 	<a href="index.php" class="logo" title="Version <?php echo VERSION;?>">
 		<span><?php echo SITENAME;?></span>
 		<span class="status" id="db_status">ONLINE</span>	

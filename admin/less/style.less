@@ -16,6 +16,16 @@
 	z-index: 59;
 	box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
 
+	a.logo-img{
+		float: left;
+		display: inline-block;
+		padding: 10px 0%;
+		height: 30px;
+		margin-right: 10px;
+
+		img{ height: 30px; }
+	}
+
 	a.logo{
 		float: left;
 		display: inline-block;
@@ -27,6 +37,13 @@
 		line-height: 1em;
 		font-weight: bold;
 		margin-right: 3%;
+
+		img{
+			float: left;
+			display: inline-block;
+			height: 20px;
+			margin-right: 15px;
+		}
 
 		span{
 			float: left;
@@ -283,8 +300,22 @@
 		box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 		border-radius: 3px;
 		line-height: 1em;
+		font-size: 1em;
+		border: 0px;
+		color: #666666;
+		background: #FAFAFA;
 
 		&.btn-create{
+			background: #2ecc71;
+			color: #FFFFFF;
+
+			&:hover{
+				background: #27ae60;
+				cursor: pointer;
+			}
+		}
+
+		&.btn-setting{
 			background: #FF5722;
 			color: #FFFFFF;
 
@@ -294,18 +325,9 @@
 			}
 		}
 
-		&:hover{
-			box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
-		}
-
-		&:active{
-			box-shadow: none;
-		}
-
-		i{
-			margin-right: 12px;
-			font-size: 1em;
-		}
+		i{ margin-right: 12px; }
+		&:hover{ box-shadow: 1px 1px 10px rgba(0,0,0,0.2); }
+		&:active{ box-shadow: none; }
 	}
 
 	.group{
@@ -317,6 +339,28 @@
 		box-sizing: border-box;
 		background: #FFFFFF;
 		border-radius: 3px;
+		border: 1px solid #EAEAEA;
+
+		button{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			margin-top: 10%;
+			font-size: 0.9em;
+			border: 0px;
+			font-weight: bold;
+			padding: 10px 0px;
+			border-radius: 3px;
+
+			&.btn-delete{
+				background: #FFCDD2;
+				color: #F44336;
+			}
+
+			&:hover{
+				cursor: pointer;
+			}
+		}
 
 		h4{
 			width: 100%;
@@ -377,67 +421,6 @@
 
 			&:hover{
 				text-decoration: underline;
-			}
-		}
-
-		.btn{
-			width: 70%;
-			margin-right: 30%;
-			float: left;
-			display: inline-block;
-			font-size: 0.9em;
-			background: #CCCCCC;
-			color: #666666;
-			border: 0px;
-			margin: 0px;
-			margin-top: 5%;
-			padding: 10px;
-			border-radius: 3px;
-
-			&.delete{
-				background: #FFEBEE;
-				color: #F44336;
-
-				&:hover{
-					background: #FFCDD2;
-				}
-			}
-
-			&:hover{
-				cursor: pointer;
-			}
-		}
-
-		.head{
-			width: 100%;
-			float: left;
-			display: inline-block;
-			margin-bottom: 10%;
-
-			.name{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				font-size: 1.6em;
-				line-height: 1.1em;
-			}
-
-			.desc{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				font-size: 0.9em;
-				margin-top: 2%;
-
-				span{
-					display: inline-block;
-					background: #FAFAFA;
-					padding: 0px 7px;
-					padding-top: 2px;
-					font-size: 0.7em;
-					border: 1px solid #CCCCCC;
-					border-radius: 20px;
-				}
 			}
 		}
 
@@ -595,121 +578,6 @@
 		width: 100%;
 		float: left;
 		display: inline-block;
-	}
-
-	.setting{
-		width: 100%;
-		float: left;
-		display: inline-block;
-		background: #FFFFFF;
-		margin-bottom: 5%;
-
-		.selection{
-			width: 100%;
-			float: left;
-			display: inline-block;
-
-			.caption{
-				width: 100%;
-				float: left;
-				display: inline-block;
-			}
-
-			.items{
-				float: left;
-				display: inline-block;
-				margin-right: 1%;
-				margin-bottom: 1%;
-				background: #DDDDDD;
-
-				&.-active{
-					background: #333333;
-					color: #FFFFFF;
-				}
-			}
-		}
-
-		.setting-items{
-			width: 70%;
-			margin-right: 30%;
-			float: left;
-			display: inline-block;
-			margin-bottom: 3%;
-
-			label{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				font-weight: bold;
-				font-size: 0.9em;
-				margin-bottom: 1%;
-			}
-
-			.inputtext{
-				width: 96%;
-				padding: 2%;
-				float: left;
-				display: inline-block;
-				border: 1px solid #DDDDDD;
-				font-size: 1em;
-				background: #FAFAFA;
-				border-radius: 3px;
-
-				&:focus{
-					background: #EEEEEE;
-					border: 1px solid #CCCCCC;
-				}
-
-				&:hover{
-					cursor: pointer;
-				}
-			}
-			.inputtextarea{
-				width: 96%;
-				padding: 2%;
-				height: 70px;
-				float: left;
-				display: inline-block;
-				border: 1px solid #DDDDDD;
-				font-size: 1em;
-				background: #FAFAFA;
-				resize: none;
-
-				&:focus{
-					background: #EEEEEE;
-					border: 1px solid #CCCCCC;
-				}
-
-				&:hover{
-					cursor: pointer;
-				}
-			}
-		}
-
-		.setting-control{
-			width: 100%;
-			float: left;
-			display: inline-block;
-
-			.btn-submit{
-				float: left;
-				display: inline-block;
-				background: #f39c12;
-				font-size: 0.9em;
-				border: 0px;
-				padding: 12px 20px;
-				border-radius: 3px;
-				font-weight: bold;
-				box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-				color: #FFFFFF;
-				margin: 0px;
-
-				&:hover{
-					cursor: pointer;
-					box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-				}
-			}
-		}
 	}
 
 	.chart{
@@ -1061,105 +929,117 @@
 	}
 
 	.form{
-		width: 70%;
-		margin: 3% 15%;
-		padding: 3% 0%;
-		padding-bottom: 1%;
+		width: 90%;
+		padding: 5%;
 		float: left;
 		display: inline-block;
 		background: #FFFFFF;
+		box-shadow: 1px 1px 15px rgba(0,0,0,0.1);
 		border-radius: 3px;
-		overflow: hidden;
+		margin-bottom: 5%;
 
-		.info{
-			width: 90%;
-			margin: 0% 5%;
+		.selection{
+			width: 100%;
 			float: left;
 			display: inline-block;
-			text-align: right;
-			font-size: 0.75em;
-			color: #CCCCCC;
+
+			.caption{
+				width: 100%;
+				float: left;
+				display: inline-block;
+			}
+
+			.items{
+				float: left;
+				display: inline-block;
+				margin-right: 1%;
+				margin-bottom: 1%;
+				background: #DDDDDD;
+
+				&.-active{
+					background: #333333;
+					color: #FFFFFF;
+				}
+			}
 		}
 
 		.form-items{
-			width: 90%;
-			padding: 3% 5%;
+			width: 100%;
+			float: left;
+			display: inline-block;
+			margin-bottom: 3%;
+
+			label{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				font-weight: bold;
+				font-size: 0.9em;
+				margin-bottom: 1%;
+			}
+
+			.inputtext{
+				width: 96%;
+				padding: 2%;
+				float: left;
+				display: inline-block;
+				border: 1px solid #DDDDDD;
+				font-size: 1em;
+				background: #FAFAFA;
+				border-radius: 3px;
+
+				&:focus{
+					background: #EEEEEE;
+					border: 1px solid #CCCCCC;
+				}
+
+				&:hover{
+					cursor: pointer;
+				}
+			}
+			.inputtextarea{
+				width: 96%;
+				padding: 2%;
+				height: 70px;
+				float: left;
+				display: inline-block;
+				border: 1px solid #DDDDDD;
+				font-size: 1em;
+				background: #FAFAFA;
+				resize: none;
+
+				&:focus{
+					background: #EEEEEE;
+					border: 1px solid #CCCCCC;
+				}
+
+				&:hover{
+					cursor: pointer;
+				}
+			}
+		}
+
+		.form-control{
+			width: 100%;
 			float: left;
 			display: inline-block;
 
-			&.-hidden{ display: none; }
-
-			.label{
-				width: 15%;
-				padding: 1% 0%;
-				margin-right: 5%;
+			.btn-submit{
 				float: left;
 				display: inline-block;
-				text-align: right;
-				line-height: 1.3em;
-				color: #999999;
-			}
-			.input{
-				width: 80%;
-				float: left;
-				display: inline-block;
+				background: #f39c12;
+				font-size: 0.9em;
+				border: 0px;
+				padding: 12px 20px;
+				border-radius: 3px;
+				font-weight: bold;
+				box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+				color: #FFFFFF;
+				margin: 0px;
 
-				i{ color: #999999; }
-				i.fa-toggle-on{ color: @primary_color; }
-
-				#btn-toggle-status{
-					font-size: 2.5em;
-					line-height: 1em;
-
-					&:hover{ cursor: pointer; }
-				}
-
-				.input-text , .input-textarea{
-					width: 96%;
-					padding: 2%;
-					float: left;
-					display: inline-block;
-					border: 0px;
-					margin: 0px;
-					border: 1px solid #EEEEEE;
-					font-size: 1em;
-					line-height: 1.2em;
-					// resize: none;
-					border-radius: 3px;
-
-					&:focus{
-						border: 1px solid #CCCCCC;
-					}
-				}
-
-				.input-textarea{
-					height: 300px;
-				}
-
-				.btn{
-					float: right;
-					display: inline-block;
-					text-decoration: none;
-					background: @primary_color;
-					color: #FFFFFF;
-					padding: 15px 20px;
-					margin: 0%;
-					margin-left: 5px;
-					border-radius: 3px;
-					font-size: 0.9em;
-					line-height: 1em;
-					border: 0px;
-
-					&:hover{
-						cursor: pointer;
-					}
-
-					&.btn-delete{
-						float: left;
-						color: #D32F2F;
-						padding: 15px 0px;
-						background: transparent;
-					}
+				&:hover{
+					cursor: pointer;
+					box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 				}
 			}
 		}

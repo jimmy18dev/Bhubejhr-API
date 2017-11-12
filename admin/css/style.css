@@ -201,6 +201,16 @@ body {
   z-index: 59;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
 }
+.header a.logo-img {
+  float: left;
+  display: inline-block;
+  padding: 10px 0%;
+  height: 30px;
+  margin-right: 10px;
+}
+.header a.logo-img img {
+  height: 30px;
+}
 .header a.logo {
   float: left;
   display: inline-block;
@@ -212,6 +222,12 @@ body {
   line-height: 1em;
   font-weight: bold;
   margin-right: 3%;
+}
+.header a.logo img {
+  float: left;
+  display: inline-block;
+  height: 20px;
+  margin-right: 15px;
 }
 .header a.logo span {
   float: left;
@@ -448,24 +464,35 @@ body {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   line-height: 1em;
+  font-size: 1em;
+  border: 0px;
+  color: #666666;
+  background: #FAFAFA;
 }
 .navigation .btn.btn-create {
-  background: #FF5722;
+  background: #2ecc71;
   color: #FFFFFF;
 }
 .navigation .btn.btn-create:hover {
+  background: #27ae60;
+  cursor: pointer;
+}
+.navigation .btn.btn-setting {
+  background: #FF5722;
+  color: #FFFFFF;
+}
+.navigation .btn.btn-setting:hover {
   background: #E64A19;
   cursor: pointer;
+}
+.navigation .btn i {
+  margin-right: 12px;
 }
 .navigation .btn:hover {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
 }
 .navigation .btn:active {
   box-shadow: none;
-}
-.navigation .btn i {
-  margin-right: 12px;
-  font-size: 1em;
 }
 .navigation .group {
   width: 100%;
@@ -476,6 +503,25 @@ body {
   box-sizing: border-box;
   background: #FFFFFF;
   border-radius: 3px;
+  border: 1px solid #EAEAEA;
+}
+.navigation .group button {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 10%;
+  font-size: 0.9em;
+  border: 0px;
+  font-weight: bold;
+  padding: 10px 0px;
+  border-radius: 3px;
+}
+.navigation .group button.btn-delete {
+  background: #FFCDD2;
+  color: #F44336;
+}
+.navigation .group button:hover {
+  cursor: pointer;
 }
 .navigation .group h4 {
   width: 100%;
@@ -532,59 +578,6 @@ body {
 }
 .navigation .group .link:hover {
   text-decoration: underline;
-}
-.navigation .group .btn {
-  width: 70%;
-  margin-right: 30%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-  background: #CCCCCC;
-  color: #666666;
-  border: 0px;
-  margin: 0px;
-  margin-top: 5%;
-  padding: 10px;
-  border-radius: 3px;
-}
-.navigation .group .btn.delete {
-  background: #FFEBEE;
-  color: #F44336;
-}
-.navigation .group .btn.delete:hover {
-  background: #FFCDD2;
-}
-.navigation .group .btn:hover {
-  cursor: pointer;
-}
-.navigation .group .head {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 10%;
-}
-.navigation .group .head .name {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.6em;
-  line-height: 1.1em;
-}
-.navigation .group .head .desc {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-  margin-top: 2%;
-}
-.navigation .group .head .desc span {
-  display: inline-block;
-  background: #FAFAFA;
-  padding: 0px 7px;
-  padding-top: 2px;
-  font-size: 0.7em;
-  border: 1px solid #CCCCCC;
-  border-radius: 20px;
 }
 .navigation .group .info-items {
   width: 100%;
@@ -693,106 +686,6 @@ body {
   width: 100%;
   float: left;
   display: inline-block;
-}
-.container .setting {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  margin-bottom: 5%;
-}
-.container .setting .selection {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .setting .selection .caption {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .setting .selection .items {
-  float: left;
-  display: inline-block;
-  margin-right: 1%;
-  margin-bottom: 1%;
-  background: #DDDDDD;
-}
-.container .setting .selection .items.-active {
-  background: #333333;
-  color: #FFFFFF;
-}
-.container .setting .setting-items {
-  width: 70%;
-  margin-right: 30%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 3%;
-}
-.container .setting .setting-items label {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-weight: bold;
-  font-size: 0.9em;
-  margin-bottom: 1%;
-}
-.container .setting .setting-items .inputtext {
-  width: 96%;
-  padding: 2%;
-  float: left;
-  display: inline-block;
-  border: 1px solid #DDDDDD;
-  font-size: 1em;
-  background: #FAFAFA;
-  border-radius: 3px;
-}
-.container .setting .setting-items .inputtext:focus {
-  background: #EEEEEE;
-  border: 1px solid #CCCCCC;
-}
-.container .setting .setting-items .inputtext:hover {
-  cursor: pointer;
-}
-.container .setting .setting-items .inputtextarea {
-  width: 96%;
-  padding: 2%;
-  height: 70px;
-  float: left;
-  display: inline-block;
-  border: 1px solid #DDDDDD;
-  font-size: 1em;
-  background: #FAFAFA;
-  resize: none;
-}
-.container .setting .setting-items .inputtextarea:focus {
-  background: #EEEEEE;
-  border: 1px solid #CCCCCC;
-}
-.container .setting .setting-items .inputtextarea:hover {
-  cursor: pointer;
-}
-.container .setting .setting-control {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .setting .setting-control .btn-submit {
-  float: left;
-  display: inline-block;
-  background: #f39c12;
-  font-size: 0.9em;
-  border: 0px;
-  padding: 12px 20px;
-  border-radius: 3px;
-  font-weight: bold;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-  color: #FFFFFF;
-  margin: 0px;
-}
-.container .setting .setting-control .btn-submit:hover {
-  cursor: pointer;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .container .chart {
   width: 96%;
@@ -1125,104 +1018,106 @@ body {
   cursor: default;
 }
 .container .form {
-  width: 70%;
-  margin: 3% 15%;
-  padding: 3% 0%;
-  padding-bottom: 1%;
+  width: 90%;
+  padding: 5%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-  overflow: hidden;
+  margin-bottom: 5%;
 }
-.container .form .info {
-  width: 90%;
-  margin: 0% 5%;
+.container .form .selection {
+  width: 100%;
   float: left;
   display: inline-block;
-  text-align: right;
-  font-size: 0.75em;
-  color: #CCCCCC;
+}
+.container .form .selection .caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .form .selection .items {
+  float: left;
+  display: inline-block;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  background: #DDDDDD;
+}
+.container .form .selection .items.-active {
+  background: #333333;
+  color: #FFFFFF;
 }
 .container .form .form-items {
-  width: 90%;
-  padding: 3% 5%;
+  width: 100%;
   float: left;
   display: inline-block;
+  margin-bottom: 3%;
 }
-.container .form .form-items.-hidden {
-  display: none;
-}
-.container .form .form-items .label {
-  width: 15%;
-  padding: 1% 0%;
-  margin-right: 5%;
+.container .form .form-items label {
+  width: 100%;
   float: left;
   display: inline-block;
-  text-align: right;
-  line-height: 1.3em;
-  color: #999999;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-bottom: 1%;
 }
-.container .form .form-items .input {
-  width: 80%;
-  float: left;
-  display: inline-block;
-}
-.container .form .form-items .input i {
-  color: #999999;
-}
-.container .form .form-items .input i.fa-toggle-on {
-  color: #004d40;
-}
-.container .form .form-items .input #btn-toggle-status {
-  font-size: 2.5em;
-  line-height: 1em;
-}
-.container .form .form-items .input #btn-toggle-status:hover {
-  cursor: pointer;
-}
-.container .form .form-items .input .input-text,
-.container .form .form-items .input .input-textarea {
+.container .form .form-items .inputtext {
   width: 96%;
   padding: 2%;
   float: left;
   display: inline-block;
-  border: 0px;
-  margin: 0px;
-  border: 1px solid #EEEEEE;
+  border: 1px solid #DDDDDD;
   font-size: 1em;
-  line-height: 1.2em;
+  background: #FAFAFA;
   border-radius: 3px;
 }
-.container .form .form-items .input .input-text:focus,
-.container .form .form-items .input .input-textarea:focus {
+.container .form .form-items .inputtext:focus {
+  background: #EEEEEE;
   border: 1px solid #CCCCCC;
 }
-.container .form .form-items .input .input-textarea {
-  height: 300px;
-}
-.container .form .form-items .input .btn {
-  float: right;
-  display: inline-block;
-  text-decoration: none;
-  background: #004d40;
-  color: #FFFFFF;
-  padding: 15px 20px;
-  margin: 0%;
-  margin-left: 5px;
-  border-radius: 3px;
-  font-size: 0.9em;
-  line-height: 1em;
-  border: 0px;
-}
-.container .form .form-items .input .btn:hover {
+.container .form .form-items .inputtext:hover {
   cursor: pointer;
 }
-.container .form .form-items .input .btn.btn-delete {
+.container .form .form-items .inputtextarea {
+  width: 96%;
+  padding: 2%;
+  height: 70px;
   float: left;
-  color: #D32F2F;
-  padding: 15px 0px;
-  background: transparent;
+  display: inline-block;
+  border: 1px solid #DDDDDD;
+  font-size: 1em;
+  background: #FAFAFA;
+  resize: none;
+}
+.container .form .form-items .inputtextarea:focus {
+  background: #EEEEEE;
+  border: 1px solid #CCCCCC;
+}
+.container .form .form-items .inputtextarea:hover {
+  cursor: pointer;
+}
+.container .form .form-control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .form .form-control .btn-submit {
+  float: left;
+  display: inline-block;
+  background: #f39c12;
+  font-size: 0.9em;
+  border: 0px;
+  padding: 12px 20px;
+  border-radius: 3px;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #FFFFFF;
+  margin: 0px;
+}
+.container .form .form-control .btn-submit:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .container .page {
   width: 64%;

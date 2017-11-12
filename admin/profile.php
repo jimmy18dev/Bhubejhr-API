@@ -71,11 +71,9 @@ $apps = $app->listAll($user->id);
 		<h1><?php echo $user->name;?></h1>
 		<p>@<?php echo $user->username;?> Work <?php echo $user->position;?> at <strong><?php echo $user->company;?></strong></p>
 	</div>
-	<div class="group">
-		<a href="profile-setting.php" class="link"><i class="fa fa-user" aria-hidden="true"></i>Profile Setting</a>
-		<a href="profile-password.php" class="link"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
-		<a href="logout.php" class="link link-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
-	</div>
+	<a href="profile-setting.php" class="btn"><i class="fa fa-user" aria-hidden="true"></i>Profile Setting</a>
+	<a href="profile-password.php" class="btn"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
+	<a href="logout.php" class="btn btn-logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
 </div>
 
 <div class="dialog" id="editProfileDialog">
