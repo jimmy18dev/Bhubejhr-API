@@ -451,6 +451,65 @@
 			}
 		}
 
+		h5{
+			font-size: 0.75em;
+			font-weight: normal;
+			color: #999999;
+			margin-bottom: 1%;
+		}
+
+		textarea{
+			width: 90%;
+			padding: 5%;
+			height: 60px;
+			float: left;
+			display: inline-block;
+			border: 0px;
+			background: #FAFAFA;
+			resize: none;
+			color: @primary_color;
+			font-size: 0.75em;
+		}
+
+		.select{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			position: relative;
+			margin-bottom: 5%;
+
+			&:after{
+				content: '';
+				border-top: 8px solid #999999;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				position: absolute;
+				z-index: 2;
+				top: 15px;
+				right: 7%;
+				pointer-events: none;
+			}
+
+			select{
+				width: 100%;
+				margin: 0%;
+				padding: 10px 5%;
+				float: left;
+				display: inline-block;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				font-size: 0.8em;
+				border-radius: 2px;
+				line-height: 1.5em;
+				background: #EEEEEE;
+				border: 0px;
+
+				&:hover{ cursor: pointer; }
+				&:focus{ background: #DDDDDD; }
+			}
+		}
+
 		button{
 			width: 100%;
 			float: left;
@@ -1135,48 +1194,36 @@
 				float: left;
 				display: inline-block;
 				font-weight: bold;
-				font-size: 0.9em;
+				font-size: 0.8em;
 				margin-bottom: 1%;
+				color: #999999;
 			}
 
 			.inputtext{
-				width: 96%;
-				padding: 2%;
+				width: 100%;
+				padding: 1% 0%;
 				float: left;
 				display: inline-block;
-				border: 1px solid #DDDDDD;
+				border: 0px;
+				border-bottom: 1px solid #EEEEEE;
 				font-size: 1em;
-				background: #FAFAFA;
-				border-radius: 3px;
 
-				&:focus{
-					background: #EEEEEE;
-					border: 1px solid #CCCCCC;
-				}
-
-				&:hover{
-					cursor: pointer;
-				}
+				&:focus{ border-bottom: 1px solid #999999; }
+				&:hover{ cursor: pointer; }
 			}
 			.inputtextarea{
-				width: 96%;
-				padding: 2%;
+				width: 100%;
+				padding: 1% 0%;
 				height: 70px;
 				float: left;
 				display: inline-block;
-				border: 1px solid #DDDDDD;
+				border: 0px;
+				border-bottom: 1px solid #EEEEEE;
 				font-size: 1em;
-				background: #FAFAFA;
 				resize: none;
 
-				&:focus{
-					background: #EEEEEE;
-					border: 1px solid #CCCCCC;
-				}
-
-				&:hover{
-					cursor: pointer;
-				}
+				&:focus{ border-bottom: 1px solid #999999; }
+				&:hover{ cursor: pointer; }
 			}
 		}
 

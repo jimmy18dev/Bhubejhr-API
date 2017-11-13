@@ -53,18 +53,18 @@ $log_allday = $log->allday($app_id);
 	</div>
 	<h2>App Setting</h2>
 	<div class="form">
-		<div class="setting-items">
+		<div class="form-items">
 			<label for="app_name">App name</label>
 			<input type="text" class="inputtext" id="app_name" value="<?php echo $app->name;?>">
 		</div>
-		<div class="setting-items">
+		<div class="form-items">
 			<label for="app_desc">Description</label>
 			<textarea class="inputtextarea" id="app_desc"><?php echo $app->description;?></textarea>
 		</div>
 
 		<input type="hidden" id="app_id" value="<?php echo $app->id;?>">
 
-		<div class="setting-control">
+		<div class="form-control">
 			<button class="btn-submit" id="btnUpdate">Update App</button>
 		</div>
 	</div>
@@ -72,6 +72,7 @@ $log_allday = $log->allday($app_id);
 
 <input type="hidden" id="app_id" value="<?php echo $app->id;?>">
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/lib/autosize.js"></script>
 <script type="text/javascript" src="js/app.setting.js"></script>
 <script type="text/javascript" src="js/layout.js"></script>
 </body>

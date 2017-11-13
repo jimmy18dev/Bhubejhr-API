@@ -44,7 +44,7 @@ $log_allday = $reference->allday($reference->id);
 
 <div class="navigation">
 	<div class="group">
-		<h4>Analytics</h4>
+		<h4><i class="fa fa-bar-chart" aria-hidden="true"></i>Analytics</h4>
 		<div class="stat">
 			<div class="v"><?php echo $reference->todayRequest($reference->id);?></div>
 			<div class="c">Today Request</div>
@@ -64,15 +64,19 @@ $log_allday = $reference->allday($reference->id);
 	</div>
 
 	<div class="group">
-		<h4>Example</h4>
-		<?php foreach ($apps as $var) {?>
-		<a class="select-items" href="reference-page.php?id=<?php echo $reference->id;?>&app=<?php echo $var['app_id'];?>"><i class="fa fa-puzzle-piece" aria-hidden="true"></i><?php echo $var['app_name'];?></a>
-		<?php }?>
-	</div>
+		<h4><i class="fa fa-puzzle-piece" aria-hidden="true"></i>API Example</h4>
+		<div class="select">
+			<select id="appExample">
+				<option selected>Select your app</option>
+				<?php foreach ($apps as $var) {?>
+				<option value="<?php echo $var['app_id'];?>"><?php echo $var['app_name'];?></option>
+				<?php }?>
+			</select>
+		</div>
 
-	<?php if(!empty($app->id)){?>
-	<p>Example: <a href="<?php echo DOMAIN;?>/<?php echo $reference->example?>&token=<?php echo $app->token;?>" target="_blank">OPEN API</a></p>
-	<?php }?>
+		<h5>URL</h5>
+		<textarea id="urlExample" disabled></textarea>
+	</div>
 </div>
 
 <div class="container">
@@ -118,7 +122,8 @@ $log_allday = $reference->allday($reference->id);
 	</div>
 </div>
 
-<input type="text" id="ref_id" value="<?php echo $reference->id;?>">
+<input type="hidden" id="ref_id" value="<?php echo $reference->id;?>">
+<input type="hidden" id="url_example" value="<?php echo DOMAIN;?>/<?php echo $reference->example?>">
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/chart.min.js"></script>

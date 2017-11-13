@@ -20,6 +20,11 @@ $log = new Log;
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
 		switch ($_GET['request']){
+			case 'get':
+				$dataset = $app->get($_GET['app_id']);
+				$returnObject['items'] = $dataset;
+				$returnObject['message'] = 'get app info';
+				break;
 			case 'list':
 				$dataset = $app->listAll();
 

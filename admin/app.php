@@ -53,7 +53,7 @@ $currentPage = 'profile';
 		<?php foreach ($log_today as $var) { ?>
 		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
 			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
-			<div class="ref"><a href="reference-page.php?id=<?php $var['ref_id'];?>"><i class="fa fa-file-text" aria-hidden="true"></i><?php echo (!empty($var['ref_name'])?$var['ref_name'].' #'.$var['ref_id']:'n/a')?></a></div>
+			<div class="ref"><a href="reference-page.php?id=<?php echo $var['ref_id'];?>"><i class="fa fa-file-text" aria-hidden="true"></i><?php echo (!empty($var['ref_name'])?$var['ref_name'].' #'.$var['ref_id']:'n/a')?></a></div>
 			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
 			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
 		</div>
@@ -69,7 +69,7 @@ $currentPage = 'profile';
 		<?php foreach ($log_allday as $var) { ?>
 		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
 			<div class="method <?php echo $var['ref_method'];?>"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
-			<div class="ref"><a href="reference-page.php?id=<?php $var['ref_id'];?>"><i class="fa fa-file-text" aria-hidden="true"></i><?php echo (!empty($var['ref_name'])?$var['ref_name'].' #'.$var['ref_id']:'n/a')?></a></div>
+			<div class="ref"><a href="reference-page.php?id=<?php echo $var['ref_id'];?>"><i class="fa fa-file-text" aria-hidden="true"></i><?php echo (!empty($var['ref_name'])?$var['ref_name'].' #'.$var['ref_id']:'n/a')?></a></div>
 			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
 			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
 		</div>

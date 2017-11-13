@@ -83,5 +83,3 @@ $currentPage = 'reference';
 <script type="text/javascript" src="js/layout.js"></script>
 </body>
 </html>
-
-<!-- Hi Jame Welcome to JobHot -->

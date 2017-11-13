@@ -5,6 +5,8 @@ $(document).ready(function(){
 	$btnDeleteApp 	= $('#btnDeleteApp');
 	$progressbar 	= $('#progressbar');
 
+	autosize($('textarea'));
+
 	$btnUpdate.click(function(){
 
 		var app_id 		= $('#app_id').val();
