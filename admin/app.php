@@ -40,7 +40,7 @@ $currentPage = 'profile';
 <div class="container">
 	<div class="head">
 		<h1><?php echo $app->name;?></h1>
-		<p><?php echo $app->description;?></p>
+		<p><?php echo $app->description;?> | <a href="app-setting.php?id=<?php echo $app->id;?>">App Settings</a></p>
 	</div>
 
 	<h2>This Week</h2>
@@ -82,11 +82,11 @@ $currentPage = 'profile';
 
 <div class="navigation">
 	<div class="group">
-		<h4>Token</h4>
+		<h4><i class="fa fa-key" aria-hidden="true"></i>App Token</h4>
 		<input type="text" class="inputtext" value="<?php echo $app->token;?>">
 	</div>
 	<div class="group">
-		<h4>Analytcis</h4>
+		<h4><i class="fa fa-bar-chart" aria-hidden="true"></i>Analytcis</h4>
 		<div class="stat">
 			<div class="v"><?php echo $log->todayRequest($app->id);?></div>
 			<div class="c">Today Request</div>
@@ -105,13 +105,12 @@ $currentPage = 'profile';
 		</div> -->
 	</div>
 	<div class="group">
-		<h4>Permission</h4>
-		<?php if($app->permission_get){?><span>GET</span><?php }?>
-		<?php if($app->permission_post){?><span>POST</span><?php }?>
-		<?php if($app->permission_put){?><span>PUT</span><?php }?>
-		<?php if($app->permission_delete){?><span>DELETE</span><?php }?>
+		<h4><i class="fa fa-shield" aria-hidden="true"></i>Permission</h4>
+		<?php if($app->permission_get){?><span class="box">GET</span><?php }?>
+		<?php if($app->permission_post){?><span class="box">POST</span><?php }?>
+		<?php if($app->permission_put){?><span class="box">PUT</span><?php }?>
+		<?php if($app->permission_delete){?><span class="box">DELETE</span><?php }?>
 	</div>
-	<a href="app-setting.php?id=<?php echo $app->id;?>" class="btn btn-setting"><i class="fa fa-cog" aria-hidden="true"></i>App Setting</a>
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>

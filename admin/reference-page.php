@@ -43,14 +43,8 @@ $log_allday = $reference->allday($reference->id);
 <?php include'header.php';?>
 
 <div class="navigation">
-	<div class="group">Get the full details of all the nodes, edges, and fields in the latest version of the Bhubejhr API.</div>
 	<div class="group">
-		<?php foreach ($apps as $var) {?>
-		<a class="icon" href="reference-page.php?id=<?php echo $reference->id;?>&app=<?php echo $var['app_id'];?>"><?php echo $var['app_name'];?></a>
-		<?php }?>
-	</div>
-
-	<div class="group">
+		<h4>Analytics</h4>
 		<div class="stat">
 			<div class="v"><?php echo $reference->todayRequest($reference->id);?></div>
 			<div class="c">Today Request</div>
@@ -61,7 +55,7 @@ $log_allday = $reference->allday($reference->id);
 		</div>
 		<div class="stat">
 			<div class="v"><?php echo number_format($reference->AvgExecuteTime($reference->id),2);?> s.</div>
-			<div class="c">Avg execute time</div>
+			<div class="c">Execute Time</div>
 		</div>
 		<!-- <div class="stat">
 			<div class="v">34 Min</div>
@@ -69,17 +63,22 @@ $log_allday = $reference->allday($reference->id);
 		</div> -->
 	</div>
 
+	<div class="group">
+		<h4>Example</h4>
+		<?php foreach ($apps as $var) {?>
+		<a class="select-items" href="reference-page.php?id=<?php echo $reference->id;?>&app=<?php echo $var['app_id'];?>"><i class="fa fa-puzzle-piece" aria-hidden="true"></i><?php echo $var['app_name'];?></a>
+		<?php }?>
+	</div>
+
 	<?php if(!empty($app->id)){?>
 	<p>Example: <a href="<?php echo DOMAIN;?>/<?php echo $reference->example?>&token=<?php echo $app->token;?>" target="_blank">OPEN API</a></p>
 	<?php }?>
-
-	<a href="reference-setting.php?id=<?php echo $reference->id;?>">Edit Reference</a>
 </div>
 
 <div class="container">
 	<div class="head">
 		<h1><?php echo $reference->name;?></h1>
-		<p><?php echo $reference->description;?></p>
+		<p><?php echo $reference->description;?> <a href="reference-setting.php?id=<?php echo $reference->id;?>">Edit Reference</a></p>
 	</div>
 
 	<div class="chart">

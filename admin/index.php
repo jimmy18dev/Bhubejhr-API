@@ -45,7 +45,7 @@ $apps = $app->listAll($user->id);
 	<div class="apps-list" id="apps">
 		<?php foreach ($apps as $var) {?>
 		<a href="app.php?id=<?php echo $var['app_id'];?>" class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
-			<div class="mini"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> 15 Day ago</div>
+			<div class="mini"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
 			<div class="detail">
 				<div class="name"><?php echo $var['app_name'];?></div>
 				<div class="info"><?php echo (!empty($var['app_description'])?$var['app_description']:'Description');?></div>

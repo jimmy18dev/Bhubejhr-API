@@ -13,11 +13,10 @@ function databaseChecking(){
 	    console.log(data.connection);
 
 	    if(data.connection){
-	    	$dbStatus.addClass('-active');
-	    	$dbStatus.html('ONLINE');
-	    }else{
 	    	$dbStatus.removeClass('-active');
-	    	$dbStatus.html('OFFLINE');
+	    }else{
+	    	$dbStatus.addClass('-active');
+	    	$dbStatus.html('JHOS DATABASE STATUS OFFLINE!');
 	    	setTimeout(databaseChecking,60000);
 	    }
 	});

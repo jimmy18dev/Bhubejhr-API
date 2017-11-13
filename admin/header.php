@@ -1,9 +1,6 @@
 <header class="header">
 	<a href="index.php" class="logo-img"><img src="image/logo.png" alt="logo"></a>
-	<a href="index.php" class="logo" title="Version <?php echo VERSION;?>">
-		<span><?php echo SITENAME;?></span>
-		<span class="status" id="db_status">ONLINE</span>	
-	</a>
+	<a href="index.php" class="logo" title="Version <?php echo VERSION;?>"><?php echo SITENAME;?></a>
 
 	<?php if($user_online){?>
 	<div class="nav btn-profile" id="btnProfile">
@@ -26,4 +23,6 @@
 	<a href="login.php" class="nav <?php echo ($currentPage == 'login'?'-active':'');?>">Login</a>
 	<?php }?>
 </header>
+
+<span class="bar-alert" id="db_status">ONLINE</span>	
 <div class="filter" id="filterProfile"></div>

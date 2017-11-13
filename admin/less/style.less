@@ -5,6 +5,23 @@
 	background: #004D40;
 }
 
+.bar-alert{
+	position: fixed;
+	top: 50px;
+	left: 0px;
+	width: 70%;
+	padding: 0% 15%;
+	float: left;
+	display: none;
+	background: #FF5722;
+	font-size: 0.7em;
+	line-height: 1.5em;
+	z-index: 99;
+	text-align: center;
+
+	&.-active{ display: block; }
+}
+
 .header{
 	position: fixed;
 	top: 0px;
@@ -90,10 +107,10 @@
 	}
 
 	.nav{
-		float: right;
+		float: left;
 		display: inline-block;
 		padding: 18px 0%;
-		margin-left: 3%;
+		margin-right: 3%;
 		height: 12px;
 		color: #EEEEEE;
 		text-decoration: none;
@@ -108,6 +125,8 @@
 		}
 
 		&.btn-profile{
+			float: right;
+			margin-right: 0%;
 			position: relative;
 
 			&:hover{
@@ -172,7 +191,7 @@
 	float: left;
 	display: none;
 	position: fixed;
-	top: 47px;
+	top: 0;
 	left: 0;
 	background: #f39c12;
 	background: -webkit-linear-gradient(to right, #f39c12, #f1c40f);
@@ -394,7 +413,7 @@
 
 	.group{
 		width: 100%;
-		padding: 5%;
+		padding: 6%;
 		float: left;
 		display: inline-block;
 		margin-bottom: 5%;
@@ -402,6 +421,35 @@
 		background: #FFFFFF;
 		border-radius: 3px;
 		border: 1px solid #EAEAEA;
+
+		.box{
+			float: left;
+			display: inline-block;
+			font-size: 0.7em;
+			background: #BBBBBB;
+			line-height: 1em;
+			padding: 3px 6px;
+			border-radius: 3px;
+			margin-right: 1%;
+			margin-bottom: 1%;
+		}
+
+		.select-items{
+			width: 100%;
+			float: left;
+			display: inline-block;
+			text-decoration: none;
+			color: #999999;
+			border-bottom: 1px solid #EEEEEE;
+			padding: 4% 0%;
+			font-size: 0.8em;
+
+			i{ margin-right: 10px; }
+
+			&:last-child{
+				border-bottom: 0px;
+			}
+		}
 
 		button{
 			width: 100%;
@@ -432,7 +480,16 @@
 			margin-bottom: 5%;
 			padding-bottom: 3%;
 			border-bottom: 1px dotted #EEEEEE;
-			color: #333333;
+			color: #666666;
+
+			i{
+				float: left;
+				display: inline-block;
+				font-size: 1.2em;
+				margin-top: 1px;
+				margin-right: 7px;
+				color: #333333;
+			}
 		}
 		h1{
 			width: 100%;
@@ -524,7 +581,7 @@
 		}
 
 		.stat{
-			width: 100%;
+			width: 33.33%;
 			float: left;
 			display: inline-block;
 			margin-bottom: 5%;
@@ -533,15 +590,16 @@
 				width: 100%;
 				float: left;
 				display: inline-block;
-				font-size: 2.4em;
+				font-size: 1.4em;
 				color: #333333;
 				line-height: 1.2em;
+				font-weight: bold;
 			}
 			.c{
 				width: 100%;
 				float: left;
 				display: inline-block;
-				font-size: 0.75em;
+				font-size: 0.6em;
 				color: #666666;
 			}
 
@@ -710,6 +768,14 @@
 			font-size: 0.9em;
 			color: #666666;
 			line-height: 1.5em;
+
+			a{
+				color: @primary_color;
+
+				i{
+					margin-left: 3px;
+				}
+			}
 		}
 	}
 
@@ -1148,7 +1214,7 @@
 	text-align: center;
 	font-size: 1em;
 	margin-top: 25%;
-	color: #999999;
+	color: #4c8279;
 }
 
 .login{
@@ -1207,6 +1273,7 @@
 		&:hover{ cursor: pointer; }
 		&:focus{
 			border: 1px solid #EEEEEE;
+			background: #195e53;
 		}
 	}
 	a{

@@ -40,7 +40,7 @@ $log_allday = $log->allday($app_id);
 <div class="progressbar" id="progressbar"></div>
 <div class="navigation">
 	<div class="group">
-		<h4>Delete this app</h4>
+		<h4><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Delete this app</h4>
 		<p>Once you delete a app, there is no going back. Please be certain.</p>
 
 		<button class="btn-delete" id="btnDeleteApp">Delete this App</button>
@@ -48,7 +48,10 @@ $log_allday = $log->allday($app_id);
 </div>
 
 <div class="container">
-	<h2>App Detail</h2>
+	<div class="head">
+		<h1><?php echo $app->name;?></h1>
+	</div>
+	<h2>App Setting</h2>
 	<div class="form">
 		<div class="setting-items">
 			<label for="app_name">App name</label>

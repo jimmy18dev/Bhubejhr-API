@@ -41,9 +41,9 @@ session_destroy();
 <link rel="stylesheet" href="css/style.css" type="text/css"/>
 
 </head>
-<body>
+<body class="login-bg">
 <div class="progressbar" id="progressbar"></div>
-<div class="logout">Logout...</div>
+<div class="logout">System Logout...</div>
 </body>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
