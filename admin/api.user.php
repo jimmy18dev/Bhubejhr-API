@@ -33,11 +33,15 @@ switch ($_SERVER['REQUEST_METHOD']){
     case 'POST':
     	switch ($_POST['request']){
     		case 'register':
-				$namedisplay = $_POST['namedisplay'];
-				$username 	= $_POST['username'];
+				$fullname 	= $_POST['fullname'];
+				$email 		= $_POST['email'];
 				$password 	= $_POST['password'];
 
-				$user_id = $user->register($namedisplay,$username,$password);
+				$user_id = $user->register($fullname,$email,$password);
+
+				if(true){
+					$state = $user->login($username,$password);
+				}
 
 				$returnObject['message'] 	= 'New Account Created!';
 				$returnObject['account_id'] = $user_id;
@@ -59,18 +63,20 @@ switch ($_SERVER['REQUEST_METHOD']){
 				
 				break;
 			case 'edit_profile':
-				$username 		= $_POST['username'];
-				$displayname 	= $_POST['displayname'];
+				$username 	= $_POST['username'];
+				$email 		= $_POST['email'];
+				$name 		= $_POST['name'];
+				$company 	= $_POST['company'];
+				$position 	= $_POST['position'];
 
-				$user->editProfile($user->id,$username,$displayname);
+				$user->editProfile($user->id,$username,$email,$name,$company,$position);
 
-				$returnObject['message'] 	= 'Profile saved.';
+				$returnObject['message'] 	= 'Profile edited.';
 				break;
 			case 'change_password':
-				$oldpassword = $_POST['oldpassword'];
 				$newpassword = $_POST['newpassword'];
 
-				$user->changePassword($user->id,$oldpassword,$newpassword);
+				$user->changePassword($user->id,$newpassword);
 
 				$returnObject['message'] 	= 'Password changed.';
 				break;

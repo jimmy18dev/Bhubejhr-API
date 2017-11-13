@@ -2,12 +2,27 @@ var api_url = 'api.user.php';
 
 $(document).ready(function(){
 	var sign = $('#sign').val();
+	$progressbar = $('#progressbar');
 
 	$btnEditProfile 			= $('#btnEditProfile');
 	$editProfileFilter 			= $('#editProfileFilter');
 	$btnSubmiteditProfile 		= $('#btnSubmiteditProfile');
 	$btnCloseEditProfile 		= $('#btnCloseEditProfile');
 	$editProfileDialog 			= $('#editProfileDialog');
+
+	$btnProfile = $('#btnProfile');
+	$menuProfile = $('#menuProfile');
+	$filterProfile = $('#filterProfile');
+
+	$btnProfile.click(function(){
+		$filterProfile.fadeIn(100);
+		$menuProfile.fadeIn(300);
+
+		$filterProfile.click(function(){
+			$menuProfile.fadeOut(100);
+			$filterProfile.fadeOut(300);
+		});
+	});
 
 	$btnEditProfile.click(function(){
 		$editProfileDialog.fadeIn(300);
@@ -131,6 +146,10 @@ function login(){
 		return false;
 	}
 
+	$progressbar.fadeIn(300);
+	$progressbar.width('0%');
+	$progressbar.animate({width:'70%'},500);
+
 	$.get({
 		url         :api_url,
 		timeout 	:10000, //10 second timeout
@@ -152,33 +171,34 @@ function login(){
 		if(data.state == 1){
 			$('#btn-submit').addClass('-loading');
 			$('#btn-submit').html('logining...');
-			// $progress.animate({width:'100%'},300);
+			$progressbar.animate({width:'100%'},500);
 			
 			setTimeout(function(){
 				window.location = 'index.php?login=success';
 	        },1000);
+
 		}else if(data.state == 0){
-			// $progress.animate({width:'0%'},300);
+			$progressbar.animate({width:'0%'},500);
 			alert('เข้าระบบไม่สำเร็จ กรุณาตรวจสอบอีกครั้ง!');
 		}else if(data.state == -1){
-			// $progress.animate({width:'0%'},300);
+			$progressbar.animate({width:'0%'},500);
 			alert('คุณต้องรออีก 5 นาที เพื่อเข้าระบบใหม่!');
 		}
 	}).fail(function() {
 		alert('ระบบทำงานผิดพลาด กรุณาลองใหม่อีกครั้ง!');
-		// $progress.animate({width:'0%'},300);
+		$progressbar.animate({width:'0%'},500);
 		$('#password').focus();
 		$('#password').val('');
 	});
 }
 
 function register(){
-	var namedisplay = $('#namedisplay').val();
-	var username 	= $('#username').val();
+	var fullname 	= $('#fullname').val();
+	var email 		= $('#email').val();
 	var password 	= $('#password').val();
 	var sign 		= $('#sign').val();
 
-	if(namedisplay == '' || username == '' || password == '') return false;
+	if(fullname == '' || email == '' || password == '') return false;
 
 	$.get({
 		url         :api_url,
@@ -188,8 +208,8 @@ function register(){
 		type        :"POST",
 		data:{
 			request     :'register',
-			namedisplay :namedisplay,
-			username 	:username,
+			fullname 	:fullname,
+			email 		:email,
 			password 	:password,
 			sign 		:sign,
 		},
@@ -198,6 +218,9 @@ function register(){
 		}
 	}).done(function(data){
 		console.log(data);
+		setTimeout(function(){
+			window.location = 'login.php?register=success';
+	    },1000);
 	}).fail(function() {
 		alert('ระบบทำงานผิดพลาด กรุณาลองใหม่อีกครั้ง!');
 	});

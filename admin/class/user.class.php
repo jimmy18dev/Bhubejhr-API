@@ -3,6 +3,9 @@ class User{
     public $id;
     public $username;
     public $name;
+    public $email;
+    public $company;
+    public $position;
     public $type;
     public $permission;
     public $status;
@@ -32,8 +35,15 @@ class User{
         return $dataset['total'];
     }
 
+    private function updateVisitTime($user_id){
+        $this->db->query('UPDATE api_user SET visit_time = :visit_time WHERE id = :user_id');
+        $this->db->bind(':user_id' ,$user_id);
+        $this->db->bind(':visit_time' ,date('Y-m-d H:i:s'));
+        $this->db->execute();
+    }
+
     public function getUser($user_id){
-        $this->db->query('SELECT id,username,name,password,salt,type,permission,status,ip,register_time,edit_time,visit_time FROM api_user WHERE id = :user_id');
+        $this->db->query('SELECT id,username,name,email,company,position,password,salt,type,permission,status,ip,register_time,edit_time,visit_time FROM api_user WHERE id = :user_id');
         $this->db->bind(':user_id',$user_id);
         $this->db->execute();
         $dataset = $this->db->single();
@@ -41,6 +51,9 @@ class User{
         $this->id             = $dataset['id'];
         $this->username       = $dataset['username'];
         $this->name           = $dataset['name'];
+        $this->email           = $dataset['email'];
+        $this->company           = $dataset['company'];
+        $this->position           = $dataset['position'];
         $this->password       = $dataset['password'];
         $this->salt           = $dataset['salt'];
         $this->permission     = $dataset['permission'];
@@ -55,11 +68,12 @@ class User{
          if($this->permission == 'admin'){
             $this->app_limit = 10;
         }else{
-            $app_limit = 3;
+            $this->app_limit = 3;
         }
     }
 
-    public function register($name,$username,$password){
+    public function register($name,$email,$password){
+        $email      = filter_var(strip_tags(trim($email)),FILTER_SANITIZE_EMAIL);
         // Random password if password is empty value
         $salt       = hash('sha512',uniqid(mt_rand(1,mt_getrandmax()),true));
         // Create salted password
@@ -67,8 +81,8 @@ class User{
 
         if($this->already($username,$name)){
             
-            $this->db->query('INSERT INTO api_user(username,name,password,salt,permission,ip,register_time,status) VALUE(:username,:name,:password,:salt,:permission,:ip,:register_time,:status)');
-            $this->db->bind(':username'     ,$username);
+            $this->db->query('INSERT INTO api_user(email,name,password,salt,permission,ip,register_time,status) VALUE(:email,:name,:password,:salt,:permission,:ip,:register_time,:status)');
+            $this->db->bind(':email'        ,$email);
             $this->db->bind(':name'         ,$name);
             $this->db->bind(':password'     ,$password);
             $this->db->bind(':salt'         ,$salt);
@@ -147,6 +161,7 @@ class User{
                 $login_check = hash('sha512',$this->password.$user_browser);
 
                 if($login_check == $login_string){
+                    $this->updateVisitTime($this->id);
                     return true;
                 }else{
                     return false;
@@ -165,7 +180,7 @@ class User{
         $cookie_time    = time() + 3600 * 24 * 12; // Cookie Time (1 year)
 
         // GET USER DATA BY EMAIL
-        $this->db->query('SELECT id,password,salt FROM api_user WHERE username = :username');
+        $this->db->query('SELECT id,password,salt FROM api_user WHERE username = :username OR email = :username');
         $this->db->bind(':username',$username);
         $this->db->execute();
         $user_data = $this->db->single();
@@ -263,16 +278,18 @@ class User{
         $this->db->execute();
     }
 
-    public function editProfile($user_id,$username,$displayname){
-        $this->db->query('UPDATE api_user SET username = :username, name = :displayname, edit_time = :edit_time WHERE id = :user_id');
-        $this->db->bind(':user_id' ,$user_id);
+    public function editProfile($user_id,$username,$email,$name,$company,$position){
+        $this->db->query('UPDATE api_user SET username = :username,email = :email, name = :name,company = :company,position = :position, edit_time = :edit_time WHERE id = :user_id');
+        $this->db->bind(':user_id'  ,$user_id);
         $this->db->bind(':username' ,$username);
-        $this->db->bind(':displayname' ,$displayname);
+        $this->db->bind(':email'    ,$email);
+        $this->db->bind(':name'     ,$name);
+        $this->db->bind(':company'  ,$company);
+        $this->db->bind(':position' ,$position);
         $this->db->bind(':edit_time' ,date('Y-m-d H:i:s'));
-
         $this->db->execute();
     }
-    public function changePassword($user_id,$oldpassword,$newpassword){
+    public function changePassword($user_id,$newpassword){
         // Random password if password is empty value
         $salt = hash('sha512',uniqid(mt_rand(1,mt_getrandmax()),true));
         // Create salted password

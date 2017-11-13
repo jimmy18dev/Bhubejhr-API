@@ -28,6 +28,16 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$dataset = $user->firstOPDCard($_GET['date']);
 				$returnObject['dataset'] = $dataset;
 				break;
+			case 'diag_user':
+				$returnObject['request'] = $_GET['request'];
+				$dataset = $user->Diag_user();
+				$returnObject['dataset'] = $dataset;
+				break;
+			case 'diag_desc':
+				$returnObject['request'] = $_GET['request'];
+				$dataset = $user->Diag_desc($_GET['uid']);
+				$returnObject['dataset'] = $dataset;
+				break;
 			default:
 				$returnObject['message'] = 'GET API Not found!';
 			break;

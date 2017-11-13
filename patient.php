@@ -5,6 +5,8 @@ header("Content-type: text/json");
 
 $patient 	= new Patient;
 $appoint 	= new Appoint;
+$drug 	= new Drug;
+$lab 	= new Labs;
 
 $returnObject['apiName'] = 'Patients Service';
 
@@ -20,13 +22,27 @@ switch ($_SERVER['REQUEST_METHOD']){
 
 		switch ($_GET['request']){
 			case 'get':
+				$request_id = 14;
 				$returnObject['request'] = $_GET['request'];
 				$dataset = $patient->get($_GET['cid']);
 				$returnObject['dataset'] = $dataset;
 				break;
 			case 'getappoint':
+				$request_id = 2;
 				$returnObject['request'] = $_GET['request'];
 				$dataset = $appoint->get($_GET['hn']);
+				$returnObject['dataset'] = $dataset;
+				break;
+			case 'drug_opd':
+				$request_id = 3;
+				$returnObject['request'] = $_GET['request'];
+				$dataset = $drug->drug_opd($_GET['hn']);
+				$returnObject['dataset'] = $dataset;
+				break;
+			case 'lab_opd':
+				$request_id = 4;
+				$returnObject['request'] = $_GET['request'];
+				$dataset = $lab->lab_opd($_GET['hn']);
 				$returnObject['dataset'] = $dataset;
 				break;
 			default:
@@ -61,7 +77,8 @@ $executeTime = floatval(round(microtime(true)-StTime,4));
 $returnObject['executeTime'] = $executeTime;
 
 if(!empty($app_id) && !empty($request_id)){
-	$lod_id = $log->save($app_id,$request_id,$executeTime);
+	$lod_id = $log->save($app_id,$request_id,$_SERVER['REQUEST_URI'],$executeTime);
+	$log->updateAccessTime($app_id);
 	$returnObject['log_id'] = floatval($lod_id);
 }
 

@@ -1,30 +1,27 @@
 <?php
 class Database{
-    private $host      = DB_HOST;
-    private $user      = DB_USER;
-    private $pass      = DB_PASS;
-    private $dbname    = DB_NAME;
-
     public $dbh;
+    public $connection = false;
     private $error;
     private $stmt;
 
-    public function __construct(){
+    public function __construct($host,$dbname,$user,$pass){
         // Set DSN
-        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
+        $dsn = 'mysql:host='.$host.';dbname='.$dbname;
         // Set options
         $options = array(
+            PDO::ATTR_TIMEOUT,5,
             PDO::ATTR_PERSISTENT    => true,
             PDO::ATTR_ERRMODE       => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_EMULATE_PREPARES => true,
-            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
         );
         // Create a new PDO instanace
+
         try{
-            $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
-        }
-        // Catch any errors
-        catch(PDOException $e){
+            $this->dbh = new PDO($dsn,$user,$pass,$options);
+            $this->connection = true;
+        }catch(PDOException $e){
             $this->error = $e->getMessage();
         }
     }

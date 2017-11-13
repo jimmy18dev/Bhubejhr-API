@@ -32,6 +32,12 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$returnObject['dataset'] = $dataset;
 				$returnObject['message'] = 'get References info';
 				break;
+			case 'allday_usage':
+				$ref_id = $_GET['ref_id'];
+				$dataset = $reference->alldayUsage($ref_id);
+				$returnObject['dataset'] = $dataset;
+				$returnObject['message'] = 'get References all day usage';
+				break;
 			default:
 				$returnObject['message'] = 'GET API Not found!';
 			break;
@@ -39,22 +45,29 @@ switch ($_SERVER['REQUEST_METHOD']){
     	break;
     case 'POST':
     	switch ($_POST['request']){
-			case 'submit':
-				$reference_id 	= $_POST['reference_id'];
-				$name 			= $_POST['reference_name'];
-				$description 	= $_POST['reference_description'];
-				$method 		= $_POST['reference_method'];
-				$type 			= $_POST['reference_type'];
-				$category_id 	= $_POST['reference_category'];
+			case 'create':
+				$name 			= $_POST['name'];
+				$description 	= $_POST['desc'];
+				$example 		= $_POST['example'];
+				$category 		= $_POST['category'];
+				$method 		= $_POST['method'];
+				$type 			= $_POST['type'];
 
-				if(!empty($reference_id) && isset($reference_id)){
-					$reference->edit($reference_id,$method,$category_id,$name,$description,$type);
-					$returnObject['message'] 	= 'Reference edited.';
-				}else{
-					$reference_id = $reference->create($method,$user->id,$category_id,$name,$description,$type);
-					$returnObject['message'] 	= 'create new Reference success.';
-					$returnObject['reference_id'] = $reference_id;
-				}
+				$reference_id = $reference->create($user->id,$name,$description,$example,$category,$method,$type);
+				$returnObject['message'] 	= 'create new Reference success.';
+				$returnObject['reference_id'] = $reference_id;
+				break;
+			case 'edit':
+				$ref_id 		= $_POST['ref_id'];
+				$name 			= $_POST['name'];
+				$description 	= $_POST['desc'];
+				$example 		= $_POST['example'];
+				$category 		= $_POST['category'];
+				$method 		= $_POST['method'];
+				$type 			= $_POST['type'];
+
+				$reference->edit($ref_id,$name,$description,$example,$category,$method,$type);
+				$returnObject['message'] 	= 'Reference edited';
 				break;
 			case 'delete':
 				$reference_id 	= $_POST['reference_id'];

@@ -5,6 +5,7 @@ if($user_online){
 	die();
 }
 $signature 	= new Signature;
+$currentPage = 'register';
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -28,16 +29,22 @@ $signature 	= new Signature;
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
-<body>
+<body class="login-bg">
+<div class="progressbar" id="progressbar"></div>
 <form class="login" action="javascript:register();">
-	<h1><?php echo SITENAME;?></h1>
-	<p>Version <?php echo VERSION;?></p>
-	<input class="inputtext" type="text" id="namedisplay" placeholder="Name display" autofocus>
-	<input class="inputtext" type="text" id="username" placeholder="Username">
-	<input class="inputtext" type="password" id="password" placeholder="Password">
+	<h1>Bhubejhr API</h1>
+	<p>Get the full details of all the nodes, edges, and fields</p>
+	<label for="fullname">Fullname</label>
+	<input class="inputtext" type="text" id="fullname" autofocus>
+	<label for="email">Email</label>
+	<input class="inputtext" type="text" id="email">
+	<label for="password">Password</label>
+	<input class="inputtext" type="password" id="password">
+	
 	<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('register',SECRET_KEY);?>">
-	<button id="btn-submit" class="btn-submit -register">Register</button>
-	<a class="btn-link" href="login.php">I have an Account and Login</a>
+
+	<a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i>Login wiht Email</a>
+	<button id="btn-submit" class="btn-submit register">Register<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
 </form>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/user.js"></script>

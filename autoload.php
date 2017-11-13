@@ -16,21 +16,32 @@ include_once'class/database/database.class.php';
 include_once'class/app.class.php';
 include_once'class/log.class.php';
 
+include_once'class/diag/diag.class.php';
+include_once'class/drug/drug.class.php';
+include_once'class/finance/finance.class.php';
+include_once'class/inventory/inventory.class.php';
+include_once'class/labs/labs.class.php';
+include_once'class/operation/operation.class.php';
 include_once'class/patient/patient.class.php';
 include_once'class/scheduling/appoint.class.php';
 include_once'class/scheduling/user.class.php';
+include_once'class/service/service.class.php';
+include_once'class/user/user.class.php';
 
-$wpdb 	= new Database;
-$app 	= new App;
-$log 	= new Log;
+// DATABASE CONNECTION...
+$wpdb 		= new Database(PDB_HOST,PDB_NAME,PDB_USER,PDB_PASS); // DATABASE SERVER
+$localdb 	= new Database(DB_HOST,DB_NAME,DB_USER,DB_PASS); // DATABASE LOCAL
 
-// $header = getallheaders();
+$app 		= new App;
+$log 		= new Log;
 
 $returnObject = array(
 	"apiSite" 		=> API_SITE,
-	"apiName" 		=> 'Scheduliing api service',
 	"apiVersion"  	=> API_VERSION,
-	"sourceVersion" => SOURCE_VERSION,
-	// "header" 		=> $header,
+	"sourceVersion" => SOURCE_VERSION
 );
+
+if(!$wpdb->connection){
+	$returnObject['db_connection'] = false;
+}
 ?>

@@ -15,15 +15,26 @@ $returnObject = array(
 );
 
 $app = new App;
+$log = new Log;
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
 		switch ($_GET['request']){
+			case 'get':
+				$dataset = $app->get($_GET['app_id']);
+				$returnObject['items'] = $dataset;
+				$returnObject['message'] = 'get app info';
+				break;
 			case 'list':
 				$dataset = $app->listAll();
 
 				$returnObject['items'] = $dataset;
 				$returnObject['message'] = 'list all apps';
+				break;
+			case 'last7day':
+				$dataset = $log->last7day($_GET['app_id']);
+				$returnObject['items'] = $dataset;
+				$returnObject['message'] = 'last 7 day';
 				break;
 			default:
 				$returnObject['message'] = 'GET API Not found!';
@@ -35,15 +46,26 @@ switch ($_SERVER['REQUEST_METHOD']){
 			case 'submit':
 				$app_id 		= $_POST['app_id'];
 				$name 			= $_POST['app_name'];
-				$description 	= $_POST['app_description'];
 
 				if(!empty($app_id) && isset($app_id)){
 					$app->editApp($app_id,$name,$description);
 					$returnObject['message'] 	= 'app edited.';
 				}else{
-					$app_id = $app->createApp($user->id,$name,$description);
+					$app_id = $app->createApp($user->id,$name);
 					$returnObject['message'] 	= 'create new app success.';
 					$returnObject['app_id'] 	= $app_id;
+				}
+				break;
+			case 'update':
+				$app_id 		= $_POST['app_id'];
+				$name 			= $_POST['app_name'];
+				$description 	= $_POST['app_desc'];
+
+				if(!empty($app_id) && isset($app_id)){
+					$app->editApp($app_id,$name,$description);
+					$returnObject['message'] 	= 'app edited.';
+				}else{
+					$returnObject['message'] 	= 'app edit fail!.';
 				}
 				break;
 			case 'delete':
