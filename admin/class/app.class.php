@@ -65,14 +65,13 @@ class App{
 		return $dataset['id'];
 	}
 
-    public function createApp($user_id,$name,$description){
+    public function createApp($user_id,$name){
     	
     	$token = $this->tokenGenerate(); // New Token
 
-    	$this->db->query('INSERT INTO api_app(user_id,name,description,token,create_time,ip) VALUE(:user_id,:name,:description,:token,:create_time,:ip)');
+    	$this->db->query('INSERT INTO api_app(user_id,name,token,create_time,ip) VALUE(:user_id,:name,:token,:create_time,:ip)');
     	$this->db->bind(':user_id' 		,$user_id);
     	$this->db->bind(':name' 		,$name);
-    	$this->db->bind(':description' 	,$description);
     	$this->db->bind(':token' 		,$token);
     	$this->db->bind(':create_time' 	,date('Y-m-d H:i:s'));
     	$this->db->bind(':ip' 			,$this->db->GetIpAddress());

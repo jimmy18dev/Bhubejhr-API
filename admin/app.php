@@ -99,17 +99,13 @@ $currentPage = 'profile';
 			<div class="v"><?php echo number_format($log->AvgExecuteTime($app->id),2);?> s.</div>
 			<div class="c">Avg execute time</div>
 		</div>
-		<!-- <div class="stat">
-			<div class="v">34 Min</div>
-			<div class="c">Last Access</div>
-		</div> -->
 	</div>
 	<div class="group">
 		<h4><i class="fa fa-shield" aria-hidden="true"></i>Permission</h4>
-		<?php if($app->permission_get){?><span class="box">GET</span><?php }?>
-		<?php if($app->permission_post){?><span class="box">POST</span><?php }?>
-		<?php if($app->permission_put){?><span class="box">PUT</span><?php }?>
-		<?php if($app->permission_delete){?><span class="box">DELETE</span><?php }?>
+		<?php if($app->permission_get){?><span class="box get">GET</span><?php }?>
+		<?php if($app->permission_post){?><span class="box post">POST</span><?php }?>
+		<?php if($app->permission_put){?><span class="box put">PUT</span><?php }?>
+		<?php if($app->permission_delete){?><span class="box delete">DELETE</span><?php }?>
 	</div>
 </div>
 

@@ -46,13 +46,12 @@ switch ($_SERVER['REQUEST_METHOD']){
 			case 'submit':
 				$app_id 		= $_POST['app_id'];
 				$name 			= $_POST['app_name'];
-				$description 	= $_POST['app_description'];
 
 				if(!empty($app_id) && isset($app_id)){
 					$app->editApp($app_id,$name,$description);
 					$returnObject['message'] 	= 'app edited.';
 				}else{
-					$app_id = $app->createApp($user->id,$name,$description);
+					$app_id = $app->createApp($user->id,$name);
 					$returnObject['message'] 	= 'create new app success.';
 					$returnObject['app_id'] 	= $app_id;
 				}

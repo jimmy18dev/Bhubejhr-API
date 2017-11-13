@@ -40,6 +40,32 @@ $log_allday = $log->allday($app_id);
 <div class="progressbar" id="progressbar"></div>
 <div class="navigation">
 	<div class="group">
+		<h4><i class="fa fa-key" aria-hidden="true"></i>App Token</h4>
+		<input type="text" class="inputtext" value="<?php echo $app->token;?>">
+	</div>
+	<div class="group">
+		<h4><i class="fa fa-bar-chart" aria-hidden="true"></i>Analytcis</h4>
+		<div class="stat">
+			<div class="v"><?php echo $log->todayRequest($app->id);?></div>
+			<div class="c">Today Request</div>
+		</div>
+		<div class="stat">
+			<div class="v"><?php echo $log->totalRequest($app->id);?></div>
+			<div class="c">Total Request</div>
+		</div>
+		<div class="stat">
+			<div class="v"><?php echo number_format($log->AvgExecuteTime($app->id),2);?> s.</div>
+			<div class="c">Avg execute time</div>
+		</div>
+	</div>
+	<div class="group">
+		<h4><i class="fa fa-shield" aria-hidden="true"></i>Permission</h4>
+		<?php if($app->permission_get){?><span class="box get">GET</span><?php }?>
+		<?php if($app->permission_post){?><span class="box post">POST</span><?php }?>
+		<?php if($app->permission_put){?><span class="box put">PUT</span><?php }?>
+		<?php if($app->permission_delete){?><span class="box delete">DELETE</span><?php }?>
+	</div>
+	<div class="group delete">
 		<h4><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Delete this app</h4>
 		<p>Once you delete a app, there is no going back. Please be certain.</p>
 
