@@ -72,6 +72,6 @@ $currentPage = 'profile';
 <input type="hidden" id="app_id" value="<?php echo $app->id;?>">
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/profile.setting.js"></script>
-<script type="text/javascript" src="js/layout.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>

@@ -100,6 +100,6 @@ $log_allday = $log->allday($app_id);
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/lib/autosize.js"></script>
 <script type="text/javascript" src="js/app.setting.js"></script>
-<script type="text/javascript" src="js/layout.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>

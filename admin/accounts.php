@@ -64,6 +64,6 @@ $currentPage 	= 'account';
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/account.js"></script>
-<script type="text/javascript" src="js/jhos.checking.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>

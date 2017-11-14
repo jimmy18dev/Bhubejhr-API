@@ -66,7 +66,9 @@ $currentPage = 'reference';
 <div class="navigation">
 	<a href="reference-setting.php" class="btn btn-create"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create Reference</a>
 	<div class="group">
+		<?php if($user->permission == 'admin'){?>
 		<a href="reference.php?" class="link <?php echo (empty($category_id)?'-active':'');?>"><i class="fa fa-folder" aria-hidden="true"></i>All</a>
+		<?php }?>
 		<?php foreach ($category as $var) {?>
 		<a href="reference.php?category=<?php echo $var['id'];?>" class="link <?php echo ($category_id == $var['id']?'-active':'');?>"><i class="fa fa-folder" aria-hidden="true"></i><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
 		<?php }?>
@@ -80,6 +82,6 @@ $currentPage = 'reference';
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/reference.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/layout.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>
