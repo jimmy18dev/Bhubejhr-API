@@ -1,5 +1,5 @@
 function databaseChecking(){
-	$dbStatus.html('CHECKING...');
+	$dbStatus.html('JHOS Connection Checking<i class="fa fa-refresh fa-spin" aria-hidden="true"></i>');
 
 	$.ajax({
 		url         :'database_checking.php',
@@ -14,6 +14,7 @@ function databaseChecking(){
 
 	    if(data.connection){
 	    	$dbStatus.removeClass('-active');
+	    	$dbStatus.addClass('-hidden');
 	    }else{
 	    	$dbStatus.addClass('-active');
 	    	$dbStatus.html('JHOS DATABASE STATUS OFFLINE!');

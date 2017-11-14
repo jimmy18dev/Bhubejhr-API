@@ -14,15 +14,15 @@
 		</div>
 	</div>
 
+	<?php if($user->status == 'active'){?>
 	<a href="reference.php" class="nav <?php echo ($currentPage == 'reference'?'-active':'');?>">API References</a>
+	<?php }?>
+	
 	<?php if($user->permission == 'admin'){?>
 	<a href="accounts.php" class="nav <?php echo ($currentPage == 'account'?'-active':'');?>">Members<?php echo ($account->newmember>0?' ('.$account->newmember.')':'');?></a>
 	<?php }?>
-	<?php }else{?>
-	<a href="register.php" class="nav <?php echo ($currentPage == 'register'?'-active':'');?>">Register</a>
-	<a href="login.php" class="nav <?php echo ($currentPage == 'login'?'-active':'');?>">Login</a>
 	<?php }?>
 </header>
 
-<span class="bar-alert" id="db_status">ONLINE</span>	
+<span class="bar-alert" id="db_status"></span>	
 <div class="filter" id="filterProfile"></div>

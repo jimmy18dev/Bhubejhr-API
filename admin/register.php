@@ -1,7 +1,7 @@
 <?php
 include_once 'autoload.php';
 if($user_online){
-	header('Location: '.DOMAIN.'/index.php');
+	header('Location: index.php');
 	die();
 }
 $signature 	= new Signature;
@@ -43,7 +43,7 @@ $currentPage = 'register';
 	
 	<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('register',SECRET_KEY);?>">
 
-	<a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i>Login wiht Email</a>
+	<a href="login.php">Login wiht Email</a>
 	<button id="btn-submit" class="btn-submit register">Register<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
 </form>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>

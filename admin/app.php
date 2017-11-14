@@ -65,15 +65,26 @@ $currentPage = 'profile';
 
 	<h2>All Day</h2>
 	<div class="log">
-		<?php if(count($log_allday)>0){?>
-		<?php foreach ($log_allday as $var) { ?>
-		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
-			<div class="method <?php echo $var['ref_method'];?>"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
-			<div class="ref"><a href="reference-page.php?id=<?php echo $var['ref_id'];?>"><i class="fa fa-file-text" aria-hidden="true"></i><?php echo (!empty($var['ref_name'])?$var['ref_name'].' #'.$var['ref_id']:'n/a')?></a></div>
-			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
-			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
+		<div class="log-items -topic">
+			<div class="id">ID</div>
+			<div class="ref">Reference</div>
+			<div class="time">Time</div>
+			<div class="execute">Execute</div>
 		</div>
-		<?php }?>
+		<?php if(count($log_allday)>0){?>
+		<div class="log-container">
+			<?php foreach ($log_allday as $var) { ?>
+			<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
+				<div class="id">#<?php echo $var['log_id'];?></div>
+				<div class="ref">
+					<span class="method <?php echo $var['ref_method'];?>"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></span>
+					<a href="reference-page.php?id=<?php echo $var['ref_id'];?>"><?php echo (!empty($var['ref_name'])?$var['ref_name'].' #'.$var['ref_id']:'n/a')?></a>
+				</div>
+				<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
+				<div class="execute"><?php echo $var['log_executed'];?> s.</div>
+			</div>
+			<?php }?>
+		</div>
 		<?php }else{?>
 		<div class="empty">Activity Not Found!</div>
 		<?php }?>

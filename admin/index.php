@@ -2,7 +2,7 @@
 include_once 'autoload.php';
 
 if(!$user_online){
-	header('Location: '.DOMAIN.'/login.php');
+	header('Location: login.php');
 	die();
 }
 
@@ -82,5 +82,6 @@ $apps = $app->listAll($user->id);
 <script type="text/javascript" src="js/user.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/layout.js"></script>
+<script type="text/javascript" src="js/jhos.checking.js"></script>
 </body>
 </html>

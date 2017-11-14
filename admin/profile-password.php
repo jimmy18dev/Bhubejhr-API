@@ -39,28 +39,19 @@ $currentPage = 'profile';
 <?php include'header.php';?>
 
 <div class="progressbar" id="progressbar"></div>
-<div class="navigation">
-	<div class="group">
-		<div class="head">
-			<div class="name"><?php echo $app->name;?></div>
-			<div class="desc"><?php echo $app->description;?></div>
-		</div>
-	</div>
-</div>
-
 <div class="container">
-	<h2>Profile Detail</h2>
-	<div class="setting">
-		<div class="setting-items">
+	<h2>Change Password</h2>
+	<div class="form">
+		<div class="form-items">
 			<label for="newpassword">New Password</label>
 			<input type="text" class="inputtext" id="newpassword">
 		</div>
-		<div class="setting-items">
+		<div class="form-items">
 			<label for="repassword">Re-Password again</label>
 			<input type="text" class="inputtext" id="repassword">
 		</div>
 
-		<div class="setting-control">
+		<div class="form-control">
 			<button class="btn-submit" id="btnChangePassword">Change Password</button>
 		</div>
 	</div>

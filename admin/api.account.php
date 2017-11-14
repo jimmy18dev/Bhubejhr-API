@@ -7,9 +7,11 @@ header("Content-type: text/json");
 // $headers = getallheaders();
 // $token = $headers['Token'] or ['AuthKey'];
 // $returnObject = (object) array();
+
 $returnObject = array(
-	"apiVersion"  	=> 1.0,
+	"apiVersion"  	=> 1.1,
 	"method" 		=> $_SERVER['REQUEST_METHOD'],
+	"data" 			=> $_POST,
 	"execute"     	=> floatval(round(microtime(true)-StTime,4)),
 );
 
@@ -20,7 +22,7 @@ if($user->permission != 'admin' || $user->status != 'active'){
 }
 
 $signature 	= new Signature;
-$account = new Account;
+$account 	= new Account;
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
@@ -38,19 +40,6 @@ switch ($_SERVER['REQUEST_METHOD']){
     	break;
     case 'POST':
     	switch ($_POST['request']){
-			// case 'create_account':
-			// 	$displayname = $_POST['displayname'];
-			// 	$username 	= $_POST['username'];
-			// 	$password 	= $_POST['password'];
-			// 	$permission = $_POST['account_permission'];
-			// 	$owner_id 	= $user->id;
-
-			// 	$account_id = $account->create($displayname,$username,$password,$permission,$owner_id);
-
-			// 	$returnObject['message'] 	= 'New Account Created!';
-			// 	$returnObject['account_id'] = $account_id;
-
-			// 	break;
 			case 'setAdmin':
 				$account_id = $_POST['account_id'];
 				$account->setToAdmin($user->id,$account_id);

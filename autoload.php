@@ -43,5 +43,9 @@ $returnObject = array(
 
 if(!$wpdb->connection){
 	$returnObject['db_connection'] = false;
+	$returnObject['execute'] = floatval(round(microtime(true)-StTime,4));
+
+	echo json_encode($returnObject);
+	exit();
 }
 ?>
