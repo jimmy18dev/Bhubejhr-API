@@ -37,16 +37,51 @@ $currentPage = 'profile';
 </head>
 <body>
 <?php include'header.php';?>
-<div class="container">
+<div class="pagehead">
 	<div class="head">
 		<h1><?php echo $app->name;?></h1>
-		<p><?php echo $app->description;?> | <a href="app-setting.php?id=<?php echo $app->id;?>">App Settings</a></p>
+
+		<?php if(!empty($app->description)){?>
+		<p><?php echo $app->description;?></p>
+		<?php }?>
+	</div>
+
+	<div class="tab">
+		<a href="app.php?id=<?php echo $app->id;?>" class="tab-items -active"><i class="fa fa-bolt" aria-hidden="true"></i>Activity</a>
+		<a href="app-token.php?id=<?php echo $app->id;?>" class="tab-items"><i class="fa fa-key" aria-hidden="true"></i>Token</a>
+		<a href="app-setting.php?id=<?php echo $app->id;?>" class="tab-items"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a>
+	</div>
+</div>
+<div class="container">
+	<h2>Analytcis</h2>
+	<div class="stat">
+		<div class="stat-items">
+			<div class="v"><?php echo $log->todayRequest($app->id);?></div>
+			<div class="c">Today Request</div>
+		</div>
+		<div class="stat-items">
+			<div class="v"><?php echo $log->totalRequest($app->id);?></div>
+			<div class="c">Total Request</div>
+		</div>
+		<div class="stat-items">
+			<div class="v"><?php echo number_format($log->AvgExecuteTime($app->id),2);?> s.</div>
+			<div class="c">Avg execute time</div>
+		</div>
+	</div>
+
+	<h2>Permission</h2>
+	<div class="permission">
+		<?php if($app->permission_get){?><span class="box get">GET</span><?php }?>
+		<?php if($app->permission_post){?><span class="box post">POST</span><?php }?>
+		<?php if($app->permission_put){?><span class="box put">PUT</span><?php }?>
+		<?php if($app->permission_delete){?><span class="box delete">DELETE</span><?php }?>
 	</div>
 
 	<h2>This Week</h2>
 	<div class="chart">
 		<canvas id="chart"></canvas>
 	</div>
+	
 	<h2>Today</h2>
 	<div class="log">
 		<?php if(count($log_today)>0){?>
@@ -88,35 +123,6 @@ $currentPage = 'profile';
 		<?php }else{?>
 		<div class="empty">Activity Not Found!</div>
 		<?php }?>
-	</div>
-</div>
-
-<div class="navigation">
-	<div class="group">
-		<h4><i class="fa fa-key" aria-hidden="true"></i>App Token</h4>
-		<input type="text" class="inputtext" value="<?php echo $app->token;?>">
-	</div>
-	<div class="group">
-		<h4><i class="fa fa-bar-chart" aria-hidden="true"></i>Analytcis</h4>
-		<div class="stat">
-			<div class="v"><?php echo $log->todayRequest($app->id);?></div>
-			<div class="c">Today Request</div>
-		</div>
-		<div class="stat">
-			<div class="v"><?php echo $log->totalRequest($app->id);?></div>
-			<div class="c">Total Request</div>
-		</div>
-		<div class="stat">
-			<div class="v"><?php echo number_format($log->AvgExecuteTime($app->id),2);?> s.</div>
-			<div class="c">Avg execute time</div>
-		</div>
-	</div>
-	<div class="group">
-		<h4><i class="fa fa-shield" aria-hidden="true"></i>Permission</h4>
-		<?php if($app->permission_get){?><span class="box get">GET</span><?php }?>
-		<?php if($app->permission_post){?><span class="box post">POST</span><?php }?>
-		<?php if($app->permission_put){?><span class="box put">PUT</span><?php }?>
-		<?php if($app->permission_delete){?><span class="box delete">DELETE</span><?php }?>
 	</div>
 </div>
 

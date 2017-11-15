@@ -38,45 +38,39 @@ $currentPage = 'reference';
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
-<body>
+<body class="white">
 <?php include'header.php';?>
 
-<div class="container">
-	<?php if(count($references) > 0){?>
-	<div class="references" id="reference">
-		<?php foreach ($references as $var) {?>
-		<div class="ref-items" id="reference<?php echo $var['ref_id'];?>" data-id="<?php echo $var['ref_id'];?>">
-			<a href="reference-page.php?id=<?php echo $var['ref_id'];?>" class="name">
-				<span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span>
-				<span><?php echo $var['ref_name'];?></span>
-				<span>#<?php echo $var['ref_id'];?></span>
-			</a>
-
-			<?php if(!empty($var['ref_description'])){?>
-			<div class="desc"><?php echo $var['ref_description'];?></div>
+<div class="list">
+	<div class="list-filter">
+		<div class="group">
+			<?php if($user->permission == 'admin'){?>
+			<a href="reference.php?" class="link <?php echo (empty($category_id)?'-active':'');?>"></i>All</a>
+			<?php }?>
+			<?php foreach ($category as $var) {?>
+			<a href="reference.php?category=<?php echo $var['id'];?>" class="link <?php echo ($category_id == $var['id']?'-active':'');?>"><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
 			<?php }?>
 		</div>
+		<a href="reference-setting.php" class="btn btn-create"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create Reference</a>
+	</div>
+	<?php if(count($references) > 0){?>
+	<div class="reference" id="reference">
+		<?php foreach ($references as $var) {?>
+		<a href="reference-page.php?id=<?php echo $var['ref_id'];?>" class="ref-items">
+			<span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span>
+			<div class="detail">
+				<h2><?php echo $var['ref_name'];?></h2>
+				<p class="id">Ref: <?php echo $var['ref_id'];?></p>
+				<?php if(!empty($var['ref_description'])){?>
+				<p><?php echo $var['ref_description'];?></p>
+				<?php }?>
+			</div>			
+		</a>
 		<?php }?>
 	</div>
 	<?php }else{?>
 	<div class="empty">Items not Found!</div>
 	<?php }?>
-</div>
-
-<div class="navigation">
-	<a href="reference-setting.php" class="btn btn-create"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create Reference</a>
-	<div class="group">
-		<?php if($user->permission == 'admin'){?>
-		<a href="reference.php?" class="link <?php echo (empty($category_id)?'-active':'');?>"><i class="fa fa-folder" aria-hidden="true"></i>All</a>
-		<?php }?>
-		<?php foreach ($category as $var) {?>
-		<a href="reference.php?category=<?php echo $var['id'];?>" class="link <?php echo ($category_id == $var['id']?'-active':'');?>"><i class="fa fa-folder" aria-hidden="true"></i><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
-		<?php }?>
-	</div>
-	<div class="group">
-		<h4>Note</h4>
-		<p>Get the full details of all the nodes, edges, and fields in the latest version of the Bhubejhr API.</p>
-	</div>
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>

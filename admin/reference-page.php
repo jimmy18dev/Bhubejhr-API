@@ -42,49 +42,21 @@ $log_allday = $reference->allday($reference->id);
 <body>
 <?php include'header.php';?>
 
-<div class="navigation">
-	<div class="group">
-		<h4><i class="fa fa-bar-chart" aria-hidden="true"></i>Analytics</h4>
-		<div class="stat">
-			<div class="v"><?php echo $reference->todayRequest($reference->id);?></div>
-			<div class="c">Today Request</div>
-		</div>
-		<div class="stat">
-			<div class="v"><?php echo $reference->totalRequest($reference->id);?></div>
-			<div class="c">Total Request</div>
-		</div>
-		<div class="stat">
-			<div class="v"><?php echo number_format($reference->AvgExecuteTime($reference->id),2);?> s.</div>
-			<div class="c">Execute Time</div>
-		</div>
-		<!-- <div class="stat">
-			<div class="v">34 Min</div>
-			<div class="c">Last Access</div>
-		</div> -->
+<div class="pagehead">
+	<div class="head">
+		<h1><?php echo $reference->name;?></h1>
+		<?php if(!empty($reference->description)){?>
+		<p><?php echo $reference->description;?></p>
+		<?php }?>
 	</div>
 
-	<div class="group">
-		<h4><i class="fa fa-puzzle-piece" aria-hidden="true"></i>API Example</h4>
-		<div class="select">
-			<select id="appExample">
-				<option selected>Select your app</option>
-				<?php foreach ($apps as $var) {?>
-				<option value="<?php echo $var['app_id'];?>"><?php echo $var['app_name'];?></option>
-				<?php }?>
-			</select>
-		</div>
-
-		<h5>URL</h5>
-		<textarea id="urlExample" disabled></textarea>
+	<div class="tab">
+		<a href="reference-page.php?id=<?php echo $reference->id;?>" class="tab-items"><i class="fa fa-cog" aria-hidden="true"></i>Detail</a>
+		<a href="reference-setting.php?id=<?php echo $reference->id;?>" class="tab-items"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a>
 	</div>
 </div>
 
 <div class="container">
-	<div class="head">
-		<h1><?php echo $reference->name;?></h1>
-		<p><?php echo $reference->description;?> <a href="reference-setting.php?id=<?php echo $reference->id;?>">Edit Reference</a></p>
-	</div>
-
 	<div class="chart">
 		<canvas id="chart"></canvas>
 	</div>
@@ -119,6 +91,41 @@ $log_allday = $reference->allday($reference->id);
 		<?php }else{?>
 		<div class="empty">Activity Not Found!</div>
 		<?php }?>
+	</div>
+
+	<div class="group">
+		<h4><i class="fa fa-bar-chart" aria-hidden="true"></i>Analytics</h4>
+		<div class="stat">
+			<div class="v"><?php echo $reference->todayRequest($reference->id);?></div>
+			<div class="c">Today Request</div>
+		</div>
+		<div class="stat">
+			<div class="v"><?php echo $reference->totalRequest($reference->id);?></div>
+			<div class="c">Total Request</div>
+		</div>
+		<div class="stat">
+			<div class="v"><?php echo number_format($reference->AvgExecuteTime($reference->id),2);?> s.</div>
+			<div class="c">Execute Time</div>
+		</div>
+		<!-- <div class="stat">
+			<div class="v">34 Min</div>
+			<div class="c">Last Access</div>
+		</div> -->
+	</div>
+
+	<div class="group">
+		<h4><i class="fa fa-puzzle-piece" aria-hidden="true"></i>API Example</h4>
+		<div class="select">
+			<select id="appExample">
+				<option selected>Select your app</option>
+				<?php foreach ($apps as $var) {?>
+				<option value="<?php echo $var['app_id'];?>"><?php echo $var['app_name'];?></option>
+				<?php }?>
+			</select>
+		</div>
+
+		<h5>URL</h5>
+		<textarea id="urlExample" disabled></textarea>
 	</div>
 </div>
 

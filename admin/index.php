@@ -39,17 +39,17 @@ $apps = $app->listAll($user->id);
 <body>
 <?php include'header.php';?>
 
-<div class="page">
+<div class="list">
 	<?php if($user->status == 'active'){?>
-	<h2>You have <strong><?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</strong></h2>
+	<h1>You have <?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</h1>
 	<div class="apps-list" id="apps">
 		<?php foreach ($apps as $var) {?>
 		<a href="app.php?id=<?php echo $var['app_id'];?>" class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
-			<div class="mini"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
 			<div class="detail">
-				<div class="name"><?php echo $var['app_name'];?></div>
-				<div class="info"><?php echo (!empty($var['app_description'])?$var['app_description']:'Description');?></div>
+				<h2><?php echo $var['app_name'];?></h2>
+				<p><?php echo (!empty($var['app_description'])?$var['app_description']:'Description');?></p>
 			</div>
+			<div class="time">23 Dec 17</div>
 			<div class="stat" title="<?php echo number_format($var['request_count']);?> Requests on this day."><?php echo number_format($var['request_count']);?></div>
 		</a>
 		<?php }?>

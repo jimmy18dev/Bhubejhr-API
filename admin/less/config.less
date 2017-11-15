@@ -9,11 +9,11 @@
 //     font-style: normal;
 // }
 
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
-// font-family: 'PT Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Prompt:300');
 
 @FontStylePrimary   :sans-serif;
-@topic_font         :sans-serif;
+@topic_font         :"Prompt",sans-serif; 
+// "Sukhumvit Set"
 
 // http://www.color-hex.com/color/21ce99
 @primary_color      :#004D40; // Active Color
@@ -29,7 +29,7 @@
 @third_color_light  :#ffcb7f; // Lost Color
 
 // http://www.color-hex.com/color/040d14
-@bg_color           :#F5F5F5;
+@bg_color           :#FFFFFF;
 @bg_color_dark      :#030a10;
 @bg_color_light     :#1d252b;
 
@@ -53,10 +53,14 @@ a[href], button {
 
 body{
     background: @bg_color;
-    font-family: @topic_font;
+    // font-family: @topic_font;
     font-weight: 200;
     // overflow-y:scroll;
     overflow-x:hidden;
+
+    &.white{
+        background: #FFFFFF;
+    }
 }
 
 // Freebie: Google Material Design Shadow Helper

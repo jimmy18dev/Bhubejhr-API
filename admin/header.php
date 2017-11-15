@@ -1,6 +1,8 @@
 <header class="header">
-	<a href="index.php" class="logo-img"><img src="image/logo.png" alt="logo"></a>
-	<a href="index.php" class="logo" title="Version <?php echo VERSION;?>"><?php echo SITENAME;?></a>
+
+	<a href="index.php" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back</a>
+
+	<a href="index.php" class="logo" title="Version <?php echo VERSION;?>"><img src="image/logo.png" alt="logo"><?php echo SITENAME;?></a>
 
 	<?php if($user_online){?>
 	<div class="nav btn-profile" id="btnProfile">
@@ -8,8 +10,7 @@
 
 		<div class="more-menu" id="menuProfile">
 			<div class="arrow-up"></div>
-			<a href="profile-setting.php"><i class="fa fa-user" aria-hidden="true"></i>Profile Setting</a>
-			<a href="profile-password.php"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
+			<a href="profile-setting.php"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
 			<a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
 		</div>
 	</div>
