@@ -29,24 +29,25 @@ $currentPage = 'login';
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
-<body class="login-bg">
+<body>
 <div class="progressbar" id="progressbar"></div>
-
-<form class="login" action="javascript:login();">
-	<h1>Bhubejhr API</h1>
-	<p>Get the full details of all the nodes, edges, and fields</p>
-
-	<label for="username">Email or Username</label>
-	<input class="inputtext" type="text" id="username" autofocus>
-
-	<label for="password">Password</label>
-	<input class="inputtext" type="password" id="password">
-
-	<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('login',SECRET_KEY);?>">
-	
-	<a href="register.php">Create New Account</a>
-	<button id="btn-submit" class="btn-submit">Login<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-</form>
+<div class="login">
+	<div class="welcome">
+		<img src="image/logo.png" alt="" class="logo">
+		<h1><?php echo SITENAME;?></h1>
+		<div class="ver">Version <?php echo VERSION;?></div>
+		<p>Chaophya Abhaibhubejhr Hospital Prachinburi</p>
+		<p class="mini">Get the full details of all the nodes, edges, and fields</p>
+	</div>
+	<form class="form" action="javascript:login();">
+		<p>Please enter your username and password to login.</p>
+		<input class="inputtext" type="text" id="username" placeholder="Email or Username" autofocus>
+		<input class="inputtext" type="password" id="password" placeholder="Password">
+		<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('login',SECRET_KEY);?>">
+		<button id="btn-submit" class="btn-submit">Login<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+		<a href="register.php">Create Account</a>
+	</form>
+</div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/user.js"></script>

@@ -7,7 +7,7 @@
 
 		<div class="more-menu" id="menuProfile">
 			<div class="arrow-up"></div>
-			<a href="profile-setting.php"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
+			<a href="profile-setting.php"><i class="fa fa-user" aria-hidden="true"></i>Profile Settings</a>
 			<a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
 		</div>
 	</div>
@@ -16,7 +16,7 @@
 	<a href="reference.php" class="nav <?php echo ($currentPage == 'reference'?'-active':'');?>">API References</a>
 	<?php }?>
 	
-	<?php if($user->permission == 'admin'){?>
+	<?php if($user->permission == 'admin' && false){?>
 	<a href="accounts.php" class="nav <?php echo ($currentPage == 'account'?'-active':'');?>">Members<?php echo ($account->newmember>0?' ('.$account->newmember.')':'');?></a>
 	<?php }?>
 	<?php }?>
