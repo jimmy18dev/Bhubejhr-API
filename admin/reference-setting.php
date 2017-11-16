@@ -34,57 +34,60 @@ $tab = 'setting';
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
+<div class="progressbar" id="progressbar"></div>
 <?php include_once 'header.php';?>
 <?php include_once 'pagehead.reference.php';?>
-
-<div class="progressbar" id="progressbar"></div>
-<div class="navigation"></div>
-
 <div class="container">
-	<h2>Reference Setting</h2>
+	<h2>Setting</h2>
 	<div class="form">
-		<div class="setting-items">
+		<div class="form-items">
 			<label for="name">Name</label>
 			<input type="text" class="inputtext" id="name" value="<?php echo $reference->name;?>">
 		</div>
-		<div class="setting-items">
+		<div class="form-items">
 			<label for="desc">Description</label>
 			<textarea class="inputtextarea" id="desc"><?php echo $reference->description;?></textarea>
 		</div>
-		<div class="setting-items">
+		<div class="form-items">
 			<label for="example">URL Example</label>
 			<input type="text" class="inputtext" id="example" value="<?php echo $reference->example;?>">
 		</div>
 
-		<div class="selection" id="referenceMethod">
-			<div class="caption">Method:</div>
-			<div class="items method-items" id="method-items-get" data-method="get">GET</div>
-			<div class="items method-items" id="method-items-post" data-method="post">POST</div>
+		<div class="form-items" id="referenceMethod">
+			<label>Method:</label>
+			<div class="selection">
+				<div class="items method-items" id="method-items-get" data-method="get">GET</div>
+				<div class="items method-items" id="method-items-post" data-method="post">POST</div>
+			</div>
 		</div>
-		<div class="selection" id="referenceType">
-			<div class="caption">API TYPE:</div>
-			<div class="items type-items" id="type-items-get" data-type="get">GET</div>
-			<div class="items type-items" id="type-items-list" data-type="list">LIST</div>
-			<div class="items type-items" id="type-items-edit" data-type="edit">EDIT</div>
-			<div class="items type-items" id="type-items-create" data-type="create">CREATE</div>
-			<div class="items type-items" id="type-items-delete" data-type="delete">DELETE</div>
+		<div class="form-items" id="referenceType">
+			<label>API Type::</label>
+			<div class="selection">
+				<div class="items type-items" id="type-items-get" data-type="get">GET</div>
+				<div class="items type-items" id="type-items-list" data-type="list">LIST</div>
+				<div class="items type-items" id="type-items-edit" data-type="edit">EDIT</div>
+				<div class="items type-items" id="type-items-create" data-type="create">CREATE</div>
+				<div class="items type-items" id="type-items-delete" data-type="delete">DELETE</div>
+			</div>
 		</div>
-		<div class="selection" id="referenceCategory">
-			<div class="caption">Category:</div>
-			<?php foreach ($category as $var) {?>
-				<div class="items category-items" id="category-items-<?php echo $var['id'];?>" data-id="<?php echo $var['id'];?>"><?php echo $var['name'];?></div>
-			<?php } ?>
+		<div class="form-items" id="referenceCategory">
+			<label>Category:</label>
+			<div class="selection">
+				<?php foreach ($category as $var) {?>
+					<div class="items category-items" id="category-items-<?php echo $var['id'];?>" data-id="<?php echo $var['id'];?>"><?php echo $var['name'];?></div>
+				<?php } ?>
+			</div>
 		</div>
-		<input type="text" id="category" value="<?php echo $reference->category_id;?>">
-		<input type="text" id="type" value="<?php echo $reference->type;?>">
-		<input type="text" id="method" value="<?php echo $reference->method;?>">
-		<input type="text" id="ref_id" value="<?php echo $reference->id;?>">
+		<input type="hidden" id="category" value="<?php echo $reference->category_id;?>">
+		<input type="hidden" id="type" value="<?php echo $reference->type;?>">
+		<input type="hidden" id="method" value="<?php echo $reference->method;?>">
+		<input type="hidden" id="ref_id" value="<?php echo $reference->id;?>">
 
-		<div class="setting-control">
+		<div class="form-control">
 			<?php if(empty($reference->id)){?>
-			<button class="btn-submit" id="btnCreate">New Reference</button>
+			<button class="btn btn-submit" id="btnCreate">New Reference</button>
 			<?php }else{?>
-			<button class="btn-submit" id="btnUpdate">Update Reference</button>
+			<button class="btn btn-submit" id="btnUpdate">Update Reference</button>
 			<?php }?>
 		</div>
 	</div>

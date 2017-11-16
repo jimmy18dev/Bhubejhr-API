@@ -42,6 +42,7 @@ $currentPage = 'profile';
 <div class="pagehead">
 	<div class="head">
 		<h1><?php echo $user->name;?></h1>
+		<p><?php echo $user->position;?> at <strong><?php echo $user->company;?></strong></p>
 	</div>
 	<div class="tab">
 		<a href="profile-setting.php" class="tab-items -active"><i class="fa fa-user" aria-hidden="true"></i>Profile Setting</a>
@@ -74,7 +75,7 @@ $currentPage = 'profile';
 			</div>
 
 			<div class="form-control">
-				<button class="btn-submit" id="btnUpdate">Update Profile</button>
+				<button class="btn btn-submit" id="btnUpdate">Update Profile</button>
 			</div>
 		</div>
 	</div>

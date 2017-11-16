@@ -430,9 +430,23 @@
 		margin-bottom: 2%;
 		float: left;
 		display: inline-block;
-		font-size: 1.6em;
-		color: #BBBBBB;
+		font-size: 1.2em;
+		color: #666666;
 		font-weight: normal;
+	}
+
+	.token-input{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		padding: 2%;
+		font-size: 1.4em;
+		box-sizing: border-box;
+		background: #FCFCFC;
+		border: 0px;
+		border-radius: 3px;
+		color: #333333;
+		text-align: center;
 	}
 
 	.list-filter{
@@ -843,58 +857,6 @@
 				margin-bottom: 1%;
 			}
 
-			textarea{
-				width: 90%;
-				padding: 5%;
-				height: 60px;
-				float: left;
-				display: inline-block;
-				border: 0px;
-				background: #FAFAFA;
-				resize: none;
-				color: @primary_color;
-				font-size: 0.75em;
-			}
-
-			.select{
-				width: 100%;
-				float: left;
-				display: inline-block;
-				position: relative;
-				margin-bottom: 5%;
-
-				&:after{
-					content: '';
-					border-top: 8px solid #999999;
-					border-left: 5px solid transparent;
-					border-right: 5px solid transparent;
-					position: absolute;
-					z-index: 2;
-					top: 15px;
-					right: 7%;
-					pointer-events: none;
-				}
-
-				select{
-					width: 100%;
-					margin: 0%;
-					padding: 10px 5%;
-					float: left;
-					display: inline-block;
-					-webkit-appearance: none;
-					-moz-appearance: none;
-					appearance: none;
-					font-size: 0.8em;
-					border-radius: 2px;
-					line-height: 1.5em;
-					background: #EEEEEE;
-					border: 0px;
-
-					&:hover{ cursor: pointer; }
-					&:focus{ background: #DDDDDD; }
-				}
-			}
-
 			button{
 				width: 100%;
 				float: left;
@@ -1038,45 +1000,19 @@
 			color: #666666;
 		}
 
-		.selection{
-			width: 100%;
-			float: left;
-			display: inline-block;
-
-			.caption{
-				width: 100%;
-				float: left;
-				display: inline-block;
-			}
-
-			.items{
-				float: left;
-				display: inline-block;
-				margin-right: 1%;
-				margin-bottom: 1%;
-				background: #DDDDDD;
-
-				&.-active{
-					background: #333333;
-					color: #FFFFFF;
-				}
-			}
-		}
-
 		.form-items{
 			width: 100%;
 			float: left;
 			display: inline-block;
-			margin-bottom: 3%;
+			margin-bottom: 5%;
 
 			label{
 				width: 100%;
 				float: left;
 				display: inline-block;
-				font-weight: bold;
-				font-size: 0.9em;
+				font-size: 0.8em;
 				margin-bottom: 1%;
-				color: #666666;
+				color: #999999;
 			}
 
 			.inputtext{
@@ -1086,9 +1022,13 @@
 				display: inline-block;
 				border: 0px;
 				border-bottom: 1px solid #EEEEEE;
-				font-size: 1em;
+				font-size: 1.2em;
+				color: #666666;
 
-				&:focus{ border-bottom: 1px solid #999999; }
+				&:focus{
+					border-bottom: 1px solid #666666;
+					color: #000000;
+				}
 				&:hover{ cursor: pointer; }
 			}
 
@@ -1105,6 +1045,75 @@
 
 				&:focus{ border-bottom: 1px solid #999999; }
 				&:hover{ cursor: pointer; }
+			}
+
+			.select{
+				width: 100%;
+				float: left;
+				display: inline-block;
+				position: relative;
+				margin-bottom: 5%;
+
+				&:after{
+					content: '';
+					border-top: 10px solid #666666;
+					border-left: 7px solid transparent;
+					border-right: 7px solid transparent;
+					position: absolute;
+					z-index: 2;
+					top: 25px;
+					right: 2%;
+					pointer-events: none;
+				}
+
+				select{
+					width: 100%;
+					padding: 1.5% 0%;
+					float: left;
+					display: inline-block;
+					border: 0px;
+					border-bottom: 1px solid #EEEEEE;
+					font-size: 1.2em;
+					color: #666666;
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					appearance: none;
+					line-height: 1.5em;
+					border-radius: 0px;
+
+					&:focus{
+						border-bottom: 1px solid #666666;
+						color: #000000;
+					}
+					&:hover{ cursor: pointer; }
+				}
+			}
+
+			.selection{
+				width: 100%;
+				float: left;
+				display: inline-block;
+
+				.items{
+					float: left;
+					display: inline-block;
+					margin-right: 1%;
+					margin-top: 1%;
+					padding: 1% 2%;
+					font-size: 0.9em;
+					line-height: 1em;
+					color: #333333;
+					border: 1px solid #333333;
+					border-radius: 2px;
+
+					&.-active{
+						border: 1px solid #333333;
+						color: #FFFFFF;
+						background: #333333;
+					}
+
+					&:hover{ cursor: pointer; }
+				}
 			}
 		}
 
@@ -1269,15 +1278,14 @@
 	position: fixed;
 	top: 15%;
 	left: 0px;
-	width: 26%;
+	width: 30%;
 	padding: 2%;
-	margin: 0% 35%;
+	margin: 0% 34%;
 	float: left;
 	display: none;
 	background: #FFFFFF;
 	border-radius: 3px;
 	overflow: hidden;
-	box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
 	z-index: 99;
 
 	.input{
@@ -1290,9 +1298,8 @@
 			float: left;
 			display: inline-block;
 			margin-top: 3%;
-			font-size: 0.75em;
-			color: #333333;
-			font-weight: bold;
+			font-size: 0.8em;
+			color: #999999;
 
 			&:hover{ cursor: pointer; }
 		}
@@ -1303,10 +1310,14 @@
 			float: left;
 			display: inline-block;
 			border: 0px;
-			font-size: 1.6em;
+			font-size: 1.2em;
 			border-bottom: 1px solid #EEEEEE;
 			margin-bottom: 5%;
 			color: #000000;
+
+			&:hover{
+				cursor: pointer;
+			}
 		}
 	}
 	.control{
@@ -1315,7 +1326,7 @@
 		display: inline-block;
 
 		.btn{
-			float: right;
+			float: left;
 			display: inline-block;
 			font-size: 0.9em;
 			padding: 3% 5%;
@@ -1323,10 +1334,15 @@
 			color: #666666;
 			border-radius: 3px;
 			line-height: 1em;
+			background: #EEEEEE;
 
 			&.btn-submit{
-				background: @primary_color;
+				background: #4CAF50;
 				color: #FFFFFF;
+			}
+
+			&.btn-close{
+				float: right;
 			}
 
 			&:hover{ cursor: pointer; }

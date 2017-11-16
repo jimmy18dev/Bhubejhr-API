@@ -44,19 +44,24 @@ $log_allday = $reference->allday($reference->id);
 <?php include_once 'header.php';?>
 <?php include_once 'pagehead.reference.php';?>
 <div class="container">
-	<div class="group">
-		<h4><i class="fa fa-puzzle-piece" aria-hidden="true"></i>API Example</h4>
-		<div class="select">
-			<select id="appExample">
-				<option selected>Select your app</option>
-				<?php foreach ($apps as $var) {?>
-				<option value="<?php echo $var['app_id'];?>"><?php echo $var['app_name'];?></option>
-				<?php }?>
-			</select>
-		</div>
 
-		<h5>URL</h5>
-		<textarea id="urlExample" disabled></textarea>
+	<h2>API Example</h2>
+	<div class="form">
+		<div class="form-items">
+			<label for="appExample">APP Exmaple</label>
+			<div class="select">
+				<select id="appExample">
+					<option selected>Select your app</option>
+					<?php foreach ($apps as $var) {?>
+					<option value="<?php echo $var['app_id'];?>"><?php echo $var['app_name'];?></option>
+					<?php }?>
+				</select>
+			</div>
+		</div>
+		<div class="form-items">
+			<label for="app_name">API URL</label>
+			<textarea class="inputtextarea" id="urlExample" disabled></textarea>
+		</div>
 	</div>
 
 	<h2>Today</h2>

@@ -72,8 +72,8 @@ $apps = $app->listAll($user->id);
 		<input type="text" id="app_name" class="inputtext" placeholder="The name of your App ID">
 	</div>
 	<div class="control">
-		<div class="btn btn-submit" id="btnSubmitCreateApp">Create App ID</div>
-		<div class="btn" id="btnCloseCreateApp">Close</div>
+		<div class="btn btn-submit" id="btnSubmitCreateApp">Create App</div>
+		<div class="btn btn-close" id="btnCloseCreateApp">Close</div>
 	</div>
 </div>
 <div class="filter" id="createDialogFilter"></div>

@@ -44,17 +44,18 @@ $log_allday = $reference->allday($reference->id);
 <?php include_once 'header.php';?>
 <?php include_once 'pagehead.reference.php';?>
 <div class="container">
-	<div class="group">
-		<h4><i class="fa fa-bar-chart" aria-hidden="true"></i>Analytics</h4>
-		<div class="stat">
+
+	<h2>Analytics</h2>
+	<div class="stat">
+		<div class="stat-items">
 			<div class="v"><?php echo $reference->todayRequest($reference->id);?></div>
 			<div class="c">Today Request</div>
 		</div>
-		<div class="stat">
+		<div class="stat-items">
 			<div class="v"><?php echo $reference->totalRequest($reference->id);?></div>
 			<div class="c">Total Request</div>
 		</div>
-		<div class="stat">
+		<div class="stat-items">
 			<div class="v"><?php echo number_format($reference->AvgExecuteTime($reference->id),2);?> s.</div>
 			<div class="c">Execute Time</div>
 		</div>
@@ -63,7 +64,8 @@ $log_allday = $reference->allday($reference->id);
 			<div class="c">Last Access</div>
 		</div> -->
 	</div>
-	
+
+	<h2>Today Requests</h2>
 	<div class="chart">
 		<canvas id="chart"></canvas>
 	</div>

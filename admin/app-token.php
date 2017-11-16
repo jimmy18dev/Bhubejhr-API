@@ -41,11 +41,7 @@ $tab = 'token';
 <?php include_once'pagehead.app.php'; ?>
 <div class="container">
 	<h2>Token Key</h2>
-	<div class="form">
-		<div class="form-items">
-			<input type="text" class="inputtext" value="<?php echo $app->token;?>">
-		</div>
-	</div>
+	<input type="text" class="token-input" value="<?php echo $app->token;?>" disabled>
 </div>
 
 <input type="hidden" id="app_id" value="<?php echo $app->id;?>">
