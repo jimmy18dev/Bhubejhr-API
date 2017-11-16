@@ -43,27 +43,29 @@ $currentPage = 'reference';
 
 <div class="container">
 	<div class="list-filter">
-		<div class="group">
-			<?php if($user->permission == 'admin'){?>
-			<a href="reference.php?" class="link <?php echo (empty($category_id)?'-active':'');?>"></i>All</a>
-			<?php }?>
-			<?php foreach ($category as $var) {?>
-			<a href="reference.php?category=<?php echo $var['id'];?>" class="link <?php echo ($category_id == $var['id']?'-active':'');?>"><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
-			<?php }?>
-		</div>
-		<a href="reference-setting.php" class="btn btn-create"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create Reference</a>
+		<?php if($user->permission == 'admin'){?>
+		<a href="reference.php?" class="link <?php echo (empty($category_id)?'-active':'');?>"></i>All</a>
+		<?php }?>
+		<?php foreach ($category as $var) {?>
+		<a href="reference.php?category=<?php echo $var['id'];?>" class="link <?php echo ($category_id == $var['id']?'-active':'');?>"><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
+		<?php }?>
+		<a href="reference-setting.php" class="btn-create"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create Reference</a>
 	</div>
 	<?php if(count($references) > 0){?>
 	<div class="reference" id="reference">
 		<?php foreach ($references as $var) {?>
 		<a href="reference-page.php?id=<?php echo $var['ref_id'];?>" class="ref-items">
 			<h3><?php echo $var['ref_name'];?></h3>
-			<p class="id"><span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span><span><?php echo $var['ref_id'];?></span><?php echo $var['ref_description'];?></p>	
+			<p class="id">
+				<span>#<?php echo $var['ref_id'];?></span>
+				<span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span>
+				<?php echo $var['ref_description'];?>
+			</p>	
 		</a>
 		<?php }?>
 	</div>
 	<?php }else{?>
-	<div class="empty">Items not Found!</div>
+	<div class="notfound">Items not Found!</div>
 	<?php }?>
 </div>
 
