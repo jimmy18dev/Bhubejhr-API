@@ -11,6 +11,7 @@ $log = new Log;
 $app->get($app_id);
 $log_today = $log->today($app_id);
 $log_allday = $log->allday($app_id);
+$tab = 'token';
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -35,23 +36,9 @@ $log_allday = $log->allday($app_id);
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<?php include'header.php';?>
 <div class="progressbar" id="progressbar"></div>
-<div class="pagehead">
-	<div class="head">
-		<h1><?php echo $app->name;?></h1>
-
-		<?php if(!empty($app->description)){?>
-		<p><?php echo $app->description;?></p>
-		<?php }?>
-	</div>
-
-	<div class="tab">
-		<a href="app.php?id=<?php echo $app->id;?>" class="tab-items"><i class="fa fa-bolt" aria-hidden="true"></i>Activity</a>
-		<a href="app-token.php?id=<?php echo $app->id;?>" class="tab-items -active"><i class="fa fa-key" aria-hidden="true"></i>Token</a>
-		<a href="app-setting.php?id=<?php echo $app->id;?>" class="tab-items"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a>
-	</div>
-</div>
+<?php include_once'header.php';?>
+<?php include_once'pagehead.app.php'; ?>
 <div class="container">
 	<h2>Token Key</h2>
 	<div class="form">

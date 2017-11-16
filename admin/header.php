@@ -1,7 +1,4 @@
 <header class="header">
-
-	<a href="index.php" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back</a>
-
 	<a href="index.php" class="logo" title="Version <?php echo VERSION;?>"><img src="image/logo.png" alt="logo"><?php echo SITENAME;?></a>
 
 	<?php if($user_online){?>

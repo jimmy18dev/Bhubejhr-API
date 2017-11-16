@@ -60,10 +60,10 @@
 	}
 
 	.nav{
-		float: left;
+		float: right;
 		display: inline-block;
 		padding: 18px 0%;
-		margin-right: 2%;
+		margin-left: 2%;
 		height: 14px;
 		color: #666666;
 		text-decoration: none;
@@ -78,17 +78,15 @@
 
 		&.btn-profile{
 			float: right;
-			margin-right: 0%;
 			position: relative;
+			margin-right: 2%;
 
-			&:hover{
-				cursor: pointer;
-			}
+			&:hover{ cursor: pointer; }
 
 			.more-menu{
 				position: absolute;
 				width: 200px;
-				top: 90%;
+				top: 130%;
 				right: -12%;
 				padding: 5% 0%;
 				background: #FFFFFF;
@@ -168,64 +166,6 @@
 		color: #CCCCCC;
 	}
 
-	.list-filter{
-		width: 100%;
-		padding: 20px 0%;
-		float: left;
-		display: inline-block;
-		font-weight: normal;
-		color: #CCCCCC;
-		font-size: 0.9em;
-
-		.group{
-			width: 70%;
-			float: left;
-			display: inline-block;
-
-			a{
-				float: left;
-				display: inline-block;
-				padding: 10px 0px;
-				margin-right: 12px;
-				text-decoration: none;
-				line-height: 1.2em;
-				color: #999999;
-
-				&.-active{
-					color: #000000;
-					font-weight: bold;
-				}
-			}
-		}
-
-		.btn{
-			float: right;
-			display: inline-block;
-			background: #EEEEEE;
-			text-decoration: none;
-			font-size: 1em;
-			padding: 10px 12px;
-			font-weight: bold;
-			border-radius: 3px;
-			box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-			line-height: 1.2em;
-			margin: 0px;
-
-			&.btn-create{
-				background: #1abc9c;
-				color: #34495e;
-			}
-
-			i{
-				margin-right: 8px;
-				float: left;
-				display: inline-block;
-				font-size: 1.2em;
-				margin-top: -1px;
-			}
-		}
-	}
-
 	.account-items{
 			width: 100%;
 			float: left;
@@ -296,56 +236,6 @@
 				}
 			}
 		}
-
-	.ref-items{
-		width: 100%;
-		padding: 2% 0%;
-		float: left;
-		display: inline-block;
-		color: #333333;
-
-		.method{
-			width: 5%;
-			padding: 0.5% 0%;
-			margin-right: 2%;
-			float: left;
-			display: inline-block;
-			font-size: 0.75em;
-			background: #CCCCCC;
-			color: #FFFFFF;
-			text-align: center;
-			margin-top: 0.7%;
-			border-radius: 3px;
-			font-weight: bold;
-			box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-
-			&.get{ background: @color_get; }
-			&.post{ background: @color_post; }
-			&.put{ background: @color_put; }
-			&.delete{ background: @color_delete; }
-		}
-		.detail{
-			width: 93%;
-			float: left;
-			display: inline-block;
-
-			h2{
-				font-size: 1.4em;
-				color: #333333;
-			}
-			p{
-				font-size: 0.9em;
-				color: #666666;
-			}
-			.id{
-				font-size: 0.7em;
-				color: #666666;
-			}
-		}
-
-		&:hover .detail h2{ text-decoration: underline; }
-	}
-
 	.apps-list{
 		width: 100%;
 		float: left;
@@ -464,6 +354,19 @@
 	margin-top: 50px;
 	background: #FFFFFF;
 
+	a.btn-back{
+		float: left;
+		display: inline-block;
+		margin-top: 5%;
+		text-decoration: none;
+		color: #999999;
+		letter-spacing: 1px;
+
+		i{
+			margin-right: 10px;
+		}
+	}
+
 	.head{
 		width: 100%;
 		padding: 5% 0%;
@@ -507,13 +410,9 @@
 				margin-top: -2px;
 			}
 
-			&.-active{
-				border-bottom: 1px solid @primary_color;
-			}
-
-			&:hover{
-				border-bottom: 1px solid #BBBBBB;
-			}
+			&.-right{ float: right; }
+			&.-active{ border-bottom: 1px solid @primary_color; }
+			&:hover{ border-bottom: 1px solid #BBBBBB; }
 		}
 	}
 }
@@ -534,6 +433,115 @@
 		font-size: 1.6em;
 		color: #BBBBBB;
 		font-weight: normal;
+	}
+
+	.list-filter{
+		width: 100%;
+		float: left;
+		display: inline-block;
+		font-weight: normal;
+		color: #CCCCCC;
+		font-size: 0.9em;
+		margin-top: 100px;
+
+		.group{
+			width: 70%;
+			float: left;
+			display: inline-block;
+
+			a{
+				float: left;
+				display: inline-block;
+				padding: 10px 0px;
+				margin-right: 12px;
+				text-decoration: none;
+				line-height: 1.2em;
+				color: #999999;
+
+				&.-active{
+					color: #000000;
+					font-weight: bold;
+				}
+			}
+		}
+
+		.btn{
+			float: right;
+			display: inline-block;
+			background: #EEEEEE;
+			text-decoration: none;
+			font-size: 1em;
+			padding: 10px 12px;
+			font-weight: bold;
+			border-radius: 3px;
+			box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+			line-height: 1.2em;
+			margin: 0px;
+
+			&.btn-create{
+				background: #4CAF50;
+				color: #FFFFFF;
+			}
+
+			i{
+				margin-right: 8px;
+				float: left;
+				display: inline-block;
+				font-size: 1.2em;
+				margin-top: -1px;
+			}
+		}
+	}
+
+	.reference{
+		width: 100%;
+		float: left;
+		display: inline-block;
+
+		.ref-items{
+			width: 100%;
+			padding: 4% 0%;
+			float: left;
+			display: inline-block;
+			color: #333333;
+			text-decoration: none;
+			border-bottom: 1px solid #EEEEEE;
+
+			&:hover h2{ text-decoration: underline; }
+
+			h3{
+				font-size: 1.6em;
+				line-height: 1.3em;
+				margin-bottom: 1%;
+				color: #333333;
+			}
+			p{
+				font-size: 0.9em;
+				line-height: 1.3em;
+				color: #666666;
+
+				span{
+					float: left;
+					display: inline-block;
+					background: #333333;
+					font-size: 0.7em;
+					padding: 3px 6px;
+					margin-top: 1px;
+					margin-right: 6px;
+					border-radius: 2px;
+					color: #FFFFFF;
+					line-height: 1em;
+					font-weight: bold;
+
+					&.get{ background: @color_get; }
+					&.post{ background: @color_post; }
+					&.put{ background: @color_put; }
+					&.delete{ background: @color_delete; }
+				}
+			}
+
+			
+		}
 	}
 
 	.chart{
@@ -1024,6 +1032,12 @@
 		border-radius: 1px;
 		margin-bottom: 5%;
 
+		p{
+			font-size: 1em;
+			line-height: 1.3em;
+			color: #666666;
+		}
+
 		.selection{
 			width: 100%;
 			float: left;
@@ -1100,16 +1114,15 @@
 			display: inline-block;
 			margin-top: 5%;
 
-			.btn-submit{
+			.btn{
 				float: left;
 				display: inline-block;
 				background: #f39c12;
 				font-size: 0.9em;
 				border: 0px;
-				padding: 12px 20px;
-				border-radius: 3px;
+				padding: 10px 20px;
+				border-radius: 2px;
 				font-weight: bold;
-				box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 				color: #FFFFFF;
 				margin: 0px;
 
@@ -1117,6 +1130,9 @@
 					cursor: pointer;
 					box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 				}
+
+				&.btn-submit{ background: #4CAF50; }
+				&.btn-delete{ background: #F44336; }
 			}
 		}
 	}

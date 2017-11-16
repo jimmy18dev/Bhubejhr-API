@@ -9,6 +9,7 @@ $reference = new Reference;
 $category = $reference->listCategory();
 $reference->get($_GET['id']);
 $currentPage = 'reference';
+$tab = 'setting';
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -33,7 +34,8 @@ $currentPage = 'reference';
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<?php include'header.php';?>
+<?php include_once 'header.php';?>
+<?php include_once 'pagehead.reference.php';?>
 
 <div class="progressbar" id="progressbar"></div>
 <div class="navigation"></div>

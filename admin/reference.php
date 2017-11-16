@@ -41,7 +41,7 @@ $currentPage = 'reference';
 <body class="white">
 <?php include'header.php';?>
 
-<div class="list">
+<div class="container">
 	<div class="list-filter">
 		<div class="group">
 			<?php if($user->permission == 'admin'){?>
@@ -57,14 +57,8 @@ $currentPage = 'reference';
 	<div class="reference" id="reference">
 		<?php foreach ($references as $var) {?>
 		<a href="reference-page.php?id=<?php echo $var['ref_id'];?>" class="ref-items">
-			<span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span>
-			<div class="detail">
-				<h2><?php echo $var['ref_name'];?></h2>
-				<p class="id">Ref: <?php echo $var['ref_id'];?></p>
-				<?php if(!empty($var['ref_description'])){?>
-				<p><?php echo $var['ref_description'];?></p>
-				<?php }?>
-			</div>			
+			<h3><?php echo $var['ref_name'];?></h3>
+			<p class="id"><span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span><span><?php echo $var['ref_id'];?></span><?php echo $var['ref_description'];?></p>	
 		</a>
 		<?php }?>
 	</div>
