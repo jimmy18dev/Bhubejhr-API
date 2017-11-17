@@ -11,7 +11,6 @@
 	display: inline-block;
 	z-index: 99;
 	background: #FFFFFF;
-	border-bottom: 1px solid #FAFAFA;
 
 	a.logo{
 		width: 13%;
@@ -46,11 +45,10 @@
 		text-decoration: none;
 		font-size: @fontsize_normal;
 		line-height: 1em;
-		border-bottom: 1px solid transparent;
 
 		&.-active{
 			color: @primary_color;
-			border-bottom: 1px solid @primary_color;
+			font-weight: bold;
 		}
 
 		&.btn-profile{
@@ -227,12 +225,12 @@
 			border-radius: 3px;
 			box-sizing: border-box;
 			background: #FFFFFF;
-			border: 1px solid #DDDDDD;
+			box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
 			.transitionAnimation(0.2s);
 
 			&:nth-child(4n+0){margin-right: 0%; }
 			&:hover{
-				box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
+				box-shadow: 0px 1px 20px rgba(0,0,0,0.1);
 				transform: translateY(-5px);
 			}
 
@@ -336,6 +334,7 @@
 	padding: 0 25%;
 	margin-top: 50px;
 	background: #FFFFFF;
+	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
 
 	a.btn-back{
 		float: left;
@@ -370,7 +369,6 @@
 		width: 100%;
 		float: left;
 		display: inline-block;
-		border-bottom: 1px solid #EEEEEE;
 
 		.tab-items{
 			padding: 2% 3%;
@@ -380,7 +378,6 @@
 			color: #333333;
 			text-decoration: none;
 			line-height: 1em;
-			margin-bottom: -1px;
 			letter-spacing: 1px;
 
 			i{
@@ -394,7 +391,7 @@
 			&.-right{ float: right; }
 			&.-active{
 				color: @primary_color;
-				border-bottom: 1px solid @primary_color;
+				border-bottom: 2px solid @primary_color;
 			}
 		}
 	}
@@ -572,20 +569,22 @@
 			padding: 15% 0%;
 			float: left;
 			display: inline-block;
-			background: #FEFEFE;
+			background: #FFFFFF;
 			color: #BBBBBB;
 			border-radius: 3px;
 			text-align: center;
-			border: 1px dotted #EEEEEE;
 			font-size: @fontsize_normal;
 			font-style: italic;
 			letter-spacing: 1px;
+			box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
 		}
 
 		.log-container{
 			width: 100%;
 			float: left;
 			display: inline-block;
+			background: #FFFFFF;
+			box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
 		}
 
 		.log-items{
