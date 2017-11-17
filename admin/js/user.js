@@ -200,6 +200,10 @@ function register(){
 
 	if(fullname == '' || email == '' || password == '') return false;
 
+	$progressbar.fadeIn(300);
+	$progressbar.width('0%');
+	$progressbar.animate({width:'70%'},500);
+
 	$.get({
 		url         :api_url,
 		timeout 	:10000, //10 second timeout
@@ -218,6 +222,7 @@ function register(){
 		}
 	}).done(function(data){
 		console.log(data);
+		$progressbar.animate({width:'100%'},500);
 		setTimeout(function(){
 			window.location = 'login.php?register=success';
 	    },1000);

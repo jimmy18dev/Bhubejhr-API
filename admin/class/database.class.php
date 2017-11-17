@@ -10,10 +10,10 @@ class Database{
         $dsn = 'mysql:host='.$host.';dbname='.$dbname;
         // Set options
         $options = array(
-            PDO::ATTR_TIMEOUT,5,
-            PDO::ATTR_PERSISTENT    => true,
-            PDO::ATTR_ERRMODE       => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_EMULATE_PREPARES => true,
+            PDO::ATTR_TIMEOUT           => 5,
+            PDO::ATTR_PERSISTENT        => true,
+            PDO::ATTR_ERRMODE           => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_EMULATE_PREPARES  => true,
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
         );
         // Create a new PDO instanace
@@ -94,26 +94,25 @@ class Database{
         return $ip;
     }
 
-    public function datetimeformat($datetime){
+    public function shortDatetime($datetime){
 
         $timestamp  = strtotime($datetime);
         $diff       = time() - $timestamp;
 
-        $monthText = array('ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.');
+        $monthText = array('Jan','Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec');
         $hour   = date('H',strtotime($datetime));
         $minute = date("i",strtotime($datetime));
-        $year   = date('Y',strtotime($datetime))+543 - 2500;
+        $year   = date('Y',strtotime($datetime)) - 2000;
         $month  = date('n',strtotime($datetime));
         $date   = date('j',strtotime($datetime));
-
-        // full,short,notime
+        $second  = date('s',strtotime($datetime));
 
         $month  = $monthText[$month-1];
 
-        if($diff > 86400){
-            return $date.' '.$month.' '.$year;
+        if($diff < 86400){
+            return 'Today '.$hour.':'.$minute.':'.$second;
         }else{
-            return $hour.':'.$minute.' น.';
+            return $date.' '.$month.' '.$year.' '.$hour.':'.$minute.':'.$second;
         }
     }
 

@@ -10,10 +10,10 @@ class Database{
         $dsn = 'mysql:host='.$host.';dbname='.$dbname;
         // Set options
         $options = array(
-            PDO::ATTR_TIMEOUT,5,
-            PDO::ATTR_PERSISTENT    => true,
-            PDO::ATTR_ERRMODE       => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_EMULATE_PREPARES => true,
+            PDO::ATTR_TIMEOUT           => 5,
+            PDO::ATTR_PERSISTENT        => true,
+            PDO::ATTR_ERRMODE           => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_EMULATE_PREPARES  => true,
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
         );
         // Create a new PDO instanace

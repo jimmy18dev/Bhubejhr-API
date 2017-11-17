@@ -2,7 +2,7 @@
 include_once 'autoload.php';
 
 if(!$user_online){
-	header('Location: '.DOMAIN.'/login.php');
+	header('Location: login.php');
 	die();
 }
 
@@ -39,17 +39,17 @@ $apps = $app->listAll($user->id);
 <body>
 <?php include'header.php';?>
 
-<div class="page">
+<div class="list">
 	<?php if($user->status == 'active'){?>
-	<h2>You have <strong><?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</strong></h2>
+	<h1>You have <?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</h1>
 	<div class="apps-list" id="apps">
 		<?php foreach ($apps as $var) {?>
 		<a href="app.php?id=<?php echo $var['app_id'];?>" class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
-			<div class="mini"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
 			<div class="detail">
-				<div class="name"><?php echo $var['app_name'];?></div>
-				<div class="info"><?php echo (!empty($var['app_description'])?$var['app_description']:'Description');?></div>
+				<h2><?php echo $var['app_name'];?></h2>
+				<p><?php echo (!empty($var['app_description'])?$var['app_description']:'Description');?></p>
 			</div>
+			<div class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $var['app_create_time'];?></div>
 			<div class="stat" title="<?php echo number_format($var['request_count']);?> Requests on this day."><?php echo number_format($var['request_count']);?></div>
 		</a>
 		<?php }?>
@@ -72,8 +72,8 @@ $apps = $app->listAll($user->id);
 		<input type="text" id="app_name" class="inputtext" placeholder="The name of your App ID">
 	</div>
 	<div class="control">
-		<div class="btn btn-submit" id="btnSubmitCreateApp">Create App ID</div>
-		<div class="btn" id="btnCloseCreateApp">Close</div>
+		<div class="btn btn-submit" id="btnSubmitCreateApp">Create App</div>
+		<div class="btn btn-close" id="btnCloseCreateApp">Close</div>
 	</div>
 </div>
 <div class="filter" id="createDialogFilter"></div>
@@ -81,6 +81,6 @@ $apps = $app->listAll($user->id);
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/user.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/layout.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>

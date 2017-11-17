@@ -1,7 +1,7 @@
 <?php
 include_once 'autoload.php';
 if($user_online){
-	header('Location: '.DOMAIN.'/index.php');
+	header('Location: index.php');
 	die();
 }
 $signature 	= new Signature;
@@ -29,23 +29,27 @@ $currentPage = 'register';
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
-<body class="login-bg">
+<body>
 <div class="progressbar" id="progressbar"></div>
-<form class="login" action="javascript:register();">
-	<h1>Bhubejhr API</h1>
-	<p>Get the full details of all the nodes, edges, and fields</p>
-	<label for="fullname">Fullname</label>
-	<input class="inputtext" type="text" id="fullname" autofocus>
-	<label for="email">Email</label>
-	<input class="inputtext" type="text" id="email">
-	<label for="password">Password</label>
-	<input class="inputtext" type="password" id="password">
-	
-	<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('register',SECRET_KEY);?>">
-
-	<a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i>Login wiht Email</a>
-	<button id="btn-submit" class="btn-submit register">Register<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-</form>
+<div class="login">
+	<div class="welcome">
+		<img src="image/logo.png" alt="" class="logo">
+		<h1><?php echo SITENAME;?></h1>
+		<div class="ver">Version <?php echo VERSION;?></div>
+		<p>Chaophya Abhaibhubejhr Hospital Prachinburi</p>
+		<p class="mini">Get the full details of all the nodes, edges, and fields</p>
+	</div>
+	<form class="form" action="javascript:register();">
+		<p>Create a new account at <?php echo SITENAME;?> to connect your applications.</p>
+		<input class="inputtext" type="text" id="fullname" placeholder="Fullname" autofocus>
+		<input class="inputtext" type="text" id="email" placeholder="Email Address">
+		<input class="inputtext" type="password" id="password" placeholder="Password">
+		
+		<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('register',SECRET_KEY);?>">
+		<button id="btn-submit" class="btn-submit register">Register<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+		<a href="login.php">Login wiht Email</a>
+	</form>
+</div>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/user.js"></script>
 </body>

@@ -39,35 +39,38 @@ $currentPage = 'profile';
 <?php include'header.php';?>
 
 <div class="progressbar" id="progressbar"></div>
-<div class="navigation">
-	<div class="group">
-		<div class="head">
-			<div class="name"><?php echo $app->name;?></div>
-			<div class="desc"><?php echo $app->description;?></div>
-		</div>
+<div class="pagehead">
+	<div class="head">
+		<h1><?php echo $user->name;?></h1>
+		<p><?php echo $user->position;?> at <strong><?php echo $user->company;?></strong></p>
+	</div>
+	<div class="tab">
+		<a href="profile-setting.php" class="tab-items"><i class="fa fa-user" aria-hidden="true"></i>Profile Setting</a>
+		<a href="profile-password.php" class="tab-items -active"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
 	</div>
 </div>
-
 <div class="container">
-	<h2>Profile Detail</h2>
-	<div class="setting">
-		<div class="setting-items">
-			<label for="newpassword">New Password</label>
-			<input type="text" class="inputtext" id="newpassword">
-		</div>
-		<div class="setting-items">
-			<label for="repassword">Re-Password again</label>
-			<input type="text" class="inputtext" id="repassword">
-		</div>
+	<div class="page">
+		<h2>Change Password</h2>
+		<div class="form">
+			<div class="form-items">
+				<label for="newpassword">New Password</label>
+				<input type="text" class="inputtext" id="newpassword">
+			</div>
+			<div class="form-items">
+				<label for="repassword">Re-Password again</label>
+				<input type="text" class="inputtext" id="repassword">
+			</div>
 
-		<div class="setting-control">
-			<button class="btn-submit" id="btnChangePassword">Change Password</button>
+			<div class="form-control">
+				<button class="btn btn-submit" id="btnChangePassword">Change Password</button>
+			</div>
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/profile.setting.js"></script>
-<script type="text/javascript" src="js/layout.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>

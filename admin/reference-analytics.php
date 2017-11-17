@@ -12,7 +12,7 @@ $reference->get($_GET['id']);
 $app->get($_GET['app']);
 $apps = $app->listAll($user->id);
 $currentPage = 'reference';
-$tab = 'home';
+$tab = 'analytics';
 
 $log_today = $reference->today($reference->id);
 $log_allday = $reference->allday($reference->id);
@@ -45,23 +45,29 @@ $log_allday = $reference->allday($reference->id);
 <?php include_once 'pagehead.reference.php';?>
 <div class="container">
 
-	<h2>API Example</h2>
-	<div class="form">
-		<div class="form-items">
-			<label for="appExample">APP Exmaple</label>
-			<div class="select">
-				<select id="appExample">
-					<option selected>Select your app</option>
-					<?php foreach ($apps as $var) {?>
-					<option value="<?php echo $var['app_id'];?>"><?php echo $var['app_name'];?></option>
-					<?php }?>
-				</select>
-			</div>
+	<h2>Analytics</h2>
+	<div class="stat">
+		<div class="stat-items">
+			<div class="v"><?php echo $reference->todayRequest($reference->id);?></div>
+			<div class="c">Today Request</div>
 		</div>
-		<div class="form-items">
-			<label for="app_name">API URL</label>
-			<textarea class="inputtextarea" id="urlExample" disabled></textarea>
+		<div class="stat-items">
+			<div class="v"><?php echo $reference->totalRequest($reference->id);?></div>
+			<div class="c">Total Request</div>
 		</div>
+		<div class="stat-items">
+			<div class="v"><?php echo number_format($reference->AvgExecuteTime($reference->id),2);?> s.</div>
+			<div class="c">Execute Time</div>
+		</div>
+		<!-- <div class="stat">
+			<div class="v">34 Min</div>
+			<div class="c">Last Access</div>
+		</div> -->
+	</div>
+
+	<h2>Today Requests</h2>
+	<div class="chart">
+		<canvas id="chart"></canvas>
 	</div>
 
 	<h2>Today</h2>
@@ -72,6 +78,22 @@ $log_allday = $reference->allday($reference->id);
 			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
 			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
 			<div class="ref"><a href="reference-page.php?id=<?php $var['ref_id'];?>"><?php echo (!empty($var['app_name'])?$var['app_name']:'n/a')?></a></div>
+			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
+		</div>
+		<?php }?>
+		<?php }else{?>
+		<div class="empty">Activity Not Found!</div>
+		<?php }?>
+	</div>
+
+	<h2>All Day</h2>
+	<div class="log">
+		<?php if(count($log_allday)>0){?>
+		<?php foreach ($log_allday as $var) { ?>
+		<div class="log-items <?php echo ($var['log_executed']>1?'-alert':'');?>">
+			<div class="method"><?php echo (!empty($var['ref_method'])?strtoupper($var['ref_method']):'n/a');?></div>
+			<div class="time" title="log id <?php echo $var['log_id'];?>"><?php echo $var['log_time'];?></div>
+			<div class="ref"><a href="reference-page.php?id=<?php $var['app_id'];?>"><?php echo (!empty($var['app_name'])?$var['app_name']:'n/a')?></a></div>
 			<div class="execute"><?php echo $var['log_executed'];?> s.</div>
 		</div>
 		<?php }?>

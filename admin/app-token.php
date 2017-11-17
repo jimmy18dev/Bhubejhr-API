@@ -11,7 +11,7 @@ $log = new Log;
 $app->get($app_id);
 $log_today = $log->today($app_id);
 $log_allday = $log->allday($app_id);
-$tab = 'setting';
+$tab = 'token';
 ?>
 <!doctype html>
 <html lang="en-US" itemscope itemtype="http://schema.org/Blog" prefix="og: http://ogp.me/ns#">
@@ -40,29 +40,8 @@ $tab = 'setting';
 <?php include_once'header.php';?>
 <?php include_once'pagehead.app.php'; ?>
 <div class="container">
-	<h2>App Setting</h2>
-	<div class="form">
-		<div class="form-items">
-			<label for="app_name">App name</label>
-			<input type="text" class="inputtext" id="app_name" value="<?php echo $app->name;?>">
-		</div>
-		<div class="form-items">
-			<label for="app_desc">Description</label>
-			<textarea class="inputtextarea" id="app_desc"><?php echo $app->description;?></textarea>
-		</div>
-		<input type="hidden" id="app_id" value="<?php echo $app->id;?>">
-		<div class="form-control">
-			<button class="btn btn-submit" id="btnUpdate">Update App</button>
-		</div>
-	</div>
-	<h2>Delete this app</h2>
-	<div class="form">
-		<p>Once you delete a app, there is no going back. Please be certain.</p>
-
-		<div class="form-control">
-			<button class="btn btn-delete" id="btnDeleteApp"><i class="fa fa-trash" aria-hidden="true"></i>Delete this App</button>
-		</div>
-	</div>
+	<h2>Token Key</h2>
+	<input type="text" class="token-input" value="<?php echo $app->token;?>" disabled>
 </div>
 
 <input type="hidden" id="app_id" value="<?php echo $app->id;?>">
