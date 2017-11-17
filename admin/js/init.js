@@ -61,7 +61,7 @@ function databaseChecking(){
 	    	$dbStatus.addClass('-hidden');
 	    }else{
 	    	$dbStatus.addClass('-active');
-	    	$dbStatus.html('JHOS DATABASE STATUS OFFLINE!');
+	    	$dbStatus.html('JHOS Database is Offline<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
 	    	setTimeout(databaseChecking,60000);
 	    }
 	});

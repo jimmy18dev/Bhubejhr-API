@@ -39,20 +39,29 @@
 		padding: 18px 0%;
 		margin-left: 2%;
 		height: 14px;
-		color: @fontcolor_normal;
+		color: @fontcolor_light;
 		text-decoration: none;
 		font-size: @fontsize_normal;
 		line-height: 1em;
 
-		&.-active{
-			color: @primary_color;
-			font-weight: bold;
+		i{
+			margin-right: 15px;
 		}
+
+		&.-active{ color: @fontcolor_dark; }
 
 		&.btn-profile{
 			float: right;
 			position: relative;
 			margin-right: 2%;
+
+			i.fa-angle-down{
+				float: right;
+				display: inline-block;
+				line-height: 1em;
+				margin-left: 10px;
+				margin-right: 0px;
+			}
 
 			&:hover{ cursor: pointer; }
 
@@ -89,13 +98,6 @@
 					&:hover{ background: @primary_color_dark; }
 				}
 			}
-		}
-
-		i{
-			float: right;
-			display: inline-block;
-			line-height: 1em;
-			margin-left: 10px;
 		}
 	}
 }
@@ -281,6 +283,8 @@
 				text-overflow: ellipsis;
 				white-space: nowrap;
 				overflow: hidden;
+
+				i{ margin-right: 5px; }
 			}
 			.stat{
 				width: 40%;
@@ -593,7 +597,7 @@
 			color: #333333;
 
 			&:hover{ cursor: default; }
-			&.-alert .execute{ color: #F44336; }
+			&.-alert .execute{ color: @alertcolor; }
 			&:nth-child(odd){ background: #EEEEEE; }
 			&:last-child{ border-bottom: 0px; }
 			&.-topic{
@@ -818,12 +822,11 @@
 				color: #FFFFFF;
 				margin: 0px;
 
-				&:hover{
-					cursor: pointer;
-				}
+				&:hover{ cursor: pointer; }
+				i{ margin-right: 10px; }
 
 				&.btn-submit{ background: @primary_color; }
-				&.btn-delete{ background: #F44336; }
+				&.btn-delete{ background: @alertcolor; }
 			}
 		}
 	}

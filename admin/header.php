@@ -1,5 +1,5 @@
 <header class="header">
-	<a href="index.php" class="logo" title="Version <?php echo VERSION;?>"><img src="image/logo.png" alt="logo"><?php echo SITENAME;?></a>
+	<a href="index.php" class="logo" title="Version <?php echo VERSION;?>"><img src="image/logo.png" alt="logo"><span><?php echo SITENAME;?></span></a>
 
 	<?php if($user_online){?>
 	<div class="nav btn-profile" id="btnProfile">

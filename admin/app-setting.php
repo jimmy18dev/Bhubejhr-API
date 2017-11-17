@@ -60,7 +60,7 @@ $tab = 'setting';
 		<p>Once you delete a app, there is no going back. Please be certain.</p>
 
 		<div class="form-control">
-			<button class="btn btn-delete" id="btnDeleteApp">Delete this App</button>
+			<button class="btn btn-delete" id="btnDeleteApp"><i class="fa fa-trash" aria-hidden="true"></i>Delete this App</button>
 		</div>
 	</div>
 </div>

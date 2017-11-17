@@ -49,7 +49,7 @@ $apps = $app->listAll($user->id);
 				<h2><?php echo $var['app_name'];?></h2>
 				<p><?php echo (!empty($var['app_description'])?$var['app_description']:'Description');?></p>
 			</div>
-			<div class="time"><?php echo $var['app_create_time'];?></div>
+			<div class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $var['app_create_time'];?></div>
 			<div class="stat" title="<?php echo number_format($var['request_count']);?> Requests on this day."><?php echo number_format($var['request_count']);?></div>
 		</a>
 		<?php }?>
