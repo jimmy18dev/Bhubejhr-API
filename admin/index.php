@@ -41,7 +41,7 @@ $apps = $app->listAll($user->id);
 
 <div class="list">
 	<?php if($user->status == 'active'){?>
-	<h1>You have <?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</h1>
+	<h1>You have <?php echo $user->total_app;?> Apps And Read More <a href="reference.php">API References<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
 	<div class="apps-list" id="apps">
 		<?php foreach ($apps as $var) {?>
 		<a href="app.php?id=<?php echo $var['app_id'];?>" class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">

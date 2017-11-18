@@ -10,7 +10,7 @@
 	float: left;
 	display: inline-block;
 	z-index: 99;
-	background: #FFFFFF;
+	background: #222222;
 
 	a.logo{
 		width: 13%;
@@ -18,7 +18,7 @@
 		display: inline-block;
 		padding: 18px 1%;
 		height: 14px;
-		color: @fontcolor_dark;
+		color: #FFFFFF;
 		text-decoration: none;
 		font-size: @fontsize_normal;
 		line-height: 1em;
@@ -71,11 +71,12 @@
 				top: 90%;
 				right: -12%;
 				padding: 5% 0%;
-				background: @primary_color;
-				box-shadow: 1px 1px 20px rgba(0,0,0,0.3);
+				background: #FFFFFF;
 				border-radius: 3px;
 				display: none;
 				z-index: 999;
+				box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+				border: 1px solid @border_color;
 
 				.arrow-up{
 					position: absolute;
@@ -83,7 +84,7 @@
 					right: 8%;
 					border-left: 7px solid transparent;
 					border-right: 7px solid transparent;
-					border-bottom: 7px solid @primary_color;
+					border-bottom: 7px solid @bg_color;
 				}
 
 				a{
@@ -92,10 +93,10 @@
 					float: left;
 					display: inline-block;
 					text-decoration: none;
-					color: #FFFFFF;
+					color: #333333;
 
 					&:last-child{ border-bottom: 0px; }
-					&:hover{ background: @primary_color_dark; }
+					&:hover{ background: #EEEEEE; }
 				}
 			}
 		}
@@ -120,6 +121,7 @@
 	width: 70%;
 	margin: 0% 15%;
 	margin-top: 100px;
+	margin-bottom: 5%;
 	float: left;
 	display: inline-block;
 
@@ -131,6 +133,11 @@
 		font-size: @fontsize_mini;
 		font-weight: normal;
 		color: @fontcolor_gray;
+
+		a{
+			color: @primary_color;
+			i{ margin-left: 5px; }
+		}
 	}
 
 	// .account-items{
@@ -220,12 +227,12 @@
 			border-radius: 3px;
 			box-sizing: border-box;
 			background: #FFFFFF;
-			box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+			border: 1px solid @border_color;
 			.transitionAnimation(0.2s);
 
 			&:nth-child(4n+0){margin-right: 0%; }
 			&:hover{
-				box-shadow: 0px 1px 20px rgba(0,0,0,0.1);
+				box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
 				transform: translateY(-5px);
 			}
 
@@ -330,15 +337,14 @@
 	display: inline-block;
 	padding: 0 25%;
 	margin-top: 50px;
-	background: #FFFFFF;
-	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+	background: #222222;
 
 	a.btn-back{
 		float: left;
 		display: inline-block;
 		margin-top: 5%;
 		text-decoration: none;
-		color: @fontcolor_normal;
+		color: #DDDDDD;
 		letter-spacing: 1px;
 
 		i{ margin-right: 10px; }
@@ -352,13 +358,13 @@
 
 		h1{
 			font-size: @fontsize_big;
-			line-height: 1.2em;
-			color: @fontcolor_dark;
+			line-height: 1.3em;
+			color: #FFFFFF;
 		}
 		p{
 			font-size: @fontsize_normal;
 			line-height: 1.3em;
-			color: @fontcolor_normal;
+			color: #AAAAAA;
 		}
 	}
 
@@ -372,7 +378,7 @@
 			float: left;
 			display: inline-block;
 			font-size: @fontsize_normal;
-			color: @fontcolor_gray;
+			color: #DDDDDD;
 			text-decoration: none;
 			line-height: 1em;
 			letter-spacing: 1px;
@@ -403,7 +409,7 @@
 
 	h2{
 		width: 100%;
-		margin: 5% 0%;
+		margin: 6% 0%;
 		margin-bottom: 2%;
 		float: left;
 		display: inline-block;
@@ -431,21 +437,23 @@
 		padding: 2%;
 		font-size: @fontsize_topic;
 		box-sizing: border-box;
-		background: #FCFCFC;
 		border: 0px;
 		border-radius: 3px;
-		color: #333333;
+		color: @fontcolor_dark;
 		text-align: center;
+		border: 1px solid @border_color;
 	}
 
 	.list-filter{
 		position: fixed;
 		top: 100px;
 		left: 80%;
-		width: 15%;
+		width: 13%;
+		padding-left: 2%;
 		float: left;
 		display: inline-block;
 		font-size: @fontsize_normal;
+		border-left: 1px solid @border_color;
 
 		a{
 			width: 100%;
@@ -523,7 +531,7 @@
 		display: inline-block;
 		margin-bottom: 5%;
 		box-sizing: border-box;
-		box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+		border: 1px solid #EEEEEE;
 		background: #FFFFFF;
 
 		canvas{ height: 300px; }
@@ -570,14 +578,15 @@
 			padding: 15% 0%;
 			float: left;
 			display: inline-block;
-			background: #FFFFFF;
+			background: #FAFAFA;
 			color: @fontcolor_light;
 			border-radius: 3px;
 			text-align: center;
 			font-size: @fontsize_normal;
 			font-style: italic;
 			letter-spacing: 1px;
-			box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+			border: 1px solid #EEEEEE;
+			box-sizing: border-box;
 		}
 
 		.log-container{
@@ -585,7 +594,8 @@
 			float: left;
 			display: inline-block;
 			background: #FFFFFF;
-			box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+			border: 1px solid #EEEEEE;
+			box-sizing: border-box;
 		}
 
 		.log-items{
@@ -673,9 +683,8 @@
 		border-radius: 1px;
 		margin-bottom: 5%;
 		box-sizing: border-box;
-		border: 1px solid #EEEEEE;
+		border: 1px solid @border_color;
 		border-radius: 3px;
-		box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
 
 		p{
 			font-size: @fontsize_normal;
@@ -977,6 +986,8 @@
 	float: left;
 	display: none;
 	background: #FFFFFF;
+	border: 1px solid @bg_color;
+	box-shadow: 1px 1px 20px rgba(0,0,0,0.2);
 	border-radius: 3px;
 	overflow: hidden;
 	z-index: 99;
@@ -1048,7 +1059,7 @@
 	height: 100%;
 	float: left;
 	display: inline-block;
-	background: rgba(0,0,0,0.5);
+	background: rgba(255, 255, 255, 0.7);
 	z-index: 70;
 	display: none;
 }

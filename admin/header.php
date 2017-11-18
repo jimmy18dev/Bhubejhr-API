@@ -11,10 +11,6 @@
 			<a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
 		</div>
 	</div>
-
-	<?php if($user->status == 'active'){?>
-	<a href="reference.php" class="nav <?php echo ($currentPage == 'reference'?'-active':'');?>">API References</a>
-	<?php }?>
 	
 	<?php if($user->permission == 'admin' && false){?>
 	<a href="accounts.php" class="nav <?php echo ($currentPage == 'account'?'-active':'');?>">Members<?php echo ($account->newmember>0?' ('.$account->newmember.')':'');?></a>
