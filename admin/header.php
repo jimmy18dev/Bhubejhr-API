@@ -20,3 +20,4 @@
 
 <span class="bar-alert" id="db_status"></span>	
 <div class="filter" id="filterProfile"></div>
+<div class="progressbar" id="progressbar"></div>

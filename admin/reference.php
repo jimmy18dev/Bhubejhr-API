@@ -38,9 +38,8 @@ $currentPage = 'reference';
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
-<body class="white">
+<body>
 <?php include'header.php';?>
-
 <div class="container">
 	<div class="list-filter">
 		<?php if($user->permission == 'admin'){?>

@@ -2,6 +2,7 @@ $(document).ready(function(){
 	$btnProfile 	= $('#btnProfile');
 	$menuProfile 	= $('#menuProfile');
 	$filterProfile 	= $('#filterProfile');
+	$progressbar 	= $('#progressbar');
 
 	$btnProfile.click(function(){
 		$filterProfile.fadeIn(100);
@@ -12,6 +13,11 @@ $(document).ready(function(){
 			$filterProfile.fadeOut(300);
 		});
 	});
+
+	$progressbar.fadeIn(300);
+	$progressbar.width('0%');
+	$progressbar.animate({width:'100%'},500);
+	$progressbar.fadeOut();
 });
 
 function databaseChecking(){

@@ -915,16 +915,18 @@
 			float: left;
 			display: inline-block;
 			font-size: @fontsize_topic;
-			border: 0px;
+			border: 1px solid @border_color;
 			background: #FFFFFF;
 			margin-bottom: 5%;
 			color: @fontcolor_normal;
 			border-radius: 3px;
 			box-sizing: border-box;
-			box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 
 			&:hover{ cursor: pointer; }
-			&:focus{ color: @fontcolor_dark; }
+			&:focus{
+				color: @fontcolor_dark;
+				background: #FAFAFA;
+			}
 		}
 
 		.btn-submit{
@@ -940,7 +942,6 @@
 			margin: 0%;
 			margin-top: 7%;
 			font-weight: bold;
-			box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 
 			i{ margin-left: 15px; }
 			&.-loading{

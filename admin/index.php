@@ -38,7 +38,6 @@ $apps = $app->listAll($user->id);
 </head>
 <body>
 <?php include'header.php';?>
-
 <div class="list">
 	<?php if($user->status == 'active'){?>
 	<h1>You have <?php echo $user->total_app;?> Apps And Read More <a href="reference.php">API References<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></h1>
