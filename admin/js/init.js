@@ -21,7 +21,7 @@ $(document).ready(function(){
 });
 
 function databaseChecking(){
-	$dbStatus.html('JHOS Connection Checking<i class="fa fa-refresh fa-spin" aria-hidden="true"></i>');
+	$dbStatus.html('API Connection Checking<i class="fa fa-refresh fa-spin" aria-hidden="true"></i>');
 
 	$.ajax({
 		url         :'database_checking.php',
@@ -39,7 +39,7 @@ function databaseChecking(){
 	    	$dbStatus.addClass('-hidden');
 	    }else{
 	    	$dbStatus.addClass('-active');
-	    	$dbStatus.html('JHOS Database is Offline<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
+	    	$dbStatus.html('API Database lost connection<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
 	    	setTimeout(databaseChecking,60000);
 	    }
 	});
