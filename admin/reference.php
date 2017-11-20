@@ -9,11 +9,10 @@ if(!$user_online){
 $app = new app;
 $reference = new Reference;
 
-$category_id = $_GET['category'];
-
-$references = $reference->listAll($category_id);
-$category = $reference->listCategory();
-$currentPage = 'reference';
+$category_id 	= $_GET['category'];
+$references 	= $reference->listAll($category_id);
+$category 		= $reference->listCategory();
+$currentPage 	= 'references';
 
 ?>
 <!doctype html>

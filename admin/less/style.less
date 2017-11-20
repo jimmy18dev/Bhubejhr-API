@@ -18,6 +18,19 @@
 	z-index: 99;
 	.bgGradient(@primary_color_dark,@primary_color);
 
+	.btn-back{
+		float: left;
+		display: inline-block;
+		padding: 18px 2%;
+		height: 14px;
+		color: #FFFFFF;
+		text-decoration: none;
+		font-size: @fontsize_normal;
+		line-height: 1em;
+
+		i{ margin-right: 20px; }
+	}
+
 	a.logo{
 		float: left;
 		display: inline-block;
@@ -405,6 +418,7 @@
 			text-decoration: none;
 			line-height: 1em;
 			letter-spacing: 1px;
+			position: relative;
 
 			i{
 				float: left;
@@ -417,7 +431,18 @@
 			&.-right{ float: right; }
 			&.-active{
 				color: #FFFFFF;
-				border-bottom: 2px solid #FFFFFF;
+
+				&:after{
+					content: '';
+					border-top: 7px solid @primary_color_dark;
+					border-left: 7px solid transparent;
+					border-right: 7px solid transparent;
+					position: absolute;
+					z-index: 2;
+					top: 100%;
+					right: 40%;
+					pointer-events: none;
+				}
 			}
 		}
 	}
@@ -838,13 +863,13 @@
 			margin-top: 5%;
 
 			.btn{
-				float: left;
+				float: right;
 				display: inline-block;
 				background: @fontcolor_light;
 				font-size: @fontsize_normal;
 				border: 0px;
-				padding: 10px 20px;
-				border-radius: 2px;
+				padding: 12px 20px;
+				border-radius: 20px;
 				font-weight: bold;
 				color: #FFFFFF;
 				margin: 0px;
@@ -928,6 +953,7 @@
 
 			a{
 				color: @primary_color;
+				font-weight: bold;
 			}
 		}
 		.inputtext{
@@ -960,10 +986,11 @@
 			border: 0px;
 			background: @primary_color;
 			color: #FFFFFF;
-			border-radius: 2px;
+			border-radius: 20px;
 			margin: 0%;
 			margin-top: 10%;
 			font-weight: bold;
+			line-height: 1em;
 
 			i{ margin-left: 15px; }
 			&.-loading{

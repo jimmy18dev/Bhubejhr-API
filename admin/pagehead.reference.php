@@ -1,5 +1,4 @@
 <div class="pagehead">
-	<a href="reference.php" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back</a>
 	<?php if(!empty($reference->id)){?>
 	<div class="head">
 		<h1><?php echo $reference->name;?></h1>

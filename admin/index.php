@@ -9,7 +9,7 @@ if(!$user_online){
 $app = new app;
 $reference = new Reference;
 $signature 	= new Signature;
-$currentPage = 'profile';
+$currentPage = 'index';
 
 $apps = $app->listAll($user->id);
 
