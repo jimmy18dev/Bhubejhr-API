@@ -130,16 +130,36 @@
 
 	h1{
 		width: 100%;
-		padding: 20px 0%;
 		float: left;
 		display: inline-block;
-		font-size: @fontsize_mini;
+		font-size: 0.8em;
+		line-height: 1em;
+		margin-bottom: 2%;
 		font-weight: normal;
-		color: @fontcolor_gray;
+		color: @fontcolor_normal;
+
+		span{
+			float: left;
+			display: inline-block;
+			padding: 5px 0px;
+		}
 
 		a{
+			float: right;
+			display: inline-block;
+			border: 1px solid @primary_color;
 			color: @primary_color;
-			i{ margin-left: 5px; }
+			text-decoration: none;
+			padding: 3px 10px;
+			margin-left: 5px;
+			border-radius: 20px;
+
+			i{ margin-left: 10px; }
+
+			&:active{
+				background: @primary_color;
+				color: #FFFFFF;
+			}
 		}
 	}
 
@@ -499,7 +519,7 @@
 			&:hover h3{ text-decoration: underline; }
 
 			h3{
-				font-size: @fontsize_big;
+				font-size: 1.4em;
 				line-height: 1.3em;
 				margin-bottom: 1%;
 				color: @fontcolor_gray;
@@ -514,7 +534,6 @@
 					float: left;
 					display: inline-block;
 					color: @fontcolor_gray;
-					font-weight: bold;
 
 					&.get{ color: @color_get; }
 					&.post{ color: @color_post; }
@@ -702,7 +721,7 @@
 				display: inline-block;
 				font-size: @fontsize_normal;
 				margin-bottom: 1%;
-				color: @primary_color_light;
+				color: @primary_color;
 			}
 
 			.inputtext{
