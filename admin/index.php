@@ -9,7 +9,7 @@ if(!$user_online){
 $app = new app;
 $reference = new Reference;
 $signature 	= new Signature;
-$currentPage = 'profile';
+$currentPage = 'index';
 
 $apps = $app->listAll($user->id);
 
@@ -38,11 +38,17 @@ $apps = $app->listAll($user->id);
 </head>
 <body>
 <?php include'header.php';?>
-
 <div class="list">
 	<?php if($user->status == 'active'){?>
-	<h1>You have <?php echo $user->total_app;?> of <?php echo $user->app_limit;?> apps.</h1>
+	<h1>
+		<span>You have <?php echo $user->total_app;?> apps</span>
+		<a href="reference.php">API References<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+	</h1>
 	<div class="apps-list" id="apps">
+		<?php if($user->total_app < $user->app_limit && $user->status == 'active'){?>
+		<div class="app-items btn-new-app" id="btnCreateApp"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create a <strong>new App</strong></div>
+		<?php }?>
+		
 		<?php foreach ($apps as $var) {?>
 		<a href="app.php?id=<?php echo $var['app_id'];?>" class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
 			<div class="detail">
@@ -52,10 +58,6 @@ $apps = $app->listAll($user->id);
 			<div class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo $var['app_create_time'];?></div>
 			<div class="stat" title="<?php echo number_format($var['request_count']);?> Requests on this day."><?php echo number_format($var['request_count']);?></div>
 		</a>
-		<?php }?>
-
-		<?php if($user->total_app < $user->app_limit && $user->status == 'active'){?>
-		<div class="app-items btn-new-app" id="btnCreateApp"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create a <strong>new App</strong></div>
 		<?php }?>
 	</div>
 	<?php }else{?>

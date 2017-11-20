@@ -2,6 +2,7 @@ $(document).ready(function(){
 	$btnProfile 	= $('#btnProfile');
 	$menuProfile 	= $('#menuProfile');
 	$filterProfile 	= $('#filterProfile');
+	$progressbar 	= $('#progressbar');
 
 	$btnProfile.click(function(){
 		$filterProfile.fadeIn(100);
@@ -13,37 +14,14 @@ $(document).ready(function(){
 		});
 	});
 
-	$appExample = $('#appExample');
-
-	$appExample.change(function(){
-		var ref_id = $('#ref_id').val();
-		var app_id = $(this).val();
-		var url_example = $('#url_example').val();
-
-		$.ajax({
-	        url         :'api.app.php',
-	        cache       :false,
-	        dataType    :"json",
-	        type        :"GET",
-	        data:{
-	            request 	:'get',
-	            app_id		:app_id,
-	        },
-	        error: function (request, status, error) {
-	            console.log("Request Error",request.responseText);
-	            $progressbar.animate({width:'0%'},500);
-	        }
-	    }).done(function(data){
-	    	var token = '&token='+data.items.app_token;
-	    	$('#urlExample').val(url_example+token);
-	    });
-
-		// window.location = 'reference-page.php?id='+ref_id+'&app='+app_id;
-	});
+	$progressbar.fadeIn(300);
+	$progressbar.width('0%');
+	$progressbar.animate({width:'100%'},500);
+	$progressbar.fadeOut();
 });
 
 function databaseChecking(){
-	$dbStatus.html('JHOS Connection Checking<i class="fa fa-refresh fa-spin" aria-hidden="true"></i>');
+	$dbStatus.html('API Connection Checking<i class="fa fa-refresh fa-spin" aria-hidden="true"></i>');
 
 	$.ajax({
 		url         :'database_checking.php',
@@ -61,7 +39,7 @@ function databaseChecking(){
 	    	$dbStatus.addClass('-hidden');
 	    }else{
 	    	$dbStatus.addClass('-active');
-	    	$dbStatus.html('JHOS Database is Offline<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
+	    	$dbStatus.html('API Database lost connection<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
 	    	setTimeout(databaseChecking,60000);
 	    }
 	});

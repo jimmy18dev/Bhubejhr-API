@@ -1,6 +1,12 @@
 @import "reset";
 @import "config";
 
+// FONT SIZE
+@fontsize_big       :2em;
+@fontsize_topic     :1.2em;
+@fontsize_normal    :0.9em;
+@fontsize_mini      :0.75em;
+
 .header{
 	position: fixed;
 	top: 0px;
@@ -10,15 +16,27 @@
 	float: left;
 	display: inline-block;
 	z-index: 99;
-	background: #FFFFFF;
+	.bgGradient(@primary_color_dark,@primary_color);
+
+	.btn-back{
+		float: left;
+		display: inline-block;
+		padding: 18px 2%;
+		height: 14px;
+		color: #FFFFFF;
+		text-decoration: none;
+		font-size: @fontsize_normal;
+		line-height: 1em;
+
+		i{ margin-right: 20px; }
+	}
 
 	a.logo{
-		width: 13%;
 		float: left;
 		display: inline-block;
 		padding: 18px 1%;
 		height: 14px;
-		color: @fontcolor_dark;
+		color: #FFFFFF;
 		text-decoration: none;
 		font-size: @fontsize_normal;
 		line-height: 1em;
@@ -39,14 +57,12 @@
 		padding: 18px 0%;
 		margin-left: 2%;
 		height: 14px;
-		color: @fontcolor_light;
+		color: #FFFFFF;
 		text-decoration: none;
 		font-size: @fontsize_normal;
 		line-height: 1em;
 
-		i{
-			margin-right: 15px;
-		}
+		i{ margin-right: 15px; }
 
 		&.-active{ color: @fontcolor_dark; }
 
@@ -71,11 +87,12 @@
 				top: 90%;
 				right: -12%;
 				padding: 5% 0%;
-				background: @primary_color;
-				box-shadow: 1px 1px 20px rgba(0,0,0,0.3);
-				border-radius: 3px;
+				background: #FFFFFF;
+				border-radius: 2px;
 				display: none;
 				z-index: 999;
+				box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+				border: 1px solid @border_color;
 
 				.arrow-up{
 					position: absolute;
@@ -83,7 +100,7 @@
 					right: 8%;
 					border-left: 7px solid transparent;
 					border-right: 7px solid transparent;
-					border-bottom: 7px solid @primary_color;
+					border-bottom: 7px solid @bg_color;
 				}
 
 				a{
@@ -92,10 +109,10 @@
 					float: left;
 					display: inline-block;
 					text-decoration: none;
-					color: #FFFFFF;
+					color: #333333;
 
 					&:last-child{ border-bottom: 0px; }
-					&:hover{ background: @primary_color_dark; }
+					&:hover{ background: #EEEEEE; }
 				}
 			}
 		}
@@ -120,17 +137,43 @@
 	width: 70%;
 	margin: 0% 15%;
 	margin-top: 100px;
+	margin-bottom: 5%;
 	float: left;
 	display: inline-block;
 
 	h1{
 		width: 100%;
-		padding: 20px 0%;
 		float: left;
 		display: inline-block;
-		font-size: @fontsize_mini;
+		font-size: 0.8em;
+		line-height: 1em;
+		margin-bottom: 2%;
 		font-weight: normal;
-		color: @fontcolor_gray;
+		color: @fontcolor_normal;
+
+		span{
+			float: left;
+			display: inline-block;
+			padding: 5px 0px;
+		}
+
+		a{
+			float: right;
+			display: inline-block;
+			border: 1px solid @primary_color;
+			color: @primary_color;
+			text-decoration: none;
+			padding: 3px 10px;
+			margin-left: 5px;
+			border-radius: 3px;
+
+			i{ margin-left: 10px; }
+
+			&:active{
+				background: @primary_color;
+				color: #FFFFFF;
+			}
+		}
 	}
 
 	// .account-items{
@@ -217,15 +260,15 @@
 			float: left;
 			display: inline-block;
 			position: relative;
-			border-radius: 3px;
+			border-radius: 2px;
 			box-sizing: border-box;
-			background: #FFFFFF;
-			box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+			background: #FEFEFE;
+			border: 1px solid @border_color;
 			.transitionAnimation(0.2s);
 
 			&:nth-child(4n+0){margin-right: 0%; }
 			&:hover{
-				box-shadow: 0px 1px 20px rgba(0,0,0,0.1);
+				box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
 				transform: translateY(-5px);
 			}
 
@@ -267,7 +310,7 @@
 
 				p{
 					font-size: @fontsize_mini;
-					color: @fontcolor_normal;
+					color: @primary_color_light;
 					line-height: 1.4em;
 				}
 			}
@@ -330,19 +373,7 @@
 	display: inline-block;
 	padding: 0 25%;
 	margin-top: 50px;
-	background: #FFFFFF;
-	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-
-	a.btn-back{
-		float: left;
-		display: inline-block;
-		margin-top: 5%;
-		text-decoration: none;
-		color: @fontcolor_normal;
-		letter-spacing: 1px;
-
-		i{ margin-right: 10px; }
-	}
+	.bgGradient(@primary_color_dark,@primary_color);
 
 	.head{
 		width: 100%;
@@ -352,13 +383,13 @@
 
 		h1{
 			font-size: @fontsize_big;
-			line-height: 1.2em;
-			color: @fontcolor_dark;
+			line-height: 1.3em;
+			color: #FFFFFF;
 		}
 		p{
 			font-size: @fontsize_normal;
 			line-height: 1.3em;
-			color: @fontcolor_normal;
+			color: @primary_color_light;
 		}
 	}
 
@@ -368,14 +399,15 @@
 		display: inline-block;
 
 		.tab-items{
-			padding: 2% 3%;
+			padding: 2%;
 			float: left;
 			display: inline-block;
 			font-size: @fontsize_normal;
-			color: @fontcolor_gray;
+			color: @primary_color_light;
 			text-decoration: none;
 			line-height: 1em;
 			letter-spacing: 1px;
+			position: relative;
 
 			i{
 				float: left;
@@ -387,8 +419,19 @@
 
 			&.-right{ float: right; }
 			&.-active{
-				color: @primary_color;
-				border-bottom: 2px solid @primary_color;
+				color: #FFFFFF;
+
+				&:after{
+					content: '';
+					border-top: 7px solid @primary_color_dark;
+					border-left: 7px solid transparent;
+					border-right: 7px solid transparent;
+					position: absolute;
+					z-index: 2;
+					top: 100%;
+					right: 40%;
+					pointer-events: none;
+				}
 			}
 		}
 	}
@@ -403,12 +446,12 @@
 
 	h2{
 		width: 100%;
-		margin: 5% 0%;
+		margin: 6% 0%;
 		margin-bottom: 2%;
 		float: left;
 		display: inline-block;
 		font-size: @fontsize_topic;
-		color: @fontcolor_gray;
+		color: @primary_color_dark;
 		font-weight: normal;
 	}
 
@@ -425,27 +468,28 @@
 	}
 
 	.token-input{
-		width: 100%;
+		width: 96%;
 		float: left;
 		display: inline-block;
 		padding: 2%;
 		font-size: @fontsize_topic;
-		box-sizing: border-box;
-		background: #FCFCFC;
 		border: 0px;
-		border-radius: 3px;
-		color: #333333;
+		border-radius: 2px;
+		color: @primary_color_dark;
 		text-align: center;
+		background: #EEEEEE;
 	}
 
 	.list-filter{
 		position: fixed;
 		top: 100px;
 		left: 80%;
-		width: 15%;
+		width: 13%;
+		padding-left: 2%;
 		float: left;
 		display: inline-block;
 		font-size: @fontsize_normal;
+		border-left: 1px solid @border_color;
 
 		a{
 			width: 100%;
@@ -460,15 +504,18 @@
 				color: @fontcolor_dark;
 				font-weight: bold;
 			}
+
+			i{ margin-right: 10px; }
+
+			&.btn-create{
+				color: @primary_color;
+				font-weight: bold;
+			}
+
+			&:hover{ text-decoration: underline; }
 		}
 
-		.btn-create{
-			color: @primary_color;
-			font-weight: bold;
-			text-decoration: underline;
-
-			i{ margin-right: 5px; }
-		}
+		
 	}
 
 	.reference{
@@ -489,22 +536,33 @@
 			&:hover h3{ text-decoration: underline; }
 
 			h3{
-				font-size: @fontsize_big;
-				line-height: 1.3em;
-				margin-bottom: 1%;
+				font-size: 1.6em;
+				line-height: 1.4em;
 				color: @fontcolor_gray;
 			}
 			p{
+				width: 100%;
+				float: left;
+				display: inline-block;
 				font-size: @fontsize_normal;
 				line-height: 1.3em;
 				color: @fontcolor_normal;
+				margin-top: 1%;
+
+				&.mini{
+					font-size: 0.6em;
+					margin-top: 0%;
+				}
 
 				span{
-					margin-right: 5px;
 					float: left;
 					display: inline-block;
-					color: @fontcolor_gray;
-					font-weight: bold;
+					margin-right: 5px;
+					padding: 3px 6px;
+					background: #EEEEEE;
+					line-height: 1em;
+					border-radius: 5px;
+					letter-spacing: 2px;
 
 					&.get{ color: @color_get; }
 					&.post{ color: @color_post; }
@@ -517,13 +575,10 @@
 
 	.chart{
 		width: 100%;
-		padding: 2%;
-		padding-right: 4%;
+		padding: 0%;
 		float: left;
 		display: inline-block;
 		margin-bottom: 5%;
-		box-sizing: border-box;
-		box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
 		background: #FFFFFF;
 
 		canvas{ height: 300px; }
@@ -570,14 +625,14 @@
 			padding: 15% 0%;
 			float: left;
 			display: inline-block;
-			background: #FFFFFF;
-			color: @fontcolor_light;
-			border-radius: 3px;
+			background: #EEEEEE;
+			color: @fontcolor_normal;
+			border-radius: 2px;
 			text-align: center;
 			font-size: @fontsize_normal;
 			font-style: italic;
 			letter-spacing: 1px;
-			box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+			box-sizing: border-box;
 		}
 
 		.log-container{
@@ -585,7 +640,8 @@
 			float: left;
 			display: inline-block;
 			background: #FFFFFF;
-			box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+			border: 1px solid @border_color;
+			box-sizing: border-box;
 		}
 
 		.log-items{
@@ -673,9 +729,8 @@
 		border-radius: 1px;
 		margin-bottom: 5%;
 		box-sizing: border-box;
-		border: 1px solid #EEEEEE;
-		border-radius: 3px;
-		box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+		box-shadow: 0px 0px 30px rgba(0,0,0,0.2);
+		border-radius: 2px;
 
 		p{
 			font-size: @fontsize_normal;
@@ -695,7 +750,7 @@
 				display: inline-block;
 				font-size: @fontsize_normal;
 				margin-bottom: 1%;
-				color: @fontcolor_normal;
+				color: @primary_color;
 			}
 
 			.inputtext{
@@ -704,9 +759,10 @@
 				float: left;
 				display: inline-block;
 				border: 0px;
-				border-bottom: 1px solid #EEEEEE;
+				border-bottom: 1px solid @border_color;
 				font-size: @fontsize_topic;
 				color: @fontcolor_normal;
+				border-radius: 0px;
 
 				&:focus{
 					border-bottom: 1px solid #666666;
@@ -722,10 +778,11 @@
 				float: left;
 				display: inline-block;
 				border: 0px;
-				border-bottom: 1px solid #EEEEEE;
+				border-bottom: 1px solid @border_color;
 				font-size: @fontsize_topic;
 				resize: none;
 				color: @fontcolor_normal;
+				border-radius: 0px;
 
 				&:focus{
 					border-bottom: 1px solid #666666;
@@ -759,7 +816,7 @@
 					float: left;
 					display: inline-block;
 					border: 0px;
-					border-bottom: 1px solid #EEEEEE;
+					border-bottom: 1px solid @border_color;
 					font-size: @fontsize_topic;
 					color: @fontcolor_normal;
 					-webkit-appearance: none;
@@ -811,12 +868,12 @@
 			margin-top: 5%;
 
 			.btn{
-				float: left;
+				float: right;
 				display: inline-block;
 				background: @fontcolor_light;
 				font-size: @fontsize_normal;
 				border: 0px;
-				padding: 10px 20px;
+				padding: 12px 20px;
 				border-radius: 3px;
 				font-weight: bold;
 				color: #FFFFFF;
@@ -856,7 +913,7 @@
 		height: 100%;
 		float: left;
 		display: inline-block;
-		background: #004D40;
+		background: @primary_color;
 		text-align: right;
 
 		img{
@@ -869,7 +926,6 @@
 		h1{
 			font-size: 2em;
 			color: #FFFFFF;
-			text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 			margin-bottom: 2%;
 		}
 		p{
@@ -880,7 +936,7 @@
 		.ver{
 			font-size: 0.75em;
 			margin-bottom: 3%;
-			color: #002620;
+			color: @primary_color_dark;
 			letter-spacing: 1px;
 		}
 	}
@@ -899,39 +955,47 @@
 			font-size: @fontsize_normal;
 			margin-bottom: 15%;
 			color: @fontcolor_normal;
+
+			a{
+				color: @primary_color;
+				font-weight: bold;
+			}
 		}
 		.inputtext{
 			width: 100%;
 			padding: 6%;
 			float: left;
 			display: inline-block;
-			font-size: @fontsize_topic;
-			border: 0px;
+			font-size: @fontsize_normal;
+			border: 1px solid @border_color;
 			background: #FFFFFF;
-			margin-bottom: 5%;
+			margin-bottom: 4%;
 			color: @fontcolor_normal;
-			border-radius: 3px;
+			border-radius: 2px;
 			box-sizing: border-box;
-			box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+			box-shadow: none;
 
 			&:hover{ cursor: pointer; }
-			&:focus{ color: @fontcolor_dark; }
+			&:focus{
+				color: @fontcolor_dark;
+				background: #FAFAFA;
+			}
 		}
 
 		.btn-submit{
 			width: 50%;
 			padding: 5% 0%;
-			float: left;
+			float: right;
 			display: inline-block;
 			font-size: @fontsize_normal;
 			border: 0px;
 			background: @primary_color;
 			color: #FFFFFF;
-			border-radius: 2px;
+			border-radius: 3px;
 			margin: 0%;
-			margin-top: 7%;
+			margin-top: 10%;
 			font-weight: bold;
-			box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+			line-height: 1em;
 
 			i{ margin-left: 15px; }
 			&.-loading{
@@ -948,22 +1012,6 @@
 			&:hover{ cursor: pointer; }
 			&:active{ background: #2ecc71; }
 		}
-
-		a{
-			width: 50%;
-			padding: 5% 0%;
-			float: left;
-			display: inline-block;
-			font-size: @fontsize_normal;
-			line-height: 1.2em;
-			color: @fontcolor_normal;
-			margin: 0%;
-			margin-top: 7%;
-			text-align: right;
-			text-decoration: none;
-
-			&:hover{ text-decoration: underline; }
-		}
 	}
 }
 
@@ -977,9 +1025,11 @@
 	float: left;
 	display: none;
 	background: #FFFFFF;
-	border-radius: 3px;
+	border: 1px solid @bg_color;
+	box-shadow: 1px 1px 20px rgba(0,0,0,0.2);
+	border-radius: 2px;
 	overflow: hidden;
-	z-index: 99;
+	z-index: 999;
 
 	.input{
 		width: 100%;
@@ -1025,7 +1075,7 @@
 			padding: 3% 5%;
 			font-weight: bold;
 			color: @fontcolor_normal;
-			border-radius: 3px;
+			border-radius: 2px;
 			line-height: 1em;
 			background: #EEEEEE;
 
@@ -1048,9 +1098,14 @@
 	height: 100%;
 	float: left;
 	display: inline-block;
-	background: rgba(0,0,0,0.5);
-	z-index: 70;
+	background: rgba(0,0,0,0.7);
+	z-index: 900;
 	display: none;
+
+	&#filterProfile{
+		z-index: 70;
+		background: transparent;
+	}
 }
 
 .bar-alert{

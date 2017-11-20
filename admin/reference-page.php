@@ -85,8 +85,7 @@ $log_allday = $reference->allday($reference->id);
 <input type="hidden" id="url_example" value="<?php echo DOMAIN;?>/<?php echo $reference->example?>">
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/lib/chart.min.js"></script>
-<script type="text/javascript" src="js/reference.chart.js"></script>
+<script type="text/javascript" src="js/reference.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>

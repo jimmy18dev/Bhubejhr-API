@@ -3,8 +3,7 @@ var api_url = 'api.app.php';
 $(document).ready(function(){
 	$btnUpdate 		= $('#btnUpdate');
 	$btnDeleteApp 	= $('#btnDeleteApp');
-	$progressbar 	= $('#progressbar');
-
+	
 	autosize($('textarea'));
 
 	$btnUpdate.click(function(){

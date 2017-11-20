@@ -9,11 +9,10 @@ if(!$user_online){
 $app = new app;
 $reference = new Reference;
 
-$category_id = $_GET['category'];
-
-$references = $reference->listAll($category_id);
-$category = $reference->listCategory();
-$currentPage = 'reference';
+$category_id 	= $_GET['category'];
+$references 	= $reference->listAll($category_id);
+$category 		= $reference->listCategory();
+$currentPage 	= 'references';
 
 ?>
 <!doctype html>
@@ -38,16 +37,15 @@ $currentPage = 'reference';
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
-<body class="white">
+<body>
 <?php include'header.php';?>
-
 <div class="container">
 	<div class="list-filter">
 		<?php if($user->permission == 'admin'){?>
-		<a href="reference.php?" class="link <?php echo (empty($category_id)?'-active':'');?>"></i>All</a>
+		<a href="reference.php?" class="<?php echo (empty($category_id)?'-active':'');?>"></i><i class="fa fa-folder" aria-hidden="true"></i>All</a>
 		<?php }?>
 		<?php foreach ($category as $var) {?>
-		<a href="reference.php?category=<?php echo $var['id'];?>" class="link <?php echo ($category_id == $var['id']?'-active':'');?>"><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
+		<a href="reference.php?category=<?php echo $var['id'];?>" class="<?php echo ($category_id == $var['id']?'-active':'');?>"><i class="fa fa-folder" aria-hidden="true"></i><?php echo $var['name'];?><?php echo ($var['total'] > 0?' ('.$var['total'].')':'');?></a>
 		<?php }?>
 		<a href="reference-setting.php" class="btn-create"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create Reference</a>
 	</div>
@@ -56,11 +54,11 @@ $currentPage = 'reference';
 		<?php foreach ($references as $var) {?>
 		<a href="reference-page.php?id=<?php echo $var['ref_id'];?>" class="ref-items">
 			<h3><?php echo $var['ref_name'];?></h3>
-			<p class="id">
-				<span>#<?php echo $var['ref_id'];?></span>
-				<span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span>
-				<?php echo $var['ref_description'];?>
-			</p>	
+			<p class="mini"><span>#<?php echo $var['ref_id'];?></span><span class="method <?php echo $var['ref_method'];?>"><?php echo strtoupper($var['ref_method']);?></span></p>
+
+			<?php if(!empty($var['ref_description'])){?>
+			<p><?php echo $var['ref_description'];?></p>
+			<?php }?>	
 		</a>
 		<?php }?>
 	</div>

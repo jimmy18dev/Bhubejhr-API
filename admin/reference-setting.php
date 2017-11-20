@@ -34,7 +34,6 @@ $tab = 'setting';
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 </head>
 <body>
-<div class="progressbar" id="progressbar"></div>
 <?php include_once 'header.php';?>
 <?php include_once 'pagehead.reference.php';?>
 <div class="container">
@@ -94,7 +93,7 @@ $tab = 'setting';
 </div>
 
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/reference.setting.js"></script>
+<script type="text/javascript" src="js/reference.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>

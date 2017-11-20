@@ -40,12 +40,11 @@ $currentPage = 'login';
 		<p class="mini">Get the full details of all the nodes, edges, and fields</p>
 	</div>
 	<form class="form" action="javascript:login();">
-		<p>Please enter your username and password to login.</p>
-		<input class="inputtext" type="text" id="username" placeholder="Email or Username" autofocus>
+		<p>Please enter your username and password to login or <a href="register.php">Create New Account</a></p>
+		<input class="inputtext" type="email" id="username" placeholder="Your Email Address" autofocus>
 		<input class="inputtext" type="password" id="password" placeholder="Password">
 		<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('login',SECRET_KEY);?>">
 		<button id="btn-submit" class="btn-submit">Login<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-		<a href="register.php">Create Account</a>
 	</form>
 </div>
 
