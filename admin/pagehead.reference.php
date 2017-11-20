@@ -8,9 +8,9 @@
 		<?php }?>
 	</div>
 	<div class="tab">
-		<a href="reference-page.php?id=<?php echo $reference->id;?>" class="tab-items <?php echo ($tab == 'home'?'-active':'');?>"><i class="fa fa-cog" aria-hidden="true"></i>Detail</a>
-		<a href="reference-analytics.php?id=<?php echo $reference->id;?>" class="tab-items <?php echo ($tab == 'analytics'?'-active':'');?>"><i class="fa fa-bar-chart" aria-hidden="true"></i>Analytics</a>
-		<a href="reference-setting.php?id=<?php echo $reference->id;?>" class="tab-items -right <?php echo ($tab == 'setting'?'-active':'');?>"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a>
+		<a href="reference-page.php?id=<?php echo $reference->id;?>" class="tab-items <?php echo ($tab == 'home'?'-active':'');?>"><i class="fa fa-cog" aria-hidden="true"></i><span>Detail</span></a>
+		<a href="reference-analytics.php?id=<?php echo $reference->id;?>" class="tab-items <?php echo ($tab == 'analytics'?'-active':'');?>"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Analytics</span></a>
+		<a href="reference-setting.php?id=<?php echo $reference->id;?>" class="tab-items -right <?php echo ($tab == 'setting'?'-active':'');?>"><i class="fa fa-cog" aria-hidden="true"></i><span>Settings</span></a>
 	</div>
 	<?php }else{?>
 	<div class="head">

@@ -180,7 +180,7 @@ class User{
         $cookie_time    = time() + 3600 * 24 * 12; // Cookie Time (1 year)
 
         // GET USER DATA BY EMAIL
-        $this->db->query('SELECT id,password,salt FROM api_user WHERE username = :username OR email = :username');
+        $this->db->query('SELECT id,password,salt FROM api_user WHERE email = :username');
         $this->db->bind(':username',$username);
         $this->db->execute();
         $user_data = $this->db->single();

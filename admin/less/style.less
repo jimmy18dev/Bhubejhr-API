@@ -1,6 +1,12 @@
 @import "reset";
 @import "config";
 
+// FONT SIZE
+@fontsize_big       :2em;
+@fontsize_topic     :1.2em;
+@fontsize_normal    :0.9em;
+@fontsize_mini      :0.75em;
+
 .header{
 	position: fixed;
 	top: 0px;
@@ -13,7 +19,6 @@
 	background: #222222;
 
 	a.logo{
-		width: 13%;
 		float: left;
 		display: inline-block;
 		padding: 18px 1%;
@@ -72,7 +77,7 @@
 				right: -12%;
 				padding: 5% 0%;
 				background: #FFFFFF;
-				border-radius: 3px;
+				border-radius: 2px;
 				display: none;
 				z-index: 999;
 				box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
@@ -224,7 +229,7 @@
 			float: left;
 			display: inline-block;
 			position: relative;
-			border-radius: 3px;
+			border-radius: 2px;
 			box-sizing: border-box;
 			background: #FFFFFF;
 			border: 1px solid @border_color;
@@ -374,7 +379,7 @@
 		display: inline-block;
 
 		.tab-items{
-			padding: 2% 3%;
+			padding: 2%;
 			float: left;
 			display: inline-block;
 			font-size: @fontsize_normal;
@@ -431,17 +436,17 @@
 	}
 
 	.token-input{
-		width: 100%;
+		width: 96%;
 		float: left;
 		display: inline-block;
 		padding: 2%;
 		font-size: @fontsize_topic;
-		box-sizing: border-box;
 		border: 0px;
-		border-radius: 3px;
+		border-radius: 2px;
 		color: @fontcolor_dark;
 		text-align: center;
-		border: 1px solid @border_color;
+		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
+		background: #EEEEEE;
 	}
 
 	.list-filter{
@@ -525,13 +530,10 @@
 
 	.chart{
 		width: 100%;
-		padding: 2%;
-		padding-right: 4%;
+		padding: 0%;
 		float: left;
 		display: inline-block;
 		margin-bottom: 5%;
-		box-sizing: border-box;
-		border: 1px solid #EEEEEE;
 		background: #FFFFFF;
 
 		canvas{ height: 300px; }
@@ -578,14 +580,13 @@
 			padding: 15% 0%;
 			float: left;
 			display: inline-block;
-			background: #FAFAFA;
-			color: @fontcolor_light;
-			border-radius: 3px;
+			background: #EEEEEE;
+			color: @fontcolor_normal;
+			border-radius: 2px;
 			text-align: center;
 			font-size: @fontsize_normal;
 			font-style: italic;
 			letter-spacing: 1px;
-			border: 1px solid #EEEEEE;
 			box-sizing: border-box;
 		}
 
@@ -594,7 +595,7 @@
 			float: left;
 			display: inline-block;
 			background: #FFFFFF;
-			border: 1px solid #EEEEEE;
+			border: 1px solid @border_color;
 			box-sizing: border-box;
 		}
 
@@ -683,8 +684,8 @@
 		border-radius: 1px;
 		margin-bottom: 5%;
 		box-sizing: border-box;
-		border: 1px solid @border_color;
-		border-radius: 3px;
+		box-shadow: 0px 0px 30px rgba(0,0,0,0.2);
+		border-radius: 2px;
 
 		p{
 			font-size: @fontsize_normal;
@@ -713,7 +714,7 @@
 				float: left;
 				display: inline-block;
 				border: 0px;
-				border-bottom: 1px solid #EEEEEE;
+				border-bottom: 1px solid @border_color;
 				font-size: @fontsize_topic;
 				color: @fontcolor_normal;
 
@@ -731,7 +732,7 @@
 				float: left;
 				display: inline-block;
 				border: 0px;
-				border-bottom: 1px solid #EEEEEE;
+				border-bottom: 1px solid @border_color;
 				font-size: @fontsize_topic;
 				resize: none;
 				color: @fontcolor_normal;
@@ -768,7 +769,7 @@
 					float: left;
 					display: inline-block;
 					border: 0px;
-					border-bottom: 1px solid #EEEEEE;
+					border-bottom: 1px solid @border_color;
 					font-size: @fontsize_topic;
 					color: @fontcolor_normal;
 					-webkit-appearance: none;
@@ -826,7 +827,7 @@
 				font-size: @fontsize_normal;
 				border: 0px;
 				padding: 10px 20px;
-				border-radius: 3px;
+				border-radius: 2px;
 				font-weight: bold;
 				color: #FFFFFF;
 				margin: 0px;
@@ -878,7 +879,6 @@
 		h1{
 			font-size: 2em;
 			color: #FFFFFF;
-			text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 			margin-bottom: 2%;
 		}
 		p{
@@ -908,19 +908,27 @@
 			font-size: @fontsize_normal;
 			margin-bottom: 15%;
 			color: @fontcolor_normal;
+
+			a{
+				color: @primary_color;
+				text-decoration: none;
+
+				&:hover{ text-decoration: underline; }
+			}
 		}
 		.inputtext{
 			width: 100%;
 			padding: 6%;
 			float: left;
 			display: inline-block;
-			font-size: @fontsize_topic;
+			font-size: @fontsize_normal;
 			border: 1px solid @border_color;
 			background: #FFFFFF;
-			margin-bottom: 5%;
+			margin-bottom: 4%;
 			color: @fontcolor_normal;
-			border-radius: 3px;
+			border-radius: 2px;
 			box-sizing: border-box;
+			box-shadow: none;
 
 			&:hover{ cursor: pointer; }
 			&:focus{
@@ -932,7 +940,7 @@
 		.btn-submit{
 			width: 50%;
 			padding: 5% 0%;
-			float: left;
+			float: right;
 			display: inline-block;
 			font-size: @fontsize_normal;
 			border: 0px;
@@ -940,7 +948,7 @@
 			color: #FFFFFF;
 			border-radius: 2px;
 			margin: 0%;
-			margin-top: 7%;
+			margin-top: 10%;
 			font-weight: bold;
 
 			i{ margin-left: 15px; }
@@ -958,22 +966,6 @@
 			&:hover{ cursor: pointer; }
 			&:active{ background: #2ecc71; }
 		}
-
-		a{
-			width: 50%;
-			padding: 5% 0%;
-			float: left;
-			display: inline-block;
-			font-size: @fontsize_normal;
-			line-height: 1.2em;
-			color: @fontcolor_normal;
-			margin: 0%;
-			margin-top: 7%;
-			text-align: right;
-			text-decoration: none;
-
-			&:hover{ text-decoration: underline; }
-		}
 	}
 }
 
@@ -989,7 +981,7 @@
 	background: #FFFFFF;
 	border: 1px solid @bg_color;
 	box-shadow: 1px 1px 20px rgba(0,0,0,0.2);
-	border-radius: 3px;
+	border-radius: 2px;
 	overflow: hidden;
 	z-index: 999;
 
@@ -1037,7 +1029,7 @@
 			padding: 3% 5%;
 			font-weight: bold;
 			color: @fontcolor_normal;
-			border-radius: 3px;
+			border-radius: 2px;
 			line-height: 1em;
 			background: #EEEEEE;
 
@@ -1060,7 +1052,7 @@
 	height: 100%;
 	float: left;
 	display: inline-block;
-	background: rgba(255, 255, 255, 0.7);
+	background: rgba(0,0,0,0.7);
 	z-index: 900;
 	display: none;
 

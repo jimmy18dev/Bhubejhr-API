@@ -45,8 +45,8 @@ $currentPage = 'profile';
 		<p><?php echo $user->position;?> at <strong><?php echo $user->company;?></strong></p>
 	</div>
 	<div class="tab">
-		<a href="profile-setting.php" class="tab-items -active"><i class="fa fa-user" aria-hidden="true"></i>Profile Setting</a>
-		<a href="profile-password.php" class="tab-items"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
+		<a href="profile-setting.php" class="tab-items -active"><i class="fa fa-user" aria-hidden="true"></i><span>Setting</span></a>
+		<a href="profile-password.php" class="tab-items"><i class="fa fa-key" aria-hidden="true"></i><span>Change Password</span></a>
 	</div>
 </div>
 <div class="container">

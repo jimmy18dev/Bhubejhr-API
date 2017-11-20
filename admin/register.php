@@ -40,14 +40,13 @@ $currentPage = 'register';
 		<p class="mini">Get the full details of all the nodes, edges, and fields</p>
 	</div>
 	<form class="form" action="javascript:register();">
-		<p>Create a new account at <?php echo SITENAME;?> to connect your applications.</p>
+		<p>Create a new account at <?php echo SITENAME;?> to connect your applications or <a href="login.php">Login wiht your email</a></p>
 		<input class="inputtext" type="text" id="fullname" placeholder="Fullname" autofocus>
-		<input class="inputtext" type="text" id="email" placeholder="Email Address">
+		<input class="inputtext" type="email" id="email" placeholder="Your Email Address">
 		<input class="inputtext" type="password" id="password" placeholder="Password">
 		
 		<input type="hidden" id="sign" name="sign" value="<?php echo $signature->generateSignature('register',SECRET_KEY);?>">
 		<button id="btn-submit" class="btn-submit register">Register<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-		<a href="login.php">Login wiht Email</a>
 	</form>
 </div>
 <script type="text/javascript" src="js/lib/jquery-3.2.1.min.js"></script>
