@@ -55,11 +55,11 @@ $currentPage = 'profile';
 		<div class="form">
 			<div class="form-items">
 				<label for="newpassword">New Password</label>
-				<input type="text" class="inputtext" id="newpassword">
+				<input type="text" class="inputtext" id="newpassword" placeholder="Password must be 8 characters">
 			</div>
 			<div class="form-items">
 				<label for="repassword">Re-Password again</label>
-				<input type="text" class="inputtext" id="repassword">
+				<input type="text" class="inputtext" id="repassword" placeholder="Enter new password again">
 			</div>
 
 			<div class="form-control">
