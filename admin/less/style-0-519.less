@@ -5,44 +5,52 @@
 @fontsize_mini      :0.75em;
 
 .header{
+	.btn-back{
+		padding: 18px 5%;
+		height: 14px;
+		font-size: 1em;
+		line-height: 1em;
+
+		i{ margin-right: 20px; }
+	}
+
 	a.logo{
 		padding: 18px 5%;
 		height: 14px;
+		font-size: 1em;
 
 		img{
 			height: 24px;
-			margin-right: 7px;
+			margin-right: 10px;
 			margin-top: -5px;
 		}
 	}
 
 	.nav{
-		padding: 18px 5%;
+		padding: 18px 6%;
 		margin-left: 0%;
 		height: 14px;
 		font-size: 1em;
 
-		i{ margin-right: 0px; }
+		.name{ display: none; }
 
 		&.btn-profile{
 			margin-right: 0%;
 
-			.name{ display: none; }
-			i.fa-angle-down{ margin-left: 0px; }
+			i.fa-angle-down{ margin: 0px; }
 
 			.more-menu{
-				width: 200px;
+				width: 220px;
 				top: 90%;
-				right: 5%;
-				padding: 40% 0%;
+				right: 10%;
+				padding: 20% 0%;
 
 				.arrow-up{ right: 5%; }
 
 				a{
-					width: 90%;
-					padding: 5%;
-
-					i{ margin-right: 10px; }
+					width: 80%;
+					padding: 6% 10%;
+					font-size: 0.9em;
 				}
 			}
 		}
@@ -54,26 +62,38 @@
 	margin: 0%;
 	margin-top: 50px;
 	margin-bottom: 5%;
+	float: left;
+	display: inline-block;
 
 	h1{
 		width: 90%;
-		padding: 20px 5%;
+		margin: 5%;
 		font-size: 0.8em;
+		line-height: 1em;
+
+		span{ padding: 5px 0px; }
+
+		a{
+			padding: 3px 10px;
+			i{ margin-left: 10px; }
+		}
 	}
 
 	.apps-list{
 		width: 90%;
-		margin: 0 5%;
+		margin: 5%;
+		float: left;
+		display: inline-block;
 
 		.app-items{
 			width: 100%;
-			padding: 5%;
+			padding: 7% 5%;
+			margin: 0%;
 			margin-bottom: 5%;
-			margin-right: 0%;
 
 			&.btn-new-app{
-				padding: 8.55% 0%;
-				font-size: @fontsize_topic;
+				padding: 10% 0%;
+				font-size: 1em;
 
 				i{
 					margin-right: 10px;
@@ -86,25 +106,24 @@
 
 				h2{
 					margin-bottom: 2%;
-					font-size: @fontsize_topic;
+					font-size: 1.2em;
+					line-height: 1.3em;
 				}
 
 				p{
-					font-size: @fontsize_mini;
+					font-size: 0.8em;
 					line-height: 1.4em;
 				}
 			}
 
 			.time{
 				width: 60%;
-				font-size: @fontsize_mini;
-				margin-top: 8%;
-
-				i{ margin-right: 5px; }
+				font-size: 0.7em;
+				margin-top: 5%;
 			}
 			.stat{
 				width: 40%;
-				font-size: @fontsize_big;
+				font-size: 1.6em;
 			}
 		}
 	}
@@ -136,21 +155,19 @@
 .pagehead{
 	width: 100%;
 	padding: 0%;
-
-	a.btn-back{
-		margin-top: 5%;
-		margin-left: 5%;
-	}
+	margin-top: 50px;
 
 	.head{
 		width: 90%;
 		padding: 5%;
 
 		h1{
-			font-size: @fontsize_big;
+			font-size: 1.4em;
+			line-height: 1.3em;
 		}
 		p{
-			font-size: @fontsize_normal;
+			font-size: 0.8em;
+			line-height: 1.3em;
 		}
 	}
 
@@ -160,19 +177,18 @@
 			font-size: 1em;
 			text-align: center;
 
-			i{
-				width: 100%;
-				margin-right: 0px;
-				font-size: 1.2em;
-				margin-top: 0px;
-				margin-bottom: 5px;
-			}
-
 			span{
 				width: 100%;
 				float: left;
 				display: inline-block;
-				font-size: 0.6em;
+				font-size: 0.7em;
+			}
+
+			i{
+				width: 100%;
+				font-size: 1.1em;
+				margin: 0px;
+				margin-bottom: 5px;
 			}
 		}
 	}
@@ -186,51 +202,57 @@
 	h2{
 		width: 90%;
 		margin: 5%;
-		margin-bottom: 2%;
-		font-size: @fontsize_topic;
+		margin-bottom: 3%;
+		font-size: 1em;
 	}
 
 	.notfound{
-		width: 90%;
-		padding: 20% 5%;
+		width: 100%;
+		padding: 30% 0%;
+		float: left;
+		display: inline-block;
+		text-align: center;
+		color: @fontcolor_normal;
+		font-style: italic;
+		letter-spacing: 1px;
 		font-size: @fontsize_topic;
 	}
 
 	.token-input{
-		width: 86%;
-		padding: 4% 2%;
+		width: 80%;
+		padding: 5%;
 		margin: 1% 5%;
-		font-size: 0.8em;
+		font-size: 0.9em;
 	}
 
 	.list-filter{
 		position: inherit;
 		width: 90%;
-		padding: 0%;
-		margin: 5%;
+		padding: 5%;
 		font-size: 0.8em;
-		border: 0px;
 		margin-top: 50px;
+		background: #EEEEEE;
 
 		a{
 			width: auto;
-			padding: 2% 4%;
+			padding: 8px 10px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+			float: left;
+			display: inline-block;
 			line-height: 1em;
-			border: 1px solid transparent;
-			margin-top: 3%;
-			margin-right: 2%;
-			border-radius: 2px;
+			background: #FFFFFF;
+			border-radius: 5px;
 
-			&.-active{ border: 1px solid @fontcolor_dark; }
-		}
+			i{ display: none; }
 
-		.btn-create{
-			color: @primary_color;
-			font-weight: bold;
-			text-decoration: underline;
-
-			i{ margin-right: 5px; }
-		}
+			&.-active{
+				background: @primary_color;
+				color: #FFFFFF;
+				font-weight: normal;
+			}
+			&:hover{ text-decoration: none; }
+		}		
 	}
 
 	.reference{
@@ -239,38 +261,33 @@
 		.ref-items{
 			width: 90%;
 			padding: 5%;
-			border-bottom: 1px solid #DDDDDD;
-
-			&:hover h3{ text-decoration: underline; }
+			border-bottom: 1px solid #EEEEEE;
 
 			h3{
-				font-size: 1.5em;
-				margin-bottom: 1%;
+				font-size: 1.4em;
+				line-height: 1.4em;
 			}
 			p{
-				font-size: 0.9em;
+				font-size: 0.8em;
 				line-height: 1.3em;
+				margin-top: 3%;
+
+				&.mini{
+					font-size: 0.6em;
+					margin-top: 0%;
+				}
 
 				span{
 					margin-right: 5px;
-					float: left;
-					display: inline-block;
-					color: @fontcolor_gray;
-					font-weight: bold;
-
-					&.get{ color: @color_get; }
-					&.post{ color: @color_post; }
-					&.put{ color: @color_put; }
-					&.delete{ color: @color_delete; }
+					padding: 3px 6px;
 				}
 			}
 		}
 	}
 
 	.chart{
-		width: 92%;
-		padding: 2%;
-		padding-right: 6%;
+		width: 90%;
+		margin: 5%;
 		margin-bottom: 5%;
 
 		canvas{ height: 300px; }
@@ -278,55 +295,56 @@
 
 	.stat{
 		width: 90%;
-		margin: 0% 5%;
-		margin-bottom: 5%;
+		margin: 5%;
 
 		.stat-items{
 			width: 50%;
-			margin-top: 5%;
+			margin-bottom: 5%;
 
 			.v{
-				font-size: 1.5em;
+				font-size: 1.6em;
 				line-height: 1.3em;
 			}
-			.c{ font-size: 0.9em; }
+			.c{ font-size: 0.8em; }
 		}
 	}
 
 	.log{
-		width: 100%;
-		float: left;
-		display: inline-block;
 		margin-bottom: 5%;
 
 		.empty{
-			padding: 25% 0%;
-			font-size: @fontsize_normal;
+			padding: 30% 0%;
+			font-size: 0.8em;
 		}
 
 		.log-container{ border: 0px; }
-
 		.log-items{
 			width: 96%;
 			padding: 2%;
-			font-size: 0.75em;
+			font-size: 0.7em;
 
-			.time{
-				width: 25%;
-			}
-			.id{
-				width: 10%;
-			}
+			.time{ width: 25%; }
+			.id{ width: 10%; }
 			.ref{
 				width: 50%;
 
 				.method{
+					float: left;
+					display: inline-block;
+					background: #CCCCCC;
+					color: #FFFFFF;
 					font-size: @fontsize_mini;
 					padding: 2px 5px;
 					padding-top: 3px;
 					line-height: 1em;
 					margin-top: 2px;
 					margin-right: 10px;
+					border-radius: 2px;
+
+					&.get{ background: @color_get; }
+					&.post{ background: @color_post; }
+					&.put{ background: @color_put; }
+					&.delete{ background: @color_delete; }
 				}
 
 				a{
@@ -344,9 +362,7 @@
 					}
 				}
 			}
-			.execute{
-				width: 15%;
-			}
+			.execute{ width: 15%; }
 		}
 	}
 
@@ -355,49 +371,50 @@
 		padding: 5%;
 		margin-bottom: 5%;
 
-		p{
-			font-size: @fontsize_normal;
-			line-height: 1.3em;
-			color: @fontcolor_normal;
-		}
+		p{ font-size: 0.9em; }
 
 		.form-items{
 			margin-bottom: 5%;
 
-			label{ font-size: @fontsize_normal; }
+			label{
+				font-size: 0.8em;
+				margin-bottom: 1%;
+			}
 
 			.inputtext{
-				width: 100%;
-				padding: 1.5% 0%;
+				padding: 4% 0%;
 				font-size: 1em;
 			}
 
 			.inputtextarea{
-				padding: 1% 0%;
+				padding: 4% 0%;
 				height: 70px;
 				font-size: 1em;
 			}
 
 			.select{
-				margin-bottom: 5%;
-
 				&:after{
-					top: 25px;
-					right: 2%;
+					border-top: 10px solid @primary_color;
+					top: 18px;
+					right: 5%;
 				}
 
 				select{
-					padding: 1.5% 0%;
+					width: 100%;
+					padding: 3% 0%;
 					font-size: 1em;
+					line-height: 1.5em;
 				}
 			}
 
 			.selection{
+				width: 100%;
+				float: left;
+				display: inline-block;
+
 				.items{
-					margin-right: 1%;
-					margin-top: 1%;
-					padding: 1% 2%;
-					font-size: @fontsize_normal;
+					padding: 2%;
+					font-size: 0.9em;
 				}
 			}
 		}
@@ -407,8 +424,9 @@
 
 			.btn{
 				width: 100%;
-				font-size: @fontsize_normal;
-				padding: 10px 20px;
+				font-size: 0.9em;
+				border: 0px;
+				padding: 10px 0px;
 				i{ margin-right: 10px; }
 			}
 		}
@@ -416,7 +434,7 @@
 }
 
 .logout{
-	margin-top: 75%;
+	margin-top: 70%;
 	font-size: 1em;
 }
 
@@ -429,36 +447,40 @@
 		text-align: left;
 
 		img{
-			height: 30px;
-			margin-top: 0%;
-			margin-bottom: 0%;
+			height: 35px;
+			margin: 0%;
 		}
 
 		h1{
 			font-size: 1.4em;
 			margin-bottom: 0%;
 		}
-		p{ font-size: 0.7em; }
-		.ver{ font-size: 0.7em; }
+		p{ font-size: 0.8em; }
+
+		.ver{
+			font-size: 0.7em;
+			margin-bottom: 3%;
+		}
 	}
 	.form{
 		width: 90%;
 		padding: 5%;
 
 		p{
-			font-size: 0.9em;
+			font-size: 0.8em;
 			margin-bottom: 5%;
 		}
 		.inputtext{
 			width: 100%;
 			padding: 5%;
+			font-size: 1em;
 			margin-bottom: 3%;
 		}
 
 		.btn-submit{
 			width: 100%;
 			padding: 5% 0%;
-			font-size: 0.9em;
+			font-size: 1em;
 			margin-top: 5%;
 
 			i{ margin-left: 15px; }
@@ -467,7 +489,7 @@
 }
 
 .dialog{
-	top: 25%;
+	top: 15%;
 	width: 80%;
 	padding: 10% 5%;
 	margin: 0% 5%;
@@ -475,27 +497,26 @@
 	.input{
 		label{
 			margin-top: 3%;
-			font-size: @fontsize_normal;
+			font-size: 0.8em;
 		}
 
 		.inputtext{
-			padding: 3% 0%;
-			font-size: @fontsize_topic;
-			border-bottom: 1px solid #EEEEEE;
-			margin-bottom: 10%;
+			padding: 5% 0%;
+			font-size: 1em;
+			margin-bottom: 5%;
 		}
 	}
 
 	.control{
 		.btn{
-			font-size: @fontsize_normal;
-			padding: 3% 5%;
+			font-size: 1em;
+			padding: 4% 5%;
 		}
 	}
 }
 
 .bar-alert{
-	width: 70%;
-	padding: 5px 15%;
-	font-size: @fontsize_mini;
+	width: 90%;
+	padding: 5px 5%;
+	font-size: 0.7em;
 }
