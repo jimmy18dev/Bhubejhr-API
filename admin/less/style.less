@@ -262,7 +262,7 @@
 			position: relative;
 			border-radius: 2px;
 			box-sizing: border-box;
-			background: #FFFFFF;
+			background: #FEFEFE;
 			border: 1px solid @border_color;
 			.transitionAnimation(0.2s);
 
@@ -515,15 +515,18 @@
 				color: @fontcolor_dark;
 				font-weight: bold;
 			}
+
+			i{ margin-right: 10px; }
+
+			&.btn-create{
+				color: @primary_color;
+				font-weight: bold;
+			}
+
+			&:hover{ text-decoration: underline; }
 		}
 
-		.btn-create{
-			color: @primary_color;
-			font-weight: bold;
-			text-decoration: underline;
-
-			i{ margin-right: 5px; }
-		}
+		
 	}
 
 	.reference{
@@ -544,21 +547,33 @@
 			&:hover h3{ text-decoration: underline; }
 
 			h3{
-				font-size: 1.4em;
-				line-height: 1.3em;
-				margin-bottom: 1%;
+				font-size: 1.6em;
+				line-height: 1.4em;
 				color: @fontcolor_gray;
 			}
 			p{
+				width: 100%;
+				float: left;
+				display: inline-block;
 				font-size: @fontsize_normal;
 				line-height: 1.3em;
 				color: @fontcolor_normal;
+				margin-top: 1%;
+
+				&.mini{
+					font-size: 0.6em;
+					margin-top: 0%;
+				}
 
 				span{
-					margin-right: 5px;
 					float: left;
 					display: inline-block;
-					color: @fontcolor_gray;
+					margin-right: 5px;
+					padding: 3px 6px;
+					background: #EEEEEE;
+					line-height: 1em;
+					border-radius: 5px;
+					letter-spacing: 2px;
 
 					&.get{ color: @color_get; }
 					&.post{ color: @color_post; }

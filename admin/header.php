@@ -14,6 +14,7 @@
 		<div class="more-menu" id="menuProfile">
 			<div class="arrow-up"></div>
 			<a href="index.php"><i class="fa fa-id-badge" aria-hidden="true"></i>Your Apps</a>
+			<a href="reference.php"><i class="fa fa-cube" aria-hidden="true"></i>API Reference</a>
 			<a href="profile-setting.php"><i class="fa fa-user" aria-hidden="true"></i>Profile Settings</a>
 			<a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
 		</div>
