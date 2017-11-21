@@ -40,15 +40,13 @@ $apps = $app->listAll($user->id);
 <?php include'header.php';?>
 <div class="list">
 	<?php if($user->status == 'active'){?>
-	<h1>
-		<span>You have <?php echo $user->total_app;?> apps</span>
-		<a href="reference.php">API References<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-	</h1>
-	<div class="apps-list" id="apps">
+	<div class="topic">
+		<div class="h">You have <?php echo $user->total_app;?> apps</div>
 		<?php if($user->total_app < $user->app_limit && $user->status == 'active'){?>
-		<div class="app-items btn-new-app" id="btnCreateApp"><i class="fa fa-plus-circle" aria-hidden="true"></i>Create a <strong>new App</strong></div>
+		<div class="btn" id="btnCreateApp">Create a <strong>New App</strong></div>
 		<?php }?>
-		
+	</div>
+	<div class="apps-list" id="apps">
 		<?php foreach ($apps as $var) {?>
 		<a href="app.php?id=<?php echo $var['app_id'];?>" class="app-items" id="app<?php echo $var['app_id'];?>" data-id="<?php echo $var['app_id'];?>">
 			<div class="detail">
