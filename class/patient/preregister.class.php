@@ -8,6 +8,14 @@ class Preregister{
     	$this->db = $localdb;
     }
 
+    public function get($cid){
+    	$this->db->query('SELECT * FROM preregister WHERE cid = :cid');
+        $this->db->bind(':cid',$cid);
+        $this->db->execute();
+        $dataset = $this->db->single();
+        return $dataset;
+    }
+
     public function create($cid,$prename,$fname,$lname,$gender,$birthday,$nation,$religion,$address,$phone,$rightname,$parent_type,$parent_fname,$parent_lname,$parent_phone,$avatar,$symptom){
 
     	if($this->alreadyChecing($cid)){

@@ -46,6 +46,18 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$dataset = $lab->lab_opd($_GET['hn']);
 				$returnObject['dataset'] = $dataset;
 				break;
+			case 'get_preregister':
+				$request_id 	= 102;
+				$cid 			= $_GET['cid'];
+				$returnObject['request'] = $_GET['request'];
+
+				if(!empty($cid)){
+					$dataset = $preregister->get($cid);
+					$returnObject['dataset'] = $dataset;
+				}else{
+					$returnObject['message'] = 'Data invalid!';
+				}
+				break;
 			default:
 				$returnObject['message'] = 'GET API Not found!';
 			break;
@@ -62,6 +74,7 @@ switch ($_SERVER['REQUEST_METHOD']){
 
     	switch ($_POST['request']){
 			case 'preregister':
+				$request_id = 101;
 				$returnObject['message'] = 'Pre Register API';
 
 				$cid 			= $_POST['cid'];
