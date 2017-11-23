@@ -23,6 +23,7 @@ include_once'class/inventory/inventory.class.php';
 include_once'class/labs/labs.class.php';
 include_once'class/operation/operation.class.php';
 include_once'class/patient/patient.class.php';
+include_once'class/patient/preregister.class.php';
 include_once'class/scheduling/appoint.class.php';
 include_once'class/scheduling/user.class.php';
 include_once'class/service/service.class.php';

@@ -4,11 +4,14 @@ header('Access-Control-Allow-Origin: *');
 header("Content-type: text/json");
 
 $patient 	= new Patient;
+$preregister = new Preregister;
 $appoint 	= new Appoint;
 $drug 		= new Drug;
 $lab 		= new Labs;
 
 $returnObject['apiName'] = 'Patients Service';
+
+$preregister->create('1102700125506','Mr.','Puwadon','Sricharoen','Thai','1991-09-18','Thai','religion','address','0801051930','บัตรทอง','พ่อแม่','วันชัย','เทพศรี','037294017','http://igensite.com/image.png','ปวดหัวตัวร้อน');
 
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':

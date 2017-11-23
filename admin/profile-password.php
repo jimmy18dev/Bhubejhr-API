@@ -42,7 +42,9 @@ $currentPage = 'profile';
 <div class="pagehead">
 	<div class="head">
 		<h1><?php echo $user->name;?></h1>
-		<p><?php echo $user->position;?> at <?php echo $user->company;?></p>
+		<?php if(!empty($user->position) || !empty($user->company)){?>
+		<p><?php echo (!empty($user->position)?$user->position:'');?><?php echo (!empty($user->company)?' at '.$user->company:'');?></p>
+		<?php }?>
 	</div>
 	<div class="tab">
 		<a href="profile-setting.php" class="tab-items"><i class="fa fa-user" aria-hidden="true"></i><span>Setting</span></a>
