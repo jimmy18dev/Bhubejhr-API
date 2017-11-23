@@ -141,37 +141,37 @@
 	float: left;
 	display: inline-block;
 
-	h1{
+	.topic{
 		width: 100%;
 		float: left;
 		display: inline-block;
-		font-size: 0.8em;
+		font-size: 0.9em;
 		line-height: 1em;
 		margin-bottom: 2%;
 		font-weight: normal;
 		color: @fontcolor_normal;
 
-		span{
+		.h{
 			float: left;
+			padding: 1% 0%;
 			display: inline-block;
-			padding: 5px 0px;
+			font-style: italic;
 		}
 
-		a{
+		.btn{
 			float: right;
 			display: inline-block;
-			border: 1px solid @primary_color;
+			padding: 1% 1.5%;
 			color: @primary_color;
 			text-decoration: none;
-			padding: 3px 10px;
-			margin-left: 5px;
+			background: #e5edeb;
 			border-radius: 3px;
+			box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 
-			i{ margin-left: 10px; }
-
-			&:active{
-				background: @primary_color;
-				color: #FFFFFF;
+			&:hover{
+				background: #ccdbd8;
+				cursor: pointer;
+				color: @primary_color_dark;
 			}
 		}
 	}
@@ -270,23 +270,6 @@
 			&:hover{
 				box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
 				transform: translateY(-5px);
-			}
-
-			&.btn-new-app{
-				text-align: center;
-				box-shadow: none;
-				padding: 8.55% 0%;
-				border: 1px dashed @primary_color;
-				color: @primary_color;
-				background: #FFFFFF;
-				font-size: @fontsize_topic;
-
-				i{
-					margin-right: 10px;
-					font-size: 1em;
-				}
-
-				&:hover{ cursor: pointer; }
 			}
 
 			.detail{
