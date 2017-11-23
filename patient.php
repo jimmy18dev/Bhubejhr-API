@@ -11,8 +11,6 @@ $lab 		= new Labs;
 
 $returnObject['apiName'] = 'Patients Service';
 
-$preregister->create('1102700125506','Mr.','Puwadon','Sricharoen','Thai','1991-09-18','Thai','religion','address','0801051930','บัตรทอง','พ่อแม่','วันชัย','เทพศรี','037294017','http://igensite.com/image.png','ปวดหัวตัวร้อน');
-
 switch ($_SERVER['REQUEST_METHOD']){
 	case 'GET':
 		$app_id = $app->authentication($_GET['token']);
@@ -63,8 +61,36 @@ switch ($_SERVER['REQUEST_METHOD']){
 		}
 
     	switch ($_POST['request']){
-			case 'example':
-				$returnObject['message'] = 'Example API';
+			case 'preregister':
+				$returnObject['message'] = 'Pre Register API';
+
+				$cid 			= $_POST['cid'];
+				$prename 		= $_POST['prename'];
+				$fname 			= $_POST['fname'];
+				$lname 			= $_POST['lname'];
+				$gender 		= $_POST['gender'];
+				$birthday 		= $_POST['birthday'];
+				$nation 		= $_POST['nation'];
+				$religion 		= $_POST['religion'];
+				$address 		= $_POST['address'];
+				$phone 			= $_POST['phone'];
+				$rightname 		= $_POST['rightname'];
+				$parent_type 	= $_POST['parent_type'];
+				$parent_fname 	= $_POST['parent_fname'];
+				$parent_lname 	= $_POST['parent_lname'];
+				$parent_phone 	= $_POST['parent_phone'];
+				$avatar 		= $_POST['avatar'];
+				$symptom 		= $_POST['symptom'];
+
+				if(empty($cid) || empty($fname) || empty($lname)){
+					$returnObject['message'] = 'Data invalid!';
+					break;
+				}else{
+					$preregister_id = $preregister->create($cid,$prename,$fname,$lname,$gender,$birthday,$nation,$religion,$address,$phone,$rightname,$parent_type,$parent_fname,$parent_lname,$parent_phone,$avatar,$symptom);
+
+					$returnObject['preregister_id'] = $preregister_id;
+				}
+
 				break;
 			default:
 				$returnObject['message'] = 'POST API Not found!';
