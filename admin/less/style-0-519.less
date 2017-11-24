@@ -26,32 +26,50 @@
 		}
 	}
 
-	.nav{
-		padding: 18px 6%;
-		margin-left: 0%;
+	.btn-profile{
+		width: 30%;
+		padding: 18px 5%;
 		height: 14px;
-		font-size: 1em;
+		background: #AAAAAA; 
 
-		.name{ display: none; }
+		i{ margin-left: 10px; }
 
-		&.btn-profile{
-			margin-right: 0%;
+		.more-menu{
+			position: absolute;
+			width: 200px;
+			top: 90%;
+			right: 10%;
+			padding: 5% 0%;
+			background: #FFFFFF;
+			border-radius: 3px;
+			display: none;
+			z-index: 999;
+			box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
 
-			i.fa-angle-down{ margin: 0px; }
+			&.open{ display: block; }
 
-			.more-menu{
-				width: 220px;
-				top: 90%;
-				right: 10%;
-				padding: 20% 0%;
+			.arrow-up{
+				position: absolute;
+				bottom: 100%;
+				right: 15%;
+				border: 7px solid transparent;
+				border-bottom-color: @bg_color;
+			}
 
-				.arrow-up{ right: 5%; }
-
-				a{
-					width: 80%;
-					padding: 6% 10%;
-					font-size: 0.9em;
+			a{
+				width: 80%;
+				padding: 6% 10%;
+				float: left;
+				display: inline-block;
+				text-decoration: none;
+				color: #333333;
+				i{
+					margin: 0;
+					margin-right: 15px;
 				}
+
+				&:last-child{ border-bottom: 0px; }
+				&:hover{ background: #EEEEEE; }
 			}
 		}
 	}

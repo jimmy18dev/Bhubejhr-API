@@ -51,69 +51,59 @@
 		}
 	}
 
-	.nav{
+	.btn-profile{
 		float: right;
 		display: inline-block;
-		padding: 18px 0%;
-		margin-left: 2%;
+		padding: 18px 1%;
 		height: 14px;
-		color: #FFFFFF;
+		color: #DDDDDD;
 		text-decoration: none;
 		font-size: @fontsize_normal;
 		line-height: 1em;
+		position: relative;
 
-		i{ margin-right: 15px; }
+		i{ margin-left: 10px; }
+		&:hover{
+			cursor: pointer;
+			color: #FFFFFF;
+		}
 
-		&.-active{ color: @fontcolor_dark; }
+		.more-menu{
+			position: absolute;
+			width: 200px;
+			top: 90%;
+			right: 10%;
+			padding: 5% 0%;
+			background: #FFFFFF;
+			border-radius: 3px;
+			display: none;
+			z-index: 999;
+			box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
 
-		&.btn-profile{
-			float: right;
-			position: relative;
-			margin-right: 2%;
+			&.open{ display: block; }
 
-			i.fa-angle-down{
-				float: right;
-				display: inline-block;
-				line-height: 1em;
-				margin-left: 10px;
-				margin-right: 0px;
+			.arrow-up{
+				position: absolute;
+				bottom: 100%;
+				right: 15%;
+				border: 7px solid transparent;
+				border-bottom-color: @bg_color;
 			}
 
-			&:hover{ cursor: pointer; }
-
-			.more-menu{
-				position: absolute;
-				width: 200px;
-				top: 90%;
-				right: -12%;
-				padding: 5% 0%;
-				background: #FFFFFF;
-				border-radius: 2px;
-				display: none;
-				z-index: 999;
-				box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
-				border: 1px solid @border_color;
-
-				.arrow-up{
-					position: absolute;
-					bottom: 100%;
-					right: 8%;
-					border-left: 7px solid transparent;
-					border-right: 7px solid transparent;
-					border-bottom: 7px solid @bg_color;
+			a{
+				width: 80%;
+				padding: 6% 10%;
+				float: left;
+				display: inline-block;
+				text-decoration: none;
+				color: #333333;
+				i{
+					margin: 0;
+					margin-right: 15px;
 				}
 
-				a{
-					width: 80%;
-					padding: 6% 10%;
-					float: left;
-					display: inline-block;
-					text-decoration: none;
-					color: #333333;
-
-					&:last-child{ border-bottom: 0px; }
-					&:hover{ background: #EEEEEE; }
-				}
+				&:last-child{ border-bottom: 0px; }
+				&:hover{ background: #EEEEEE; }
 			}
 		}
 	}
@@ -166,13 +156,15 @@
 			text-decoration: none;
 			background: #e5edeb;
 			border-radius: 3px;
-			box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 
 			&:hover{
 				background: #ccdbd8;
 				cursor: pointer;
 				color: @primary_color_dark;
+				box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 			}
+
+			&:active{ box-shadow: none; }
 		}
 	}
 
@@ -1084,11 +1076,6 @@
 	background: rgba(0,0,0,0.7);
 	z-index: 900;
 	display: none;
-
-	&#filterProfile{
-		z-index: 70;
-		background: transparent;
-	}
 }
 
 .bar-alert{
