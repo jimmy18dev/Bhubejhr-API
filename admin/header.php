@@ -8,8 +8,8 @@
 	<?php }?>
 
 	<?php if($user_online){?>
-	<div class="nav btn-profile" id="btnProfile">
-		<span class="name"><?php echo $user->name;?></span><i class="fa fa-angle-down" aria-hidden="true"></i>
+	<div class="btn-profile" id="btnProfile">
+		<span><?php echo $user->name;?></span><i class="fa fa-caret-down" aria-hidden="true"></i>
 
 		<div class="more-menu" id="menuProfile">
 			<div class="arrow-up"></div>

@@ -4,14 +4,20 @@ $(document).ready(function(){
 	$filterProfile 	= $('#filterProfile');
 	$progressbar 	= $('#progressbar');
 
-	$btnProfile.click(function(){
-		$filterProfile.fadeIn(100);
-		$menuProfile.fadeIn(300);
+	$(document).click(function(e) {
+		var current_id = e.target.id;
+		
+		if(current_id == '' && e.target.offsetParent != null){
+			current_id = e.target.offsetParent.id;
+		}
 
-		$filterProfile.click(function(){
-			$menuProfile.fadeOut(100);
-			$filterProfile.fadeOut(300);
-		});
+		if(current_id != 'btnProfile'){
+			$menuProfile.removeClass('open');
+		}
+	});
+
+	$btnProfile.click(function(){
+		$menuProfile.addClass('open');
 	});
 
 	$progressbar.fadeIn(300);
