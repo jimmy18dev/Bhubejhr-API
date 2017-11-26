@@ -9,7 +9,7 @@
 
 	<?php if($user_online){?>
 	<div class="btn-profile" id="btnProfile">
-		<?php echo $user->name;?><i class="fa fa-caret-down" aria-hidden="true"></i>
+		<span><?php echo $user->name;?></span><i class="fa fa-caret-down" aria-hidden="true"></i>
 
 		<div class="more-menu" id="menuProfile">
 			<div class="arrow-up"></div>

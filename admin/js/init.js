@@ -5,7 +5,13 @@ $(document).ready(function(){
 	$progressbar 	= $('#progressbar');
 
 	$(document).click(function(e) {
-		if(e.target.id != 'btnProfile'){
+		var current_id = e.target.id;
+		
+		if(current_id == '' && e.target.offsetParent != null){
+			current_id = e.target.offsetParent.id;
+		}
+
+		if(current_id != 'btnProfile'){
 			$menuProfile.removeClass('open');
 		}
 	});
