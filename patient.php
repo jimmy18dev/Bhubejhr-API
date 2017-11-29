@@ -64,7 +64,9 @@ switch ($_SERVER['REQUEST_METHOD']){
 		}
     	break;
     case 'POST':
-    	$app_id = $app->authentication($_POST['token']);
+    	$json 	= file_get_contents('php://input');
+    	$array 	= json_decode($json);
+    	$app_id = $app->authentication($array->token);
 
     	if(empty($app_id)){
 			http_response_code(500);
@@ -72,35 +74,34 @@ switch ($_SERVER['REQUEST_METHOD']){
 			break;
 		}
 
-    	switch ($_POST['request']){
+    	switch ($array->request){
 			case 'preregister':
 				$request_id = 101;
 				$returnObject['message'] = 'Pre Register API';
 
-				$cid 			= $_POST['cid'];
-				$prename 		= $_POST['prename'];
-				$fname 			= $_POST['fname'];
-				$lname 			= $_POST['lname'];
-				$gender 		= $_POST['gender'];
-				$birthday 		= $_POST['birthday'];
-				$nation 		= $_POST['nation'];
-				$religion 		= $_POST['religion'];
-				$address 		= $_POST['address'];
-				$phone 			= $_POST['phone'];
-				$rightname 		= $_POST['rightname'];
-				$parent_type 	= $_POST['parent_type'];
-				$parent_fname 	= $_POST['parent_fname'];
-				$parent_lname 	= $_POST['parent_lname'];
-				$parent_phone 	= $_POST['parent_phone'];
-				$avatar 		= $_POST['avatar'];
-				$symptom 		= $_POST['symptom'];
+				$cid 			= $array->cid;
+				$prename 		= $array->prename;
+				$fname 			= $array->fname;
+				$lname 			= $array->lname;
+				$gender 		= $array->gender;
+				$birthday 		= $array->birthday;
+				$nation 		= $array->nation;
+				$religion 		= $array->religion;
+				$address 		= $array->address;
+				$phone 			= $array->phone;
+				$rightname 		= $array->rightname;
+				$parent_type 	= $array->parent_type;
+				$parent_fname 	= $array->parent_fname;
+				$parent_lname 	= $array->parent_lname;
+				$parent_phone 	= $array->parent_phone;
+				$avatar 		= $array->avatar;
+				$symptom 		= $array->symptom;
 
 				if(empty($cid) || empty($fname) || empty($lname)){
 					$returnObject['message'] = 'Data invalid!';
 					break;
 				}else{
 					$preregister_id = $preregister->create($cid,$prename,$fname,$lname,$gender,$birthday,$nation,$religion,$address,$phone,$rightname,$parent_type,$parent_fname,$parent_lname,$parent_phone,$avatar,$symptom);
-
 					$returnObject['preregister_id'] = $preregister_id;
 				}
 
