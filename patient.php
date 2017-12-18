@@ -1,7 +1,7 @@
 <?php
 require_once 'autoload.php';
 header('Access-Control-Allow-Origin: *');
-header("Content-type: text/json");
+header("Content-type: application/json");
 
 $patient 	= new Patient;
 $preregister = new Preregister;
@@ -57,6 +57,27 @@ switch ($_SERVER['REQUEST_METHOD']){
 				}else{
 					$returnObject['message'] = 'Data invalid!';
 				}
+				break;
+			case 'visitlist':
+				$cid 			= $_GET['cid'];
+
+				if(strlen($cid) != 13) { $returnObject['message'] = 'CID Invalid!'; break; }
+
+				$patient_data 	= $patient->get($cid);
+				$hn 			= $patient_data['hn'];
+
+				if(empty($hn)) { $returnObject['message'] = 'HN Empty!'; break; }
+				
+				$visits 		= $patient->listVisit($hn);
+				$execute 		= floatval(round(microtime(true)-StTime,4));
+
+				$returnObject['data'] = array(
+					'patient' => $patient_data,
+					'visit' => array(
+						'visit_count' 	=> floatval(count($visits)),
+						'items' 		=> $visits
+					)
+				); $patient_data;
 				break;
 			default:
 				$returnObject['message'] = 'GET API Not found!';
