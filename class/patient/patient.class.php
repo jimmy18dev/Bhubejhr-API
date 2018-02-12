@@ -23,5 +23,35 @@ class Patient{
 
         return $dataset;
     }
+
+    public function listVisit($hn){
+        
+        if(empty($hn)) return false;
+
+        $this->db->query('SELECT v.id,v.hn,CONCAT(YEAR(visitdate)-1957,lpad(MONTH(visitdate),2,"0"),lpad(visitno,5,"0")) AS vn
+,v.visitdate,UNIX_TIMESTAMP(v.visitdate) visitdate_timestamp,dis.dischargetypename,symtom,vi.insmain main_hosname_id,h.hosname main_hosname_name,cr.rightname AS rightname,pd.drug AS drug_allergy 
+FROM visit AS v 
+INNER JOIN visit_ins vi ON v.id = vi.id 
+INNER JOIN c_righthos cr ON vi.inshos = cr.rightcode 
+LEFT JOIN c_hospital h ON h.hoscode = vi.insmain 
+LEFT JOIN c_dischargetype dis ON v.dischargetype = dis.dischargetypecode 
+LEFT JOIN pt_drugallergy pd ON v.hn = pd.hn 
+WHERE v.hn = :hn 
+ORDER BY visitdate DESC 
+LIMIT 100');
+        $this->db->bind(':hn',$hn);
+        $this->db->execute();
+        $dataset = $this->db->resultset();
+
+        foreach ($dataset as $k => $var) {
+            $dataset[$k]['id'] = floatval($var['id']);
+            $dataset[$k]['hn'] = floatval($var['hn']);
+            $dataset[$k]['vn'] = floatval($var['vn']);
+            $dataset[$k]['visitdate_timestamp'] = floatval($var['visitdate_timestamp']);
+            $dataset[$k]['main_hosname_id'] = floatval($var['main_hosname_id']);
+        }
+
+        return $dataset;
+    }
 }
 ?>
