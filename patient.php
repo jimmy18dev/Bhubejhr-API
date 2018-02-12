@@ -25,7 +25,13 @@ switch ($_SERVER['REQUEST_METHOD']){
 			case 'get':
 				$request_id = 100;
 				$returnObject['request'] = $_GET['request'];
-				$dataset = $patient->get($_GET['cid']);
+
+				$person_id = $_GET['cid'];
+
+				if(empty($person_id))
+					$person_id = $_GET['hn'];
+
+				$dataset = $patient->get($person_id);
 				$returnObject['dataset'] = $dataset;
 				break;
 			case 'getappoint':
@@ -61,7 +67,8 @@ switch ($_SERVER['REQUEST_METHOD']){
 			case 'visitlist':
 				$cid 			= $_GET['cid'];
 
-				if(strlen($cid) != 13) { $returnObject['message'] = 'CID Invalid!'; break; }
+				// if(strlen($cid) != 13) { $returnObject['message'] = 'CID Invalid!'; break; }
+				if(empty($cid)) { $returnObject['message'] = 'CID Empty!'; break; }
 
 				$patient_data 	= $patient->get($cid);
 				$hn 			= $patient_data['hn'];
