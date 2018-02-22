@@ -7,7 +7,7 @@ define('StTime', microtime(true));
 date_default_timezone_set('Asia/Bangkok');
 error_reporting(E_ALL ^ E_NOTICE);
 
-define("API_VERSION" 	,'1.0.1');
+define("API_VERSION" 	,'1.0.2');
 define("SOURCE_VERSION" ,'1.0.1');
 define("API_SITE" 		,'Bhubejhr API');
 
