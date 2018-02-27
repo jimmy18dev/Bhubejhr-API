@@ -34,6 +34,43 @@ switch ($_SERVER['REQUEST_METHOD']){
 				$dataset = $patient->get($person_id);
 				$returnObject['dataset'] = $dataset;
 				break;
+
+			case 'listVitalSign':
+				$request_id = 100;
+				$returnObject['request'] = $_GET['request'];
+
+				$person_id = $_GET['cid'];
+
+				if(empty($person_id))
+					$person_id = $_GET['hn'];
+
+				$dataset = $patient->get($person_id);
+				$returnObject['patient'] = $dataset;
+
+				if(!empty($dataset['hn'])){
+					$vsdata = $patient->listVitalSign($dataset['hn']);
+					$returnObject['patient']['vital_sign'] = $vsdata;
+				}
+				break;
+
+			case 'listLab':
+				$request_id = 100;
+				$returnObject['request'] = $_GET['request'];
+
+				$person_id = $_GET['cid'];
+
+				if(empty($person_id))
+					$person_id = $_GET['hn'];
+
+				$dataset = $patient->get($person_id);
+				$returnObject['patient'] = $dataset;
+
+				if(!empty($dataset['hn'])){
+					$labdata = $patient->listLab($dataset['hn']);
+					$returnObject['patient']['lab_result'] = $labdata;
+				}
+				break;
+
 			case 'getappoint':
 				$request_id = 2;
 				$returnObject['request'] = $_GET['request'];
